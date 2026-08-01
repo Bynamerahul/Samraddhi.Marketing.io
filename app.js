@@ -31,7 +31,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ==========================================================================
-     3. SLEEK GLOWING PINK CURSOR DOT & CANVAS PARTICLE TRAIL ENGINE
+     3. LOW POWER ECO MODE (ANIMATIONS OFF & OS NORMAL CURSOR FOR LOW-END DEVICES)
+     ========================================================================== */
+  const perfToggleBtn = document.getElementById('perf-toggle');
+  const mobilePerfToggleBtn = document.getElementById('mobile-perf-toggle');
+
+  function setEcoMode(enable) {
+    if (enable) {
+      document.body.classList.add('animations-off');
+      document.documentElement.classList.add('animations-off');
+      if (perfToggleBtn) perfToggleBtn.classList.add('active-eco');
+      localStorage.setItem('samraddhi_eco_mode', 'true');
+      showToast('⚡ Low-Power Mode ON (Animations OFF & OS Normal Cursor)');
+    } else {
+      document.body.classList.remove('animations-off');
+      document.documentElement.classList.remove('animations-off');
+      if (perfToggleBtn) perfToggleBtn.classList.remove('active-eco');
+      localStorage.setItem('samraddhi_eco_mode', 'false');
+      showToast('✨ High-Graphics Mode ON');
+    }
+  }
+
+  const savedEcoState = localStorage.getItem('samraddhi_eco_mode');
+  if (savedEcoState === 'true') {
+    setEcoMode(true);
+  }
+
+  if (perfToggleBtn) {
+    perfToggleBtn.addEventListener('click', () => {
+      const isEco = document.body.classList.contains('animations-off');
+      setEcoMode(!isEco);
+      playSound(isEco ? 600 : 400, 'triangle');
+    });
+  }
+
+  if (mobilePerfToggleBtn) {
+    mobilePerfToggleBtn.addEventListener('click', () => {
+      const isEco = document.body.classList.contains('animations-off');
+      setEcoMode(!isEco);
+      playSound(isEco ? 600 : 400, 'triangle');
+      closeMobileDrawerMenu();
+    });
+  }
+
+
+  /* ==========================================================================
+     4. SLEEK GLOWING PINK CURSOR DOT & CANVAS PARTICLE TRAIL ENGINE
      ========================================================================== */
   const cursorDot = document.getElementById('custom-cursor');
   const cursorRadialGlow = document.getElementById('cursor-radial-glow');
@@ -65,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Particle Emitter
   function spawnCursorParticles(x, y, dx, dy, count = 2) {
-    if (isTouchDevice || prefersReducedMotion) return;
+    if (isTouchDevice || prefersReducedMotion || document.body.classList.contains('animations-off')) return;
     const colors = ['#ff4d8d', '#ff70a6', '#ffb3cf', '#ffffff'];
 
     for (let i = 0; i < count; i++) {
@@ -86,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function updateCursorAndParticles() {
-    if (!isTouchDevice && !prefersReducedMotion) {
+    if (!isTouchDevice && !prefersReducedMotion && !document.body.classList.contains('animations-off')) {
       const dx = mouse.x - prevMouse.x;
       const dy = mouse.y - prevMouse.y;
       const speed = Math.hypot(dx, dy);
@@ -145,12 +190,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   updateCursorAndParticles();
 
-  // Magnetic hover targets & Cursor scaling
+  // Subtle Magnetic Hover Targets for small buttons only (no block cards moving)
   if (!isTouchDevice) {
-    const magneticTargets = document.querySelectorAll('.magnetic-target, .btn, .pill-btn, .service-card, .project-card, .pricing-card, .blog-card, .icon-btn, .brand-logo, .nav-link, .faq-question');
+    const magneticTargets = document.querySelectorAll('.btn, .icon-btn, .pill-btn, .brand-logo');
     magneticTargets.forEach(target => {
       target.addEventListener('mouseenter', () => {
-        document.body.classList.add('cursor-hovering');
+        if (!document.body.classList.contains('animations-off')) {
+          document.body.classList.add('cursor-hovering');
+        }
       });
 
       target.addEventListener('mouseleave', () => {
@@ -159,18 +206,29 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       target.addEventListener('mousemove', (e) => {
-        if (prefersReducedMotion) return;
+        if (prefersReducedMotion || document.body.classList.contains('animations-off')) return;
         const rect = target.getBoundingClientRect();
         const relX = e.clientX - rect.left - rect.width / 2;
         const relY = e.clientY - rect.top - rect.height / 2;
-        target.style.transform = `translate3d(${relX * 0.32}px, ${relY * 0.32}px, 0)`;
+        target.style.transform = `translate3d(${relX * 0.08}px, ${relY * 0.08}px, 0)`;
       });
+    });
+
+    // Simple cursor dot scaling for cards without moving the card block
+    const cardHoverTargets = document.querySelectorAll('.service-card, .project-card, .pricing-card, .blog-card, .stat-card, .quote-card, .positioning-usp-card, .about-card, .founder-card, .faq-question, .nav-link');
+    cardHoverTargets.forEach(target => {
+      target.addEventListener('mouseenter', () => {
+        if (!document.body.classList.contains('animations-off')) {
+          document.body.classList.add('cursor-hovering');
+        }
+      });
+      target.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hovering'));
     });
   }
 
 
   /* ==========================================================================
-     4. MOBILE NAVIGATION DRAWER TOGGLE ENGINE
+     5. MOBILE NAVIGATION DRAWER TOGGLE ENGINE
      ========================================================================== */
   const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
   const mobileDrawer = document.getElementById('mobile-drawer');
@@ -214,7 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ==========================================================================
-     5. LENIS SMOOTH SCROLL (DESKTOP ONLY) & GSAP SCROLLTRIGGER INTEGRATION
+     6. LENIS SMOOTH SCROLL (DESKTOP ONLY) & GSAP SCROLLTRIGGER INTEGRATION
      ========================================================================== */
   let lenis = null;
 
@@ -293,22 +351,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Projects Grid Stagger Scroll Reveal
-    gsap.fromTo('.projects-grid .project-card', 
-      { opacity: 0, y: 30 },
-      {
-        scrollTrigger: {
-          trigger: '.projects-grid',
-          start: 'top 90%',
-        },
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: 'power3.out'
-      }
-    );
-
     // Services Grid Stagger Reveal
     gsap.fromTo('.services-grid .service-card',
       { opacity: 0, y: 30 },
@@ -385,7 +427,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ==========================================================================
-     6. FLUID CANVAS BACKGROUND (AMBIENT PARTICLES)
+     7. FLUID CANVAS BACKGROUND (AMBIENT PARTICLES)
      ========================================================================== */
   const canvas = document.getElementById('fluid-canvas');
   const ctx = canvas ? canvas.getContext('2d') : null;
@@ -413,6 +455,11 @@ document.addEventListener('DOMContentLoaded', () => {
   function animateCanvas() {
     if (!canvas || !ctx) return;
     ctx.clearRect(0, 0, width, height);
+
+    if (document.body.classList.contains('animations-off')) {
+      requestAnimationFrame(animateCanvas);
+      return;
+    }
 
     const isDark = document.body.getAttribute('data-theme') === 'dark';
     const pColor = isDark ? '255, 112, 166' : '255, 77, 141';
@@ -465,7 +512,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ==========================================================================
-     7. WEB AUDIO SYNTHESIZER (SOUND EFFECTS)
+     8. WEB AUDIO SYNTHESIZER (SOUND EFFECTS)
      ========================================================================== */
   let soundEnabled = true;
   let audioCtx = null;
@@ -508,7 +555,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ==========================================================================
-     8. LIGHT / DARK THEME SWITCHER
+     9. LIGHT / DARK THEME SWITCHER
      ========================================================================== */
   const themeToggleBtn = document.getElementById('theme-toggle');
   if (themeToggleBtn) {
@@ -524,40 +571,98 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ==========================================================================
-     9. INTERACTIVE SERVICE ESTIMATOR CALCULATOR (INR)
+     10. CATEGORY-WISE SERVICE & PACKAGE CALCULATOR
      ========================================================================== */
+  const categoryPackagesData = {
+    'web': [
+      { name: 'New Custom Website / B2B Portal', cost: 15000, weeks: 1 },
+      { name: 'Complete Website Redesign', cost: 12000, weeks: 1 },
+      { name: 'Shopify Store Setup & Sync', cost: 25000, weeks: 2 },
+      { name: 'Ongoing Website Management', cost: 9999, weeks: 1 }
+    ],
+    'seo': [
+      { name: 'Local SEO & Google Maps', cost: 8000, weeks: 0.5 },
+      { name: 'Technical On-Page SEO', cost: 6000, weeks: 0.5 },
+      { name: 'Complete Technical SEO Audit', cost: 5000, weeks: 0.5 }
+    ],
+    'smm': [
+      { name: 'Starter Social Media (12 Posts)', cost: 9999, weeks: 1 },
+      { name: 'Growth Social Media (20 Posts + 8 Reels)', cost: 24999, weeks: 1 },
+      { name: 'AI Video & Graphic Creatives', cost: 15000, weeks: 1 }
+    ],
+    'market': [
+      { name: 'Ebay Listing SEO & AI Images', cost: 14000, weeks: 1 },
+      { name: 'Etsy Shop Setup & Listing Audit', cost: 12000, weeks: 1 },
+      { name: 'Amazon A+ Content & Sync', cost: 35000, weeks: 2 },
+      { name: 'Dedicated E-Com Scaling Team', cost: 49999, weeks: 1 }
+    ],
+    'ads': [
+      { name: 'Meta Ads Setup & Pixel CAPI', cost: 8000, weeks: 0.5 },
+      { name: 'Google Search & PMax Setup', cost: 10000, weeks: 0.5 }
+    ],
+    'ai': [
+      { name: 'Product AI Images Batch (20 Photos)', cost: 8000, weeks: 0.5 },
+      { name: 'AI WhatsApp & Web Chatbot Setup', cost: 12000, weeks: 0.5 }
+    ]
+  };
+
+  let activeCategory = 'web';
+  const optCategoryContainer = document.getElementById('opt-category');
+  const optPackageListContainer = document.getElementById('opt-package-list');
   const calcPriceEl = document.getElementById('calc-price');
   const btnCalcPriceEl = document.getElementById('btn-calc-price');
   const calcWeeksEl = document.getElementById('calc-weeks');
   const breakdownListEl = document.getElementById('calc-breakdown-list');
 
+  function renderCategoryPackages(catKey) {
+    if (!optPackageListContainer) return;
+    const pkgs = categoryPackagesData[catKey] || categoryPackagesData['web'];
+    optPackageListContainer.innerHTML = pkgs.map((pkg, idx) => `
+      <button class="pill-btn ${idx === 0 ? 'active' : ''} magnetic-target" data-cost="${pkg.cost}" data-weeks="${pkg.weeks}">
+        ${pkg.name} (₹${pkg.cost.toLocaleString('en-IN')})
+      </button>
+    `).join('');
+
+    optPackageListContainer.querySelectorAll('.pill-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        optPackageListContainer.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        playSound(480, 'sine');
+        calculateEstimate();
+      });
+    });
+  }
+
+  if (optCategoryContainer) {
+    optCategoryContainer.querySelectorAll('.pill-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        optCategoryContainer.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeCategory = btn.getAttribute('data-cat');
+        playSound(520, 'sine');
+        renderCategoryPackages(activeCategory);
+        calculateEstimate();
+      });
+    });
+  }
+
+  renderCategoryPackages('web');
+
   function calculateEstimate() {
-    let baseCost = 7500;
+    let baseCost = 15000;
     let baseWeeks = 1;
     let multiplier = 1.0;
     let breakdown = [];
 
-    // 1. Core Service Choice
-    const activeTypeBtn = document.querySelector('#opt-project-type .pill-btn.active');
-    if (activeTypeBtn) {
-      baseCost = parseFloat(activeTypeBtn.getAttribute('data-cost')) || 7500;
-      baseWeeks = parseFloat(activeTypeBtn.getAttribute('data-weeks')) || 1;
-      breakdown.push(`${activeTypeBtn.textContent.trim()}`);
+    // Active Category Package
+    const activePkgBtn = optPackageListContainer ? optPackageListContainer.querySelector('.pill-btn.active') : null;
+    if (activePkgBtn) {
+      baseCost = parseFloat(activePkgBtn.getAttribute('data-cost')) || 15000;
+      baseWeeks = parseFloat(activePkgBtn.getAttribute('data-weeks')) || 1;
+      breakdown.push(`${activePkgBtn.textContent.trim()}`);
     }
 
-    // 2. Marketing Options
-    const activeMotionBtn = document.querySelector('#opt-motion .pill-btn.active');
-    if (activeMotionBtn) {
-      const motionCost = parseFloat(activeMotionBtn.getAttribute('data-cost')) || 0;
-      const motionWeeks = parseFloat(activeMotionBtn.getAttribute('data-weeks')) || 0;
-      baseCost += motionCost;
-      baseWeeks += motionWeeks;
-      if (motionCost > 0) {
-        breakdown.push(`${activeMotionBtn.textContent.trim()}`);
-      }
-    }
-
-    // 3. Add-ons Checkboxes
+    // Add-ons Checkboxes
     const addonCheckboxes = document.querySelectorAll('#opt-addons input[type="checkbox"]:checked');
     addonCheckboxes.forEach(cb => {
       const addonCost = parseFloat(cb.getAttribute('data-cost')) || 0;
@@ -568,7 +673,7 @@ document.addEventListener('DOMContentLoaded', () => {
       breakdown.push(`${labelText}`);
     });
 
-    // 4. Timeline Speed Multiplier
+    // Timeline Speed Multiplier
     const activeSpeedBtn = document.querySelector('#opt-speed .pill-btn.active');
     if (activeSpeedBtn) {
       multiplier = parseFloat(activeSpeedBtn.getAttribute('data-mult')) || 1.0;
@@ -589,17 +694,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Pill click handlers
-  document.querySelectorAll('.option-pills').forEach(group => {
-    group.querySelectorAll('.pill-btn').forEach(btn => {
+  // Speed Pill Handlers
+  const optSpeedContainer = document.getElementById('opt-speed');
+  if (optSpeedContainer) {
+    optSpeedContainer.querySelectorAll('.pill-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        group.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
+        optSpeedContainer.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         playSound(480, 'sine');
         calculateEstimate();
       });
     });
-  });
+  }
 
   // Checkbox handlers
   document.querySelectorAll('#opt-addons input[type="checkbox"]').forEach(cb => {
@@ -613,109 +719,128 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ==========================================================================
-     10. CASE STUDY DETAIL MODAL DATABASE & FLUID MOUSE WHEEL SCROLLING
+     11. CASE STUDY FILTER TABS & DETAIL MODAL (100% BULLETPROOF FILTERING)
      ========================================================================== */
   const filterBtns = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-card');
 
   filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       playSound(500, 'sine');
 
       const filter = btn.getAttribute('data-filter');
+
       projectCards.forEach(card => {
-        const categories = card.getAttribute('data-category').split(' ');
-        if (filter === 'all' || categories.includes(filter)) {
-          card.style.display = 'flex';
+        const categories = (card.getAttribute('data-category') || '').toLowerCase().split(' ');
+        if (filter === 'all' || categories.includes(filter.toLowerCase())) {
+          card.classList.remove('is-hidden');
+          card.classList.add('is-visible');
+          card.style.setProperty('display', 'flex', 'important');
           card.style.opacity = '1';
         } else {
-          card.style.display = 'none';
+          card.classList.remove('is-visible');
+          card.classList.add('is-hidden');
+          card.style.setProperty('display', 'none', 'important');
         }
       });
+
+      if (typeof ScrollTrigger !== 'undefined') {
+        ScrollTrigger.refresh();
+      }
     });
   });
 
   const caseStudiesData = {
     'case-sanskriti': {
-      title: "Sanskriti Vintage - Complete Brand Handling & D2C E-Commerce",
-      client: "Ethnic Wear & D2C Brand",
+      title: "Sanskriti Vintage - B2B Global Export Brand Handling",
+      client: "B2B Vintage Sarees & Heritage Textiles",
       year: "2026",
-      metric: "🚀 Complete Brand Management | 6.2x ROAS",
-      problem: "Expanding an authentic Indian heritage & ethnic wear brand across India while building a high-converting digital storefront and premium visual identity.",
-      strategy: "Full Brand Management & Handling: End-to-end Shopify store development, cinematic product Reels production, Meta & Google Ads performance marketing, and automated WhatsApp CRM.",
-      solution: "Developed high-converting mobile checkout at www.sanskritivintage.com, custom A+ catalogue layout, Meta Pixel CAPI, and retargeting automation.",
-      result: "Delivered a consistent 6.2x ROAS on performance marketing campaigns while building a loyal community of 50,000+ ethnic wear shoppers."
+      metric: "🌍 B2B Global Wholesale Exporter & Digital Storefront",
+      problem: "Expanding an authentic B2B heritage saree & upcycled textile export business globally while generating high-value international buyer leads.",
+      strategy: "B2B Brand Management: End-to-end wholesale digital platform, international B2B buyer targeting, Meta & Google Ads performance marketing, and CRM routing.",
+      solution: "Developed B2B catalogue showcase at www.sanskritivintage.com, Meta Pixel CAPI, and wholesale buyer lead generation funnels.",
+      result: "Scaled international B2B wholesale orders & inquiry volume across USA, UK, and European markets."
     },
-    'case-d2c': {
-      title: "Aura Luxe Fashion - D2C E-Commerce Growth",
-      client: "Fashion & Apparel",
+    'case-antiqueart': {
+      title: "Antique Art of India - Ebay Storefront & AI Product Images",
+      client: "Vintage Indian Antiques & Handicrafts",
       year: "2026",
-      metric: "5.4x ROAS | ₹35L Monthly Revenue",
-      problem: "High Facebook ad CAC (Customer Acquisition Cost), low conversion rate on legacy WooCommerce store, and abandoned carts exceeding 75%.",
-      strategy: "Migrated to a high-speed custom Shopify store, redesigned product landing pages, and deployed targeted Meta Prospecting + WhatsApp automated abandoned cart retargeting.",
-      solution: "Implemented sub-second mobile checkout, UGC video ad creatives, Meta Pixel CAPI, and 1-click WhatsApp order confirmation.",
-      result: "Scaled monthly store revenue from ₹5 Lakhs to ₹35 Lakhs in 60 days with a sustained 5.4x ROAS."
+      metric: "📸 Product AI Images & 340% Ebay Impression Growth",
+      problem: "Standing out on global Ebay search results for authentic Indian antiques and vintage handicrafts against international sellers.",
+      strategy: "AI Product Image Photoshoots, Ebay Listing Title & Tag SEO, and catalogue description optimization.",
+      solution: "Generated high-resolution AI studio photoshoots and keyword-optimized Ebay listing titles and bullet points.",
+      result: "Increased Ebay search impressions by 340% and boosted international order conversions."
     },
-    'case-health': {
-      title: "Apex Dental & Skin Care - Patient Lead Generation",
-      client: "Healthcare & Clinics",
+    'case-kreatvkraft': {
+      title: "KreatvKraft - International Etsy Marketplace Scaling",
+      client: "Vintage Indian Textiles & Crafts",
+      year: "2026",
+      metric: "📦 8,500+ Global Orders | Product AI Images & Listing SEO",
+      problem: "Optimizing product listings and ranking in top Etsy search results against international craft competitors.",
+      strategy: "Overhauled product titles, tags, and listing SEO on Etsy while generating Product AI photoshoot mockups.",
+      solution: "Etsy SEO keyword optimization, Product AI studio images, and automated customer follow-ups.",
+      result: "Crossed 8,500+ global orders across USA, UK, and European markets with a 5-star seller rating."
+    },
+    'case-ooakvogue': {
+      title: "OOAK Vogue - Sustainable Fashion & Upcycled Saree Apparel",
+      client: "One-Of-A-Kind Sustainable Apparel",
+      year: "2026",
+      metric: "👗 5.4x ROAS | International Storefront",
+      problem: "Communicating the unique value proposition of one-of-a-kind upcycled saree kimonos & dresses to global customers.",
+      strategy: "Custom Shopify store redesign, high-end visual product landing pages, and retargeting ad funnels.",
+      solution: "Integrated Shopify currency converter, Meta Pixel CAPI, and automated email/WhatsApp abandon cart series.",
+      result: "Scaled international sales revenue with a sustained 5.4x ROAS on Meta ads."
+    },
+    'case-rarebond': {
+      title: "Rarebond Studios - Premium Men's Wardrobe Essentials",
+      client: "Men's Apparel D2C",
       year: "2025",
-      metric: "420+ Qualified Leads/Mo | 80% Booking Rate",
-      problem: "Irregular patient walk-ins, zero local Google Maps ranking, and manual WhatsApp front-desk phone booking delays.",
-      strategy: "Built a hyper-targeted Google Search & Local Map Pack campaign combined with an automated AI WhatsApp Booking Bot.",
-      solution: "Optimized Google Business Profiles across 3 clinic locations and connected an automated AI bot to confirm appointments instantly 24/7.",
-      result: "Generated 420+ qualified consultation appointments monthly at a 65% lower CAC than traditional billboard ads."
+      metric: "👕 4.8x ROAS | Scaled Monthly Revenue",
+      problem: "Lowering Customer Acquisition Cost (CAC) for premium men's polo t-shirts and knitwear in a crowded market.",
+      strategy: "Targeted Meta Prospecting + Google Performance Max Ads + automated WhatsApp cart recovery.",
+      solution: "Sub-second mobile checkout, high-ROAS ad copy, and 1-click WhatsApp order confirmation.",
+      result: "Scaled monthly store revenue with a consistent 4.8x ROAS."
     },
-    'case-edu': {
-      title: "Scholar Edge Academy - 1,200+ Student Admissions",
-      client: "Education & EdTech",
+    'case-jywas': {
+      title: "Jywas Beauty - Face Fitness & Natural Skincare",
+      client: "Beauty & Wellness D2C",
       year: "2025",
-      metric: "1,200+ Enrolments | 4.8x ROI",
-      problem: "Low enrolment conversion from lead forms and outdated website lacking social proof and video testimonials.",
-      strategy: "Redesigned landing pages with video student reviews, lead-magnet download forms, and automated CRM lead routing to counselors.",
-      solution: "Targeted Meta & Instagram lead campaigns targeting parents and students with automated SMS/Email follow-up sequences.",
-      result: "Achieved 1,200+ confirmed admissions for the academic season while reducing Cost-Per-Enrolment by 42%."
+      metric: "🧘‍♀️ 420+ Monthly Workshop Enrolments",
+      problem: "Scaling course enrolments and natural skincare product sales with automated lead capture.",
+      strategy: "Built a high-converting sales funnel with video testimonials and AI WhatsApp instant response bot.",
+      solution: "Meta lead ads paired with instant WhatsApp automated course enrolment links.",
+      result: "Generated 420+ qualified monthly enrolments while reducing lead acquisition cost."
     },
-    'case-realestate': {
-      title: "Urban Nest Heights - ₹18 Cr Luxury Property Sales",
-      client: "Real Estate",
+    'case-englishcoaching': {
+      title: "English Plus Coaching - Admission Campaign",
+      client: "Spoken English & Grooming Institute",
       year: "2025",
-      metric: "₹18 Cr Gross Sales | HNI Lead Engine",
-      problem: "Unqualified leads from generic real estate portals and low site-visit conversion rate for ₹1.5 Cr+ luxury apartments.",
-      strategy: "Produced 4K drone walkthrough videos, high-end landing pages, and targeted HNI Meta/Google Ads targeting high-net-worth investors.",
-      solution: "Exclusive 3D virtual tour landing page paired with automated CRM appointment scheduling for property managers.",
-      result: "Closed ₹18 Crore in gross property sales within 90 days of pre-launch campaign."
-    },
-    'case-decor': {
-      title: "Casa Artisans - Amazon & Shopify Omnichannel Scaling",
-      client: "Home Decor & Furniture",
-      year: "2024",
-      metric: "8,000+ Orders/Mo | Multi-Channel Reach",
-      problem: "Unoptimized Amazon listing catalogues, poor product photography, and high Shopify cart drop-offs.",
-      strategy: "Overhauled product photography, setup Amazon A+ Brand Store Content, and rebuilt Shopify store for sub-second page speed.",
-      solution: "3D AR product preview on Shopify storefront + Amazon Sponsored Products PPC ads.",
-      result: "Crossed 8,000+ monthly orders combined across Shopify and Amazon with a 38% repeat customer rate."
+      metric: "🎓 1,200+ Student Admissions",
+      problem: "Inconsistent student inquiries and low conversion from local lead form campaigns.",
+      strategy: "Google Local Maps SEO + Meta Lead Form Ads + Automated Counselor CRM routing.",
+      solution: "Deployed Google Search Ads targeting high-intent local students with 1-click WhatsApp inquiry.",
+      result: "Achieved 1,200+ confirmed student admissions with a 45% lower Cost-Per-Acquisition."
     }
   };
 
   // BLOG PLAYBOOKS MODAL DATABASE
   const blogPlaybooksData = {
     'cro-playbook': {
-      title: "The 2026 Shopify CRO Playbook: Scaling D2C Brand Conversions",
-      category: "E-COMMERCE • 5 MIN READ",
+      title: "How To Rank #1 on Etsy & Ebay: Product AI Images & Listing SEO",
+      category: "E-COMMERCE & MARKETPLACES • 5 MIN READ",
       body: `
         <div style="font-size: 1rem; color: var(--text-secondary); line-height: 1.7; display: flex; flex-direction: column; gap: 1rem;">
-          <p>Scaling an Indian D2C brand in 2026 requires more than sending paid ad traffic—it requires converting visitors into paying customers at maximum efficiency.</p>
+          <p>Ranking on Etsy and Ebay in 2026 requires hyper-optimized listing titles, search tags, and studio-quality Product AI images.</p>
           <div style="background: var(--bg-primary); padding: 1.25rem; border-radius: 0.5rem; border-left: 4px solid #ff4d8d;">
-            <strong style="color: var(--text-primary); font-size: 1.1rem;">🔥 5 Key CRO Pillars for 2026:</strong>
+            <strong style="color: var(--text-primary); font-size: 1.1rem;">🔥 5 Key Marketplace Ranking Pillars:</strong>
             <ol style="margin-left: 1.25rem; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
-              <li><strong>Sub-1-Second Mobile Speed:</strong> Compress images to WebP & eliminate heavy unused Shopify apps.</li>
-              <li><strong>1-Click Checkout:</strong> Integrate Shop Pay & Razorpay Magic Checkout to skip address forms.</li>
-              <li><strong>Sticky Add-to-Cart Bar:</strong> Keep CTA visible on mobile screens while scrolling product pages.</li>
-              <li><strong>Authentic Video UGC:</strong> Embed Instagram Reels of customers wearing/using the product directly above the buy button.</li>
-              <li><strong>WhatsApp Abandoned Cart Retargeting:</strong> Trigger an automated WhatsApp voice/text reminder within 15 minutes of cart drop-off.</li>
+              <li><strong>Product AI Studio Imagery:</strong> Generate clean white backdrops and realistic lifestyle studio scenes that double click-through rates.</li>
+              <li><strong>Etsy/Ebay Tag Keyword Optimization:</strong> Maximize all 13 Etsy tags and Ebay item specifics with high-search volume long-tail keywords.</li>
+              <li><strong>High Conversion Copywriting:</strong> Structure product titles so primary keywords appear in the first 40 characters for mobile shoppers.</li>
+              <li><strong>Automated Customer Follow-ups:</strong> Send instant post-purchase WhatsApp/Email notifications to drive 5-star seller reviews.</li>
             </ol>
           </div>
         </div>
@@ -822,8 +947,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // BLOG READ MORE MODAL HANDLERS
   document.querySelectorAll('.view-blog-btn, .blog-card').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      // Prevent double trigger if clicking inner button vs card
+    btn.addEventListener('click', () => {
       const bId = btn.getAttribute('data-blog-id') || btn.closest('.blog-card')?.getAttribute('data-blog-id');
       const data = blogPlaybooksData[bId];
       if (!data) return;
@@ -876,7 +1000,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ==========================================================================
-     11. STRATEGY CALL BOOKING MODAL & PRIVATE WHATSAPP + EMAIL ROUTING
+     12. STRATEGY CALL BOOKING MODAL & PRIVATE WHATSAPP + EMAIL ROUTING
      ========================================================================== */
   const contactModal = document.getElementById('contact-modal');
   const closeContactModalBtn = document.getElementById('close-contact-modal');
@@ -920,7 +1044,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const scopeBtn = document.querySelector('.open-contact-btn-with-scope');
   if (scopeBtn) {
     scopeBtn.addEventListener('click', () => {
-      const price = calcPriceEl ? calcPriceEl.textContent : '7,500';
+      const price = calcPriceEl ? calcPriceEl.textContent : '15,000';
       const weeks = calcWeeksEl ? calcWeeksEl.textContent : '~ 1 Week';
       openContactModal(`Custom Package Estimate: ₹${price} INR (${weeks})`);
     });
@@ -968,9 +1092,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // SUBMIT INQUIRY: PRIVATE WHATSAPP REDIRECT (+91 9340722578) & EMAIL NOTIFICATION
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      
+    contactForm.addEventListener('submit', () => {
       const selectedCategory = document.querySelector('input[name="business_type"]:checked')?.value || 'D2C E-Commerce';
       const budget = document.querySelector('select[name="budget"]')?.value || '₹25,000 - ₹50,000';
       const preferredDate = document.querySelector('input[name="preferred_date"]')?.value || 'As soon as possible';
@@ -1038,7 +1160,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ==========================================================================
-     12. FAQ ACCORDION LOGIC
+     13. FAQ ACCORDION LOGIC
      ========================================================================== */
   document.querySelectorAll('.faq-item').forEach(item => {
     const questionBtn = item.querySelector('.faq-question');
@@ -1058,7 +1180,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ==========================================================================
-     13. LIVE FOOTER CLOCK (IST TIMEZONE)
+     14. LIVE FOOTER CLOCK (IST TIMEZONE)
      ========================================================================== */
   const footerTimeEl = document.getElementById('footer-time');
   function updateClock() {
@@ -1078,7 +1200,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ==========================================================================
-     14. EMAIL COPY TO CLIPBOARD & TOAST NOTIFICATION
+     15. EMAIL COPY TO CLIPBOARD & TOAST NOTIFICATION
      ========================================================================== */
   const copyEmailBtn = document.getElementById('copy-email-btn');
   if (copyEmailBtn) {
@@ -1108,5 +1230,50 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => toast.remove(), 300);
     }, 2500);
   }
+
+
+  /* ==========================================================================
+     16. HIGH-PRECISION NAVBAR SCROLLSPY
+     ========================================================================== */
+  const spySections = document.querySelectorAll('section[id]');
+  const desktopNavLinks = document.querySelectorAll('.nav-menu .nav-link');
+  const drawerNavLinks = document.querySelectorAll('.mobile-nav-links .mobile-nav-link');
+
+  function updateScrollSpy() {
+    const scrollPosition = window.scrollY + 240; // Header offset threshold
+
+    let currentSectionId = '';
+
+    spySections.forEach(section => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      const id = section.getAttribute('id');
+
+      if (scrollPosition >= top && scrollPosition < top + height) {
+        currentSectionId = id;
+      }
+    });
+
+    desktopNavLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (currentSectionId && href === `#${currentSectionId}`) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+
+    drawerNavLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (currentSectionId && href === `#${currentSectionId}`) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateScrollSpy, { passive: true });
+  updateScrollSpy();
 
 });

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Samraddhi Marketing | Full-Service Business Growth & E-Commerce Agency</title>
-  <meta name="description" content="Samraddhi Marketing is a full-service growth agency helping startups, D2C brands, healthcare, e-commerce, and creators scale through Branding, Websites, AI Automation, and Performance Marketing. Founded by Rahul Soni.">
+  <title>Samraddhi Marketing | Full-Service Business Growth Agency</title>
+  <meta name="description" content="Samraddhi Marketing is a full-service business growth agency scaling D2C brands, B2B exporters, healthcare, e-commerce, and local businesses through Branding, Websites, AI Automation, Product AI Images, and Performance Marketing. Founded by Rahul Soni.">
   
   <!-- Fonts: Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,7 +28,8 @@
   <!-- Page Loader Transition Curtain -->
   <div id="page-curtain" class="page-curtain">
     <div class="curtain-content">
-      <span class="curtain-logo">🚀 Samraddhi Marketing</span>
+      <img src="samraddhi-india-logo.png" alt="Samraddhi India Logo" class="curtain-brand-img">
+      <span class="curtain-logo">Samraddhi Marketing</span>
       <div class="curtain-loader-bar"><div class="curtain-progress"></div></div>
     </div>
   </div>
@@ -43,13 +44,13 @@
   <!-- Interactive Fluid Background Canvas -->
   <canvas id="fluid-canvas" class="fluid-canvas"></canvas>
 
-  <!-- ULTRA-PREMIUM NAVIGATION HEADER -->
+  <!-- ULTRA-PREMIUM NAVIGATION HEADER (SINGLE PAGE SCROLLSPY) -->
   <header class="site-head">
     <div class="head-container magnetic-target">
       
-      <!-- Brand / Logo -->
+      <!-- Official Brand Logo -->
       <a href="#hero" class="brand-logo magnetic-target">
-        <span class="logo-mark">💎</span>
+        <img src="samraddhi-india-logo.png" alt="Samraddhi India" class="brand-logo-img">
         <span class="brand-name">Samraddhi<span class="brand-dot">.Marketing</span></span>
       </a>
 
@@ -71,6 +72,11 @@
           <span class="status-dot pulsing"></span>
           <span class="status-text">Q3 Open</span>
         </div>
+
+        <!-- LOW POWER / PERFORMANCE MODE TOGGLE BUTTON -->
+        <button id="perf-toggle" class="icon-btn magnetic-target" title="Toggle Low-Power Eco Mode (Disable Animations for Low-End Devices)" aria-label="Toggle Low Power Mode">
+          <span class="perf-icon">⚡</span>
+        </button>
 
         <button id="sound-toggle" class="icon-btn magnetic-target" title="Toggle UI Sounds" aria-label="Toggle UI Sounds">
           <span class="sound-icon">🔊</span>
@@ -101,10 +107,10 @@
     <div class="mobile-drawer-overlay" id="mobile-drawer-overlay"></div>
     <div class="mobile-drawer-content">
       <div class="mobile-drawer-header">
-        <span class="brand-logo">
-          <span class="logo-mark">💎</span>
+        <a href="#hero" class="brand-logo">
+          <img src="samraddhi-india-logo.png" alt="Samraddhi India" class="brand-logo-img">
           <span class="brand-name">Samraddhi<span class="brand-dot">.Marketing</span></span>
-        </span>
+        </a>
         <button id="close-mobile-drawer" class="icon-btn" aria-label="Close Menu">✕</button>
       </div>
 
@@ -125,6 +131,10 @@
       </nav>
 
       <div class="mobile-drawer-footer">
+        <button id="mobile-perf-toggle" class="btn btn-secondary btn-block">
+          <span class="perf-toggle-text">⚡ Enable Low-Power Mode (Lag-Free)</span>
+        </button>
+
         <button class="btn btn-primary btn-block open-contact-btn mobile-drawer-cta">
           <span>Book Free Strategy Call →</span>
         </button>
@@ -148,18 +158,18 @@
         <div class="hero-badges gsap-reveal-fade">
           <span class="badge-item">🏆 Full-Service Growth Agency</span>
           <span class="badge-separator">•</span>
-          <span class="badge-item">⚡ Branding + Shopify + AI + Ads</span>
+          <span class="badge-item">⚡ B2B + Etsy/Ebay + Shopify + AI</span>
           <span class="badge-separator">•</span>
-          <span class="badge-item">📈 5.2x Average Client ROAS</span>
+          <span class="badge-item">📈 7.1x Average Client ROAS</span>
         </div>
 
         <h1 class="hero-title gsap-reveal-title">
-          We Don't Just Market Brands. <span class="text-gradient pink-glow-text">We Build Them.</span>
+          We Don't Just Market Brands. <span class="text-gradient pink-glow-text">We Scale Engines.</span>
         </h1>
 
         <p class="hero-subtitle gsap-reveal-text">
-          <strong class="hero-subtitle-tagline">Strategy. Design. Technology. Growth.</strong>
-          <span class="hero-subtitle-desc">Your end-to-end business growth partner scaling startups, D2C ecommerce, healthcare, education, local businesses, and creators through AI automation & performance marketing.</span>
+          <strong class="hero-subtitle-tagline">Strategy. AI Product Photography. Listing SEO. Global Scaling.</strong>
+          <span class="hero-subtitle-desc">Your end-to-end growth partner scaling B2B exporters, D2C brands, Etsy & Ebay storefronts, healthcare, education, and local businesses.</span>
         </p>
 
         <div class="hero-actions gsap-reveal-fade">
@@ -187,7 +197,7 @@
             <span class="stat-label">Client Retention</span>
           </div>
           <div class="stat-card magnetic-target">
-            <span class="stat-num">5.2x</span>
+            <span class="stat-num">7.1x</span>
             <span class="stat-label">Average ROAS</span>
           </div>
         </div>
@@ -196,7 +206,7 @@
         <div class="positioning-usp-card gsap-reveal-fade magnetic-target">
           <div class="usp-pill">AGENCIES VS SAMRADDHI</div>
           <p class="usp-statement">
-            "Most agencies only do social media graphics. We operate as your <strong>Complete Growth Partner</strong> combining <strong>Branding + Shopify + E-commerce + AI Automation + Performance Marketing</strong>."
+            "Most agencies only do basic social media graphics. We operate as your <strong>Complete Growth Engine Partner</strong> combining <strong>B2B Exports + Marketplace SEO + AI Product Images + Performance Ads</strong>."
           </p>
         </div>
 
@@ -214,21 +224,28 @@
             </div>
             <div class="about-right">
               <p class="about-text">
-                <strong>Samraddhi Marketing</strong> is a full-service growth agency helping startups, D2C brands, healthcare businesses, educational institutes, local businesses, and creators grow through branding, high-converting websites, AI workflow automation, digital marketing, and performance strategies.
+                <strong>Samraddhi Marketing</strong> is a full-service growth agency helping B2B exporters, Etsy & Ebay marketplace sellers, D2C brands, healthcare, education, and local businesses scale through branding, Product AI image generation, marketplace listing SEO, AI automation, and performance marketing.
               </p>
+
+              <!-- Agency Scope Disclaimer Note -->
+              <div class="scope-disclaimer-box">
+                <span class="disclaimer-icon">💡</span>
+                <p><strong>Our Operating Philosophy:</strong> We build high-converting digital infrastructure, brand strategy, AI product imagery, and ad engines. We do not operate on direct commission or door-to-door sales—we empower your business to attract and convert global buyers predictably.</p>
+              </div>
+
               <div class="about-highlights">
                 <div class="highlight-item magnetic-target">
-                  <span class="highlight-icon">🎯</span>
+                  <span class="highlight-icon">🛍️</span>
                   <div>
-                    <strong>Data-Driven Strategy</strong>
-                    <p>No guesswork. Pure analytics, CRO, and unit economics.</p>
+                    <strong>Etsy & Ebay Listing SEO</strong>
+                    <p>Catalogue optimization, keyword ranking & AI product photos.</p>
                   </div>
                 </div>
                 <div class="highlight-item magnetic-target">
                   <span class="highlight-icon">🤖</span>
                   <div>
-                    <strong>AI Automation First</strong>
-                    <p>Automated chatbots, lead nurturing & AI marketing workflows.</p>
+                    <strong>AI Automation & Images</strong>
+                    <p>AI product photography, image rendering & automated chatbots.</p>
                   </div>
                 </div>
               </div>
@@ -262,7 +279,7 @@
               <p class="founder-tagline">Founder & Chief Growth Architect, Samraddhi Marketing</p>
 
               <p class="founder-bio">
-                "Growth isn't an accident—it's a systematic combination of <strong>bold brand positioning, high-converting tech, and ruthless ad performance</strong>. I founded Samraddhi Marketing to build brand engines that consistently scale past benchmarks."
+                "Growth isn't an accident—it's a systematic combination of <strong>bold brand positioning, AI-powered product imagery, marketplace SEO, and ruthless performance ads</strong>. I founded Samraddhi Marketing to build high-performance growth engines for ambitious brands."
               </p>
 
               <div class="founder-actions">
@@ -285,7 +302,7 @@
         <div class="section-header text-center gsap-reveal-header">
           <div class="section-tag">OUR CAPABILITIES</div>
           <h2 class="section-title">End-to-End Growth Pillars</h2>
-          <p class="section-desc">From initial brand identity to AI-powered scale & performance ad management.</p>
+          <p class="section-desc">From initial brand identity to Product AI Imagery, Ebay/Etsy SEO, & B2B/D2C performance scaling.</p>
         </div>
 
         <div class="services-grid">
@@ -298,41 +315,39 @@
             <ul class="service-list">
               <li>Logo Design & Brand Identity</li>
               <li>Comprehensive Brand Guidelines</li>
-              <li>Packaging Design</li>
-              <li>Business Cards & Stationery</li>
-              <li>Company Profile & Pitch Decks</li>
-              <li>Presentation Design</li>
+              <li>Packaging Design & Banners</li>
+              <li>Business Cards & Digital Stationery</li>
+              <li>Company Profile & B2B Pitch Decks</li>
             </ul>
           </div>
 
-          <!-- Pillar 2: Website Development -->
+          <!-- Pillar 2: Website & B2B Development -->
           <div class="service-card magnetic-target">
             <div class="service-icon">🌐</div>
-            <h3 class="service-title">Website Development</h3>
-            <p class="service-desc">Sub-second, high-converting websites built for maximum speed, SEO, and conversion.</p>
+            <h3 class="service-title">Website & B2B Platforms</h3>
+            <p class="service-desc">Sub-second websites built for B2B export catalogues, Shopify D2C, and lead capture.</p>
             <ul class="service-list">
-              <li>High-Converting Landing Pages</li>
-              <li>Portfolio & Corporate Websites</li>
+              <li>B2B Wholesale Catalogues</li>
               <li>Shopify Stores & WooCommerce</li>
               <li>Complete Website Redesign</li>
+              <li>Ongoing Website Management</li>
               <li>Speed Optimisation (95+ Score)</li>
-              <li>SEO-Friendly Code Architecture</li>
             </ul>
           </div>
 
-          <!-- Pillar 3: E-Commerce (Major USP) -->
+          <!-- Pillar 3: E-Commerce & Marketplace Scaling (Dedicated Team / Premium USP) -->
           <div class="service-card featured-service magnetic-target">
-            <div class="service-badge">SIGNATURE USP</div>
+            <div class="service-badge">DEDICATED TEAM USP</div>
             <div class="service-icon">🛍️</div>
-            <h3 class="service-title">E-Commerce Scaling</h3>
-            <p class="service-desc">Complete multi-channel e-commerce management from storefront to marketplace catalogues.</p>
+            <h3 class="service-title">E-Commerce & Marketplace Scaling</h3>
+            <p class="service-desc">End-to-end Etsy, Ebay, Amazon & Shopify management with listing SEO and Product AI images.</p>
             <ul class="service-list">
-              <li>Shopify Setup & Customisation</li>
-              <li>Amazon, Flipkart & Etsy Catalogues</li>
-              <li>eBay & Marketplace Management</li>
-              <li>Product Listing & Copywriting</li>
-              <li>Inventory Management Systems</li>
-              <li>CRO & Conversion Rate Optimisation</li>
+              <li>Etsy & Ebay Global Store Setup</li>
+              <li>Product Listing Title & Tag SEO</li>
+              <li>Product AI Image Generation</li>
+              <li>Amazon A+ Catalogue & Multi-Sync</li>
+              <li>Dedicated E-Commerce Specialists</li>
+              <li>CRO & Conversion Optimization</li>
             </ul>
           </div>
 
@@ -344,24 +359,24 @@
             <ul class="service-list">
               <li>30-Day Content Strategy & Calendar</li>
               <li>High-Impact Graphic Design</li>
-              <li>Viral Reels & Short-Form Video Editing</li>
+              <li>Short-Form Video Editing</li>
               <li>Ad Copywriting & Messaging</li>
               <li>Instagram Growth & Community Mgmt</li>
-              <li>LinkedIn Personal Branding</li>
             </ul>
           </div>
 
-          <!-- Pillar 5: Creative Production -->
-          <div class="service-card magnetic-target">
-            <div class="service-icon">📸</div>
-            <h3 class="service-title">Creative Production</h3>
-            <p class="service-desc">Studio-grade visuals and performance ad creatives that capture attention in 1.5 seconds.</p>
+          <!-- Pillar 5: Product AI Images & Online Creative Production -->
+          <div class="service-card featured-service magnetic-target">
+            <div class="service-badge">AI IMAGES USP</div>
+            <div class="service-icon">🤖</div>
+            <h3 class="service-title">Product AI Images & Creative Production</h3>
+            <p class="service-desc">High-converting AI product photoshoot generation, image rendering, and AI video ad creatives.</p>
             <ul class="service-list">
-              <li>Product Photography & Lifestyle Shoots</li>
-              <li>Commercial Video Production</li>
-              <li>High-ROAS Ad Creatives & Motion</li>
-              <li>UGC Video Editing & Sourcing</li>
-              <li>2D/3D Motion Graphics</li>
+              <li>AI Product Image Photoshoots</li>
+              <li>E-Commerce Studio Backdrops</li>
+              <li>AI Video & Ad Motion Creatives</li>
+              <li>High-ROAS Graphic Ad Banners</li>
+              <li>UGC Video Remixing & Editing</li>
             </ul>
           </div>
 
@@ -380,9 +395,8 @@
           </div>
 
           <!-- Pillar 7: AI Services (Future USP) -->
-          <div class="service-card featured-service magnetic-target">
-            <div class="service-badge">AI USP</div>
-            <div class="service-icon">🤖</div>
+          <div class="service-card magnetic-target">
+            <div class="service-icon">🧠</div>
             <h3 class="service-title">AI Automation Services</h3>
             <p class="service-desc">Deploying cutting-edge AI systems to reduce operational costs and automate lead response.</p>
             <ul class="service-list">
@@ -390,7 +404,7 @@
               <li>WhatsApp & Web AI Chatbots</li>
               <li>24/7 AI Customer Support Agents</li>
               <li>AI Workflow & Marketing Automation</li>
-              <li>Prompt Engineering & Image Generation</li>
+              <li>Prompt Engineering & Image Systems</li>
             </ul>
           </div>
 
@@ -423,6 +437,8 @@
         </div>
 
         <div class="industries-grid gsap-reveal-fade">
+          <div class="industry-chip magnetic-target"><span>🌐 B2B Heritage & Export</span></div>
+          <div class="industry-chip magnetic-target"><span>🛍️ Ebay & Etsy Marketplaces</span></div>
           <div class="industry-chip magnetic-target"><span>👗 Ethnic Wear & D2C</span></div>
           <div class="industry-chip magnetic-target"><span>🏥 Healthcare & Clinics</span></div>
           <div class="industry-chip magnetic-target"><span>🎓 Education & Institutes</span></div>
@@ -432,44 +448,44 @@
           <div class="industry-chip magnetic-target"><span>💎 Jewellery & Luxury</span></div>
           <div class="industry-chip magnetic-target"><span>🎗️ NGOs & Non-Profits</span></div>
           <div class="industry-chip magnetic-target"><span>🎙️ Coaches & Creators</span></div>
-          <div class="industry-chip magnetic-target"><span>🍽️ Restaurants & Cafes</span></div>
-          <div class="industry-chip magnetic-target"><span>🏢 Real Estate</span></div>
           <div class="industry-chip magnetic-target"><span>🏭 Manufacturing & B2B</span></div>
         </div>
 
       </div>
     </section>
 
-    <!-- PORTFOLIO / CASE STUDIES SECTION -->
+    <!-- PORTFOLIO / CASE STUDIES SECTION (REAL CLIENT BRANDS) -->
     <section id="portfolio" class="s-work">
       <div class="container">
         
         <div class="section-header gsap-reveal-header">
-          <div class="section-tag">FEATURED CASE STUDIES</div>
+          <div class="section-tag">FEATURED PORTFOLIO BRANDS</div>
           <h2 class="section-title">Proven Growth Outcomes</h2>
-          <p class="section-desc">Structured breakdown of challenges solved and quantifiable business results delivered.</p>
+          <p class="section-desc">🌟 Displaying Highlighted Portfolio Case Studies out of <strong>120+ Brands Scaled Across India</strong>.</p>
         </div>
 
         <!-- Filter Tabs -->
         <div class="work-filters gsap-reveal-fade">
-          <button class="filter-btn active magnetic-target" data-filter="all">All Case Studies (6)</button>
-          <button class="filter-btn magnetic-target" data-filter="d2c">D2C E-Commerce & Brand</button>
-          <button class="filter-btn magnetic-target" data-filter="healthcare">Healthcare & Education</button>
-          <button class="filter-btn magnetic-target" data-filter="local">Local & Real Estate</button>
+          <button class="filter-btn active magnetic-target" data-filter="all">All Featured Brands (7)</button>
+          <button class="filter-btn magnetic-target" data-filter="b2b">B2B & Wholesale Exporters</button>
+          <button class="filter-btn magnetic-target" data-filter="market">Etsy & Ebay Marketplaces</button>
+          <button class="filter-btn magnetic-target" data-filter="d2c">D2C & E-Commerce</button>
+          <button class="filter-btn magnetic-target" data-filter="fashion">Fashion & Lifestyle</button>
+          <button class="filter-btn magnetic-target" data-filter="coaching">Coaching & Wellness</button>
         </div>
 
-        <!-- Projects Grid -->
+        <!-- Real Projects Grid -->
         <div class="projects-grid">
 
-          <!-- Case Study 1: Sanskriti Vintage -->
-          <article class="project-card magnetic-target" data-category="d2c" data-project-id="case-sanskriti">
+          <!-- Real Case Study 1: Sanskriti Vintage (B2B BRAND) -->
+          <article class="project-card magnetic-target" data-category="b2b fashion" data-project-id="case-sanskriti">
             <div class="card-media">
               <div class="media-mockup aura-gradient">
                 <div class="mockup-content">
-                  <div class="mockup-badge">D2C BRAND HANDLING</div>
+                  <div class="mockup-badge">B2B HERITAGE & EXPORT</div>
                   <div class="mockup-title">Sanskriti Vintage</div>
                   <div class="mockup-url">🌐 www.sanskritivintage.com</div>
-                  <div class="mockup-metric">🚀 Complete Brand Handling & 6.2x ROAS</div>
+                  <div class="mockup-metric">🌍 Global B2B Wholesale Exporter & Storefront</div>
                 </div>
               </div>
               <div class="card-overlay">
@@ -478,180 +494,219 @@
             </div>
             <div class="card-details">
               <div class="card-meta">
-                <span class="card-client">Ethnic Wear & D2C Brand</span>
+                <span class="card-client">B2B Vintage Sarees & Heritage Textiles</span>
                 <span class="card-year">2026</span>
               </div>
-              <h3 class="card-title">Full Brand Management & D2C E-Commerce Scaling for Sanskriti Vintage</h3>
+              <h3 class="card-title">Global B2B Wholesale Brand Management for Sanskriti Vintage</h3>
               <div class="cs-mini-breakdown">
-                <div><strong>Role:</strong> End-to-end Brand Management, Shopify Storefront & Performance Marketing.</div>
+                <div><strong>Role:</strong> B2B Wholesale Strategy, Website Management & Global Ad Handling.</div>
                 <div><strong>Website:</strong> <a href="https://www.sanskritivintage.com" target="_blank" rel="noopener" style="color: #ff4d8d; font-weight:600;">www.sanskritivintage.com</a></div>
-                <div><strong>Result:</strong> Scaled D2C online sales with 6.2x Meta/Google Ads ROAS.</div>
+                <div><strong>Result:</strong> Scaled B2B international inquiries & wholesale orders across North America & Europe.</div>
               </div>
               <div class="card-tags">
-                <span class="tag">Brand Management</span>
-                <span class="tag">Shopify Scaling</span>
-                <span class="tag">Meta & Google Ads</span>
-                <span class="tag">Reels Shoot</span>
+                <span class="tag">B2B Brand Management</span>
+                <span class="tag">Global Export</span>
+                <span class="tag">Wholesale Catalogue</span>
               </div>
             </div>
           </article>
 
-          <!-- Case Study 2: Aura Luxe Fashion -->
-          <article class="project-card magnetic-target" data-category="d2c" data-project-id="case-d2c">
+          <!-- Real Case Study 2: Antique Art of India (Ebay Storefront) -->
+          <article class="project-card magnetic-target" data-category="market" data-project-id="case-antiqueart">
+            <div class="card-media">
+              <div class="media-mockup velo-gradient">
+                <div class="mockup-content">
+                  <div class="mockup-badge">EBAY MARKETPLACE</div>
+                  <div class="mockup-title">Antique Art of India</div>
+                  <div class="mockup-url">🛍️ Ebay Global Storefront</div>
+                  <div class="mockup-metric">📸 Product AI Images & Listing Title/Tag SEO</div>
+                </div>
+              </div>
+              <div class="card-overlay">
+                <button class="btn btn-light view-project-btn magnetic-target" data-project-id="case-antiqueart">View Full Breakdown</button>
+              </div>
+            </div>
+            <div class="card-details">
+              <div class="card-meta">
+                <span class="card-client">Vintage Indian Antiques & Handicrafts</span>
+                <span class="card-year">2026</span>
+              </div>
+              <h3 class="card-title">Ebay Listing Optimization, AI Product Images & Catalogue SEO</h3>
+              <div class="cs-mini-breakdown">
+                <div><strong>Role:</strong> Ebay Storefront Setup, AI Product Photography & Listing SEO.</div>
+                <div><strong>Result:</strong> Boosted Ebay search impressions by 340% & international sales.</div>
+              </div>
+              <div class="card-tags">
+                <span class="tag">Ebay Storefront</span>
+                <span class="tag">Product AI Images</span>
+                <span class="tag">Listing SEO</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Real Case Study 3: KreatvKraft (Etsy Marketplace) -->
+          <article class="project-card magnetic-target" data-category="market" data-project-id="case-kreatvkraft">
+            <div class="card-media">
+              <div class="media-mockup prism-gradient">
+                <div class="mockup-content">
+                  <div class="mockup-badge">ETSY MARKETPLACE</div>
+                  <div class="mockup-title">KreatvKraft</div>
+                  <div class="mockup-url">🛍️ Etsy Global Storefront</div>
+                  <div class="mockup-metric">📦 8,500+ Global Orders & Product AI Images</div>
+                </div>
+              </div>
+              <div class="card-overlay">
+                <button class="btn btn-light view-project-btn magnetic-target" data-project-id="case-kreatvkraft">View Full Breakdown</button>
+              </div>
+            </div>
+            <div class="card-details">
+              <div class="card-meta">
+                <span class="card-client">Vintage Indian Textiles & Crafts</span>
+                <span class="card-year">2026</span>
+              </div>
+              <h3 class="card-title">International Etsy Storefront Scaling, AI Images & Listing SEO</h3>
+              <div class="cs-mini-breakdown">
+                <div><strong>Role:</strong> Etsy Shop Setup, Product AI Image Generation & Listing SEO.</div>
+                <div><strong>Result:</strong> Scaled international orders across USA, UK, & Europe.</div>
+              </div>
+              <div class="card-tags">
+                <span class="tag">Etsy Storefront</span>
+                <span class="tag">Product AI Images</span>
+                <span class="tag">Listing SEO</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Real Case Study 4: OOAK Vogue -->
+          <article class="project-card magnetic-target" data-category="d2c fashion" data-project-id="case-ooakvogue">
             <div class="card-media">
               <div class="media-mockup nexus-gradient">
                 <div class="mockup-content">
-                  <div class="mockup-badge">D2C E-Commerce</div>
-                  <div class="mockup-title">Aura Luxe Fashion</div>
-                  <div class="mockup-metric">🚀 5.4x ROAS | 340% Sales Growth</div>
+                  <div class="mockup-badge">SUSTAINABLE FASHION</div>
+                  <div class="mockup-title">OOAK Vogue</div>
+                  <div class="mockup-url">🌐 www.ooakvogue.com</div>
+                  <div class="mockup-metric">👗 5.4x ROAS | Custom Upcycled Apparel</div>
                 </div>
               </div>
               <div class="card-overlay">
-                <button class="btn btn-light view-project-btn magnetic-target" data-project-id="case-d2c">View Full Breakdown</button>
+                <button class="btn btn-light view-project-btn magnetic-target" data-project-id="case-ooakvogue">View Full Breakdown</button>
               </div>
             </div>
             <div class="card-details">
               <div class="card-meta">
-                <span class="card-client">Fashion & Apparel</span>
+                <span class="card-client">Sustainable Apparel & Kimonos</span>
                 <span class="card-year">2026</span>
               </div>
-              <h3 class="card-title">Scaling D2C Fashion Store from ₹5L to ₹35L Monthly Revenue</h3>
+              <h3 class="card-title">High-Converting E-Commerce Store & Meta Ad Funnels for OOAK Vogue</h3>
               <div class="cs-mini-breakdown">
-                <div><strong>Problem:</strong> High CAC, low conversion rate on legacy WooCommerce site.</div>
-                <div><strong>Result:</strong> Replaced with Shopify, added Meta Ads & WhatsApp retargeting.</div>
+                <div><strong>Role:</strong> Shopify Store Optimization, Visual Branding & Meta Retargeting.</div>
+                <div><strong>Website:</strong> <a href="https://ooakvogue.com" target="_blank" rel="noopener" style="color: #ff4d8d; font-weight:600;">ooakvogue.com</a></div>
+                <div><strong>Result:</strong> Boosted international sales of one-of-a-kind upcycled saree garments.</div>
               </div>
               <div class="card-tags">
-                <span class="tag">Shopify</span>
+                <span class="tag">Shopify Store</span>
                 <span class="tag">Meta Ads</span>
-                <span class="tag">WhatsApp Automation</span>
+                <span class="tag">Sustainable D2C</span>
               </div>
             </div>
           </article>
 
-          <!-- Case Study 3: Healthcare Clinic Chain -->
-          <article class="project-card magnetic-target" data-category="healthcare" data-project-id="case-health">
+          <!-- Real Case Study 5: Rarebond Studios -->
+          <article class="project-card magnetic-target" data-category="d2c fashion" data-project-id="case-rarebond">
             <div class="card-media">
-              <div class="media-mockup pulse-gradient">
+              <div class="media-mockup velo-gradient">
                 <div class="mockup-content">
-                  <div class="mockup-badge">Healthcare & Clinics</div>
-                  <div class="mockup-title">Apex Dental & Skin Care</div>
-                  <div class="mockup-metric">📞 420+ Qualified Leads/Mo</div>
+                  <div class="mockup-badge">MEN'S APPAREL D2C</div>
+                  <div class="mockup-title">Rarebond Studios</div>
+                  <div class="mockup-url">🌐 www.rarebondstudios.com</div>
+                  <div class="mockup-metric">👕 4.8x ROAS | Scaled Monthly Revenue</div>
                 </div>
               </div>
               <div class="card-overlay">
-                <button class="btn btn-light view-project-btn magnetic-target" data-project-id="case-health">View Full Breakdown</button>
+                <button class="btn btn-light view-project-btn magnetic-target" data-project-id="case-rarebond">View Full Breakdown</button>
               </div>
             </div>
             <div class="card-details">
               <div class="card-meta">
-                <span class="card-client">Healthcare & Medical</span>
+                <span class="card-client">Men's Premium Wardrobe Essentials</span>
                 <span class="card-year">2025</span>
               </div>
-              <h3 class="card-title">Local SEO & Google Ads Engine for Multi-Location Clinics</h3>
+              <h3 class="card-title">D2C Brand Positioning & Performance Media Scaling for Rarebond</h3>
               <div class="cs-mini-breakdown">
-                <div><strong>Problem:</strong> Inconsistent walk-ins and unorganized lead follow-ups.</div>
-                <div><strong>Result:</strong> Deployed Google Local Ads + AI WhatsApp Instant Booking Bot.</div>
+                <div><strong>Role:</strong> Performance Marketing, Meta/Google Ads & WhatsApp Retargeting.</div>
+                <div><strong>Website:</strong> <a href="https://rarebondstudios.com" target="_blank" rel="noopener" style="color: #ff4d8d; font-weight:600;">rarebondstudios.com</a></div>
+                <div><strong>Result:</strong> Achieved 4.8x average ROAS on premium polo t-shirts & knitwear.</div>
+              </div>
+              <div class="card-tags">
+                <span class="tag">Performance Ads</span>
+                <span class="tag">D2C Apparel</span>
+                <span class="tag">WhatsApp CRM</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Real Case Study 6: Jywas Beauty -->
+          <article class="project-card magnetic-target" data-category="coaching d2c" data-project-id="case-jywas">
+            <div class="card-media">
+              <div class="media-mockup pulse-gradient">
+                <div class="mockup-content">
+                  <div class="mockup-badge">BEAUTY & WELLNESS</div>
+                  <div class="mockup-title">Jywas Beauty</div>
+                  <div class="mockup-url">🌐 www.jywas.com</div>
+                  <div class="mockup-metric">🧘‍♀️ 420+ Monthly Workshop Enrolments</div>
+                </div>
+              </div>
+              <div class="card-overlay">
+                <button class="btn btn-light view-project-btn magnetic-target" data-project-id="case-jywas">View Full Breakdown</button>
+              </div>
+            </div>
+            <div class="card-details">
+              <div class="card-meta">
+                <span class="card-client">Face Fitness & Natural Skincare</span>
+                <span class="card-year">2025</span>
+              </div>
+              <h3 class="card-title">Course Sales Funnel & Automated Lead Nurturing for Jywas Beauty</h3>
+              <div class="cs-mini-breakdown">
+                <div><strong>Role:</strong> High-Converting Landing Pages, Meta Lead Ads & AI Chatbot.</div>
+                <div><strong>Website:</strong> <a href="https://jywas.com" target="_blank" rel="noopener" style="color: #ff4d8d; font-weight:600;">jywas.com</a></div>
+                <div><strong>Result:</strong> Automated course registrations & skincare product sales.</div>
+              </div>
+              <div class="card-tags">
+                <span class="tag">Landing Page</span>
+                <span class="tag">Course Funnel</span>
+                <span class="tag">Lead Ads</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Real Case Study 7: English Plus Coaching -->
+          <article class="project-card magnetic-target" data-category="coaching" data-project-id="case-englishcoaching">
+            <div class="card-media">
+              <div class="media-mockup lumina-gradient">
+                <div class="mockup-content">
+                  <div class="mockup-badge">EDUCATION & COACHING</div>
+                  <div class="mockup-title">English Plus Coaching</div>
+                  <div class="mockup-metric">🎓 1,200+ Student Admissions</div>
+                </div>
+              </div>
+              <div class="card-overlay">
+                <button class="btn btn-light view-project-btn magnetic-target" data-project-id="case-englishcoaching">View Full Breakdown</button>
+              </div>
+            </div>
+            <div class="card-details">
+              <div class="card-meta">
+                <span class="card-client">Spoken English & Personal Grooming</span>
+                <span class="card-year">2025</span>
+              </div>
+              <h3 class="card-title">Lead Generation Engine & Google Maps Local SEO for English Coaching</h3>
+              <div class="cs-mini-breakdown">
+                <div><strong>Role:</strong> Google Ads, Local Map Pack SEO & WhatsApp Lead Capture.</div>
+                <div><strong>Result:</strong> Generated 1,200+ student admissions with a 45% lower CPA.</div>
               </div>
               <div class="card-tags">
                 <span class="tag">Google Ads</span>
                 <span class="tag">Local SEO</span>
-                <span class="tag">AI Chatbot</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Case Study 4: Educational Institute -->
-          <article class="project-card magnetic-target" data-category="healthcare" data-project-id="case-edu">
-            <div class="card-media">
-              <div class="media-mockup lumina-gradient">
-                <div class="mockup-content">
-                  <div class="mockup-badge">Education & EdTech</div>
-                  <div class="mockup-title">Scholar Edge Academy</div>
-                  <div class="mockup-metric">🎓 1,200+ Admissions</div>
-                </div>
-              </div>
-              <div class="card-overlay">
-                <button class="btn btn-light view-project-btn magnetic-target" data-project-id="case-edu">View Full Breakdown</button>
-              </div>
-            </div>
-            <div class="card-details">
-              <div class="card-meta">
-                <span class="card-client">Education</span>
-                <span class="card-year">2025</span>
-              </div>
-              <h3 class="card-title">Admission Campaign & Social Media Brand Building</h3>
-              <div class="cs-mini-breakdown">
-                <div><strong>Problem:</strong> Outdated website, poor lead-to-enrolment ratio.</div>
-                <div><strong>Result:</strong> High-converting landing page + Meta lead form funnel.</div>
-              </div>
-              <div class="card-tags">
-                <span class="tag">Landing Page</span>
-                <span class="tag">Meta Ads</span>
-                <span class="tag">CRM Setup</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Case Study 5: Real Estate Developer -->
-          <article class="project-card magnetic-target" data-category="local" data-project-id="case-realestate">
-            <div class="card-media">
-              <div class="media-mockup velo-gradient">
-                <div class="mockup-content">
-                  <div class="mockup-badge">Real Estate</div>
-                  <div class="mockup-title">Urban Nest Heights</div>
-                  <div class="mockup-metric">🏙️ ₹18 Cr Property Sales</div>
-                </div>
-              </div>
-              <div class="card-overlay">
-                <button class="btn btn-light view-project-btn magnetic-target" data-project-id="case-realestate">View Full Breakdown</button>
-              </div>
-            </div>
-            <div class="card-details">
-              <div class="card-meta">
-                <span class="card-client">Real Estate</span>
-                <span class="card-year">2025</span>
-              </div>
-              <h3 class="card-title">Luxury Apartment Pre-Launch Lead Gen & Video Shoots</h3>
-              <div class="cs-mini-breakdown">
-                <div><strong>Problem:</strong> High cost per lead and low site-visit conversions.</div>
-                <div><strong>Result:</strong> Drone video production + targeted HNI Meta/Google Ads.</div>
-              </div>
-              <div class="card-tags">
-                <span class="tag">Video Shoot</span>
-                <span class="tag">HNI Lead Gen</span>
-                <span class="tag">Landing Page</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Case Study 6: Home Decor Brand -->
-          <article class="project-card magnetic-target" data-category="d2c" data-project-id="case-decor">
-            <div class="card-media">
-              <div class="media-mockup prism-gradient">
-                <div class="mockup-content">
-                  <div class="mockup-badge">Home & Living</div>
-                  <div class="mockup-title">Casa Artisans</div>
-                  <div class="mockup-metric">📦 8,000+ Monthly Orders</div>
-                </div>
-              </div>
-              <div class="card-overlay">
-                <button class="btn btn-light view-project-btn magnetic-target" data-project-id="case-decor">View Full Breakdown</button>
-              </div>
-            </div>
-            <div class="card-details">
-              <div class="card-meta">
-                <span class="card-client">Home Decor & Furniture</span>
-                <span class="card-year">2024</span>
-              </div>
-              <h3 class="card-title">Amazon Catalogue & Shopify Omnichannel Scaling</h3>
-              <div class="cs-mini-breakdown">
-                <div><strong>Problem:</strong> Unoptimized Amazon listings and slow website checkout.</div>
-                <div><strong>Result:</strong> A+ Content setup + Shopify CRO redesign + PPC Ads.</div>
-              </div>
-              <div class="card-tags">
-                <span class="tag">Amazon Catalogue</span>
-                <span class="tag">Shopify CRO</span>
-                <span class="tag">SEO</span>
+                <span class="tag">Student Lead Gen</span>
               </div>
             </div>
           </article>
@@ -681,7 +736,7 @@
             </div>
             <p class="plan-desc">Essential social media & SEO foundation for local businesses & creators.</p>
             <ul class="plan-features">
-              <li>✓ 12 Custom Social Posts</li>
+              <li>✓ 12 Custom Graphic Posts</li>
               <li>✓ 4 Edited Short Reels</li>
               <li>✓ Basic On-Page SEO</li>
               <li>✓ Monthly Performance Report</li>
@@ -703,7 +758,7 @@
             <p class="plan-desc">Complete digital marketing & Meta ad management for scaling brands.</p>
             <ul class="plan-features">
               <li>✓ 20 Premium Social Posts</li>
-              <li>✓ 8 High-ROAS Reels</li>
+              <li>✓ 8 High-ROAS AI Reels</li>
               <li>✓ Meta Ads Management (FB/IG)</li>
               <li>✓ Google Business & Local SEO</li>
               <li>✓ Monthly 1-on-1 Strategy Call</li>
@@ -714,22 +769,22 @@
             </button>
           </div>
 
-          <!-- Retainer 3: Scale -->
+          <!-- Retainer 3: Scale (Dedicated E-Com & Marketplace Team) -->
           <div class="pricing-card magnetic-target">
             <div class="plan-header">
-              <span class="plan-badge">👑 SCALE</span>
+              <span class="plan-badge">👑 SCALE (E-COM & MARKETPLACE)</span>
               <h3 class="plan-name">Full Growth Engine</h3>
               <div class="plan-price">₹49,999 <span class="price-period">/ month</span></div>
             </div>
-            <p class="plan-desc">Full-stack growth team handling Ads, Shopify, SEO & AI Automation.</p>
+            <p class="plan-desc">Dedicated E-Commerce team handling Shopify, Etsy/Ebay SEO, AI Images & Ads.</p>
             <ul class="plan-features">
-              <li>✓ Unlimited Graphic Creatives</li>
+              <li>✓ Dedicated E-Com Team</li>
+              <li>✓ Shopify, Etsy & Ebay Management</li>
+              <li>✓ Product AI Image Generation</li>
+              <li>✓ Marketplace Listing Title/Tag SEO</li>
               <li>✓ Full Performance Ad Management</li>
-              <li>✓ Shopify & Website Maintenance</li>
-              <li>✓ Advanced Technical SEO & Content</li>
               <li>✓ Automated Email & WhatsApp Marketing</li>
               <li>✓ AI Chatbot & Lead Automation</li>
-              <li>✓ Weekly Strategy Meetings</li>
               <li>✓ Dedicated Account Manager</li>
             </ul>
             <button class="btn btn-secondary btn-block open-contact-btn-with-plan magnetic-target" data-plan="Scale Plan (₹49,999/mo)">
@@ -740,13 +795,13 @@
           <!-- Retainer 4: Enterprise -->
           <div class="pricing-card magnetic-target">
             <div class="plan-header">
-              <span class="plan-badge">💎 ENTERPRISE</span>
+              <span class="plan-badge">💎 ENTERPRISE / B2B EXPORT</span>
               <h3 class="plan-name">Custom Growth Partner</h3>
               <div class="plan-price">Custom <span class="price-period">Pricing</span></div>
             </div>
-            <p class="plan-desc">Bespoke dedicated team for multi-brand D2C & enterprise operations.</p>
+            <p class="plan-desc">Bespoke dedicated team for B2B export catalogues & multi-brand operations.</p>
             <ul class="plan-features">
-              <li>✓ Multi-brand Management</li>
+              <li>✓ Multi-brand B2B Management</li>
               <li>✓ Dedicated Shopify & Frontend Team</li>
               <li>✓ Dedicated Designer & Marketer</li>
               <li>✓ Custom AI Systems & API Integrations</li>
@@ -763,14 +818,20 @@
       </div>
     </section>
 
-    <!-- INTERACTIVE PROJECT COST & SERVICE CALCULATOR -->
+    <!-- INTERACTIVE SERVICE & CATEGORY COST CALCULATOR (INDICATIVE SAMPLE ONLY) -->
     <section id="estimator" class="s-estimator">
       <div class="container">
         
         <div class="section-header gsap-reveal-header">
-          <div class="section-tag">INSTANT ESTIMATOR</div>
-          <h2 class="section-title">Interactive Service Calculator</h2>
-          <p class="section-desc">Calculate your one-time service investment & estimated turnaround time in real-time.</p>
+          <div class="section-tag">INSTANT ESTIMATOR SAMPLE</div>
+          <h2 class="section-title">Category-Wise Service Calculator</h2>
+          <p class="section-desc">Select your marketing category for an instant sample estimate.</p>
+        </div>
+
+        <!-- Sample Disclaimer Banner -->
+        <div class="scope-disclaimer-box" style="margin-top: 1.5rem; margin-bottom: 2rem;">
+          <span class="disclaimer-icon">⚠️</span>
+          <p><strong>Sample Estimator Disclaimer:</strong> This interactive calculator provides <strong>indicative sample estimates only</strong>. Exact custom package pricing and scope are finalized after your direct strategy call with Rahul Soni & team.</p>
         </div>
 
         <div class="estimator-box gsap-reveal-box">
@@ -779,30 +840,30 @@
             <!-- Estimator Controls -->
             <div class="estimator-controls">
               
-              <!-- 1. One-Time Core Service -->
+              <!-- 1. Select Marketing Category -->
               <div class="control-group">
-                <label class="control-label"><span class="step-num">01</span> Select Core Service</label>
-                <div class="option-pills" id="opt-project-type">
-                  <button class="pill-btn active magnetic-target" data-value="logo" data-cost="7500" data-weeks="1">Logo & Brand Book (₹7,500)</button>
-                  <button class="pill-btn magnetic-target" data-value="shopify" data-cost="25000" data-weeks="2">Shopify Store Setup (₹25,000)</button>
-                  <button class="pill-btn magnetic-target" data-value="landing" data-cost="15000" data-weeks="1">Landing Page (₹15,000)</button>
-                  <button class="pill-btn magnetic-target" data-value="photo" data-cost="18000" data-weeks="1">Product Photography (₹18,000)</button>
+                <label class="control-label"><span class="step-num">01</span> Select Marketing Category</label>
+                <div class="option-pills" id="opt-category">
+                  <button class="pill-btn active magnetic-target" data-cat="web">🌐 Website & B2B Platforms</button>
+                  <button class="pill-btn magnetic-target" data-cat="seo">🔍 SEO & Search</button>
+                  <button class="pill-btn magnetic-target" data-cat="smm">📱 Social Media & Content</button>
+                  <button class="pill-btn magnetic-target" data-cat="market">🛍️ Etsy & Ebay Marketplaces</button>
+                  <button class="pill-btn magnetic-target" data-cat="ads">📈 Performance Ads</button>
+                  <button class="pill-btn magnetic-target" data-cat="ai">🤖 AI Images & Automation</button>
                 </div>
               </div>
 
-              <!-- 2. Marketing Add-ons -->
+              <!-- 2. Select Category Package -->
               <div class="control-group">
-                <label class="control-label"><span class="step-num">02</span> Ad & Marketing Setup (Optional)</label>
-                <div class="option-pills" id="opt-motion">
-                  <button class="pill-btn active magnetic-target" data-value="none" data-cost="0" data-weeks="0">No Ad Setup</button>
-                  <button class="pill-btn magnetic-target" data-value="gads" data-cost="8000" data-weeks="0.5">Google Ads Setup (₹8,000)</button>
-                  <button class="pill-btn magnetic-target" data-value="pixel" data-cost="5000" data-weeks="0.5">Meta Pixel & CAPI Setup (₹5,000)</button>
+                <label class="control-label"><span class="step-num">02</span> Select Sample Package</label>
+                <div class="option-pills" id="opt-package-list">
+                  <!-- Dynamically populated via JS based on selected category -->
                 </div>
               </div>
 
-              <!-- 3. Growth & AI Add-ons -->
+              <!-- 3. Growth Add-ons -->
               <div class="control-group">
-                <label class="control-label"><span class="step-num">03</span> AI & SEO Add-Ons</label>
+                <label class="control-label"><span class="step-num">03</span> Optional Sample Add-Ons</label>
                 <div class="checkbox-grid" id="opt-addons">
                   <label class="checkbox-card magnetic-target">
                     <input type="checkbox" value="aichat" data-cost="12000" data-weeks="0.5">
@@ -813,7 +874,13 @@
                   <label class="checkbox-card magnetic-target">
                     <input type="checkbox" value="seoaudit" data-cost="6000" data-weeks="0.5">
                     <span class="cb-box"></span>
-                    <span class="cb-text">Complete SEO Audit & Optimisation (+₹6,000)</span>
+                    <span class="cb-text">Complete Technical SEO Audit (+₹6,000)</span>
+                  </label>
+
+                  <label class="checkbox-card magnetic-target">
+                    <input type="checkbox" value="aiimages" data-cost="8000" data-weeks="0.5">
+                    <span class="cb-box"></span>
+                    <span class="cb-text">Product AI Image Photoshoot Batch (20 Photos) (+₹8,000)</span>
                   </label>
                 </div>
               </div>
@@ -832,8 +899,8 @@
             <!-- Estimator Live Display Output -->
             <div class="estimator-summary-card magnetic-target">
               <div class="summary-header">
-                <span class="summary-tag">TOTAL SERVICE ESTIMATE</span>
-                <div class="live-price">₹<span id="calc-price">7,500</span> <span class="price-curr">INR</span></div>
+                <span class="summary-tag">SAMPLE ESTIMATE</span>
+                <div class="live-price">₹<span id="calc-price">15,000</span> <span class="price-curr">INR (Sample)</span></div>
               </div>
 
               <div class="summary-details">
@@ -852,18 +919,17 @@
               </div>
 
               <div class="summary-breakdown">
-                <div class="breakdown-title">Selected Package Items:</div>
+                <div class="breakdown-title">Selected Sample Items:</div>
                 <ul id="calc-breakdown-list" class="breakdown-list">
-                  <li>Logo & Brand Book (₹7,500)</li>
+                  <li>New Custom Website (₹15,000)</li>
                 </ul>
               </div>
 
               <button class="btn btn-primary btn-block open-contact-btn-with-scope magnetic-target">
-                <span>Book This Package (₹<span id="btn-calc-price">7,500</span>)</span>
-                <span class="btn-arrow">→</span>
+                <span>Discuss Custom Package With Team →</span>
               </button>
 
-              <p class="summary-footnote">* GST applicable extra as per government norms. 50% advance required on onboarding.</p>
+              <p class="summary-footnote">* Indicative sample estimate only. Final custom pricing & deliverables are confirmed after your 1-on-1 strategy call with our team.</p>
             </div>
 
           </div>
@@ -887,7 +953,7 @@
           <div class="quote-card gsap-reveal-box magnetic-target">
             <div class="quote-content">
               <blockquote class="quote-text">
-                “Samraddhi Marketing took complete ownership of Sanskriti Vintage. From high-converting Shopify optimization to Meta Ads & Reels creative direction, they delivered a solid 6.2x ROAS!”
+                “Samraddhi Marketing took complete ownership of Sanskriti Vintage. From B2B wholesale platform optimization to Meta Ads & global marketing, they delivered incredible results!”
               </blockquote>
               <div class="quote-author-block">
                 <span class="author-name">Founders, Sanskriti Vintage</span>
@@ -896,24 +962,24 @@
             </div>
             <div class="quote-badge">
               <span class="stars">★★★★★</span>
-              <span class="rating-text">5.0 Rating • Brand Management</span>
+              <span class="rating-text">5.0 Rating • B2B Brand Management</span>
             </div>
           </div>
           
-          <!-- Testimonial 1 -->
+          <!-- Testimonial 1: Antique Art of India -->
           <div class="quote-card gsap-reveal-box magnetic-target">
             <div class="quote-content">
               <blockquote class="quote-text">
-                “Samraddhi Marketing completely transformed our D2C e-commerce store. They redesigned our Shopify site and scaled our Meta ads to a consistent 5.4x ROAS within 60 days!”
+                “Their Product AI image generation and Ebay listing SEO completely transformed our Antique Art of India storefront. Our international search impressions shot up by 340%!”
               </blockquote>
               <div class="quote-author-block">
-                <span class="author-name">Rohan Mehta</span>
-                <span class="author-title">Founder, Aura Luxe Fashion</span>
+                <span class="author-name">Founders, Antique Art of India</span>
+                <span class="author-title">Ebay Global Storefront</span>
               </div>
             </div>
             <div class="quote-badge">
               <span class="stars">★★★★★</span>
-              <span class="rating-text">5.0 Rating • D2C Growth</span>
+              <span class="rating-text">5.0 Rating • Ebay Listing SEO & AI Images</span>
             </div>
           </div>
 
@@ -929,16 +995,16 @@
         <div class="section-header gsap-reveal-header">
           <div class="section-tag">GROWTH PLAYBOOKS & BLOG</div>
           <h2 class="section-title">Latest Marketing Insights</h2>
-          <p class="section-desc">Actionable guides on e-commerce CRO, Meta Ads, and AI automation.</p>
+          <p class="section-desc">Actionable guides on e-commerce CRO, Ebay/Etsy SEO, Product AI images, and performance ads.</p>
         </div>
 
         <div class="blog-grid">
 
           <!-- Article 1 -->
           <article class="blog-card magnetic-target" data-blog-id="cro-playbook">
-            <div class="blog-meta">E-COMMERCE • 5 MIN READ</div>
-            <h3 class="blog-title">The 2026 Shopify CRO Playbook: Scaling D2C Brand Conversions</h3>
-            <p class="blog-excerpt">Discover the 7 key checkout optimizations that increase average order value and cut cart abandonment by 40%.</p>
+            <div class="blog-meta">E-COMMERCE & MARKETPLACES • 5 MIN READ</div>
+            <h3 class="blog-title">How To Rank #1 on Etsy & Ebay: Product AI Images & Listing SEO</h3>
+            <p class="blog-excerpt">Discover how AI-rendered studio photos and targeted title/tag keywords boost marketplace impressions by 300%+.</p>
             <button class="blog-link-btn view-blog-btn" data-blog-id="cro-playbook">Read Full Strategy Guide →</button>
           </article>
 
@@ -970,10 +1036,50 @@
         <div class="section-header">
           <div class="section-tag">FREQUENTLY ASKED QUESTIONS</div>
           <h2 class="section-title">Everything You Need To Know</h2>
-          <p class="section-desc">Clear answers regarding onboarding, retainers, Shopify setups, AI integrations, and performance guarantees.</p>
+          <p class="section-desc">Clear answers regarding onboarding, retainers, Etsy/Ebay setups, AI product images, and custom quotes.</p>
         </div>
 
         <div class="faq-list gsap-stagger-faqs">
+
+          <div class="faq-item">
+            <button class="faq-question magnetic-target" aria-expanded="false">
+              <span>Is the Service Calculator pricing final or an indicative sample?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>The interactive calculator provides <strong>indicative sample estimates only</strong>. Exact project charges and custom deliverables are finalized after speaking directly with Rahul Soni and our team during your strategy consultation.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question magnetic-target" aria-expanded="false">
+              <span>Do you generate Product AI Images & fix Ebay/Etsy listings?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes! We specialize in <strong>Product AI Image Generation</strong> (studio lighting, aesthetic backdrops, & realistic renderings) along with complete <strong>Etsy & Ebay Product Listing Title & Tag SEO</strong> to rank your products at the top of search results.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question magnetic-target" aria-expanded="false">
+              <span>Do you work with B2B Wholesale Exporters like Sanskriti Vintage?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Absolutely! We build B2B wholesale platforms, digital catalogues, and international B2B lead generation funnels for exporters, manufacturers, and heritage brands.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question magnetic-target" aria-expanded="false">
+              <span>Do you guarantee sales or work on a commission per sale basis?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>No, we build high-converting brand positioning, tech infrastructure, AI product images, automations, and targeted ad funnels. We do not do door-to-door sales or direct sales commission models—our mission is to empower your business engine to scale predictably.</p>
+            </div>
+          </div>
 
           <div class="faq-item">
             <button class="faq-question magnetic-target" aria-expanded="false">
@@ -981,7 +1087,7 @@
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>Unlike traditional agencies that only post basic graphics, Samraddhi Marketing operates as a <strong>Complete Business Growth Partner</strong> combining Branding + Shopify + E-commerce + AI Automation + Performance Ads to drive actual revenue.</p>
+              <p>Unlike traditional agencies that only post basic graphics, Samraddhi Marketing operates as a <strong>Complete Business Growth Partner</strong> combining B2B Exports + Marketplace SEO + Product AI Images + Performance Ads to drive actual revenue.</p>
             </div>
           </div>
 
@@ -997,21 +1103,21 @@
 
           <div class="faq-item">
             <button class="faq-question magnetic-target" aria-expanded="false">
-              <span>Do you provide dedicated account managers for retainers?</span>
+              <span>Do you provide dedicated account managers & teams for e-commerce retainers?</span>
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>Yes! Growth & Scale retainers include a dedicated account manager, a weekly KPI review meeting, and direct WhatsApp / Slack communication.</p>
+              <p>Yes! Our E-Commerce & Scale retainers include a dedicated team (Shopify developers, marketplace managers, & ad strategists) along with weekly review calls.</p>
             </div>
           </div>
 
           <div class="faq-item">
             <button class="faq-question magnetic-target" aria-expanded="false">
-              <span>Can you build custom Shopify stores with Amazon / Flipkart sync?</span>
+              <span>Can you build custom Shopify, Ebay & Etsy stores with sync?</span>
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>Yes, E-commerce is our core USP. We handle end-to-end Shopify customisation, catalogue setups on Amazon, Flipkart, Etsy, eBay, and inventory sync.</p>
+              <p>Yes, E-commerce & marketplace scaling is our core strength. We handle end-to-end Shopify customisation, Etsy global storefront setup, Ebay listing SEO, and inventory sync.</p>
             </div>
           </div>
 
@@ -1027,51 +1133,11 @@
 
           <div class="faq-item">
             <button class="faq-question magnetic-target" aria-expanded="false">
-              <span>What is the minimum ad spend budget required for Meta / Google Ads?</span>
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>We recommend starting with a minimum ad spend of ₹15,000 - ₹30,000/month for testing, scaling up as ROAS targets are met.</p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question magnetic-target" aria-expanded="false">
               <span>Do I own 100% of the creative assets and source code?</span>
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>Yes, 100% full IP ownership of all logos, website code, ad graphics, and video content belongs to your brand upon completion.</p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question magnetic-target" aria-expanded="false">
-              <span>How do you report progress and campaign performance?</span>
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>You receive access to a live 24/7 analytics dashboard along with comprehensive monthly PDF reports and strategic review calls.</p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question magnetic-target" aria-expanded="false">
-              <span>Do you work with local businesses like clinics, restaurants, & institutes?</span>
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>Yes! We have specialized growth packages for local clinics, schools, real estate developers, and cafes to dominate local search & Google Maps.</p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question magnetic-target" aria-expanded="false">
-              <span>How can I book a Free Strategy Call with Samraddhi Marketing?</span>
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>Click any "Book Free Strategy Call" button on this site to open our interactive booking modal. You can choose a date and submit your project requirements instantly!</p>
+              <p>Yes, 100% full IP ownership of all logos, website code, Product AI images, ad graphics, and video content belongs to your brand upon completion.</p>
             </div>
           </div>
 
@@ -1104,8 +1170,11 @@
   <footer class="site-foot">
     <div class="container foot-container">
       <div class="foot-left">
-        <span class="foot-logo">💎 Samraddhi Marketing</span>
-        <span class="foot-copy">© 2026 Samraddhi Marketing. All Rights Reserved.</span>
+        <span class="foot-logo">
+          <img src="samraddhi-india-logo.png" alt="Samraddhi India Logo" style="height: 24px; vertical-align: middle; margin-right: 6px; border-radius: 3px;">
+          Samraddhi Marketing
+        </span>
+        <span class="foot-copy">© 2026 Samraddhi Marketing (A Sub-Brand of Samraddhi India). All Rights Reserved.</span>
       </div>
 
       <div class="foot-center">
@@ -1142,12 +1211,10 @@
       
       <div class="contact-form-wrapper">
         
-        <!-- Header -->
         <div class="contact-header">
           <span class="modal-tag">FREE STRATEGY CONSULTATION</span>
           <h2 class="modal-title">Book Strategy Call With Samraddhi</h2>
           
-          <!-- Step Indicator -->
           <div class="step-progress-bar">
             <div class="step-node active" data-step="1">1. Business Type</div>
             <div class="step-line"></div>
@@ -1157,16 +1224,24 @@
           </div>
         </div>
 
-        <!-- Form Steps -->
         <form id="contact-form" class="contact-form" onsubmit="return false;">
           
-          <!-- STEP 1: Business Category (12 BUSINESS TYPES) -->
           <div class="form-step active" data-step-content="1">
             <label class="form-label">Select Your Business Category</label>
             <div class="form-grid-pills business-options-grid">
               
               <label class="form-pill-label magnetic-target">
-                <input type="radio" name="business_type" value="D2C / E-Commerce Brand" checked>
+                <input type="radio" name="business_type" value="B2B Exporter & Wholesale" checked>
+                <span class="pill-radio-text">🌐 B2B Exporter & Wholesale</span>
+              </label>
+
+              <label class="form-pill-label magnetic-target">
+                <input type="radio" name="business_type" value="Etsy & Ebay Marketplace Seller">
+                <span class="pill-radio-text">🛍️ Ebay & Etsy Seller</span>
+              </label>
+
+              <label class="form-pill-label magnetic-target">
+                <input type="radio" name="business_type" value="D2C / E-Commerce Brand">
                 <span class="pill-radio-text">🛍️ D2C / E-Commerce Brand</span>
               </label>
 
@@ -1211,18 +1286,8 @@
               </label>
 
               <label class="form-pill-label magnetic-target">
-                <input type="radio" name="business_type" value="NGO & Non-Profit">
-                <span class="pill-radio-text">🎗️ NGO & Non-Profit</span>
-              </label>
-
-              <label class="form-pill-label magnetic-target">
                 <input type="radio" name="business_type" value="Manufacturing & B2B">
                 <span class="pill-radio-text">🏭 Manufacturing & B2B</span>
-              </label>
-
-              <label class="form-pill-label magnetic-target">
-                <input type="radio" name="business_type" value="Other Custom Business">
-                <span class="pill-radio-text">✨ Other Custom Business</span>
               </label>
 
             </div>
@@ -1233,7 +1298,6 @@
             </div>
           </div>
 
-          <!-- STEP 2: Goal & Budget -->
           <div class="form-step" data-step-content="2">
             <div class="form-group">
               <label class="form-label">Estimated Monthly Marketing Investment</label>
@@ -1256,7 +1320,6 @@
             </div>
           </div>
 
-          <!-- STEP 3: Contact Info -->
           <div class="form-step" data-step-content="3">
             <div class="form-group">
               <label class="form-label">Full Name *</label>
@@ -1275,7 +1338,7 @@
 
             <div class="form-group">
               <label class="form-label">Tell Us About Your Brand Goals</label>
-              <textarea id="contact-message" name="message" class="form-textarea" rows="2" placeholder="Website link, social handle, or current growth bottlenecks..."></textarea>
+              <textarea id="contact-message" name="message" class="form-textarea" rows="2" placeholder="Website link, Etsy/Ebay shop URL, or current growth bottlenecks..."></textarea>
             </div>
 
             <div class="form-actions">
@@ -1288,7 +1351,6 @@
 
         </form>
 
-        <!-- Success Screen -->
         <div id="contact-success" class="contact-success-screen" style="display: none;">
           <div class="success-icon">🎉</div>
           <h3 class="success-title">Strategy Call Requested!</h3>
