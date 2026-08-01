@@ -805,14 +805,14 @@ document.addEventListener('DOMContentLoaded', () => {
       result: "Scaled monthly store revenue with a consistent 4.8x ROAS."
     },
     'case-jywas': {
-      title: "Jywas Beauty - Face Fitness & Natural Skincare",
-      client: "Beauty & Wellness D2C",
+      title: "Jywas Beauty - Complete End-to-End Content Creation",
+      client: "Beauty & Natural Skincare",
       year: "2025",
-      metric: "🧘‍♀️ 420+ Monthly Workshop Enrolments",
-      problem: "Scaling course enrolments and natural skincare product sales with automated lead capture.",
-      strategy: "Built a high-converting sales funnel with video testimonials and AI WhatsApp instant response bot.",
-      solution: "Meta lead ads paired with instant WhatsApp automated course enrolment links.",
-      result: "Generated 420+ qualified monthly enrolments while reducing lead acquisition cost."
+      metric: "🎬 Complete End-to-End Content Production & Brand Aesthetics",
+      problem: "Creating consistent, premium visual content, graphic design, and video reels for natural skincare & beauty brand storytelling.",
+      strategy: "Complete End-to-End Content Creation: Scripting, graphic design, video reel editing, copywriting, and visual brand identity.",
+      solution: "Produced end-to-end social media graphic posts, aesthetic video reels, product launch banners, and engaging copy.",
+      result: "Delivered complete 100% end-to-end content creation, elevating brand aesthetics and audience engagement."
     },
     'case-englishcoaching': {
       title: "English Plus Coaching - Admission Campaign",
