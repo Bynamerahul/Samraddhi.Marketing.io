@@ -754,6 +754,16 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const caseStudiesData = {
+    'case-udbhav': {
+      title: "Udbhav India - Reels Shoot, Instagram Handling & YouTube Scaling",
+      client: "Cultural, Heritage & Youth Foundation",
+      year: "2026",
+      metric: "🎥 2.4M+ Video Views | Reels Shoot, Instagram & YouTube Handling",
+      problem: "Creating high-impact video reel content, managing social media channels, and driving youth engagement for Udbhav India.",
+      strategy: "End-to-End Content & Video Production: On-location video shoots, short-form reel editing, YouTube video management, graphic ad design, and channel growth.",
+      solution: "Filmed and edited high-engagement reels, designed marketing ad graphics, managed Instagram & YouTube accounts, and executed targeted campaign posts.",
+      result: "Crossed 2.4M+ organic & ad video views while scaling Instagram & YouTube subscriber engagement."
+    },
     'case-sanskriti': {
       title: "Sanskriti Vintage - B2B Global Export Brand Handling",
       client: "B2B Vintage Sarees & Heritage Textiles",
@@ -823,6 +833,46 @@ document.addEventListener('DOMContentLoaded', () => {
       strategy: "Google Local Maps SEO + Meta Lead Form Ads + Automated Counselor CRM routing.",
       solution: "Deployed Google Search Ads targeting high-intent local students with 1-click WhatsApp inquiry.",
       result: "Achieved 1,200+ confirmed student admissions with a 45% lower Cost-Per-Acquisition."
+    },
+    'case-luminahealth': {
+      title: "Lumina Health & Dental - Patient Lead Generation",
+      client: "Healthcare & Dental Clinic Center",
+      year: "2026",
+      metric: "🏥 340+ Monthly Patient Inquiries",
+      problem: "Driving local patient appointments for high-value dental & health procedures.",
+      strategy: "Google Map Pack Local SEO + Hyper-Local Search Ads + Automated WhatsApp Appointment System.",
+      solution: "Built sub-second landing pages with 1-click doctor appointment booking & local map pack optimization.",
+      result: "Scaled monthly patient appointments by 280% with verified positive reviews."
+    },
+    'case-aurajewels': {
+      title: "Aura Fine Jewellery - Luxury Brand Scaling",
+      client: "Fine Jewellery & Diamonds",
+      year: "2026",
+      metric: "💎 6.2x ROAS | Luxury E-Commerce",
+      problem: "Scaling high-ticket luxury diamond & gold jewellery online sales.",
+      strategy: "High-Res Product AI Image Rendering + Premium Brand Identity + Retargeting Meta Catalog Ads.",
+      solution: "3D AI Product photo renders paired with VIP concierge WhatsApp lead routing.",
+      result: "Achieved 6.2x average ROAS on high-ticket jewellery orders."
+    },
+    'case-velocerealestate': {
+      title: "Veloce Properties - High-Ticket Real Estate Lead Engine",
+      client: "Luxury Real Estate & Builders",
+      year: "2025",
+      metric: "🏡 450+ High-Intent Buyer Leads",
+      problem: "Generating verified, high-net-worth homebuyer inquiries for luxury residential apartments.",
+      strategy: "Meta Lead Ads + Video Property Tours + Instant CRM WhatsApp Follow-up Automation.",
+      solution: "Hyper-targeted lead forms connected to sales team CRMs with automated brochure downloads.",
+      result: "Generated 450+ qualified property buyer leads within 60 days."
+    },
+    'case-prismwood': {
+      title: "Prism B2B Woodworks - Commercial B2B Pipeline",
+      client: "B2B Commercial Furniture & Architecture",
+      year: "2026",
+      metric: "🏭 ₹1.8 Cr B2B Order Pipeline",
+      problem: "Reaching commercial architects, corporate interior buyers, and hotel contractors.",
+      strategy: "B2B Digital Catalogue + Google Search Ads + Corporate LinkedIn Lead Outreach.",
+      solution: "Created interactive B2B digital wholesale catalogue with direct WhatsApp RFQ (Request for Quote).",
+      result: "Built ₹1.8 Cr B2B commercial order pipeline within 90 days."
     }
   };
 
