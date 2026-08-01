@@ -1328,7 +1328,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ==========================================================================
-     17. INTERACTIVE FREE AI WEBSITE AUDIT ENGINE
+     17. INTERACTIVE FREE AI WEBSITE & MULTI-INDUSTRY MARKETING ENGINE
      ========================================================================== */
   const runAuditBtn = document.getElementById('run-audit-btn');
   const auditUrlInput = document.getElementById('audit-url-input');
@@ -1343,38 +1343,241 @@ document.addEventListener('DOMContentLoaded', () => {
   const reportSeoScore = document.getElementById('report-seo-score');
   const reportUiScore = document.getElementById('report-ui-score');
   const reportMarketingScore = document.getElementById('report-marketing-score');
+
+  const auditCardLabel1 = document.getElementById('audit-card-label-1');
+  const auditCardLabel2 = document.getElementById('audit-card-label-2');
+  const auditCardLabel3 = document.getElementById('audit-card-label-3');
+
   const reportSuggestionsList = document.getElementById('report-suggestions-list');
   const discussAuditBtn = document.getElementById('discuss-audit-btn');
+
+  /**
+   * SAMRADDHI MASTER MARKETING KNOWLEDGE ENGINE (10 INDUSTRY VERTICALS)
+   */
+  function classifyInputTarget(rawInput) {
+    const input = rawInput.toLowerCase();
+    
+    // 1. SOCIAL MEDIA & CREATORS (Instagram, YouTube, LinkedIn, Facebook, Twitter)
+    if (input.includes('instagram.com') || input.includes('youtube.com') || input.includes('linkedin.com') || input.includes('facebook.com') || input.includes('twitter.com') || input.includes('x.com') || input.startsWith('@')) {
+      let handle = rawInput.replace(/^https?:\/\/(www\.)?/i, '').replace(/^(instagram|youtube|facebook|linkedin|twitter|x)\.com\/?/i, '').replace(/\/$/, '');
+      if (!handle || handle === rawInput) {
+        handle = rawInput.replace(/^https?:\/\//i, '');
+      }
+
+      let platformName = 'Social Media Handle';
+      if (input.includes('instagram')) platformName = 'Instagram Profile';
+      else if (input.includes('youtube')) platformName = 'YouTube Channel';
+      else if (input.includes('linkedin')) platformName = 'LinkedIn Page';
+      else if (input.includes('facebook')) platformName = 'Facebook Page';
+
+      return {
+        type: 'social',
+        displayDomain: handle.startsWith('@') ? handle : `@${handle.replace(/^@/, '')}`,
+        platformName: platformName,
+        cardLabels: ['Bio & Profile SEO', 'Reel & Content Reach', 'Lead Funnel & CTAs'],
+        logsStep: [
+          { time: 400, text: `> [OK] Connecting to ${platformName} API...`, sound: 580 },
+          { time: 900, text: `> [OK] Auditing Bio SEO keywords, highlight funnels & CTA link...`, sound: 640 },
+          { time: 1400, text: `> [OK] Analyzing Reel retention, short-form video hooks & copy...`, sound: 700 },
+          { time: 1900, text: `> [OK] Checking DM automation, lead capture & follower conversion...`, sound: 760 },
+          { time: 2400, text: `> [COMPLETE] Synthesizing Social Growth Report for ${handle}!`, sound: 840 }
+        ],
+        suggestions: [
+          `Bio SEO Optimization: Restructure bio copy & primary keywords to rank #1 in Instagram/YouTube search.`,
+          `3-Second Reel Hooks: Deploy high-retention video templates to double organic video reach.`,
+          `DM Automation Engine: Set up ManyChat / AI keyword triggers to convert reel viewers into leads instantly.`,
+          `High-Intent Lead Magnet: Add a free audit or strategy consultation link in your primary bio URL.`
+        ]
+      };
+    }
+
+    // 2. HEALTHCARE & CLINICS (Doctors, Dental, Hospitals, IVF, Wellness)
+    if (input.includes('clinic') || input.includes('dental') || input.includes('hospital') || input.includes('doctor') || input.includes('health') || input.includes('ivf') || input.includes('pharma')) {
+      let domain = rawInput.replace(/^https?:\/\/(www\.)?/i, '').replace(/\/.*$/, '');
+      return {
+        type: 'healthcare',
+        displayDomain: domain,
+        platformName: 'Healthcare & Clinic Portal',
+        cardLabels: ['Local Map Rank & SEO', 'Patient Acquisition Funnel', 'Mobile UX & WhatsApp'],
+        logsStep: [
+          { time: 400, text: `> [OK] Connected to Healthcare Portal. Auditing Google Local Map Pack...`, sound: 580 },
+          { time: 900, text: `> [OK] Checking patient appointment booking friction & phone CTAs...`, sound: 640 },
+          { time: 1400, text: `> [OK] Auditing HIPAA/medical trust badges, patient reviews & speed...`, sound: 700 },
+          { time: 1900, text: `> [OK] Calculating local Google Search Ad patient acquisition cost...`, sound: 760 },
+          { time: 2400, text: `> [COMPLETE] Synthesizing Healthcare Marketing Report for ${domain}!`, sound: 840 }
+        ],
+        suggestions: [
+          `Google Map Pack Dominance: Optimize Google Business Profile categories, geotagged clinic photos & review triggers for #1 local ranking.`,
+          `1-Click WhatsApp Booking: Add sub-second appointment scheduling to capture high-intent patients.`,
+          `Hyper-Local Google Search Ads: Run targeted campaign keywords (e.g. "Best Dental Clinic near me") for instant inquiries.`,
+          `Patient Video Testimonials: Publish real patient video stories above the fold to build immediate trust.`
+        ]
+      };
+    }
+
+    // 3. EDUCATION & COACHING INSTITUTES (Schools, Academies, Tuition, Exams)
+    if (input.includes('coaching') || input.includes('institute') || input.includes('school') || input.includes('academy') || input.includes('tuition') || input.includes('classes') || input.includes('edu')) {
+      let domain = rawInput.replace(/^https?:\/\/(www\.)?/i, '').replace(/\/.*$/, '');
+      return {
+        type: 'education',
+        displayDomain: domain,
+        platformName: 'Educational Institute Engine',
+        cardLabels: ['Student Lead Gen', 'Google Search SEO', 'Admission Conversion'],
+        logsStep: [
+          { time: 400, text: `> [OK] Connected to Institute Engine. Auditing student lead forms...`, sound: 580 },
+          { time: 900, text: `> [OK] Checking local area search keywords & demo class funnels...`, sound: 640 },
+          { time: 1400, text: `> [OK] Analyzing counselor CRM response speed & WhatsApp lead capture...`, sound: 700 },
+          { time: 1900, text: `> [OK] Calculating Cost-Per-Student-Admission (CPA)...`, sound: 760 },
+          { time: 2400, text: `> [COMPLETE] Synthesizing Education Lead Report for ${domain}!`, sound: 840 }
+        ],
+        suggestions: [
+          `Demo Class Lead Funnel: Deploy 1-click free demo registration landing pages with automated SMS/WhatsApp reminders.`,
+          `Meta Lead Form Ads: Target parents & students within 10km radius for seasonal admission campaigns.`,
+          `Google Search Ads: Capture high-intent admission queries with dedicated counselor call routing.`,
+          `Alumni Success Stories: Highlight student result rankers & testimonials on your website homepage.`
+        ]
+      };
+    }
+
+    // 4. REAL ESTATE & BUILDERS (Properties, Apartments, Commercial)
+    if (input.includes('realestate') || input.includes('property') || input.includes('builder') || input.includes('housing') || input.includes('realty') || input.includes('homes') || input.includes('flat')) {
+      let domain = rawInput.replace(/^https?:\/\/(www\.)?/i, '').replace(/\/.*$/, '');
+      return {
+        type: 'realestate',
+        displayDomain: domain,
+        platformName: 'Real Estate Growth Engine',
+        cardLabels: ['Buyer Lead Quality', 'Virtual Tour Video', 'CRM & WhatsApp Sales'],
+        logsStep: [
+          { time: 400, text: `> [OK] Real Estate Portal connected. Auditing property lead forms...`, sound: 580 },
+          { time: 900, text: `> [OK] Checking High-Net-Worth buyer targeting & brochure downloads...`, sound: 640 },
+          { time: 1400, text: `> [OK] Analyzing video walk-through tours & Meta lead form fields...`, sound: 700 },
+          { time: 1900, text: `> [OK] Calculating qualified lead-to-site-visit conversion rate...`, sound: 760 },
+          { time: 2400, text: `> [COMPLETE] Synthesizing Property Lead Report for ${domain}!`, sound: 840 }
+        ],
+        suggestions: [
+          `Meta High-Intent Lead Ads: Use multi-step lead forms asking for budget & timeline to filter out junk leads.`,
+          `Automated Brochure Delivery: Send instant floorplan PDFs via WhatsApp API upon form submission.`,
+          `Virtual Video Tours: Produce cinematic 60-second video walkthrough reels for Instagram & YouTube ads.`,
+          `Sales Team CRM Routing: Automatically assign new buyer leads to sales agents within 120 seconds.`
+        ]
+      };
+    }
+
+    // 5. B2B, MANUFACTURING & EXPORTERS (Wholesale, Machinery, Industrial, B2B)
+    if (input.includes('b2b') || input.includes('export') || input.includes('manufacturer') || input.includes('industrial') || input.includes('machinery') || input.includes('sanskriti') || input.includes('steel') || input.includes('chemical')) {
+      let domain = rawInput.replace(/^https?:\/\/(www\.)?/i, '').replace(/\/.*$/, '');
+      return {
+        type: 'b2b',
+        displayDomain: domain,
+        platformName: 'B2B & Wholesale Export Engine',
+        cardLabels: ['B2B Search SEO', 'Digital RFQ Catalogue', 'Corporate Pipeline'],
+        logsStep: [
+          { time: 400, text: `> [OK] B2B Domain connected. Auditing wholesale catalogue structure...`, sound: 580 },
+          { time: 900, text: `> [OK] Checking international buyer keywords & Request For Quote (RFQ)...`, sound: 640 },
+          { time: 1400, text: `> [OK] Analyzing export certifications, ISO standards & page speed...`, sound: 700 },
+          { time: 1900, text: `> [OK] Calculating LinkedIn B2B decision-maker outreach score...`, sound: 760 },
+          { time: 2400, text: `> [COMPLETE] Synthesizing B2B Marketing Audit for ${domain}!`, sound: 840 }
+        ],
+        suggestions: [
+          `Interactive Digital RFQ Catalogue: Add 1-click Request For Quote buttons on all product specification pages.`,
+          `International B2B Google Ads: Target global wholesale importers in USA, Europe & Middle East.`,
+          `LinkedIn Decision-Maker Outreach: Run sponsored content targeting procurement managers & CTOs.`,
+          `Export Quality Badges: Showcase ISO certifications, factory tour videos & global client logos.`
+        ]
+      };
+    }
+
+    // 6. RESTAURANTS, CAFES & HOSPITALITY (Food, Hotels, Resorts)
+    if (input.includes('restaurant') || input.includes('cafe') || input.includes('hotel') || input.includes('food') || input.includes('kitchen') || input.includes('resort') || input.includes('bakery')) {
+      let domain = rawInput.replace(/^https?:\/\/(www\.)?/i, '').replace(/\/.*$/, '');
+      return {
+        type: 'hospitality',
+        displayDomain: domain,
+        platformName: 'Restaurant & Hospitality Brand',
+        cardLabels: ['Local Foodie SEO', 'Visual Dish Reels', 'Direct Table/Order Funnel'],
+        logsStep: [
+          { time: 400, text: `> [OK] Hospitality portal connected. Auditing local food SEO...`, sound: 580 },
+          { time: 900, text: `> [OK] Checking Google Map Pack food photos & Zomato/Swiggy links...`, sound: 640 },
+          { time: 1400, text: `> [OK] Analyzing Instagram food aesthetic reels & menu accessibility...`, sound: 700 },
+          { time: 1900, text: `> [OK] Calculating direct table booking & delivery commission savings...`, sound: 760 },
+          { time: 2400, text: `> [COMPLETE] Synthesizing Foodie Growth Report for ${domain}!`, sound: 840 }
+        ],
+        suggestions: [
+          `Google Map 3-Pack Rank: Upload high-res dish photos & automate 5-star review requests after dining.`,
+          `Aesthetic Food Reels: Publish short 5-second mouth-watering dish videos with trending local audio.`,
+          `Direct WhatsApp Ordering: Eliminate 30% Swiggy/Zomato commission by enabling direct WhatsApp delivery.`,
+          `Influencer Food Tastings: Host local food bloggers to drive weekend footfall spikes.`
+        ]
+      };
+    }
+
+    // 7. LUXURY & FINE JEWELLERY (Gold, Diamonds, Premium Apparel)
+    if (input.includes('jewel') || input.includes('diamond') || input.includes('gold') || input.includes('luxury') || input.includes('vogue') || input.includes('couture') || input.includes('fashion')) {
+      let domain = rawInput.replace(/^https?:\/\/(www\.)?/i, '').replace(/\/.*$/, '');
+      return {
+        type: 'luxury',
+        displayDomain: domain,
+        platformName: 'Luxury Brand & Jewellery Engine',
+        cardLabels: ['Luxury Positioning', 'High-Res AI Imagery', 'VIP Concierge Funnel'],
+        logsStep: [
+          { time: 400, text: `> [OK] Luxury Portal connected. Auditing visual aesthetic & pricing...`, sound: 580 },
+          { time: 900, text: `> [OK] Checking Product AI 3D rendering quality & studio lighting...`, sound: 640 },
+          { time: 1400, text: `> [OK] Analyzing Meta catalog ad ROAS for high-ticket items...`, sound: 700 },
+          { time: 1900, text: `> [OK] Calculating VIP concierge lead-to-sale conversion rate...`, sound: 760 },
+          { time: 2400, text: `> [COMPLETE] Synthesizing Luxury Marketing Audit for ${domain}!`, sound: 840 }
+        ],
+        suggestions: [
+          `Studio Product AI Renders: Upgrade jewellery & apparel photography to hyper-realistic 4K AI renders.`,
+          `VIP WhatsApp Concierge: Route high-value buyer leads directly to personal shopping consultants.`,
+          `Meta Retargeting Catalog Ads: Show dynamic video ads to visitors who viewed specific luxury collections.`,
+          `Heritage Brand Storytelling: Highlight craft authenticity, hallmark certifications & designer heritage.`
+        ]
+      };
+    }
+
+    // 8. DEFAULT GENERAL BUSINESS / E-COM / WEBSITES
+    let domain = rawInput.replace(/^https?:\/\/(www\.)?/i, '').replace(/\/.*$/, '');
+    return {
+      type: 'general',
+      displayDomain: domain,
+      platformName: 'Full-Service Growth Ecosystem',
+      cardLabels: ['Search Engine SEO', 'UI / UX & Mobile Speed', 'Marketing & Lead Engine'],
+      logsStep: [
+        { time: 400, text: `> [OK] Domain connected. Analyzing HTML5 structure & mobile speed...`, sound: 580 },
+        { time: 900, text: `> [OK] Auditing brand positioning, UI layout & value proposition...`, sound: 640 },
+        { time: 1400, text: `> [OK] Checking search engine metadata, keyword tags & indexability...`, sound: 700 },
+        { time: 1900, text: `> [OK] Calculating conversion rate & lead capture funnel score...`, sound: 760 },
+        { time: 2400, text: `> [COMPLETE] Synthesizing 360° Growth Audit for ${domain}!`, sound: 840 }
+      ],
+      suggestions: [
+        `Sub-Second Mobile Load Speed: Optimize image compression & CSS rendering for 95+ PageSpeed score.`,
+        `High-Intent Conversion CTAs: Place clear primary offer buttons above the fold with high-contrast styling.`,
+        `Organic Search Title SEO: Update meta title & description tags to capture high-volume buyer keywords.`,
+        `Automated Lead CRM: Connect website lead forms to automated WhatsApp & Email nurturing sequences.`
+      ]
+    };
+  }
 
   if (runAuditBtn && auditUrlInput) {
     runAuditBtn.addEventListener('click', () => {
       let rawUrl = auditUrlInput.value.trim();
       if (!rawUrl) {
-        showToast('Please enter your website or marketplace shop URL!');
+        showToast('Please enter your website URL or social media handle!');
         auditUrlInput.focus();
         return;
       }
 
-      // Format domain display
-      let domain = rawUrl.replace(/^https?:\/\//i, '').replace(/\/.*$/, '');
-      if (!domain) domain = rawUrl;
+      // Classify domain target dynamically
+      const auditMeta = classifyInputTarget(rawUrl);
 
       // Reset and display loader terminal
       auditResultsCard.style.display = 'none';
       auditTerminalLoader.style.display = 'block';
       auditProgressBar.style.width = '0%';
       auditProgressPercent.textContent = '0%';
-      auditTerminalLogs.innerHTML = `<div>> Connecting to target domain: ${domain}...</div>`;
+      auditTerminalLogs.innerHTML = `<div>> Connecting to target: ${auditMeta.displayDomain}...</div>`;
       
       playSound(520, 'sine');
-
-      const logsStep = [
-        { time: 400, text: `> [OK] Domain connected. Analyzing HTML5 structure & mobile speed...`, sound: 580 },
-        { time: 900, text: `> [OK] Auditing Product AI Images & visual UI/UX layout...`, sound: 640 },
-        { time: 1400, text: `> [OK] Checking Etsy/Ebay/Google Search listing SEO & tags...`, sound: 700 },
-        { time: 1900, text: `> [OK] Calculating conversion rate & ad retargeting score...`, sound: 760 },
-        { time: 2400, text: `> [COMPLETE] Synthesizing AI Growth Report for ${domain}!`, sound: 840 }
-      ];
 
       let progress = 0;
       const progressInterval = setInterval(() => {
@@ -1385,7 +1588,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (progress >= 100) clearInterval(progressInterval);
       }, 90);
 
-      logsStep.forEach(step => {
+      auditMeta.logsStep.forEach(step => {
         setTimeout(() => {
           const logItem = document.createElement('div');
           logItem.textContent = step.text;
@@ -1397,32 +1600,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
       setTimeout(() => {
         // Compute pseudo-random deterministic scores based on string length
-        const baseHash = domain.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
-        const seoScore = 62 + (baseHash % 26);
-        const uiScore = 65 + ((baseHash * 3) % 25);
-        const marketingScore = 58 + ((baseHash * 7) % 28);
+        const baseHash = auditMeta.displayDomain.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+        const seoScore = 64 + (baseHash % 25);
+        const uiScore = 68 + ((baseHash * 3) % 22);
+        const marketingScore = 60 + ((baseHash * 7) % 26);
         const overallScore = Math.round((seoScore + uiScore + marketingScore) / 3);
 
-        reportDomainName.textContent = domain;
+        reportDomainName.textContent = auditMeta.displayDomain;
         reportOverallScore.textContent = `${overallScore}/100`;
         reportSeoScore.textContent = `${seoScore}%`;
         reportUiScore.textContent = `${uiScore}%`;
         reportMarketingScore.textContent = `${marketingScore}%`;
 
-        // Generate tailored suggestions
-        const suggestions = [
-          `Upgrade product photography to studio-quality Product AI Images to increase click-through rate by up to 45%.`,
-          `Optimize listing titles & metadata tags for Etsy/Ebay/Google Search to capture high-intent buyer traffic.`,
-          `Implement Meta Pixel CAPI & automated WhatsApp abandon cart recovery to lower Customer Acquisition Cost (CAC).`,
-          `Improve mobile page load speed and sub-second checkout UX to boost conversion rates.`
-        ];
+        // Update score card labels dynamically
+        if (auditCardLabel1) auditCardLabel1.textContent = auditMeta.cardLabels[0];
+        if (auditCardLabel2) auditCardLabel2.textContent = auditMeta.cardLabels[1];
+        if (auditCardLabel3) auditCardLabel3.textContent = auditMeta.cardLabels[2];
 
-        reportSuggestionsList.innerHTML = suggestions.map(s => `<li>${s}</li>`).join('');
+        // Update suggestions
+        reportSuggestionsList.innerHTML = auditMeta.suggestions.map(s => `<li>${s}</li>`).join('');
 
         auditTerminalLoader.style.display = 'none';
         auditResultsCard.style.display = 'block';
         playSound(880, 'sine', 0.2);
-        showToast(`AI Audit complete for ${domain}! Score: ${overallScore}/100`);
+        showToast(`AI Audit complete for ${auditMeta.displayDomain}! Score: ${overallScore}/100`);
 
         // Scroll smoothly to results card
         auditResultsCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -1435,6 +1636,203 @@ document.addEventListener('DOMContentLoaded', () => {
       const domain = reportDomainName ? reportDomainName.textContent : 'my website';
       const score = reportOverallScore ? reportOverallScore.textContent : 'audit report';
       openContactModal(`Free AI Audit Discussion for ${domain} (Score: ${score})`);
+    });
+  }
+
+
+  /* ==========================================================================
+     18. PINGU LIVE AI CHATBOT & SMART PROACTIVE ENGAGEMENT ENGINE
+     ========================================================================== */
+  const pinguToggleBtn = document.getElementById('pingu-toggle-btn');
+  const pinguChatWindow = document.getElementById('pingu-chat-window');
+  const closePinguChat = document.getElementById('close-pingu-chat');
+  const pinguBubble = document.getElementById('pingu-bubble');
+  const closePinguBubble = document.getElementById('close-pingu-bubble');
+  const pinguChatForm = document.getElementById('pingu-chat-form');
+  const pinguInput = document.getElementById('pingu-input');
+  const pinguChatBody = document.getElementById('pingu-chat-body');
+  const pinguChips = document.querySelectorAll('.pingu-quick-chips .chip-btn');
+
+  let hasProactiveTriggered = false;
+
+  if (pinguToggleBtn && pinguChatWindow) {
+
+    // Toggle Chat Window
+    pinguToggleBtn.addEventListener('click', () => {
+      const isVisible = pinguChatWindow.style.display !== 'none';
+      pinguChatWindow.style.display = isVisible ? 'none' : 'flex';
+      if (pinguBubble) pinguBubble.style.display = 'none';
+      playSound(620, 'sine');
+      if (!isVisible && pinguInput) pinguInput.focus();
+    });
+
+    if (closePinguChat) {
+      closePinguChat.addEventListener('click', () => {
+        pinguChatWindow.style.display = 'none';
+        playSound(400, 'sine');
+      });
+    }
+
+    if (closePinguBubble) {
+      closePinguBubble.addEventListener('click', (e) => {
+        e.stopPropagation();
+        pinguBubble.style.display = 'none';
+      });
+    }
+
+    // 1. SMART AUTO-PROACTIVE ENGAGEMENT TRIGGER (Scroll & Timer)
+    function triggerProactivePingu() {
+      if (hasProactiveTriggered) return;
+      hasProactiveTriggered = true;
+
+      // Show Speech Bubble with sound
+      if (pinguBubble && pinguChatWindow.style.display === 'none') {
+        pinguBubble.innerHTML = `<span>Noot Noot! 🐧 Hey! What are you looking to grow today? (Audit / Website / Ads / Content)</span><button id="close-pingu-bubble-dynamic" class="bubble-close-btn">✕</button>`;
+        pinguBubble.style.display = 'flex';
+        playSound(680, 'sine');
+
+        const dynClose = document.getElementById('close-pingu-bubble-dynamic');
+        if (dynClose) {
+          dynClose.addEventListener('click', (e) => {
+            e.stopPropagation();
+            pinguBubble.style.display = 'none';
+          });
+        }
+      }
+    }
+
+    // Trigger proactive message after 18s or after 35% scroll
+    setTimeout(triggerProactivePingu, 18000);
+
+    window.addEventListener('scroll', () => {
+      const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+      if (scrollPercent >= 35) {
+        triggerProactivePingu();
+      }
+    }, { passive: true });
+
+    // 2. CHAT MESSAGE APPEND HELPER
+    function addPinguMessage(text, isUser = false) {
+      const msgDiv = document.createElement('div');
+      msgDiv.className = `chat-msg ${isUser ? 'msg-user' : 'msg-pingu'}`;
+      
+      const avatarSrc = isUser ? 'rahul-soni.jpg' : 'pingu-avatar.jpg';
+      
+      msgDiv.innerHTML = `
+        <img src="${avatarSrc}" alt="${isUser ? 'User' : 'Pingu'}" class="msg-avatar">
+        <div class="msg-bubble">
+          <p>${text}</p>
+        </div>
+      `;
+      
+      pinguChatBody.appendChild(msgDiv);
+      pinguChatBody.scrollTop = pinguChatBody.scrollHeight;
+    }
+
+    // 3. ULTRA-SMART MULTI-INTENT AI NLP ENGINE
+    function generatePinguAIResponse(userText) {
+      const query = userText.toLowerCase();
+
+      playSound(740, 'triangle', 0.1);
+
+      // GREETINGS & INTROS
+      if (query.includes('hi') || query.includes('hello') || query.includes('hey') || query.includes('namaste') || query.includes('who are you') || query.includes('good morning') || query.includes('good evening')) {
+        return `Noot Noot! 🐧 Hi there! I'm <strong>Pingu</strong>, Samraddhi Marketing's AI Growth Assistant. What are you looking to scale today? Tell me your industry or goal!`;
+      }
+
+      // FREE AUDIT (WORTH ₹4,999)
+      if (query.includes('audit') || query.includes('4999') || query.includes('free website audit') || query.includes('scan') || query.includes('check my website')) {
+        return `Noot Noot! 🐧 You can get our <strong>Free Website & Marketing Audit (Worth ₹4,999)</strong>! Enter your website link or social handle in the audit section above:<br><br><a href="#ai-audit" onclick="document.getElementById('pingu-chat-window').style.display='none';" style="color:#ff70a6; font-weight:700;">Click Here to Run Instant Audit ⚡ →</a>`;
+      }
+
+      // PRICING & RETAINERS
+      if (query.includes('price') || query.includes('cost') || query.includes('rate') || query.includes('plan') || query.includes('retainer') || query.includes('budget') || query.includes('how much') || query.includes('fee')) {
+        return `Noot Noot! 🐧 We offer 4 transparent growth retainer plans:<br>• <strong>Starter:</strong> ₹9,999/mo (Socials & Basic SEO)<br>• <strong>Growth:</strong> ₹24,999/mo (Meta/Google Ads & 20 Posts)<br>• <strong>Scale:</strong> ₹49,999/mo (Dedicated Team, Website & AI)<br>• <strong>Enterprise:</strong> Custom Pricing<br><a href="#retainers" onclick="document.getElementById('pingu-chat-window').style.display='none';" style="color:#ff70a6; font-weight:700;">View Retainers & Details →</a>`;
+      }
+
+      // RAHUL SONI & CONTACT / CALL
+      if (query.includes('rahul') || query.includes('founder') || query.includes('call') || query.includes('contact') || query.includes('whatsapp') || query.includes('phone') || query.includes('number') || query.includes('speak') || query.includes('talk') || query.includes('human')) {
+        return `Noot Noot! 🐧 You can talk directly to our founder <strong>Rahul Soni</strong> or book a strategy call!<br>• WhatsApp: <strong>+91-9340722578</strong><br>• Email: <strong>bynamerahul@gmail.com</strong><br><br><a href="https://wa.me/919340722578" target="_blank" style="color:#ff70a6; font-weight:700;">Open WhatsApp Chat Now 💬 →</a>`;
+      }
+
+      // CONTENT CREATION, REELS, YOUTUBE & INSTAGRAM
+      if (query.includes('content') || query.includes('reel') || query.includes('instagram') || query.includes('video') || query.includes('youtube') || query.includes('editing') || query.includes('shoot') || query.includes('design')) {
+        return `Noot Noot! 🐧 We handle <strong>100% Done-For-You Content Creation</strong>! On-location & AI video reel shoots, graphic ad design, Instagram handle management, and YouTube channel scaling (as seen in our <strong>Udbhav India</strong> and <strong>Jywas Beauty</strong> case studies)!`;
+      }
+
+      // WEBSITE DEVELOPMENT
+      if (query.includes('website') || query.includes('web') || query.includes('shopify') || query.includes('wordpress') || query.includes('portal') || query.includes('speed') || query.includes('redesign')) {
+        return `Noot Noot! 🐧 We engineer sub-second custom websites, B2B wholesale portals, and Shopify D2C storefronts with 95+ PageSpeed scores and 100% full IP ownership!`;
+      }
+
+      // SEO & LOCAL GOOGLE MAPS
+      if (query.includes('seo') || query.includes('google') || query.includes('rank') || query.includes('map') || query.includes('gmb') || query.includes('local')) {
+        return `Noot Noot! 🐧 We specialize in #1 Google Local Map Pack SEO, technical on-page SEO, and keyword optimization to drive high-intent organic calls and walk-in inquiries for local businesses, clinics & institutes!`;
+      }
+
+      // PERFORMANCE ADS & LEAD GEN
+      if (query.includes('ad') || query.includes('ads') || query.includes('facebook') || query.includes('meta') || query.includes('lead') || query.includes('roas') || query.includes('sales') || query.includes('traffic')) {
+        return `Noot Noot! 🐧 We run scalable Meta & Google Search ad campaigns focusing on CAC reduction and high ROAS (our client average is 7.1x ROAS)!`;
+      }
+
+      // HEALTHCARE & CLINICS
+      if (query.includes('clinic') || query.includes('doctor') || query.includes('dental') || query.includes('hospital') || query.includes('health') || query.includes('patient')) {
+        return `Noot Noot! 🐧 For Healthcare & Dental Clinics, we deploy #1 Google Map Pack SEO, hyper-local Search Ads, patient booking funnels, and automated WhatsApp appointment reminders!`;
+      }
+
+      // EDUCATION & COACHING
+      if (query.includes('coaching') || query.includes('institute') || query.includes('school') || query.includes('academy') || query.includes('student') || query.includes('admission')) {
+        return `Noot Noot! 🐧 For Coaching & Institutes, we build student admission lead engines using Meta Lead Ads, demo class landing pages, and counselor CRM routing!`;
+      }
+
+      // REAL ESTATE & PROPERTIES
+      if (query.includes('real estate') || query.includes('property') || query.includes('builder') || query.includes('housing') || query.includes('flat') || query.includes('apartment')) {
+        return `Noot Noot! 🐧 For Real Estate Developers, we generate verified High-Net-Worth buyer leads using video property tours, multi-step lead forms, and instant WhatsApp brochure delivery!`;
+      }
+
+      // B2B & MANUFACTURING
+      if (query.includes('b2b') || query.includes('export') || query.includes('manufacturer') || query.includes('wholesale') || query.includes('industrial') || query.includes('machinery')) {
+        return `Noot Noot! 🐧 For B2B Manufacturers & Exporters, we build digital wholesale catalogues with 1-click Request For Quote (RFQ) buttons and global buyer Google Search ads!`;
+      }
+
+      // RESTAURANTS & HOSPITALITY
+      if (query.includes('restaurant') || query.includes('cafe') || query.includes('food') || query.includes('hotel') || query.includes('kitchen')) {
+        return `Noot Noot! 🐧 For Restaurants & Cafes, we drive local foodies via 3-Pack Map SEO, mouth-watering food reels, and 0% commission direct WhatsApp ordering!`;
+      }
+
+      // DEFAULT FALLBACK AI RESPONSE
+      return `Noot Noot! 🐧 At <strong>Samraddhi Marketing</strong>, we build complete 360° growth engines (Branding, Custom Websites, 100% Content Creation, Local SEO & Performance Ads) for startups, clinics, B2B, institutes & retail brands.<br><br>Would you like to get a <strong>Free ₹4,999 Audit</strong> or speak directly with Rahul Soni (+91-9340722578)?`;
+    }
+
+    // Chat Form Submit Handler
+    if (pinguChatForm && pinguInput) {
+      pinguChatForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const userText = pinguInput.value.trim();
+        if (!userText) return;
+
+        addPinguMessage(userText, true);
+        pinguInput.value = '';
+
+        setTimeout(() => {
+          const aiReply = generatePinguAIResponse(userText);
+          addPinguMessage(aiReply, false);
+        }, 550);
+      });
+    }
+
+    // Quick Chips Handler
+    pinguChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        const query = chip.getAttribute('data-query');
+        if (query) {
+          addPinguMessage(query, true);
+          setTimeout(() => {
+            const aiReply = generatePinguAIResponse(query);
+            addPinguMessage(aiReply, false);
+          }, 450);
+        }
+      });
     });
   }
 

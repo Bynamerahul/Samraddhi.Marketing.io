@@ -392,15 +392,15 @@
 
             <div class="audit-score-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem;">
               <div style="background: var(--bg-primary); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); text-align: center;">
-                <div style="font-size: 0.8125rem; color: var(--text-secondary);">SEO &amp; Search Rank</div>
+                <div id="audit-card-label-1" style="font-size: 0.8125rem; color: var(--text-secondary); font-weight: 600;">SEO &amp; Search Rank</div>
                 <div id="report-seo-score" style="font-size: 1.5rem; font-weight: 800; color: #ff4d8d; margin-top: 0.25rem;">72%</div>
               </div>
               <div style="background: var(--bg-primary); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); text-align: center;">
-                <div style="font-size: 0.8125rem; color: var(--text-secondary);">UI / UX &amp; Speed</div>
+                <div id="audit-card-label-2" style="font-size: 0.8125rem; color: var(--text-secondary); font-weight: 600;">UI / UX &amp; Speed</div>
                 <div id="report-ui-score" style="font-size: 1.5rem; font-weight: 800; color: #c084fc; margin-top: 0.25rem;">81%</div>
               </div>
               <div style="background: var(--bg-primary); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); text-align: center;">
-                <div style="font-size: 0.8125rem; color: var(--text-secondary);">Marketing &amp; Ad Funnel</div>
+                <div id="audit-card-label-3" style="font-size: 0.8125rem; color: var(--text-secondary); font-weight: 600;">Marketing &amp; Ad Funnel</div>
                 <div id="report-marketing-score" style="font-size: 1.5rem; font-weight: 800; color: #10b981; margin-top: 0.25rem;">68%</div>
               </div>
             </div>
@@ -426,19 +426,19 @@
           <div class="step-card magnetic-target" style="background: var(--bg-secondary); border: 1px solid rgba(255,77,141,0.3); padding: 1.5rem; border-radius: var(--radius-lg); position: relative;">
             <div style="background: rgba(255, 77, 141, 0.2); color: #ff4d8d; font-weight: 800; font-size: 0.85rem; padding: 0.3rem 0.85rem; border-radius: 99px; display: inline-block; margin-bottom: 0.75rem;">STEP 01</div>
             <h4 style="color: var(--text-primary); font-size: 1.1rem; margin-bottom: 0.4rem;">📝 Fill Quick Audit Form</h4>
-            <p style="color: var(--text-secondary); font-size: 0.875rem; line-height: 1.5;">Log in and fill a quick 30-second form with your website link or social media handle.</p>
+            <p style="color: var(--text-secondary); font-size: 0.875rem; line-height: 1.5;">Fill out the quick 30-second form with your website URL or social media handle.</p>
           </div>
 
           <div class="step-card magnetic-target" style="background: var(--bg-secondary); border: 1px solid rgba(192,132,252,0.3); padding: 1.5rem; border-radius: var(--radius-lg); position: relative;">
             <div style="background: rgba(192, 132, 252, 0.2); color: #c084fc; font-weight: 800; font-size: 0.85rem; padding: 0.3rem 0.85rem; border-radius: 99px; display: inline-block; margin-bottom: 0.75rem;">STEP 02</div>
             <h4 style="color: var(--text-primary); font-size: 1.1rem; margin-bottom: 0.4rem;">📩 Receive Custom Audit</h4>
-            <p style="color: var(--text-secondary); font-size: 0.875rem; line-height: 1.5;">Hum aapko complete SEO, UI/UX, &amp; Marketing analysis report WhatsApp/Email par bhejenge.</p>
+            <p style="color: var(--text-secondary); font-size: 0.875rem; line-height: 1.5;">We perform a deep 360° SEO, UI/UX, &amp; Marketing analysis and send your report via WhatsApp or Email.</p>
           </div>
 
           <div class="step-card magnetic-target" style="background: var(--bg-secondary); border: 1px solid rgba(16,185,129,0.3); padding: 1.5rem; border-radius: var(--radius-lg); position: relative;">
             <div style="background: rgba(16, 185, 129, 0.2); color: #10b981; font-weight: 800; font-size: 0.85rem; padding: 0.3rem 0.85rem; border-radius: 99px; display: inline-block; margin-bottom: 0.75rem;">STEP 03</div>
             <h4 style="color: var(--text-primary); font-size: 1.1rem; margin-bottom: 0.4rem;">📞 Book Strategy Call</h4>
-            <p style="color: var(--text-secondary); font-size: 0.875rem; line-height: 1.5;">Audit review karne ke baad Rahul Soni ke saath 1-on-1 strategy call book karenge.</p>
+            <p style="color: var(--text-secondary); font-size: 0.875rem; line-height: 1.5;">Schedule a 1-on-1 strategy call with Rahul Soni &amp; team to review your growth roadmap.</p>
           </div>
 
         </div>
@@ -1764,6 +1764,75 @@
 
   <!-- TOAST NOTIFICATION CONTAINER -->
   <div id="toast-container" class="toast-container"></div>
+
+  <!-- PINGU LIVE AI CHATBOT WIDGET -->
+  <div id="pingu-chatbot-widget" class="pingu-widget">
+    
+    <!-- Floating Trigger Button -->
+    <button id="pingu-toggle-btn" class="pingu-fab magnetic-target" aria-label="Open Pingu AI Chatbot">
+      <div class="pingu-avatar-wrapper">
+        <img src="pingu-avatar.jpg" alt="Pingu AI Chatbot" class="pingu-fab-img">
+        <span class="pingu-online-dot"></span>
+      </div>
+      <span class="pingu-fab-label">Chat with Pingu 🐧</span>
+      <span class="pingu-badge-count">1</span>
+    </button>
+
+    <!-- Noot Noot Floating Tooltip Bubble -->
+    <div id="pingu-bubble" class="pingu-speech-bubble">
+      <span>Noot Noot! 🐧 Hi, I'm <strong>Pingu</strong>! Need help scaling your business?</span>
+      <button id="close-pingu-bubble" class="bubble-close-btn">✕</button>
+    </div>
+
+    <!-- Chat Modal Drawer -->
+    <div id="pingu-chat-window" class="pingu-chat-card" style="display: none;">
+      
+      <!-- Chat Header -->
+      <div class="pingu-chat-header">
+        <div class="pingu-header-info">
+          <img src="pingu-avatar.jpg" alt="Pingu" class="pingu-header-avatar">
+          <div>
+            <h4 class="pingu-header-name">Pingu 🐧 <span class="pingu-tag">AI Growth Guide</span></h4>
+            <span class="pingu-header-status">● Online • Powered by Samraddhi Marketing</span>
+          </div>
+        </div>
+        <button id="close-pingu-chat" class="pingu-close-btn" aria-label="Close Chat">✕</button>
+      </div>
+
+      <!-- Messages Body -->
+      <div id="pingu-chat-body" class="pingu-chat-messages">
+        
+        <!-- Welcome Message -->
+        <div class="chat-msg msg-pingu">
+          <img src="pingu-avatar.jpg" alt="Pingu" class="msg-avatar">
+          <div class="msg-bubble">
+            <p>Noot Noot! 🐧 Welcome to <strong>Samraddhi Marketing</strong>! I'm <strong>Pingu</strong>, your AI Growth Assistant.</p>
+            <p style="margin-top: 0.4rem;">Ask me anything about our <strong>Free ₹4,999 Audit</strong>, Retainer Pricing, Content Creation, or strategy calls with Rahul Soni!</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Quick Action Suggestion Chips -->
+      <div class="pingu-quick-chips">
+        <button class="chip-btn" data-query="How do I get the Free ₹4,999 Website Audit?">🔍 Free ₹4,999 Audit</button>
+        <button class="chip-btn" data-query="What are your monthly retainer plans & pricing?">💰 Retainer Plans</button>
+        <button class="chip-btn" data-query="How can I book a call with Rahul Soni?">📞 Talk to Rahul Soni</button>
+        <button class="chip-btn" data-query="Do you handle complete content creation & reels?">🎬 Content & Reels</button>
+      </div>
+
+      <!-- Chat Input Form -->
+      <form id="pingu-chat-form" class="pingu-chat-input-bar">
+        <input type="text" id="pingu-input" placeholder="Ask Pingu anything (e.g. 'Audit my website')..." autocomplete="off">
+        <button type="submit" class="pingu-send-btn" aria-label="Send Message">
+          <span>Send</span>
+          <span class="send-arrow">➔</span>
+        </button>
+      </form>
+
+    </div>
+
+  </div>
 
   <!-- External Libraries: Lenis Smooth Scroll & GSAP + ScrollTrigger -->
   <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
