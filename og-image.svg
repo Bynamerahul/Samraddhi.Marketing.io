@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0e0f12"/>
+      <stop offset="50%" stop-color="#181922"/>
+      <stop offset="100%" stop-color="#0a0b0d"/>
+    </linearGradient>
+    <linearGradient id="pinkGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff4d8d"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- Glow Blobs -->
+  <circle cx="1000" cy="150" r="300" fill="#ff4d8d" opacity="0.18" filter="url(#glow)"/>
+  <circle cx="200" cy="500" r="350" fill="#c084fc" opacity="0.15" filter="url(#glow)"/>
+
+  <!-- Border Frame -->
+  <rect x="24" y="24" width="1152" height="582" rx="24" fill="none" stroke="url(#pinkGrad)" stroke-width="3" opacity="0.4"/>
+
+  <!-- Content -->
+  <g transform="translate(80, 140)">
+    <!-- Badge -->
+    <rect width="360" height="42" rx="21" fill="rgba(255, 77, 141, 0.15)" stroke="#ff4d8d" stroke-width="1.5"/>
+    <text x="20" y="27" font-family="sans-serif" font-size="16" font-weight="bold" fill="#ff4d8d" letter-spacing="1">FULL-SERVICE GROWTH ENGINE</text>
+
+    <!-- Main Title -->
+    <text x="0" y="120" font-family="sans-serif" font-size="52" font-weight="800" fill="#ffffff" letter-spacing="-1">
+      We Build Your Brand, AI Product Images &amp;
+    </text>
+    <text x="0" y="185" font-family="sans-serif" font-size="52" font-weight="800" fill="url(#pinkGrad)" letter-spacing="-1">
+      Ad Funnels To Scale Sales &amp; Revenue.
+    </text>
+
+    <!-- Subtitle -->
+    <text x="0" y="250" font-family="sans-serif" font-size="24" fill="#a0a4b0" font-weight="500">
+      Websites • Product AI Images • Etsy/Ebay SEO • Meta &amp; Google Performance Ads
+    </text>
+
+    <!-- Stats Row -->
+    <g transform="translate(0, 310)">
+      <!-- Stat 1 -->
+      <rect width="240" height="90" rx="16" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)"/>
+      <text x="24" y="42" font-family="monospace" font-size="32" font-weight="bold" fill="#ffffff">120+</text>
+      <text x="24" y="68" font-family="sans-serif" font-size="14" fill="#8c909e" font-weight="600">BRANDS SCALED</text>
+
+      <!-- Stat 2 -->
+      <g transform="translate(260, 0)">
+        <rect width="240" height="90" rx="16" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)"/>
+        <text x="24" y="42" font-family="monospace" font-size="32" font-weight="bold" fill="#ff4d8d">7.1x</text>
+        <text x="24" y="68" font-family="sans-serif" font-size="14" fill="#8c909e" font-weight="600">AVERAGE ROAS</text>
+      </g>
+
+      <!-- Stat 3 -->
+      <g transform="translate(520, 0)">
+        <rect width="280" height="90" rx="16" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)"/>
+        <text x="24" y="42" font-family="monospace" font-size="32" font-weight="bold" fill="#c084fc">Rahul Soni</text>
+        <text x="24" y="68" font-family="sans-serif" font-size="14" fill="#8c909e" font-weight="600">FOUNDER &amp; STRATEGIST</text>
+      </g>
+    </g>
+  </g>
+</svg>

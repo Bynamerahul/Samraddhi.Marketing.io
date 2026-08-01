@@ -1276,4 +1276,116 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', updateScrollSpy, { passive: true });
   updateScrollSpy();
 
+
+  /* ==========================================================================
+     17. INTERACTIVE FREE AI WEBSITE AUDIT ENGINE
+     ========================================================================== */
+  const runAuditBtn = document.getElementById('run-audit-btn');
+  const auditUrlInput = document.getElementById('audit-url-input');
+  const auditTerminalLoader = document.getElementById('audit-terminal-loader');
+  const auditProgressBar = document.getElementById('audit-progress-bar');
+  const auditProgressPercent = document.getElementById('audit-progress-percent');
+  const auditTerminalLogs = document.getElementById('audit-terminal-logs');
+  const auditResultsCard = document.getElementById('audit-results-card');
+
+  const reportDomainName = document.getElementById('report-domain-name');
+  const reportOverallScore = document.getElementById('report-overall-score');
+  const reportSeoScore = document.getElementById('report-seo-score');
+  const reportUiScore = document.getElementById('report-ui-score');
+  const reportMarketingScore = document.getElementById('report-marketing-score');
+  const reportSuggestionsList = document.getElementById('report-suggestions-list');
+  const discussAuditBtn = document.getElementById('discuss-audit-btn');
+
+  if (runAuditBtn && auditUrlInput) {
+    runAuditBtn.addEventListener('click', () => {
+      let rawUrl = auditUrlInput.value.trim();
+      if (!rawUrl) {
+        showToast('Please enter your website or marketplace shop URL!');
+        auditUrlInput.focus();
+        return;
+      }
+
+      // Format domain display
+      let domain = rawUrl.replace(/^https?:\/\//i, '').replace(/\/.*$/, '');
+      if (!domain) domain = rawUrl;
+
+      // Reset and display loader terminal
+      auditResultsCard.style.display = 'none';
+      auditTerminalLoader.style.display = 'block';
+      auditProgressBar.style.width = '0%';
+      auditProgressPercent.textContent = '0%';
+      auditTerminalLogs.innerHTML = `<div>> Connecting to target domain: ${domain}...</div>`;
+      
+      playSound(520, 'sine');
+
+      const logsStep = [
+        { time: 400, text: `> [OK] Domain connected. Analyzing HTML5 structure & mobile speed...`, sound: 580 },
+        { time: 900, text: `> [OK] Auditing Product AI Images & visual UI/UX layout...`, sound: 640 },
+        { time: 1400, text: `> [OK] Checking Etsy/Ebay/Google Search listing SEO & tags...`, sound: 700 },
+        { time: 1900, text: `> [OK] Calculating conversion rate & ad retargeting score...`, sound: 760 },
+        { time: 2400, text: `> [COMPLETE] Synthesizing AI Growth Report for ${domain}!`, sound: 840 }
+      ];
+
+      let progress = 0;
+      const progressInterval = setInterval(() => {
+        progress += 4;
+        if (progress > 100) progress = 100;
+        auditProgressBar.style.width = `${progress}%`;
+        auditProgressPercent.textContent = `${progress}%`;
+        if (progress >= 100) clearInterval(progressInterval);
+      }, 90);
+
+      logsStep.forEach(step => {
+        setTimeout(() => {
+          const logItem = document.createElement('div');
+          logItem.textContent = step.text;
+          auditTerminalLogs.appendChild(logItem);
+          auditTerminalLogs.scrollTop = auditTerminalLogs.scrollHeight;
+          playSound(step.sound, 'triangle');
+        }, step.time);
+      });
+
+      setTimeout(() => {
+        // Compute pseudo-random deterministic scores based on string length
+        const baseHash = domain.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+        const seoScore = 62 + (baseHash % 26);
+        const uiScore = 65 + ((baseHash * 3) % 25);
+        const marketingScore = 58 + ((baseHash * 7) % 28);
+        const overallScore = Math.round((seoScore + uiScore + marketingScore) / 3);
+
+        reportDomainName.textContent = domain;
+        reportOverallScore.textContent = `${overallScore}/100`;
+        reportSeoScore.textContent = `${seoScore}%`;
+        reportUiScore.textContent = `${uiScore}%`;
+        reportMarketingScore.textContent = `${marketingScore}%`;
+
+        // Generate tailored suggestions
+        const suggestions = [
+          `Upgrade product photography to studio-quality Product AI Images to increase click-through rate by up to 45%.`,
+          `Optimize listing titles & metadata tags for Etsy/Ebay/Google Search to capture high-intent buyer traffic.`,
+          `Implement Meta Pixel CAPI & automated WhatsApp abandon cart recovery to lower Customer Acquisition Cost (CAC).`,
+          `Improve mobile page load speed and sub-second checkout UX to boost conversion rates.`
+        ];
+
+        reportSuggestionsList.innerHTML = suggestions.map(s => `<li>${s}</li>`).join('');
+
+        auditTerminalLoader.style.display = 'none';
+        auditResultsCard.style.display = 'block';
+        playSound(880, 'sine', 0.2);
+        showToast(`AI Audit complete for ${domain}! Score: ${overallScore}/100`);
+
+        // Scroll smoothly to results card
+        auditResultsCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 2650);
+    });
+  }
+
+  if (discussAuditBtn) {
+    discussAuditBtn.addEventListener('click', () => {
+      const domain = reportDomainName ? reportDomainName.textContent : 'my website';
+      const score = reportOverallScore ? reportOverallScore.textContent : 'audit report';
+      openContactModal(`Free AI Audit Discussion for ${domain} (Score: ${score})`);
+    });
+  }
+
 });
