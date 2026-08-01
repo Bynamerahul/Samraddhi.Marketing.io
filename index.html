@@ -232,6 +232,7 @@
         <a href="#estimator" class="mobile-nav-link"><span>06.</span> Cost Calculator</a>
         <a href="#blog" class="mobile-nav-link"><span>07.</span> Insights & Blog</a>
         <a href="#faq" class="mobile-nav-link"><span>08.</span> FAQ</a>
+        <a href="#newsletter" class="mobile-nav-link"><span>09.</span> Newsletter 💌</a>
       </nav>
 
       <div class="mobile-drawer-footer">
@@ -1546,6 +1547,34 @@
       </div>
     </section>
 
+    <!-- NEWSLETTER SECTION -->
+    <section class="s-newsletter section-padding" id="newsletter">
+      <div class="container text-center gsap-reveal-header" style="max-width: 780px;">
+        <div class="newsletter-badge">
+          <span class="badge-dot"></span>
+          <span>FREE WEEKLY GROWTH PLAYBOOK</span>
+        </div>
+        <h2 class="section-title">Join 2,400+ Founders Scaling With<br><span class="text-gradient pink-glow-text">Samraddhi Growth Secrets</span></h2>
+        <p class="section-desc">Get actionable case study breakdowns, Meta/Google ad hacks, Product AI prompts, and marketplace SEO strategies delivered to your inbox every Tuesday. No spam. Unsubscribe anytime.</p>
+        
+        <form id="newsletter-form" class="newsletter-form" onsubmit="return false;">
+          <div class="newsletter-input-group">
+            <input type="email" id="newsletter-email" class="form-input newsletter-input" placeholder="Enter your business email address..." required>
+            <button type="submit" id="newsletter-submit-btn" class="btn btn-primary newsletter-btn magnetic-target">
+              <span>Subscribe Free ⚡</span>
+            </button>
+          </div>
+          <span class="newsletter-guarantee">🔒 100% Secure. Join market leaders from 12+ industries.</span>
+        </form>
+
+        <div id="newsletter-success" class="newsletter-success-box" style="display: none;">
+          <div class="success-icon">📬</div>
+          <h3 style="margin-bottom: 0.5rem; color: #10b981;">You're Subscribed!</h3>
+          <p style="color: var(--color-text-secondary); margin: 0;">Welcome to the Samraddhi Growth Club! Check your inbox for your first free marketing playbook.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- FINAL CTA HERO BANNER -->
     <section class="s-final-cta">
       <div class="container text-center gsap-reveal-header">
@@ -1586,6 +1615,7 @@
       </div>
 
       <div class="foot-right">
+        <a href="#newsletter" class="foot-link magnetic-target">Newsletter</a>
         <a href="https://bynamerahul.github.io/Brand-Book-Rahul-Soni/" target="_blank" rel="noopener" class="foot-link magnetic-target">Founder Brand Book</a>
         <a href="https://instagram.com" target="_blank" rel="noopener" class="foot-link magnetic-target">Instagram</a>
         <a href="https://linkedin.com" target="_blank" rel="noopener" class="foot-link magnetic-target">LinkedIn</a>
@@ -1765,70 +1795,105 @@
   <!-- TOAST NOTIFICATION CONTAINER -->
   <div id="toast-container" class="toast-container"></div>
 
-  <!-- PINGU LIVE AI CHATBOT WIDGET -->
+  <!-- PINGU 2-OPTION LIVE SUPPORT POPUP WIDGET -->
   <div id="pingu-chatbot-widget" class="pingu-widget">
     
-    <!-- Floating Trigger Button -->
-    <button id="pingu-toggle-btn" class="pingu-fab magnetic-target" aria-label="Open Pingu AI Chatbot">
-      <div class="pingu-avatar-wrapper">
-        <img src="pingu-avatar.jpg" alt="Pingu AI Chatbot" class="pingu-fab-img">
-        <span class="pingu-online-dot"></span>
+    <!-- Floating Circular Launcher Button -->
+    <button id="pingu-toggle-btn" class="intercom-launcher magnetic-target" aria-label="Open Pingu Support">
+      <div class="launcher-icon-wrapper">
+        <img src="pingu-avatar.jpg" alt="Pingu AI" class="launcher-avatar">
+        <span class="launcher-status-dot"></span>
       </div>
-      <span class="pingu-fab-label">Chat with Pingu 🐧</span>
-      <span class="pingu-badge-count">1</span>
+      <span class="launcher-badge">1</span>
     </button>
 
-    <!-- Noot Noot Floating Tooltip Bubble -->
+    <!-- Auto-Proactive Tooltip Bubble -->
     <div id="pingu-bubble" class="pingu-speech-bubble">
-      <span>Noot Noot! 🐧 Hi, I'm <strong>Pingu</strong>! Need help scaling your business?</span>
+      <span>Noot Noot! 🐧 Hi there! Need help scaling your business?</span>
       <button id="close-pingu-bubble" class="bubble-close-btn">✕</button>
     </div>
 
-    <!-- Chat Modal Drawer -->
-    <div id="pingu-chat-window" class="pingu-chat-card" style="display: none;">
+    <!-- Pingu 2-Option Card Window -->
+    <div id="pingu-chat-window" class="pingu-pop-card" style="display: none;">
       
-      <!-- Chat Header -->
-      <div class="pingu-chat-header">
-        <div class="pingu-header-info">
-          <img src="pingu-avatar.jpg" alt="Pingu" class="pingu-header-avatar">
-          <div>
-            <h4 class="pingu-header-name">Pingu 🐧 <span class="pingu-tag">AI Growth Guide</span></h4>
-            <span class="pingu-header-status">● Online • Powered by Samraddhi Marketing</span>
-          </div>
-        </div>
-        <button id="close-pingu-chat" class="pingu-close-btn" aria-label="Close Chat">✕</button>
-      </div>
+      <!-- Top Close Button -->
+      <button id="close-pingu-chat" class="pingu-top-close" aria-label="Close">✕</button>
 
-      <!-- Messages Body -->
-      <div id="pingu-chat-body" class="pingu-chat-messages">
+      <!-- VIEW 1: THE 2 MAIN OPTIONS VIEW -->
+      <div id="pingu-options-view" class="pingu-card-view active-view">
         
-        <!-- Welcome Message -->
-        <div class="chat-msg msg-pingu">
-          <img src="pingu-avatar.jpg" alt="Pingu" class="msg-avatar">
-          <div class="msg-bubble">
-            <p>Noot Noot! 🐧 Welcome to <strong>Samraddhi Marketing</strong>! I'm <strong>Pingu</strong>, your AI Growth Assistant.</p>
-            <p style="margin-top: 0.4rem;">Ask me anything about our <strong>Free ₹4,999 Audit</strong>, Retainer Pricing, Content Creation, or strategy calls with Rahul Soni!</p>
-          </div>
+        <!-- Pingu 3D Character Header -->
+        <div class="pingu-hero-avatar-box magnetic-target" title="Tap Pingu for NOOT NOOT! 🎺">
+          <img src="pingu-avatar.jpg" alt="Pingu 3D" class="pingu-hero-img">
+        </div>
+
+        <div class="pingu-card-header-text">
+          <h3 class="pingu-card-title">Hi there! 👋</h3>
+          <p class="pingu-card-subtitle">I'm <strong>Pingu</strong>, Samraddhi's AI Growth Guide.<br><span style="font-size:0.75rem; color:#ff70a6; font-weight:600;">✨ Tap me for NOOT NOOT! 🐧🎺</span></p>
+        </div>
+
+        <!-- THE 2 PRIMARY OPTIONS -->
+        <div class="pingu-two-options">
+          
+          <!-- OPTION 1: Continue Chat with Pingu -->
+          <button id="btn-option-pingu" class="pingu-opt-btn opt-pingu magnetic-target">
+            <div class="opt-icon-badge">🐧</div>
+            <div class="opt-content">
+              <strong>Continue Chat with Pingu</strong>
+              <span>Ask AI about Audits, Retainers, Content &amp; SEO</span>
+            </div>
+            <div class="opt-arrow">➔</div>
+          </button>
+
+          <!-- OPTION 2: Connect me to Advisor -->
+          <a href="https://wa.me/919340722578" target="_blank" id="btn-option-advisor" class="pingu-opt-btn opt-advisor magnetic-target">
+            <div class="opt-icon-badge">📞</div>
+            <div class="opt-content">
+              <strong>Connect me to Advisor</strong>
+              <span>Speak directly with Rahul Soni (Founder)</span>
+            </div>
+            <div class="opt-arrow">➔</div>
+          </a>
+
         </div>
 
       </div>
 
-      <!-- Quick Action Suggestion Chips -->
-      <div class="pingu-quick-chips">
-        <button class="chip-btn" data-query="How do I get the Free ₹4,999 Website Audit?">🔍 Free ₹4,999 Audit</button>
-        <button class="chip-btn" data-query="What are your monthly retainer plans & pricing?">💰 Retainer Plans</button>
-        <button class="chip-btn" data-query="How can I book a call with Rahul Soni?">📞 Talk to Rahul Soni</button>
-        <button class="chip-btn" data-query="Do you handle complete content creation & reels?">🎬 Content & Reels</button>
-      </div>
+      <!-- VIEW 2: LIVE CHAT WITH PINGU (Shown when Option 1 is selected) -->
+      <div id="pingu-live-chat-view" class="pingu-card-view" style="display: none;">
+        
+        <div class="pingu-live-header">
+          <button id="btn-back-to-options" class="pingu-back-btn" title="Back to Options">⬅ Back</button>
+          <div class="pingu-live-title">
+            <img src="pingu-avatar.jpg" alt="Pingu" width="24" height="24" style="border-radius:50%; object-fit:cover;">
+            <span>Pingu AI Assistant</span>
+          </div>
+        </div>
 
-      <!-- Chat Input Form -->
-      <form id="pingu-chat-form" class="pingu-chat-input-bar">
-        <input type="text" id="pingu-input" placeholder="Ask Pingu anything (e.g. 'Audit my website')..." autocomplete="off">
-        <button type="submit" class="pingu-send-btn" aria-label="Send Message">
-          <span>Send</span>
-          <span class="send-arrow">➔</span>
-        </button>
-      </form>
+        <!-- Chat Conversation Messages (Non-scrollable compact layout) -->
+        <div id="pingu-chat-body" class="pingu-compact-chat">
+          <div class="chat-msg msg-pingu">
+            <img src="pingu-avatar.jpg" alt="Pingu" class="msg-avatar">
+            <div class="msg-bubble">
+              <p>Noot Noot! 🐧 Ask me anything about our <strong>Free ₹4,999 Audit</strong>, Retainer Plans, Content Creation or Marketing strategy!</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Chips -->
+        <div class="pingu-compact-chips">
+          <button class="compact-chip" data-query="How do I get the Free ₹4,999 Audit?">🔍 Free Audit</button>
+          <button class="compact-chip" data-query="What are your retainer plans & pricing?">💰 Pricing</button>
+          <button class="compact-chip" data-query="Do you handle Reels & Content Creation?">🎬 Content & Reels</button>
+        </div>
+
+        <!-- Compact Input Bar -->
+        <form id="pingu-chat-form" class="pingu-compact-form">
+          <input type="text" id="pingu-input" placeholder="Type a message to Pingu..." autocomplete="off">
+          <button type="submit" class="pingu-compact-send">Send ➔</button>
+        </form>
+
+      </div>
 
     </div>
 

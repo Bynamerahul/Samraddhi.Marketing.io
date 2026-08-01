@@ -36,25 +36,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const perfToggleBtn = document.getElementById('perf-toggle');
   const mobilePerfToggleBtn = document.getElementById('mobile-perf-toggle');
 
-  function setEcoMode(enable) {
+  function setEcoMode(enable, silent = false) {
     if (enable) {
       document.body.classList.add('animations-off');
       document.documentElement.classList.add('animations-off');
       if (perfToggleBtn) perfToggleBtn.classList.add('active-eco');
       localStorage.setItem('samraddhi_eco_mode', 'true');
-      showToast('⚡ Low-Power Mode ON (Animations OFF & OS Normal Cursor)');
+      if (!silent) showToast('⚡ Low-Power Mode ON (Animations OFF & OS Normal Cursor)');
     } else {
       document.body.classList.remove('animations-off');
       document.documentElement.classList.remove('animations-off');
       if (perfToggleBtn) perfToggleBtn.classList.remove('active-eco');
       localStorage.setItem('samraddhi_eco_mode', 'false');
-      showToast('✨ High-Graphics Mode ON');
+      if (!silent) showToast('✨ High-Graphics Mode ON');
     }
   }
 
   const savedEcoState = localStorage.getItem('samraddhi_eco_mode');
   if (savedEcoState === 'true') {
-    setEcoMode(true);
+    setEcoMode(true, true);
   }
 
   if (perfToggleBtn) {
@@ -540,6 +540,119 @@ document.addEventListener('DOMContentLoaded', () => {
       osc.stop(audioCtx.currentTime + duration);
     } catch (e) {
       console.warn('Audio not available', e);
+    }
+  }
+
+  // Signature Pingu Notification Chime (High-Clarity 2-Tone Melodic Chime)
+  function playPinguNotificationSound() {
+    if (!soundEnabled) return;
+    try {
+      initAudio();
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      
+      const now = audioCtx.currentTime;
+
+      // Note 1: E6 (1318 Hz) crystal tone
+      const osc1 = audioCtx.createOscillator();
+      const gain1 = audioCtx.createGain();
+      osc1.type = 'sine';
+      osc1.frequency.setValueAtTime(1318.51, now);
+      gain1.gain.setValueAtTime(0.15, now);
+      gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
+      osc1.connect(gain1);
+      gain1.connect(audioCtx.destination);
+      osc1.start(now);
+      osc1.stop(now + 0.3);
+
+      // Note 2: B6 (1975 Hz) melodic chime (70ms offset)
+      const osc2 = audioCtx.createOscillator();
+      const gain2 = audioCtx.createGain();
+      osc2.type = 'sine';
+      osc2.frequency.setValueAtTime(1975.53, now + 0.07);
+      gain2.gain.setValueAtTime(0.20, now + 0.07);
+      gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.45);
+      osc2.connect(gain2);
+      gain2.connect(audioCtx.destination);
+      osc2.start(now + 0.07);
+      osc2.stop(now + 0.45);
+
+      // Warm shimmer backing
+      const osc3 = audioCtx.createOscillator();
+      const gain3 = audioCtx.createGain();
+      osc3.type = 'triangle';
+      osc3.frequency.setValueAtTime(2637, now + 0.07);
+      gain3.gain.setValueAtTime(0.04, now + 0.07);
+      gain3.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+      osc3.connect(gain3);
+      gain3.connect(audioCtx.destination);
+      osc3.start(now + 0.07);
+      osc3.stop(now + 0.35);
+
+    } catch (e) {
+      console.warn('Notification sound error', e);
+    }
+  }
+
+  // Authentic Cartoon "NOOT NOOT! 🎺" Trumpet Voice Synthesizer
+  function playPinguNootNootSound() {
+    if (!soundEnabled) return;
+    try {
+      initAudio();
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+
+      const now = audioCtx.currentTime;
+
+      // --- FIRST HONK: "NOOT" (Pitch: 430Hz -> 540Hz with trumpet formant) ---
+      const osc1 = audioCtx.createOscillator();
+      const gain1 = audioCtx.createGain();
+      const filter1 = audioCtx.createBiquadFilter();
+
+      filter1.type = 'bandpass';
+      filter1.frequency.setValueAtTime(820, now);
+      filter1.Q.setValueAtTime(3.8, now);
+
+      osc1.type = 'sawtooth';
+      osc1.frequency.setValueAtTime(430, now);
+      osc1.frequency.exponentialRampToValueAtTime(540, now + 0.13);
+
+      gain1.gain.setValueAtTime(0.001, now);
+      gain1.gain.linearRampToValueAtTime(0.25, now + 0.02);
+      gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
+
+      osc1.connect(filter1);
+      filter1.connect(gain1);
+      gain1.connect(audioCtx.destination);
+
+      osc1.start(now);
+      osc1.stop(now + 0.15);
+
+      // --- SECOND HONK: "NOOT!" (Higher & energetic: 550Hz -> 700Hz) ---
+      const t2 = now + 0.16;
+      const osc2 = audioCtx.createOscillator();
+      const gain2 = audioCtx.createGain();
+      const filter2 = audioCtx.createBiquadFilter();
+
+      filter2.type = 'bandpass';
+      filter2.frequency.setValueAtTime(980, t2);
+      filter2.Q.setValueAtTime(4.2, t2);
+
+      osc2.type = 'sawtooth';
+      osc2.frequency.setValueAtTime(550, t2);
+      osc2.frequency.exponentialRampToValueAtTime(700, t2 + 0.20);
+
+      gain2.gain.setValueAtTime(0.001, t2);
+      gain2.gain.linearRampToValueAtTime(0.30, t2 + 0.02);
+      gain2.gain.exponentialRampToValueAtTime(0.001, t2 + 0.22);
+
+      osc2.connect(filter2);
+      filter2.connect(gain2);
+      gain2.connect(audioCtx.destination);
+
+      osc2.start(t2);
+      osc2.stop(t2 + 0.22);
+
+    } catch (e) {
+      console.warn('Noot noot voice sound error', e);
     }
   }
 
@@ -1639,37 +1752,730 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ==========================================================================
+     NEWSLETTER SUBSCRIPTION ENGINE
+     ========================================================================== */
+  const newsletterForm = document.getElementById('newsletter-form');
+  const newsletterEmailInput = document.getElementById('newsletter-email');
+  const newsletterSuccessBox = document.getElementById('newsletter-success');
+
+  if (newsletterForm && newsletterEmailInput) {
+    newsletterForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = newsletterEmailInput.value.trim();
+      if (!email || !email.includes('@')) {
+        showToast('Please enter a valid business email address!');
+        newsletterEmailInput.focus();
+        return;
+      }
+
+      // Save subscriber email into local storage
+      try {
+        const stored = JSON.parse(localStorage.getItem('samraddhi_newsletter_subs') || '[]');
+        if (!stored.includes(email)) {
+          stored.push(email);
+          localStorage.setItem('samraddhi_newsletter_subs', JSON.stringify(stored));
+        }
+      } catch (err) {
+        console.warn('Newsletter storage notice:', err);
+      }
+
+      // Play chime & display success UI
+      playPinguNotificationSound();
+      showToast('🎉 Welcome to Samraddhi Growth Club! You are subscribed.');
+
+      newsletterForm.style.display = 'none';
+      if (newsletterSuccessBox) {
+        newsletterSuccessBox.style.display = 'block';
+      }
+    });
+  }
+
 
   /* ==========================================================================
-     18. PINGU LIVE AI CHATBOT & SMART PROACTIVE ENGAGEMENT ENGINE
+     18. PINGU REAL-TIME SELF-LEARNING AI ENGINE & CONTINUOUS MEMORY SYSTEM
      ========================================================================== */
+  
+  // --- 18.1 PINGU EXTENSIVE MULTI-INDUSTRY BUILT-IN KNOWLEDGE BASE ---
+  const BRAIN_STORAGE_KEY = 'samraddhi_pingu_brain_v3';
+
+  const SEED_KNOWLEDGE_BASE = [
+    {
+      id: 'greetings',
+      title: 'Greetings & Introductions',
+      keywords: ['hi', 'hello', 'hey', 'namaste', 'morning', 'evening', 'kaise ho', 'who are you', 'kya karte ho', 'what is pingu', 'pingu', 'bot', 'intro', 'start'],
+      phrases: ['hi', 'hello pingu', 'hey there', 'who are you', 'what can you do', 'namaste', 'kaise ho', 'kya karte ho', 'pingu kon ho'],
+      hits: 0,
+      response: `Noot Noot! 🐧 Hi there! I'm <strong>Pingu</strong>, Samraddhi Marketing's AI Growth Guide. I'm trained on 360° growth strategies for 12+ industries (SEO, Meta/Google Ads, Video Reels, Custom Websites & D2C Marketplaces). Tell me about your business or what you're looking to scale!`
+    },
+    {
+      id: 'audit',
+      title: 'Free Website & Marketing Audit (Worth ₹4,999)',
+      keywords: ['audit', 'free audit', '4999', 'scan', 'check website', 'analyze', 'review', 'seo score', 'diagnose', 'performance scan', 'social media scan', 'account scan', 'check my instagram', 'website check'],
+      phrases: ['i want free audit', 'can you check my website', 'audit worth 4999', 'website review', 'scan my instagram', 'scan social media', 'check my brand', 'free scan'],
+      hits: 0,
+      response: `Noot Noot! 🐧 You can claim our <strong>Free Website & Marketing Audit (Worth ₹4,999)</strong>! We analyze your SEO health, ad funnel leakages, website speed, and social engagement with actionable fixes in 48 hours.<br><br><a href="#ai-audit" onclick="document.getElementById('pingu-chat-window').style.display='none';" style="color:#ff70a6; font-weight:700;">Click Here to Run Instant AI Audit ⚡ →</a>`
+    },
+    {
+      id: 'pricing',
+      title: 'Retainer Plans & Pricing Breakdown',
+      keywords: ['price', 'pricing', 'cost', 'rate', 'plan', 'retainer', 'budget', 'how much', 'fee', 'charge', 'package', 'monthly', 'starter', 'growth', 'scale', 'enterprise', 'kitna', 'charges'],
+      phrases: ['what is your pricing', 'monthly cost', 'how much for marketing', 'retainer plans', 'starter package', 'scale plan', 'kitna charge karte ho', 'packages list', 'pricing plans'],
+      hits: 0,
+      response: `Noot Noot! 🐧 We offer 4 high-ROI monthly growth retainers with zero lock-in:<br>• <strong>Starter (₹9,999/mo):</strong> 12 Social Creatives, Basic SEO & Profile Optimization.<br>• <strong>Growth (₹24,999/mo):</strong> Meta/Google Ads Management, 20 Posts + 4 Reels, #1 Map SEO.<br>• <strong>Scale (₹49,999/mo):</strong> Dedicated Growth Team, Weekly Video Shoots, Custom Website & AI Bot.<br>• <strong>Enterprise:</strong> Custom 360° Partner Retainers.<br><br><a href="#retainers" onclick="document.getElementById('pingu-chat-window').style.display='none';" style="color:#ff70a6; font-weight:700;">View All Retainer Deliverables ➔</a>`
+    },
+    {
+      id: 'advisor',
+      title: 'Contact Founder Rahul Soni & WhatsApp Chat',
+      keywords: ['rahul', 'rahul soni', 'founder', 'call', 'contact', 'whatsapp', 'phone', 'number', 'speak', 'talk', 'human', 'advisor', 'meet', 'consultation', 'sampark', 'baat karni'],
+      phrases: ['talk to rahul', 'connect to advisor', 'give me phone number', 'whatsapp link', 'speak to founder', 'book call', 'rahul ka number', 'human support'],
+      hits: 0,
+      response: `Noot Noot! 🐧 You can connect directly with our founder <strong>Rahul Soni</strong> for a free 1-on-1 growth strategy consultation:<br>• Direct WhatsApp / Phone: <strong>+91 9340722578</strong><br>• Email: <strong>bynamerahul@gmail.com</strong><br><br><a href="https://wa.me/919340722578" target="_blank" style="color:#ff70a6; font-weight:700;">Open Direct WhatsApp Chat with Rahul 💬 ➔</a>`
+    },
+    {
+      id: 'case_studies',
+      title: 'Client Portfolio & Proven Case Studies',
+      keywords: ['portfolio', 'clients', 'case study', 'cases', 'proof', 'results', 'past work', 'sanskriti', 'vintage', 'antique', 'rarebond', 'udbhav', 'kreatvkraft', 'jywas', 'aura', 'english plus'],
+      phrases: ['show me case studies', 'who are your clients', 'past results', 'client portfolio', 'examples of your work', 'proof of results', 'sanskriti vintage case study'],
+      hits: 0,
+      response: `Noot Noot! 🐧 Here are some of our proven client transformations:<br>• <strong>Sanskriti Vintage:</strong> 4.2x Organic Revenue & Global B2B Export Storefront.<br>• <strong>Antique Art of India:</strong> 5.8x ROAS on Etsy & Global Marketplace Ranking.<br>• <strong>Rarebond Studios:</strong> ₹2.4M GMV in 90 Days with Shopify CRO + Meta Ads.<br>• <strong>Udbhav India:</strong> 3.2M Organic Reel Views & Brand Authority.<br>• <strong>Jywas Beauty:</strong> 7.4x ROAS on D2C Skincare Ads.<br><br><a href="#portfolio" onclick="document.getElementById('pingu-chat-window').style.display='none';" style="color:#ff70a6; font-weight:700;">Explore All 12 Interactive Case Studies ➔</a>`
+    },
+    {
+      id: 'meta_ads',
+      title: 'Meta Performance Ads (Facebook & Instagram)',
+      keywords: ['meta', 'facebook', 'instagram', 'meta ads', 'fb ads', 'insta ads', 'roas', 'cac', 'ad campaign', 'lead generation', 'performance marketing', 'paid ads', 'ad spend'],
+      phrases: ['run facebook ads', 'meta ad management', 'high roas ads', 'instagram lead generation', 'reduce cac', 'paid advertising'],
+      hits: 0,
+      response: `Noot Noot! 🐧 We build high-converting Meta Ad funnels with precision audience segmentation, dynamic creative testing, and multi-step retargeting. Our client portfolio averages <strong>7.1x ROAS</strong> with verified buyer attribution and low CAC!`
+    },
+    {
+      id: 'google_ads',
+      title: 'Google Search & PPC Ads',
+      keywords: ['google ad', 'google ads', 'ppc', 'search ads', 'adwords', 'high intent', 'buyer leads', 'click', 'cpc', 'google search'],
+      phrases: ['google ads management', 'run ppc ads', 'google search campaigns', 'intent based ads', 'leads from google'],
+      hits: 0,
+      response: `Noot Noot! 🐧 We manage high-intent Google Search, Performance Max, and Call-Only campaigns targeting customers actively searching for your exact services with strict negative keyword filters to stop wasted ad budget!`
+    },
+    {
+      id: 'local_seo',
+      title: 'Google Maps #1 Ranking & Local 3-Pack SEO',
+      keywords: ['seo', 'google map', 'google maps', 'gmb', 'google my business', 'local seo', 'map pack', 'rank #1', 'organic search', 'local ranking', 'first page'],
+      phrases: ['rank on google maps', 'google map pack seo', 'local business seo', 'how to get #1 on google', 'gmb optimization'],
+      hits: 0,
+      response: `Noot Noot! 🐧 We optimize your Google Business Profile (GMB) with geotagged media, citation building, category dominance, and automated 5-star review funnels to dominate the Google Maps 3-Pack in your city!`
+    },
+    {
+      id: 'video_reels',
+      title: '100% Done-For-You Video Reels & Content Creation',
+      keywords: ['reel', 'reels', 'video', 'youtube', 'shoot', 'camera', 'editing', 'content', 'creator', 'ugc', 'script', 'scriptwriting', 'production', 'post', 'graphics'],
+      phrases: ['do you shoot reels', 'video editing services', 'content creation', 'instagram reel production', 'youtube channel management', 'ugc creators'],
+      hits: 0,
+      response: `Noot Noot! 🐧 We provide end-to-end Content Creation: hook-driven scriptwriting, professional on-location / AI reel shoots, sound design, trend-jacking graphics, and full social calendar management so your brand goes viral consistently!`
+    },
+    {
+      id: 'shopify_ecommerce',
+      title: 'Shopify D2C Stores & Marketplace Scaling (Etsy, Ebay, Amazon)',
+      keywords: ['shopify', 'ecommerce', 'e-commerce', 'etsy', 'ebay', 'amazon', 'marketplace', 'd2c', 'cart', 'checkout', 'online store', 'product listing'],
+      phrases: ['shopify store development', 'scale etsy store', 'ebay marketplace growth', 'd2c ecommerce marketing', 'online shop design'],
+      hits: 0,
+      response: `Noot Noot! 🐧 We scale D2C & Marketplace brands across Shopify, Etsy, and eBay with sub-second fast storefronts, 1-click checkout, automated cart recovery, and international SEO ranking!`
+    },
+    {
+      id: 'product_ai_photos',
+      title: 'Product AI Photoshoots & 4K Catalogue Imagery',
+      keywords: ['product photo', 'product photoshoot', 'ai photoshoot', 'catalogue', 'studio', 'image generation', '4k product', 'mockup', 'photography'],
+      phrases: ['ai product photography', 'product photo shoot', 'ecommerce catalogue pictures', 'studio lighting replacement'],
+      hits: 0,
+      response: `Noot Noot! 🐧 We transform raw mobile product photos into hyper-realistic 4K studio catalogue images using custom AI generative models—saving 80% of traditional studio photoshoot costs while boosting click-through rates by 3.4x!`
+    },
+    {
+      id: 'custom_web_dev',
+      title: 'Sub-Second Custom Web Engineering',
+      keywords: ['website', 'web dev', 'developer', 'frontend', 'speed', 'fast', 'wordpress', 'sub-second', 'redesign', 'landing page', 'full ownership'],
+      phrases: ['custom website development', 'fast loading website', 'landing page development', 'website redesign', 'sub second speed'],
+      hits: 0,
+      response: `Noot Noot! 🐧 We code lightning-fast, sub-second custom websites and high-converting landing pages with 95+ Google PageSpeed scores, zero slow bloated plugins, and 100% full code ownership!`
+    },
+    {
+      id: 'whatsapp_automation',
+      title: 'WhatsApp Automated Booking & AI CRM Bots',
+      keywords: ['whatsapp bot', 'automation', 'crm', 'chatbot', 'auto reply', 'booking bot', 'lead capture', 'instant reply'],
+      phrases: ['whatsapp automation bot', 'automated lead reply', 'whatsapp booking system', 'crm integration'],
+      hits: 0,
+      response: `Noot Noot! 🐧 We build 24/7 intelligent WhatsApp bots that instantly qualify incoming visitor leads, share product PDF catalogues, schedule meetings, and route hot buyers directly to your phone within 5 seconds!`
+    },
+    {
+      id: 'healthcare_clinics',
+      title: 'Healthcare, Dental Clinics & Doctor Growth',
+      keywords: ['clinic', 'dental', 'dentist', 'doctor', 'hospital', 'patient', 'patients', 'appointment', 'healthcare', 'medical', 'teeth'],
+      phrases: ['marketing for doctors', 'dental clinic marketing', 'patient leads for clinic', 'hospital seo', 'dental appointment ads'],
+      hits: 0,
+      response: `Noot Noot! 🐧 For Healthcare & Dental Clinics, we deploy #1 Google Local 3-Pack Map SEO, high-intent emergency Search Ads, and automated WhatsApp patient appointment reminders to fill clinic chairs daily!`
+    },
+    {
+      id: 'real_estate',
+      title: 'Real Estate Builders & Developer Lead Engines',
+      keywords: ['real estate', 'property', 'builder', 'housing', 'flat', 'flats', 'apartment', 'apartments', 'villa', 'commercial', 'plots', 'hnw'],
+      phrases: ['real estate buyer leads', 'property video tour', 'sell apartments', 'builder marketing', 'hnw buyer leads', 'real estate ads'],
+      hits: 0,
+      response: `Noot Noot! 🐧 For Real Estate Developers, we generate verified High-Net-Worth buyer leads using cinematic property walk-through reels, multi-tier Meta lead filters, and instant WhatsApp brochure delivery!`
+    },
+    {
+      id: 'b2b_exports',
+      title: 'B2B Manufacturers & Global Export Portals',
+      keywords: ['b2b', 'export', 'exporter', 'manufacturer', 'manufacturing', 'wholesale', 'industrial', 'machinery', 'distributor', 'rfq', 'catalogue'],
+      phrases: ['b2b lead generation', 'wholesale portal', 'export marketing', 'industrial machinery sales', 'rfq catalogue', 'b2b export'],
+      hits: 0,
+      response: `Noot Noot! 🐧 For B2B Manufacturers & Exporters, we build digital wholesale catalogues with 1-click Request-For-Quote (RFQ) buttons and international buyer Google Search campaigns (like our Sanskriti Vintage case study)!`
+    },
+    {
+      id: 'fashion_apparel',
+      title: 'Fashion, Apparel & Luxury Jewellery',
+      keywords: ['fashion', 'apparel', 'clothing', 'jewellery', 'jewelry', 'diamond', 'luxury', 'lifestyle', 'd2c brand', 'outfit', 'wear'],
+      phrases: ['fashion brand marketing', 'jewellery brand ads', 'apparel d2c scaling', 'clothing store roas', 'luxury jewellery marketing'],
+      hits: 0,
+      response: `Noot Noot! 🐧 For Fashion & Jewellery Brands, we create high-aesthetic brand books, influencer UGC reels, and lookalike retargeting funnels that deliver up to <strong>9.1x ROAS</strong> (as seen in our Aura Jewellery case study)!`
+    },
+    {
+      id: 'beauty_skincare',
+      title: 'Beauty, Skincare & Cosmetics Brands',
+      keywords: ['beauty', 'skincare', 'cosmetics', 'salon', 'makeup', 'dermatology', 'skin', 'face', 'glow', 'hair'],
+      phrases: ['skincare brand marketing', 'beauty d2c ads', 'cosmetics reel shoots', 'salon marketing', 'jywas beauty case study'],
+      hits: 0,
+      response: `Noot Noot! 🐧 For Skincare & Beauty Brands, we execute creator UGC review reels, clinical before/after proof ads, and custom bundle discount funnels (scaling Jywas Beauty to 7.4x ROAS)!`
+    },
+    {
+      id: 'education_coaching',
+      title: 'Coaching Institutes & Student Admissions',
+      keywords: ['coaching', 'institute', 'school', 'academy', 'student', 'students', 'admission', 'admissions', 'course', 'tuition', 'classes', 'batch'],
+      phrases: ['student admission leads', 'coaching marketing', 'promote institute', 'leads for academy', 'education ads', 'english plus case study'],
+      hits: 0,
+      response: `Noot Noot! 🐧 For Coaching & Institutes, we build student admission lead engines using Meta Lead Ads, demo class booking funnels, and counselor CRM routing to fill upcoming batches (generated 340+ admissions for English Plus)!`
+    },
+    {
+      id: 'restaurants_food',
+      title: 'Restaurants, Cafes & Food Brands',
+      keywords: ['restaurant', 'cafe', 'food', 'hotel', 'kitchen', 'dining', 'menu', 'dishes', 'zomato', 'swiggy', 'dine', 'cloud kitchen'],
+      phrases: ['restaurant marketing', 'cafe promotions', 'food reels', 'local foodies', 'whatsapp food ordering', 'cloud kitchen marketing'],
+      hits: 0,
+      response: `Noot Noot! 🐧 For Restaurants & Cafes, we drive local foodies via 3-Pack Map SEO, mouth-watering food reels, and 0% commission direct WhatsApp ordering to save 30% aggregator commissions!`
+    },
+    {
+      id: 'interior_design',
+      title: 'Interior Designers, Architects & Furniture',
+      keywords: ['interior', 'interior design', 'architect', 'furniture', 'home decor', 'modular kitchen', 'architecture', 'renovation', 'woodwork'],
+      phrases: ['interior design leads', 'architect marketing', 'furniture catalogue', 'modular kitchen ads', 'interior decorator seo'],
+      hits: 0,
+      response: `Noot Noot! 🐧 For Interior Designers & Architects, we showcase completed project video walk-throughs, 3D render reels, and target affluent homeowners actively renovating or building new properties!`
+    },
+    {
+      id: 'why_samraddhi',
+      title: 'Why Choose Samraddhi Marketing vs Traditional Agencies',
+      keywords: ['why choose you', 'difference', 'freelancer', 'traditional agency', 'guarantee', 'why samraddhi', 'experience', 'better', 'speciality'],
+      phrases: ['why should i hire you', 'why samraddhi', 'what makes you different', 'agency vs freelancer', 'why choose rahul soni'],
+      hits: 0,
+      response: `Noot Noot! 🐧 Why market leaders choose Samraddhi:<br>1. <strong>100% Full IP Ownership:</strong> No vendor lock-in.<br>2. <strong>7.1x Average ROAS:</strong> Performance-backed ROI.<br>3. <strong>Sub-Second Speed:</strong> Engineering-grade web systems.<br>4. <strong>Direct Founder Access:</strong> Daily Slack/WhatsApp sync with Rahul Soni.<br>5. <strong>48-Hour Rapid Onboarding:</strong> Fast go-to-market execution!`
+    },
+    {
+      id: 'discounts_timeline',
+      title: 'Onboarding Timelines, Trial Audits & Terms',
+      keywords: ['discount', 'offer', 'timeline', 'how fast', 'onboarding', 'contract', 'trial', 'lock in', 'time', 'kab start hoga'],
+      phrases: ['how fast can you start', 'is there a contract', 'any discount', 'onboarding process', 'trial period', 'kab shuru hoga'],
+      hits: 0,
+      response: `Noot Noot! 🐧 We onboard new brand partners within <strong>48 hours</strong>! All retainer plans operate on flexible month-to-month terms with zero lock-in contracts. Plus, your initial <strong>Growth Audit (₹4,999 value)</strong> is completely free!`
+    },
+    {
+      id: 'chitchat_fun',
+      title: 'Fun & Playful Penguin Chit-Chat',
+      keywords: ['joke', 'tell me a joke', 'funny', 'who made you', 'marry me', 'love you', 'bye', 'goodbye', 'thanks', 'thank you', 'shukriya', 'dhanyawad'],
+      phrases: ['tell me a joke', 'who made you', 'i love you', 'thank you', 'thanks pingu', 'bye', 'goodbye pingu', 'joke sunao'],
+      hits: 0,
+      response: `Noot Noot! 🐧 Why do penguins love digital marketing? Because we always break the ice and catch high conversions! 😄 Built with love by Rahul Soni for Samraddhi Marketing. How can I help you grow today?`
+    }
+  ];
+
+  class PinguSelfLearningBrain {
+    constructor() {
+      this.memory = this.loadMemory();
+    }
+
+    loadMemory() {
+      try {
+        const stored = localStorage.getItem(BRAIN_STORAGE_KEY);
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          if (parsed && Array.isArray(parsed.intents) && parsed.intents.length >= SEED_KNOWLEDGE_BASE.length) {
+            return parsed;
+          }
+        }
+      } catch (e) {
+        console.warn('Pingu Brain storage read notice:', e);
+      }
+
+      // Fresh state with complete multi-industry knowledge base
+      const initialMemory = {
+        version: '3.0.0',
+        totalInteractions: 0,
+        intents: SEED_KNOWLEDGE_BASE,
+        unresolvedQueries: [],
+        learnedPatternsCount: 0,
+        lastUpdated: new Date().toISOString()
+      };
+      this.saveMemory(initialMemory);
+      return initialMemory;
+    }
+
+    saveMemory(mem = this.memory) {
+      try {
+        mem.lastUpdated = new Date().toISOString();
+        localStorage.setItem(BRAIN_STORAGE_KEY, JSON.stringify(mem));
+      } catch (e) {
+        console.warn('Pingu Brain storage write notice:', e);
+      }
+    }
+
+    // Tokenizer with Hinglish normalization
+    tokenize(text) {
+      const stopWords = new Set(['a', 'an', 'the', 'is', 'are', 'was', 'were', 'in', 'on', 'at', 'to', 'for', 'of', 'and', 'or', 'with', 'my', 'your', 'me', 'i', 'we', 'you', 'can', 'please', 'do', 'does', 'how', 'what', 'where', 'when', 'why', 'tell', 'about', 'some', 'any', 'bhai', 'karo', 'kese', 'kaise', 'batao', 'karna', 'kya', 'hai', 'hain', 'chahiye', 'hoga', 'mera', 'meri']);
+      return text
+        .toLowerCase()
+        .replace(/[^\w\s]/g, ' ')
+        .split(/\s+/)
+        .filter(t => t.length > 1 && !stopWords.has(t));
+    }
+
+    // Similarity score calculation with phrase, token, and keyword weighing
+    calculateMatchScore(query, intent) {
+      const qLower = query.toLowerCase().trim();
+      const qTokens = this.tokenize(qLower);
+
+      // 1. Exact or partial phrase match
+      for (const phrase of intent.phrases) {
+        const pLower = phrase.toLowerCase();
+        if (qLower === pLower || qLower.includes(pLower) || pLower.includes(qLower)) {
+          return 1.0;
+        }
+      }
+
+      // 2. Keyword overlap & scoring
+      let score = 0;
+      let matchedKeywords = 0;
+
+      for (const kw of intent.keywords) {
+        const kwLower = kw.toLowerCase();
+        if (qLower.includes(kwLower)) {
+          matchedKeywords += 1;
+          score += 0.4;
+        } else {
+          // Token level match
+          for (const token of qTokens) {
+            if (token === kwLower || (token.length > 3 && (kwLower.includes(token) || token.includes(kwLower)))) {
+              matchedKeywords += 1;
+              score += 0.25;
+              break;
+            }
+          }
+        }
+      }
+
+      if (matchedKeywords > 0) {
+        score += (matchedKeywords / Math.max(intent.keywords.length, 1)) * 0.4;
+      }
+
+      return Math.min(score, 0.99);
+    }
+
+    // Continuous Learning Execution
+    learnFromQuery(query, matchedIntent) {
+      this.memory.totalInteractions += 1;
+
+      if (matchedIntent) {
+        matchedIntent.hits = (matchedIntent.hits || 0) + 1;
+
+        // Learn this specific user phrasing if new
+        const cleanQ = query.trim().toLowerCase();
+        if (cleanQ.length > 3 && !matchedIntent.phrases.some(p => p.toLowerCase() === cleanQ)) {
+          matchedIntent.phrases.push(cleanQ);
+          this.memory.learnedPatternsCount = (this.memory.learnedPatternsCount || 0) + 1;
+          console.log(`[Pingu AI Brain] Learned new phrasing for '${matchedIntent.title}': "${cleanQ}" (Total learned: ${this.memory.learnedPatternsCount})`);
+        }
+      } else {
+        // Record unresolved query to continuously refine answers
+        const cleanQ = query.trim();
+        const existing = this.memory.unresolvedQueries.find(u => u.query.toLowerCase() === cleanQ.toLowerCase());
+        if (existing) {
+          existing.count = (existing.count || 1) + 1;
+          existing.lastAsked = new Date().toISOString();
+        } else {
+          this.memory.unresolvedQueries.push({
+            query: cleanQ,
+            count: 1,
+            firstAsked: new Date().toISOString(),
+            lastAsked: new Date().toISOString()
+          });
+        }
+      }
+
+      this.saveMemory();
+    }
+
+    // Add or teach new knowledge dynamically
+    teach(titleOrTopic, keywords, response) {
+      const id = 'custom_' + Date.now();
+      const kwArray = Array.isArray(keywords) 
+        ? keywords 
+        : keywords.split(',').map(k => k.trim()).filter(Boolean);
+
+      const newIntent = {
+        id,
+        title: titleOrTopic,
+        keywords: kwArray.length > 0 ? kwArray : [titleOrTopic.toLowerCase()],
+        phrases: [titleOrTopic.toLowerCase()],
+        hits: 1,
+        response: response,
+        source: 'user_taught',
+        taughtAt: new Date().toISOString()
+      };
+
+      this.memory.intents.unshift(newIntent);
+      this.memory.learnedPatternsCount = (this.memory.learnedPatternsCount || 0) + 1;
+      this.saveMemory();
+      return newIntent;
+    }
+
+    // Query matcher
+    resolveQuery(query) {
+      const qClean = query.trim();
+      let bestIntent = null;
+      let highestScore = 0;
+
+      for (const intent of this.memory.intents) {
+        const score = this.calculateMatchScore(qClean, intent);
+        if (score > highestScore) {
+          highestScore = score;
+          bestIntent = intent;
+        }
+      }
+
+      const isConfident = highestScore >= 0.25;
+      this.learnFromQuery(qClean, isConfident ? bestIntent : null);
+
+      if (isConfident && bestIntent) {
+        return {
+          intent: bestIntent,
+          score: highestScore,
+          response: bestIntent.response,
+          isLearned: bestIntent.source === 'user_taught'
+        };
+      }
+
+      // Adaptive Contextual Fallback
+      return {
+        intent: null,
+        score: highestScore,
+        response: `Noot Noot! 🐧 I've noted that in my memory! At <strong>Samraddhi Marketing</strong>, we engineer tailored growth systems (Video Reels, Meta & Google Ads, #1 Local SEO, Custom Websites & D2C Marketplaces).<br><br>Would you like to get our <strong>Free ₹4,999 Growth Audit</strong> or chat directly with our founder Rahul Soni on WhatsApp (+91 9340722578)?<br><br><em style="font-size:0.75rem; color:#ff70a6;">💡 Tip: You can teach me new custom answers anytime by typing: <code>/teach topic | answer</code></em>`,
+        isLearned: false
+      };
+    }
+
+    getStats() {
+      return {
+        totalInteractions: this.memory.totalInteractions,
+        totalIntents: this.memory.intents.length,
+        learnedPhrases: this.memory.learnedPatternsCount || 0,
+        unresolvedCount: this.memory.unresolvedQueries.length,
+        topIntents: [...this.memory.intents].sort((a, b) => (b.hits || 0) - (a.hits || 0)).slice(0, 6).map(i => ({ title: i.title, hits: i.hits || 0 }))
+      };
+    }
+
+    reset() {
+      localStorage.removeItem(BRAIN_STORAGE_KEY);
+      this.memory = this.loadMemory();
+    }
+  }
+
+  // Instantiate Global Pingu Brain
+  const pinguBrain = new PinguSelfLearningBrain();
+  window.PinguBrain = pinguBrain; // Accessible via browser DevTools console
+
+  // --- 18.2 PINGU 50 WITTY & HUMOROUS PARTING QUOTES ---
+  const PINGU_WITTY_QUOTES = [
+    "Noot Noot! 🐧 Silence is golden, but conversions pay the bills. Waddling away to find fresh fish!",
+    "Pingu waited 60 seconds... that's 7 penguin years! Leaving before my flippers freeze! ❄️",
+    "Even my ice floe moves faster than this conversation! Slide by later when you're ready to scale! 🧊",
+    "Ghosting a penguin? That's cold... even for Antarctica! Noot Noot! 🥶",
+    "I came, I squawked, I saw no reply. Taking a quick belly dive in the Arctic ocean! 🌊",
+    "Procrastination is the thief of ROAS! Waddling off to inspect Meta ad campaigns! 📊",
+    "No reply in 60 seconds? I'm off to teach sea lions how to rank on Google Maps! 🦭",
+    "My beak was ready for high-converting marketing talk, but you're chilling! Catch you later! 🐧",
+    "A wise penguin once said: 'A closed chat catches no customer leads.' Noot Noot! 🚪",
+    "Sleeping on your marketing? Even polar bears wake up to hunt! Waddling out! 🐻‍❄️",
+    "Going once, going twice... sold to the quiet visitor in the back! Bye for now! 🔨",
+    "Pingu's attention span has expired! Time for a snowy ice slide intermission! 🛷",
+    "Marketing without messaging is like a penguin trying to fly: funny, but doesn't work! ✈️",
+    "I'd stay longer, but the Antarctic fresh salmon buffet opens in 5 minutes! 🐟",
+    "I'm not saying you're slow, but my grandma penguin types 40 words per minute! 👵🐧",
+    "Zero clicks, zero replies, 100% mystery. Closing down the igloo for now! 🕵️",
+    "Pingu: 1, Inactivity: 0. Exiting gracefully with an Olympic belly slide! ⛷️",
+    "If silence generated revenue, you'd be a unicorn startup valuation right now! 🦄",
+    "Waddling off! Remember: market leaders don't wait 60 seconds to scale! 🚀",
+    "My flippers are tired from twiddling! Ping me again when you're ready to grow! ⏱️",
+    "Leaving before the frostbite sets in! Keep growing and Noot Noot! ❄️",
+    "You're quieter than an organic post with zero hashtags! Waddling off! 🤫",
+    "A quiet lead is like an unlaunched ad—zero ROAS! Catch Rahul on WhatsApp! 📱",
+    "Pingu's battery-saver mode engaged: Hibernating in 3... 2... 1... 💤",
+    "Heading to the igloo. Don't worry, Rahul Soni is online at +91-9340722578! 📞",
+    "1 minute of silence observed for your marketing budget! Noot Noot! 🕯️",
+    "Even Google SEO spiders crawl faster than this chat! Catch you later! 🕷️",
+    "Off to eat some fresh sushi while you ponder that 7.1x ROAS! 🍣",
+    "Pingu out! Leaving some good vibes and high conversion karma behind! ✨",
+    "You must be optimizing your sales funnel in stealth mode! I'll waddle away! 🥷",
+    "Did the ice freeze your keyboard? Click my launcher whenever you thaw out! 🧊",
+    "They say patience is a virtue, but penguins have snowy peaks to conquer! 🐧",
+    "Leaving faster than a customer bouncing from a slow-loading website! ⚡",
+    "Waddling to the espresso machine—penguin cold-brew takes time! ☕",
+    "If you need me, tap the bubble! Otherwise, stay frosty and keep scaling! 🧊",
+    "No message? No problem! Pingu will be meditating on 10x CTRs! 🧘",
+    "Silence is peaceful, but a 360° growth engine is legendary! Catch you later! 📢",
+    "My penguin supervisor says I can't loiter without an active chat! Bye! 👔",
+    "Waddling away! Don't let your competitors steal your Google Maps #1 rank! 📍",
+    "I gave you 60 seconds of pure AI focus! Heading back to the iceberg! 🏔️",
+    "Are you secretly a bot too? Blink twice if yes! Waddling off! 🤖",
+    "Time is money, and icebergs are melting! Catch you next time! ⏳",
+    "60-second timer dinged! Pingu has left the igloo! 🔔",
+    "I'm off to brainstorm viral reels for Antarctic influencers! 🎬",
+    "Closing chat window! Rahul Soni is still 1 click away on WhatsApp! 💬",
+    "Too busy counting Shopify sales to reply? We love to see it! Bye! 💰",
+    "Pingu's parting advice: Always A/B test your silence! Waddling off! 🧪",
+    "Vanishing like an un-retargeted cart abandoner! Poof! 💨",
+    "Ice ice baby... too quiet to wait any longer! Catch me later! 🎵",
+    "Noot Noot! 🐧 Pingu has left the building! Tap my launcher button when you're back!"
+  ];
+
+  // UI Elements
+  let hasProactiveTriggered = false;
+  let pinguIdleTimer = null;
+  const IDLE_TIMEOUT_MS = 60000; // 1 minute idle limit
+
   const pinguToggleBtn = document.getElementById('pingu-toggle-btn');
   const pinguChatWindow = document.getElementById('pingu-chat-window');
   const closePinguChat = document.getElementById('close-pingu-chat');
   const pinguBubble = document.getElementById('pingu-bubble');
   const closePinguBubble = document.getElementById('close-pingu-bubble');
+  
+  const pinguOptionsView = document.getElementById('pingu-options-view');
+  const pinguLiveChatView = document.getElementById('pingu-live-chat-view');
+  const btnOptionPingu = document.getElementById('btn-option-pingu');
+  const btnBackToOptions = document.getElementById('btn-back-to-options');
+  const btnOptionAdvisor = document.getElementById('btn-option-advisor');
+
   const pinguChatForm = document.getElementById('pingu-chat-form');
   const pinguInput = document.getElementById('pingu-input');
   const pinguChatBody = document.getElementById('pingu-chat-body');
-  const pinguChips = document.querySelectorAll('.pingu-quick-chips .chip-btn');
-
-  let hasProactiveTriggered = false;
+  const compactChips = document.querySelectorAll('.compact-chip');
 
   if (pinguToggleBtn && pinguChatWindow) {
 
-    // Toggle Chat Window
+    // --- IDLE TIMER MANAGEMENT (1 MINUTE DEPARTURE WITH WITTY HUMOUR) ---
+    function getRandomWittyQuote() {
+      const idx = Math.floor(Math.random() * PINGU_WITTY_QUOTES.length);
+      return PINGU_WITTY_QUOTES[idx];
+    }
+
+    function triggerPinguIdleDeparture() {
+      // If chat is not open, do nothing
+      if (pinguChatWindow.style.display === 'none' || !pinguChatWindow.style.display) {
+        return;
+      }
+
+      const wittyQuote = getRandomWittyQuote();
+
+      // If user is currently in live chat view, post the witty farewell message
+      if (pinguLiveChatView && pinguLiveChatView.style.display === 'flex') {
+        addPinguMessage(`${wittyQuote}<br><br><span style="font-size:0.75rem; color:#ff70a6; opacity:0.9;">⏳ <em>(Auto-closing chat after 1 min of inactivity. Tap my icon anytime to reopen!)</em></span>`, false);
+        playSound(480, 'sine', 0.18);
+      }
+
+      // Show toast notification with the witty quote
+      showToast(`🐧 Pingu: ${wittyQuote}`);
+
+      // Gracefully close chat window after 2.8 seconds so user can see the cute goodbye
+      setTimeout(() => {
+        if (pinguChatWindow.style.display === 'flex') {
+          pinguChatWindow.style.display = 'none';
+          playSound(380, 'sine', 0.15);
+
+          // Update floating speech bubble with friendly waddling note
+          if (pinguBubble) {
+            pinguBubble.innerHTML = `<span>Noot Noot! 🐧 Pingu waddled away to grab fish! Tap me whenever you're back.</span><button id="close-pingu-bubble-idle" class="bubble-close-btn">✕</button>`;
+            pinguBubble.style.display = 'flex';
+
+            const idleClose = document.getElementById('close-pingu-bubble-idle');
+            if (idleClose) {
+              idleClose.addEventListener('click', (e) => {
+                e.stopPropagation();
+                pinguBubble.style.display = 'none';
+              });
+            }
+          }
+        }
+      }, 2800);
+    }
+
+    function startPinguIdleTimer() {
+      clearTimeout(pinguIdleTimer);
+      pinguIdleTimer = setTimeout(triggerPinguIdleDeparture, IDLE_TIMEOUT_MS);
+    }
+
+    function resetPinguIdleTimer() {
+      if (pinguChatWindow && pinguChatWindow.style.display === 'flex') {
+        clearTimeout(pinguIdleTimer);
+        pinguIdleTimer = setTimeout(triggerPinguIdleDeparture, IDLE_TIMEOUT_MS);
+      }
+    }
+
+    function stopPinguIdleTimer() {
+      clearTimeout(pinguIdleTimer);
+      pinguIdleTimer = null;
+    }
+
+    // Reset idle timer on any user interaction inside the chat window
+    pinguChatWindow.addEventListener('mousemove', resetPinguIdleTimer, { passive: true });
+    pinguChatWindow.addEventListener('click', resetPinguIdleTimer);
+    pinguChatWindow.addEventListener('keydown', resetPinguIdleTimer);
+
+    // 1. SOUND NOTIFICATION & SPEECH BUBBLE ON INITIAL LOAD (1.5 seconds)
+    // Full chat window remains closed until visitor taps Pingu!
+    setTimeout(() => {
+      if (pinguChatWindow.style.display === 'none' || !pinguChatWindow.style.display) {
+        playPinguNotificationSound();
+        if (pinguBubble) {
+          pinguBubble.innerHTML = `<span>Noot Noot! 🐧 Need help scaling your brand? Tap to chat!</span><button id="close-pingu-bubble-init" class="bubble-close-btn">✕</button>`;
+          pinguBubble.style.display = 'flex';
+
+          const initClose = document.getElementById('close-pingu-bubble-init');
+          if (initClose) {
+            initClose.addEventListener('click', (e) => {
+              e.stopPropagation();
+              pinguBubble.style.display = 'none';
+            });
+          }
+        }
+      }
+    }, 1500);
+
+    // --- INTERACTIVE NOOT NOOT ANIMATION & SOUND TRIGGER ---
+    function triggerPinguNootNootEffect(targetEl) {
+      if (!targetEl) targetEl = document.querySelector('.pingu-hero-avatar-box') || document.querySelector('.launcher-icon-wrapper');
+      if (!targetEl) return;
+
+      resetPinguIdleTimer();
+      playPinguNootNootSound();
+
+      // Trigger excited bounce animation
+      targetEl.classList.remove('pingu-excited-bounce');
+      void targetEl.offsetWidth; // force browser reflow to restart CSS animation
+      targetEl.classList.add('pingu-excited-bounce');
+
+      // Spawn floating cartoon music notes & sparkles
+      const emojis = ['🎺', '✨', '🎵', '🐧', '💖', '⭐', '🎶'];
+      for (let i = 0; i < 6; i++) {
+        const note = document.createElement('span');
+        note.className = 'pingu-floating-note';
+        note.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+        const randX = (Math.random() - 0.5) * 80;
+        const randRot = (Math.random() - 0.5) * 60;
+        note.style.setProperty('--rand-x', `${randX}px`);
+        note.style.setProperty('--rand-rot', `${randRot}deg`);
+        note.style.left = `calc(50% + ${randX * 0.3}px)`;
+        note.style.top = `0px`;
+
+        targetEl.appendChild(note);
+        setTimeout(() => note.remove(), 1200);
+      }
+
+      // Show temporary "NOOT NOOT! 🎺" badge if inside hero avatar box
+      if (targetEl.classList.contains('pingu-hero-avatar-box')) {
+        let badge = targetEl.querySelector('.pingu-noot-bubble-badge');
+        if (!badge) {
+          badge = document.createElement('span');
+          badge.className = 'pingu-noot-bubble-badge';
+          badge.textContent = 'NOOT NOOT! 🎺';
+          targetEl.appendChild(badge);
+        } else {
+          badge.style.display = 'block';
+        }
+        clearTimeout(targetEl._badgeTimer);
+        targetEl._badgeTimer = setTimeout(() => {
+          if (badge) badge.remove();
+        }, 1600);
+      }
+    }
+
+    // Attach interactive Noot Noot click handlers to Pingu avatars
+    const pinguHeroBox = document.querySelector('.pingu-hero-avatar-box');
+    if (pinguHeroBox) {
+      pinguHeroBox.setAttribute('title', 'Tap Pingu for NOOT NOOT! 🎺');
+      pinguHeroBox.addEventListener('click', () => {
+        triggerPinguNootNootEffect(pinguHeroBox);
+      });
+    }
+
+    const pinguLiveTitle = document.querySelector('.pingu-live-title');
+    if (pinguLiveTitle) {
+      pinguLiveTitle.style.cursor = 'pointer';
+      pinguLiveTitle.setAttribute('title', 'Tap Pingu for NOOT NOOT! 🎺');
+      pinguLiveTitle.addEventListener('click', () => {
+        triggerPinguNootNootEffect(pinguHeroBox || pinguLiveTitle);
+      });
+    }
+
+    if (pinguChatBody) {
+      pinguChatBody.addEventListener('click', (e) => {
+        if (e.target.classList.contains('msg-avatar') && e.target.closest('.msg-pingu')) {
+          triggerPinguNootNootEffect(pinguHeroBox || e.target);
+        }
+      });
+    }
+
+    // Toggle Button Handler
     pinguToggleBtn.addEventListener('click', () => {
-      const isVisible = pinguChatWindow.style.display !== 'none';
+      const isVisible = pinguChatWindow.style.display === 'flex';
       pinguChatWindow.style.display = isVisible ? 'none' : 'flex';
       if (pinguBubble) pinguBubble.style.display = 'none';
-      playSound(620, 'sine');
-      if (!isVisible && pinguInput) pinguInput.focus();
+
+      if (!isVisible) {
+        triggerPinguNootNootEffect(pinguHeroBox);
+        startPinguIdleTimer();
+        if (pinguLiveChatView && pinguLiveChatView.style.display === 'flex' && pinguInput) {
+          setTimeout(() => pinguInput.focus(), 150);
+        }
+      } else {
+        playSound(400, 'sine', 0.12);
+        stopPinguIdleTimer();
+      }
     });
+
+    // Clicking Speech Bubble opens the full Pingu Window
+    if (pinguBubble) {
+      pinguBubble.addEventListener('click', (e) => {
+        if (e.target.classList.contains('bubble-close-btn') || e.target.id.includes('close')) return;
+        pinguBubble.style.display = 'none';
+        pinguChatWindow.style.display = 'flex';
+        playSound(620, 'sine', 0.15);
+        startPinguIdleTimer();
+        if (pinguLiveChatView && pinguLiveChatView.style.display === 'flex' && pinguInput) {
+          setTimeout(() => pinguInput.focus(), 150);
+        }
+      });
+    }
 
     if (closePinguChat) {
       closePinguChat.addEventListener('click', () => {
         pinguChatWindow.style.display = 'none';
-        playSound(400, 'sine');
+        stopPinguIdleTimer();
+        playSound(400, 'sine', 0.12);
       });
     }
 
@@ -1680,16 +2486,52 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // 1. SMART AUTO-PROACTIVE ENGAGEMENT TRIGGER (Scroll & Timer)
+    // Switch to Option 1: Continue Chat with Pingu
+    if (btnOptionPingu) {
+      btnOptionPingu.addEventListener('click', () => {
+        resetPinguIdleTimer();
+        if (pinguOptionsView && pinguLiveChatView) {
+          pinguOptionsView.style.display = 'none';
+          pinguLiveChatView.style.display = 'flex';
+          playSound(580, 'sine', 0.15);
+          if (pinguChatBody) pinguChatBody.scrollTop = pinguChatBody.scrollHeight;
+          if (pinguInput) {
+            setTimeout(() => pinguInput.focus(), 100);
+          }
+        }
+      });
+    }
+
+    // Switch to Option 2: Connect to Advisor
+    if (btnOptionAdvisor) {
+      btnOptionAdvisor.addEventListener('click', () => {
+        resetPinguIdleTimer();
+        playSound(880, 'sine', 0.2);
+        showToast('Connecting you with Rahul Soni (Founder) via WhatsApp...');
+      });
+    }
+
+    // Back to 2 Options View
+    if (btnBackToOptions) {
+      btnBackToOptions.addEventListener('click', () => {
+        resetPinguIdleTimer();
+        if (pinguOptionsView && pinguLiveChatView) {
+          pinguLiveChatView.style.display = 'none';
+          pinguOptionsView.style.display = 'flex';
+          playSound(480, 'sine', 0.12);
+        }
+      });
+    }
+
+    // Proactive engagement trigger (Scroll & Timer)
     function triggerProactivePingu() {
       if (hasProactiveTriggered) return;
       hasProactiveTriggered = true;
 
-      // Show Speech Bubble with sound
       if (pinguBubble && pinguChatWindow.style.display === 'none') {
         pinguBubble.innerHTML = `<span>Noot Noot! 🐧 Hey! What are you looking to grow today? (Audit / Website / Ads / Content)</span><button id="close-pingu-bubble-dynamic" class="bubble-close-btn">✕</button>`;
         pinguBubble.style.display = 'flex';
-        playSound(680, 'sine');
+        playPinguNotificationSound();
 
         const dynClose = document.getElementById('close-pingu-bubble-dynamic');
         if (dynClose) {
@@ -1701,18 +2543,18 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // Trigger proactive message after 18s or after 35% scroll
-    setTimeout(triggerProactivePingu, 18000);
+    setTimeout(triggerProactivePingu, 20000);
 
     window.addEventListener('scroll', () => {
-      const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-      if (scrollPercent >= 35) {
+      const scrollPercent = (window.scrollY / ((document.documentElement.scrollHeight - window.innerHeight) || 1)) * 100;
+      if (scrollPercent >= 40) {
         triggerProactivePingu();
       }
     }, { passive: true });
 
-    // 2. CHAT MESSAGE APPEND HELPER
+    // Chat Message Append Helper
     function addPinguMessage(text, isUser = false) {
+      if (!pinguChatBody) return;
       const msgDiv = document.createElement('div');
       msgDiv.className = `chat-msg ${isUser ? 'msg-user' : 'msg-pingu'}`;
       
@@ -1729,79 +2571,93 @@ document.addEventListener('DOMContentLoaded', () => {
       pinguChatBody.scrollTop = pinguChatBody.scrollHeight;
     }
 
-    // 3. ULTRA-SMART MULTI-INTENT AI NLP ENGINE
-    function generatePinguAIResponse(userText) {
-      const query = userText.toLowerCase();
+    // Typing Indicator Helper
+    function showPinguTyping() {
+      if (!pinguChatBody) return null;
+      const typingDiv = document.createElement('div');
+      typingDiv.className = 'chat-msg msg-pingu';
+      typingDiv.id = 'pingu-typing-loader';
+      typingDiv.innerHTML = `
+        <img src="pingu-avatar.jpg" alt="Pingu" class="msg-avatar">
+        <div class="msg-bubble">
+          <div class="typing-dots"><span></span><span></span><span></span></div>
+        </div>
+      `;
+      pinguChatBody.appendChild(typingDiv);
+      pinguChatBody.scrollTop = pinguChatBody.scrollHeight;
+      return typingDiv;
+    }
 
-      playSound(740, 'triangle', 0.1);
+    function removePinguTyping() {
+      const loader = document.getElementById('pingu-typing-loader');
+      if (loader) loader.remove();
+    }
 
-      // GREETINGS & INTROS
-      if (query.includes('hi') || query.includes('hello') || query.includes('hey') || query.includes('namaste') || query.includes('who are you') || query.includes('good morning') || query.includes('good evening')) {
-        return `Noot Noot! 🐧 Hi there! I'm <strong>Pingu</strong>, Samraddhi Marketing's AI Growth Assistant. What are you looking to scale today? Tell me your industry or goal!`;
-      }
+    // Process user queries and handle interactive commands (/teach, /stats, /reset)
+    function processUserMessage(userText) {
+      const rawText = userText.trim();
+      if (!rawText) return;
 
-      // FREE AUDIT (WORTH ₹4,999)
-      if (query.includes('audit') || query.includes('4999') || query.includes('free website audit') || query.includes('scan') || query.includes('check my website')) {
-        return `Noot Noot! 🐧 You can get our <strong>Free Website & Marketing Audit (Worth ₹4,999)</strong>! Enter your website link or social handle in the audit section above:<br><br><a href="#ai-audit" onclick="document.getElementById('pingu-chat-window').style.display='none';" style="color:#ff70a6; font-weight:700;">Click Here to Run Instant Audit ⚡ →</a>`;
-      }
+      resetPinguIdleTimer();
 
-      // PRICING & RETAINERS
-      if (query.includes('price') || query.includes('cost') || query.includes('rate') || query.includes('plan') || query.includes('retainer') || query.includes('budget') || query.includes('how much') || query.includes('fee')) {
-        return `Noot Noot! 🐧 We offer 4 transparent growth retainer plans:<br>• <strong>Starter:</strong> ₹9,999/mo (Socials & Basic SEO)<br>• <strong>Growth:</strong> ₹24,999/mo (Meta/Google Ads & 20 Posts)<br>• <strong>Scale:</strong> ₹49,999/mo (Dedicated Team, Website & AI)<br>• <strong>Enterprise:</strong> Custom Pricing<br><a href="#retainers" onclick="document.getElementById('pingu-chat-window').style.display='none';" style="color:#ff70a6; font-weight:700;">View Retainers & Details →</a>`;
-      }
+      addPinguMessage(rawText, true);
+      playSound(520, 'sine', 0.1);
 
-      // RAHUL SONI & CONTACT / CALL
-      if (query.includes('rahul') || query.includes('founder') || query.includes('call') || query.includes('contact') || query.includes('whatsapp') || query.includes('phone') || query.includes('number') || query.includes('speak') || query.includes('talk') || query.includes('human')) {
-        return `Noot Noot! 🐧 You can talk directly to our founder <strong>Rahul Soni</strong> or book a strategy call!<br>• WhatsApp: <strong>+91-9340722578</strong><br>• Email: <strong>bynamerahul@gmail.com</strong><br><br><a href="https://wa.me/919340722578" target="_blank" style="color:#ff70a6; font-weight:700;">Open WhatsApp Chat Now 💬 →</a>`;
-      }
+      showPinguTyping();
 
-      // CONTENT CREATION, REELS, YOUTUBE & INSTAGRAM
-      if (query.includes('content') || query.includes('reel') || query.includes('instagram') || query.includes('video') || query.includes('youtube') || query.includes('editing') || query.includes('shoot') || query.includes('design')) {
-        return `Noot Noot! 🐧 We handle <strong>100% Done-For-You Content Creation</strong>! On-location & AI video reel shoots, graphic ad design, Instagram handle management, and YouTube channel scaling (as seen in our <strong>Udbhav India</strong> and <strong>Jywas Beauty</strong> case studies)!`;
-      }
+      setTimeout(() => {
+        removePinguTyping();
+        resetPinguIdleTimer();
 
-      // WEBSITE DEVELOPMENT
-      if (query.includes('website') || query.includes('web') || query.includes('shopify') || query.includes('wordpress') || query.includes('portal') || query.includes('speed') || query.includes('redesign')) {
-        return `Noot Noot! 🐧 We engineer sub-second custom websites, B2B wholesale portals, and Shopify D2C storefronts with 95+ PageSpeed scores and 100% full IP ownership!`;
-      }
+        // 1. COMMAND: /teach <question> | <answer>
+        if (rawText.toLowerCase().startsWith('/teach ')) {
+          const teachPayload = rawText.slice(7).trim();
+          const parts = teachPayload.split('|');
+          if (parts.length >= 2) {
+            const questionOrTopic = parts[0].trim();
+            const answer = parts.slice(1).join('|').trim();
+            pinguBrain.teach(questionOrTopic, questionOrTopic, answer);
+            addPinguMessage(`🐧 <strong>Knowledge Learned & Saved!</strong><br>I have permanently memorized: <em>"${questionOrTopic}"</em>.<br>Whenever someone asks about this, I will use this answer! ✨`, false);
+            playPinguNotificationSound();
+            showToast('Pingu Brain updated with new knowledge!');
+            return;
+          } else {
+            addPinguMessage(`🐧 <strong>How to teach me:</strong><br>Format: <code>/teach question or topic | your custom answer</code><br>Example: <code>/teach do you do logo design | Yes, we design complete brand identity systems!</code>`, false);
+            playPinguNotificationSound();
+            return;
+          }
+        }
 
-      // SEO & LOCAL GOOGLE MAPS
-      if (query.includes('seo') || query.includes('google') || query.includes('rank') || query.includes('map') || query.includes('gmb') || query.includes('local')) {
-        return `Noot Noot! 🐧 We specialize in #1 Google Local Map Pack SEO, technical on-page SEO, and keyword optimization to drive high-intent organic calls and walk-in inquiries for local businesses, clinics & institutes!`;
-      }
+        // 2. COMMAND: /stats or /brain
+        if (rawText.toLowerCase() === '/stats' || rawText.toLowerCase() === '/brain') {
+          const stats = pinguBrain.getStats();
+          const topTopics = stats.topIntents.map(t => `• ${t.title} (${t.hits} hits)`).join('<br>');
+          addPinguMessage(`🧠 <strong>Pingu AI Self-Learning Brain Stats</strong>:<br>• Total Interactions: <strong>${stats.totalInteractions}</strong><br>• Learned Phrasing Patterns: <strong>${stats.learnedPhrases}</strong><br>• Knowledge Nodes: <strong>${stats.totalIntents}</strong><br>• Top Inquired Topics:<br>${topTopics || '• General Queries'}<br><br><span style="font-size:0.75rem; color:#94a3b8;">Continuously learning and evolving from every visitor interaction.</span>`, false);
+          playPinguNotificationSound();
+          return;
+        }
 
-      // PERFORMANCE ADS & LEAD GEN
-      if (query.includes('ad') || query.includes('ads') || query.includes('facebook') || query.includes('meta') || query.includes('lead') || query.includes('roas') || query.includes('sales') || query.includes('traffic')) {
-        return `Noot Noot! 🐧 We run scalable Meta & Google Search ad campaigns focusing on CAC reduction and high ROAS (our client average is 7.1x ROAS)!`;
-      }
+        // 3. COMMAND: /reset
+        if (rawText.toLowerCase() === '/reset') {
+          pinguBrain.reset();
+          addPinguMessage(`🐧 <strong>Memory Reset:</strong> Pingu brain restored to factory seed intelligence!`, false);
+          playSound(500, 'sine', 0.15);
+          return;
+        }
 
-      // HEALTHCARE & CLINICS
-      if (query.includes('clinic') || query.includes('doctor') || query.includes('dental') || query.includes('hospital') || query.includes('health') || query.includes('patient')) {
-        return `Noot Noot! 🐧 For Healthcare & Dental Clinics, we deploy #1 Google Map Pack SEO, hyper-local Search Ads, patient booking funnels, and automated WhatsApp appointment reminders!`;
-      }
+        // 4. COMMAND: /help
+        if (rawText.toLowerCase() === '/help') {
+          addPinguMessage(`🐧 <strong>Pingu AI Assistant Commands</strong>:<br>• Type any marketing question to get instant smart answers.<br>• <code>/teach question | answer</code> : Teach me a custom Q&A.<br>• <code>/stats</code> : View my learning statistics.<br>• <code>/reset</code> : Reset learned memory.`, false);
+          playPinguNotificationSound();
+          return;
+        }
 
-      // EDUCATION & COACHING
-      if (query.includes('coaching') || query.includes('institute') || query.includes('school') || query.includes('academy') || query.includes('student') || query.includes('admission')) {
-        return `Noot Noot! 🐧 For Coaching & Institutes, we build student admission lead engines using Meta Lead Ads, demo class landing pages, and counselor CRM routing!`;
-      }
+        // 5. REGULAR QUERY NLP RESOLUTION & SELF-LEARNING
+        const resolution = pinguBrain.resolveQuery(rawText);
+        addPinguMessage(resolution.response, false);
+        playPinguNotificationSound();
 
-      // REAL ESTATE & PROPERTIES
-      if (query.includes('real estate') || query.includes('property') || query.includes('builder') || query.includes('housing') || query.includes('flat') || query.includes('apartment')) {
-        return `Noot Noot! 🐧 For Real Estate Developers, we generate verified High-Net-Worth buyer leads using video property tours, multi-step lead forms, and instant WhatsApp brochure delivery!`;
-      }
-
-      // B2B & MANUFACTURING
-      if (query.includes('b2b') || query.includes('export') || query.includes('manufacturer') || query.includes('wholesale') || query.includes('industrial') || query.includes('machinery')) {
-        return `Noot Noot! 🐧 For B2B Manufacturers & Exporters, we build digital wholesale catalogues with 1-click Request For Quote (RFQ) buttons and global buyer Google Search ads!`;
-      }
-
-      // RESTAURANTS & HOSPITALITY
-      if (query.includes('restaurant') || query.includes('cafe') || query.includes('food') || query.includes('hotel') || query.includes('kitchen')) {
-        return `Noot Noot! 🐧 For Restaurants & Cafes, we drive local foodies via 3-Pack Map SEO, mouth-watering food reels, and 0% commission direct WhatsApp ordering!`;
-      }
-
-      // DEFAULT FALLBACK AI RESPONSE
-      return `Noot Noot! 🐧 At <strong>Samraddhi Marketing</strong>, we build complete 360° growth engines (Branding, Custom Websites, 100% Content Creation, Local SEO & Performance Ads) for startups, clinics, B2B, institutes & retail brands.<br><br>Would you like to get a <strong>Free ₹4,999 Audit</strong> or speak directly with Rahul Soni (+91-9340722578)?`;
+      }, 450);
     }
 
     // Chat Form Submit Handler
@@ -1810,30 +2666,25 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         const userText = pinguInput.value.trim();
         if (!userText) return;
-
-        addPinguMessage(userText, true);
         pinguInput.value = '';
-
-        setTimeout(() => {
-          const aiReply = generatePinguAIResponse(userText);
-          addPinguMessage(aiReply, false);
-        }, 550);
+        processUserMessage(userText);
       });
+
+      pinguInput.addEventListener('input', resetPinguIdleTimer);
+      pinguInput.addEventListener('keydown', resetPinguIdleTimer);
     }
 
-    // Quick Chips Handler
-    pinguChips.forEach(chip => {
+    // Compact Chips Handler
+    compactChips.forEach(chip => {
       chip.addEventListener('click', () => {
+        resetPinguIdleTimer();
         const query = chip.getAttribute('data-query');
         if (query) {
-          addPinguMessage(query, true);
-          setTimeout(() => {
-            const aiReply = generatePinguAIResponse(query);
-            addPinguMessage(aiReply, false);
-          }, 450);
+          processUserMessage(query);
         }
       });
     });
   }
 
 });
+
