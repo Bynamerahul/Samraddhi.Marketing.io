@@ -805,14 +805,14 @@ document.addEventListener('DOMContentLoaded', () => {
       result: "Scaled monthly store revenue with a consistent 4.8x ROAS."
     },
     'case-jywas': {
-      title: "Jywas Beauty - Complete End-to-End Content Creation",
+      title: "Jywas Beauty - Complete Content Creation, Instagram Handling & YouTube Scaling",
       client: "Beauty & Natural Skincare",
       year: "2025",
-      metric: "🎬 Complete End-to-End Content Production & Brand Aesthetics",
-      problem: "Creating consistent, premium visual content, graphic design, and video reels for natural skincare & beauty brand storytelling.",
-      strategy: "Complete End-to-End Content Creation: Scripting, graphic design, video reel editing, copywriting, and visual brand identity.",
-      solution: "Produced end-to-end social media graphic posts, aesthetic video reels, product launch banners, and engaging copy.",
-      result: "Delivered complete 100% end-to-end content creation, elevating brand aesthetics and audience engagement."
+      metric: "🎬 Complete Content Creation + Instagram Handling & YouTube Channel Scaling",
+      problem: "Building a strong visual brand presence and scaling video content reach across Instagram and YouTube for Jywas Beauty.",
+      strategy: "End-to-End Content & Channel Scaling: Scripting, graphic design, video reel editing, long-form YouTube content, full Instagram handle management, and channel SEO.",
+      solution: "Managed complete Instagram page operations, produced aesthetic reels & graphics, and scaled YouTube channel with targeted video content.",
+      result: "Successfully scaled Instagram handle & YouTube channel reach with 100% complete content creation."
     },
     'case-englishcoaching': {
       title: "English Plus Coaching - Admission Campaign",
