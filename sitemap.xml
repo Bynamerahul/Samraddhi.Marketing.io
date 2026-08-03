@@ -3,12 +3,18 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://samraddhimarketing.netlify.app/</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://samraddhimarketing.netlify.app/og-image.svg</image:loc>
       <image:title>Samraddhi Marketing - Full Service Business Growth Agency</image:title>
     </image:image>
+  </url>
+  <url>
+    <loc>https://samraddhimarketing.netlify.app/live-projects.html</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
   </url>
 </urlset>

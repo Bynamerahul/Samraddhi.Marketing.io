@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en" class="has-scrollbar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Projects &amp; Ongoing Work | Samraddhi Marketing</title>
+  <meta name="description" content="Follow live ongoing client projects by Samraddhi Marketing. Track website redesigns, UI/UX progress, B2B portals &amp; e-commerce optimizations in real-time.">
+  <meta name="keywords" content="Samraddhi Live Projects, Website Redesign, OOAK Vogue, Ecommerce Redesign, UI UX Progress, Rahul Soni Growth Agency">
+  <meta name="author" content="Rahul Soni - Samraddhi Marketing">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://samraddhimarketing.netlify.app/live-projects.html">
+
+  <!-- Favicon & Touch Icons -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="samraddhi-india-logo.png">
+
+  <!-- Open Graph Social Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://samraddhimarketing.netlify.app/live-projects.html">
+  <meta property="og:title" content="Live Projects &amp; Real-Time Client Work | Samraddhi Marketing">
+  <meta property="og:description" content="Follow our ongoing work as we build, redesign and optimize digital experiences for our clients. Live progress, timelines &amp; changelogs.">
+  <meta property="og:image" content="https://samraddhimarketing.netlify.app/og-image.svg">
+
+  <!-- Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Lenis Smooth Scroll CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css">
+
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="dark">
+
+  <!-- Custom Pink Glow Cursor System -->
+  <div id="custom-cursor" class="custom-cursor"></div>
+  <div id="cursor-follower" class="cursor-follower"></div>
+  <div id="cursor-radial-glow" class="cursor-radial-glow"></div>
+  <canvas id="cursor-particle-canvas" class="cursor-particle-canvas"></canvas>
+
+  <!-- Page Loader Transition Curtain -->
+  <div id="page-curtain" class="page-curtain">
+    <div class="curtain-content">
+      <img src="samraddhi-india-logo.png" alt="Samraddhi Marketing" class="curtain-brand-img" loading="lazy" decoding="async" width="48" height="48">
+      <span class="curtain-logo">Samraddhi Marketing</span>
+      <div class="curtain-loader-bar"><div class="curtain-progress"></div></div>
+    </div>
+  </div>
+
+  <!-- Ambient Blobs Background -->
+  <div class="ambient-blobs-container">
+    <div class="ambient-blob blob-1"></div>
+    <div class="ambient-blob blob-2"></div>
+    <div class="ambient-blob blob-3"></div>
+  </div>
+
+  <!-- Interactive Fluid Canvas -->
+  <canvas id="fluid-canvas" class="fluid-canvas"></canvas>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="site-head">
+    <div class="head-container magnetic-target">
+      
+      <!-- Official Brand Logo -->
+      <a href="index.html#hero" class="brand-logo magnetic-target">
+        <img src="samraddhi-india-logo.png" alt="Samraddhi Marketing Logo" class="brand-logo-img" loading="lazy" decoding="async" width="28" height="28">
+        <span class="brand-name">Samraddhi<span class="brand-dot">.Marketing</span></span>
+      </a>
+
+      <!-- Desktop Navigation Menu Links -->
+      <nav class="nav-menu">
+        <a href="index.html#about" class="nav-link magnetic-target">About</a>
+        <a href="index.html#founder" class="nav-link magnetic-target">Founder</a>
+        <a href="index.html#ai-audit" class="nav-link highlight-link magnetic-target">AI Audit ⚡</a>
+        <a href="index.html#services" class="nav-link magnetic-target">Services</a>
+        <a href="index.html#retainers" class="nav-link magnetic-target">Retainers</a>
+        <a href="index.html#portfolio" class="nav-link magnetic-target">Work</a>
+        <a href="live-projects.html" class="nav-link active live-nav-link magnetic-target">Live Projects <span class="nav-live-dot"></span></a>
+        <a href="index.html#estimator" class="nav-link magnetic-target">Calculator</a>
+        <a href="index.html#blog" class="nav-link magnetic-target">Insights</a>
+        <a href="index.html#faq" class="nav-link magnetic-target">FAQ</a>
+      </nav>
+
+      <!-- Status & Utility Controls -->
+      <div class="head-actions">
+        <div class="availability-badge">
+          <span class="status-dot pulsing"></span>
+          <span class="status-text">Q3 Open</span>
+        </div>
+
+        <button id="perf-toggle" class="icon-btn magnetic-target" title="Toggle Low-Power Mode" aria-label="Toggle Low Power Mode">
+          <span class="perf-icon">⚡</span>
+        </button>
+
+        <button id="sound-toggle" class="icon-btn magnetic-target" title="Toggle UI Sounds" aria-label="Toggle UI Sounds">
+          <span class="sound-icon">🔊</span>
+        </button>
+
+        <button id="theme-toggle" class="icon-btn magnetic-target" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">
+          <span class="theme-icon">🌙</span>
+        </button>
+
+        <button class="btn btn-primary open-contact-btn desktop-head-cta magnetic-target">
+          <span>Free Strategy Call</span>
+          <span class="btn-arrow">→</span>
+        </button>
+
+        <button id="mobile-menu-toggle" class="mobile-menu-btn icon-btn magnetic-target" aria-label="Toggle Navigation Menu">
+          <span class="burger-bar"></span>
+          <span class="burger-bar"></span>
+          <span class="burger-bar"></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MOBILE SLIDE-OUT DRAWER MENU -->
+  <div id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
+    <div class="mobile-drawer-overlay" id="mobile-drawer-overlay"></div>
+    <div class="mobile-drawer-content">
+      <div class="mobile-drawer-header">
+        <a href="index.html#hero" class="brand-logo">
+          <img src="samraddhi-india-logo.png" alt="Samraddhi Marketing Logo" class="brand-logo-img" loading="lazy" decoding="async" width="28" height="28">
+          <span class="brand-name">Samraddhi<span class="brand-dot">.Marketing</span></span>
+        </a>
+        <button id="close-mobile-drawer" class="icon-btn" aria-label="Close Menu">✕</button>
+      </div>
+
+      <div class="mobile-status-pill">
+        <span class="status-dot pulsing"></span>
+        <span>Accepting Q3 Client Brands</span>
+      </div>
+
+      <nav class="mobile-nav-links">
+        <a href="index.html#about" class="mobile-nav-link"><span>01.</span> About Us</a>
+        <a href="index.html#founder" class="mobile-nav-link"><span>02.</span> Meet Rahul Soni</a>
+        <a href="index.html#services" class="mobile-nav-link"><span>03.</span> Services & Pillars</a>
+        <a href="index.html#retainers" class="mobile-nav-link"><span>04.</span> Retainer Plans</a>
+        <a href="index.html#portfolio" class="mobile-nav-link"><span>05.</span> Case Studies</a>
+        <a href="live-projects.html" class="mobile-nav-link live-mobile-link active"><span>06.</span> Live Projects 🔴</a>
+        <a href="index.html#estimator" class="mobile-nav-link"><span>07.</span> Cost Calculator</a>
+        <a href="index.html#blog" class="mobile-nav-link"><span>08.</span> Insights & Blog</a>
+        <a href="index.html#faq" class="mobile-nav-link"><span>09.</span> FAQ</a>
+        <a href="index.html#newsletter" class="mobile-nav-link"><span>10.</span> Newsletter 💌</a>
+      </nav>
+
+      <div class="mobile-drawer-footer">
+        <button id="mobile-perf-toggle" class="btn btn-secondary btn-block">
+          <span class="perf-toggle-text">⚡ Enable Low-Power Mode</span>
+        </button>
+
+        <button class="btn btn-primary btn-block open-contact-btn mobile-drawer-cta">
+          <span>Book Free Strategy Call →</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main id="main-content">
+    
+    <!-- HERO SECTION -->
+    <section class="live-hero-section section-padding">
+      <div class="container text-center gsap-reveal-header">
+        
+        <div class="live-hero-badge">
+          <span class="live-blinking-dot"></span>
+          <span>REAL-TIME CLIENT DASHBOARD</span>
+        </div>
+
+        <h1 class="live-hero-title">Live Projects</h1>
+
+        <p class="live-hero-sub">
+          Follow our ongoing work as we build, redesign and optimize digital experiences for our clients.
+        </p>
+
+        <!-- Stats Counter Row -->
+        <div class="live-stats-row">
+          <div class="live-stat-item">
+            <span class="stat-num text-gradient pink-glow-text">3</span>
+            <span class="stat-lbl">Active Redesigns In Progress</span>
+          </div>
+          <div class="live-stat-divider"></div>
+          <div class="live-stat-item">
+            <span class="stat-num text-gradient">100%</span>
+            <span class="stat-lbl">Human Strategy + AI Precision</span>
+          </div>
+          <div class="live-stat-divider"></div>
+          <div class="live-stat-item">
+            <span class="stat-num text-gradient pink-glow-text">Weekly</span>
+            <span class="stat-lbl">Milestone Changelogs Updated</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- LIVE PROJECTS GRID SECTION -->
+    <section class="live-projects-section section-padding" id="live-projects">
+      <div class="container">
+        
+        <div id="live-projects-container" class="live-projects-grid">
+          
+          <!-- SPOTLIGHT 1ST LIVE PROJECT: OOAK Vogue (Pre-rendered HTML Fallback & Hydration Target) -->
+          <article class="live-card magnetic-target" data-project-id="ooak-vogue">
+            
+            <!-- Top Card Header Row -->
+            <div class="live-card-top">
+              <div class="live-badge-wrapper">
+                <span class="live-blinking-dot"></span>
+                <span class="live-badge-text">LIVE</span>
+              </div>
+              <span class="industry-badge">Luxury Fashion &amp; Ecommerce</span>
+            </div>
+
+            <!-- Project Name & Status Title -->
+            <div class="live-card-head">
+              <h3 class="live-project-title">OOAK Vogue</h3>
+              <span class="live-status-pill">Website Redesign in Progress</span>
+            </div>
+
+            <p class="live-project-desc">
+              We are redesigning the existing OOAK Vogue website into a modern, premium, mobile-first and conversion-focused digital experience using an AI-assisted workflow while maintaining human-led strategy and creativity.
+            </p>
+
+            <!-- Animated Progress Bar Container -->
+            <div class="progress-section">
+              <div class="progress-header">
+                <span class="progress-label">Completion Status</span>
+                <span class="progress-percent">65%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" data-progress="65" style="width: 65%;"></div>
+              </div>
+              <div class="progress-meta">
+                <span>Target Launch: <strong>Q3 2026 (3 Weeks Remaining)</strong></span>
+              </div>
+            </div>
+
+            <!-- Timeline Stage Checklist -->
+            <div class="timeline-section">
+              <h4 class="timeline-title">Project Stages &amp; Real-time Progress</h4>
+              <div class="timeline-grid">
+                <div class="timeline-step status-completed"><span class="step-icon">✓</span><span class="step-label">Research</span></div>
+                <div class="timeline-step status-completed"><span class="step-icon">✓</span><span class="step-label">Planning</span></div>
+                <div class="timeline-step status-completed"><span class="step-icon">✓</span><span class="step-label">Wireframes</span></div>
+                <div class="timeline-step status-in-progress"><span class="step-icon">🔄</span><span class="step-label">UI Design</span></div>
+                <div class="timeline-step status-in-progress"><span class="step-icon">🔄</span><span class="step-label">Development</span></div>
+                <div class="timeline-step status-upcoming"><span class="step-icon">⏳</span><span class="step-label">Testing</span></div>
+                <div class="timeline-step status-upcoming"><span class="step-icon">⏳</span><span class="step-label">Launch</span></div>
+              </div>
+            </div>
+
+            <!-- Services Included -->
+            <div class="services-section">
+              <h4 class="services-title">Services &amp; Scope Included</h4>
+              <div class="services-pills-row">
+                <span class="service-pill">Website Redesign</span>
+                <span class="service-pill">UI/UX</span>
+                <span class="service-pill">Responsive Design</span>
+                <span class="service-pill">Ecommerce Experience</span>
+                <span class="service-pill">SEO Optimization</span>
+                <span class="service-pill">Performance Optimization</span>
+                <span class="service-pill">AI-assisted Design Workflow</span>
+              </div>
+            </div>
+
+            <!-- Latest Update Preview Callout -->
+            <div class="latest-update-box">
+              <div class="update-box-head">
+                <span class="update-badge">Design Phase</span>
+                <span class="update-date">📅 August 2, 2026</span>
+              </div>
+              <strong class="update-headline">Mobile-First Wireframes &amp; Glassmorphic UI System Approved</strong>
+              <p class="update-summary">Completed and approved 3D product showcase components, fast filter architecture, and dark mode luxury color palette for OOAK Vogue.</p>
+            </div>
+
+            <!-- Bottom Card Action Button -->
+            <div class="live-card-footer">
+              <button class="btn btn-secondary view-progress-btn magnetic-target" onclick="openProjectUpdatesModal('ooak-vogue')">
+                <span>View Progress &amp; Changelog</span>
+                <span class="btn-icon">⚡</span>
+              </button>
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BOTTOM CTA SECTION -->
+    <section class="s-outdated-cta section-padding">
+      <div class="container text-center gsap-reveal-header" style="max-width: 840px;">
+        <div class="cta-badge-pill">
+          <span class="badge-dot"></span>
+          <span>WEBSITE REDESIGN &amp; AUDIT</span>
+        </div>
+        
+        <h2 class="outdated-cta-title">Have an outdated website?</h2>
+
+        <p class="outdated-cta-desc">
+          Let's redesign your website into a modern, fast and conversion-focused digital experience.
+        </p>
+
+        <div class="outdated-cta-actions">
+          <button class="btn btn-primary btn-lg open-contact-btn magnetic-target">
+            <span>Book a Free Website Audit</span>
+            <span class="btn-arrow">→</span>
+          </button>
+          <a href="https://wa.me/919340722578?text=Hi%20Rahul!%20I%20want%20to%20redesign%20my%20website%20with%20Samraddhi%20Marketing." target="_blank" rel="noopener" class="btn btn-secondary btn-lg magnetic-target">
+            <span>Chat on WhatsApp 💬</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-foot">
+    <div class="container foot-container">
+      <div class="foot-left">
+        <span class="foot-logo">
+          <img src="samraddhi-india-logo.png" alt="Samraddhi Marketing Logo" style="height: 24px; vertical-align: middle; margin-right: 6px; border-radius: 3px;" loading="lazy" decoding="async" width="24" height="24">
+          Samraddhi Marketing
+        </span>
+        <span class="foot-copy">© 2026 Samraddhi Marketing (A Sub-Brand of Samraddhi India). All Rights Reserved.</span>
+      </div>
+
+      <div class="foot-center">
+        <div class="live-clock">
+          <span class="clock-icon">🌐</span>
+          <span class="clock-label">Agency Time:</span>
+          <span id="footer-time" class="clock-time">09:17 AM (IST)</span>
+        </div>
+      </div>
+
+      <div class="foot-right">
+        <a href="live-projects.html" class="foot-link magnetic-target" style="color: #ff70a6; font-weight: 600;">Live Projects 🔴</a>
+        <a href="index.html#newsletter" class="foot-link magnetic-target">Newsletter</a>
+        <a href="https://bynamerahul.github.io/Brand-Book-Rahul-Soni/" target="_blank" rel="noopener" class="foot-link magnetic-target">Founder Brand Book</a>
+        <a href="https://instagram.com" target="_blank" rel="noopener" class="foot-link magnetic-target">Instagram</a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener" class="foot-link magnetic-target">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PROJECT UPDATES DETAIL MODAL -->
+  <div id="project-updates-modal" class="modal-overlay" aria-hidden="true" data-lenis-prevent="true">
+    <div class="modal-card project-updates-modal-card" data-lenis-prevent="true">
+      <button class="modal-close-btn magnetic-target" id="close-updates-modal">✕</button>
+      <div id="project-updates-body" class="modal-body">
+        <!-- Dynamically injected via live-projects.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- MULTI-STEP STRATEGY CALL BOOKING MODAL -->
+  <div id="contact-modal" class="modal-overlay" aria-hidden="true" data-lenis-prevent="true">
+    <div class="modal-card contact-modal-card" data-lenis-prevent="true">
+      <button class="modal-close-btn magnetic-target" id="close-contact-modal">✕</button>
+      
+      <div class="contact-modal-header text-center">
+        <div class="modal-badge-pill">🚀 START YOUR GROWTH ENGINE</div>
+        <h3 class="modal-title">Book Strategy Consultation</h3>
+        <p class="modal-subtitle">Direct 1-on-1 session with Rahul Soni (Founder &amp; Growth Architect)</p>
+      </div>
+
+      <div class="contact-modal-body">
+        
+        <div class="form-progress-bar">
+          <div class="form-progress-track">
+            <div id="form-progress-fill" class="form-progress-fill" style="width: 33.33%;"></div>
+          </div>
+          <div class="form-steps-labels">
+            <div class="step-node active" data-step="1">1. Category</div>
+            <div class="step-line"></div>
+            <div class="step-node" data-step="2">2. Goals</div>
+            <div class="step-line"></div>
+            <div class="step-node" data-step="3">3. Contact</div>
+          </div>
+        </div>
+
+        <form id="contact-form" class="contact-form" onsubmit="return false;">
+          
+          <div class="form-step active" data-step-content="1">
+            <label class="form-label">Select Your Business Category</label>
+            <div class="form-grid-pills business-options-grid">
+              
+              <label class="form-pill-label magnetic-target">
+                <input type="radio" name="business_type" value="B2B Exporter & Wholesale" checked>
+                <span class="pill-radio-text">🌐 B2B Exporter & Wholesale</span>
+              </label>
+
+              <label class="form-pill-label magnetic-target">
+                <input type="radio" name="business_type" value="D2C / E-Commerce Brand">
+                <span class="pill-radio-text">🛍️ D2C / E-Commerce Brand</span>
+              </label>
+
+              <label class="form-pill-label magnetic-target">
+                <input type="radio" name="business_type" value="Website Redesign">
+                <span class="pill-radio-text">✨ Website Redesign</span>
+              </label>
+
+            </div>
+
+            <div class="form-actions">
+              <span></span>
+              <button type="button" class="btn btn-primary next-step-btn magnetic-target" data-next="2">Continue to Goals →</button>
+            </div>
+          </div>
+
+          <div class="form-step" data-step-content="2">
+            <div class="form-group">
+              <label class="form-label">Estimated Monthly Investment</label>
+              <select name="budget" class="form-select">
+                <option value="₹25,000 - ₹50,000" selected>₹25,000 – ₹50,000 / month</option>
+                <option value="₹50,000 - ₹1,00,000">₹50,000 – ₹1,00,000 / month</option>
+                <option value="Custom Enterprise">₹1,00,000+ Enterprise</option>
+              </select>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn btn-secondary prev-step-btn magnetic-target" data-prev="1">← Back</button>
+              <button type="button" class="btn btn-primary next-step-btn magnetic-target" data-next="3">Continue to Contact →</button>
+            </div>
+          </div>
+
+          <div class="form-step" data-step-content="3">
+            <div class="form-group">
+              <label class="form-label">Full Name *</label>
+              <input type="text" id="contact-name" name="name" class="form-input" placeholder="e.g. Vikram Sharma" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">WhatsApp / Phone Number *</label>
+              <input type="tel" id="contact-phone" name="phone" class="form-input" placeholder="+91 98765 43210" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Tell Us About Your Brand Goals</label>
+              <textarea id="contact-message" name="message" class="form-textarea" rows="2" placeholder="Website link or redesign goals..."></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn btn-secondary prev-step-btn magnetic-target" data-prev="2">← Back</button>
+              <button type="submit" id="submit-inquiry-btn" class="btn btn-primary magnetic-target">
+                <span>Book Free Call 🚀</span>
+              </button>
+            </div>
+          </div>
+
+        </form>
+
+        <div id="contact-success" class="contact-success-screen" style="display: none;">
+          <div class="success-icon">🎉</div>
+          <h3 class="success-title">Strategy Call Requested!</h3>
+          <p class="success-desc">Thank you for reaching out to Samraddhi Marketing. Opening WhatsApp for instant message confirmation...</p>
+          <button class="btn btn-secondary magnetic-target" id="close-success-btn">Close Window</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST CONTAINER -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- PINGU CHATBOT WIDGET -->
+  <div id="pingu-chatbot-widget" class="pingu-widget">
+    <button id="pingu-toggle-btn" class="intercom-launcher magnetic-target" aria-label="Open Pingu Support">
+      <div class="launcher-icon-wrapper">
+        <img src="pingu-avatar.jpg" alt="Pingu AI" class="launcher-avatar">
+        <span class="launcher-status-dot"></span>
+      </div>
+      <span class="launcher-badge">1</span>
+    </button>
+
+    <div id="pingu-bubble" class="pingu-speech-bubble">
+      <span>Noot Noot! 🐧 Ask me about OOAK Vogue or website redesigns!</span>
+      <button id="close-pingu-bubble" class="bubble-close-btn">✕</button>
+    </div>
+
+    <div id="pingu-chat-window" class="pingu-pop-card" style="display: none;">
+      <button id="close-pingu-chat" class="pingu-top-close" aria-label="Close">✕</button>
+      
+      <div id="pingu-options-view" class="pingu-card-view active-view">
+        <div class="pingu-hero-avatar-box magnetic-target" title="Tap Pingu for NOOT NOOT! 🎺">
+          <img src="pingu-avatar.jpg" alt="Pingu 3D" class="pingu-hero-img">
+        </div>
+
+        <div class="pingu-card-header-text">
+          <h3 class="pingu-card-title">Hi there! 👋</h3>
+          <p class="pingu-card-subtitle">I'm <strong>Pingu</strong>, Samraddhi's AI Growth Guide.<br><span style="font-size:0.75rem; color:#ff70a6; font-weight:600;">✨ Tap me for NOOT NOOT! 🐧🎺</span></p>
+        </div>
+
+        <div class="pingu-two-options">
+          <button id="btn-option-pingu" class="pingu-opt-btn opt-pingu magnetic-target">
+            <div class="opt-icon-badge">🐧</div>
+            <div class="opt-content">
+              <strong>Continue Chat with Pingu</strong>
+              <span>Ask AI about Audits, Live Projects &amp; SEO</span>
+            </div>
+            <div class="opt-arrow">➔</div>
+          </button>
+
+          <a href="https://wa.me/919340722578" target="_blank" id="btn-option-advisor" class="pingu-opt-btn opt-advisor magnetic-target">
+            <div class="opt-icon-badge">📞</div>
+            <div class="opt-content">
+              <strong>Connect me to Advisor</strong>
+              <span>Speak directly with Rahul Soni (Founder)</span>
+            </div>
+            <div class="opt-arrow">➔</div>
+          </a>
+        </div>
+      </div>
+
+      <div id="pingu-live-chat-view" class="pingu-card-view" style="display: none;">
+        <div class="pingu-live-header">
+          <button id="btn-back-to-options" class="pingu-back-btn" title="Back to Options">⬅ Back</button>
+          <div class="pingu-live-title">
+            <img src="pingu-avatar.jpg" alt="Pingu" width="24" height="24" style="border-radius:50%; object-fit:cover;">
+            <span>Pingu AI Assistant</span>
+          </div>
+        </div>
+
+        <div id="pingu-chat-body" class="pingu-compact-chat">
+          <div class="chat-msg msg-pingu">
+            <img src="pingu-avatar.jpg" alt="Pingu" class="msg-avatar">
+            <div class="msg-bubble">
+              <p>Noot Noot! 🐧 Check out our <strong>Live Projects</strong> page or ask me about website redesign timelines!</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pingu-compact-chips">
+          <button class="compact-chip" data-query="Tell me about the OOAK Vogue redesign project">👗 OOAK Vogue</button>
+          <button class="compact-chip" data-query="How do I get the Free ₹4,999 Audit?">🔍 Free Audit</button>
+          <button class="compact-chip" data-query="What are your website redesign timelines?">⏱️ Timelines</button>
+        </div>
+
+        <form id="pingu-chat-form" class="pingu-compact-form">
+          <input type="text" id="pingu-input" placeholder="Type a message to Pingu..." autocomplete="off">
+          <button type="submit" class="pingu-compact-send">Send ➔</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="app.js"></script>
+  <script src="live-projects.js"></script>
+</body>
+</html>
