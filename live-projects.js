@@ -4,6 +4,40 @@
 
 const LIVE_PROJECTS_DATA = [
   {
+    id: "samraddhi-india-marketplace",
+    name: "Samraddhi India Marketplace",
+    industry: "E-Commerce Marketplace & B2B Platform",
+    status: "Flagship Marketplace Project in Development",
+    isFeatured: true,
+    isLive: false,
+    isUpcoming: true,
+    expectedCompletion: "Q4 2026 Platform Launch",
+    category: "upcoming",
+    description: "Designing & engineering the upcoming multi-vendor e-commerce marketplace platform for Samraddhi India to connect Indian artisans, heritage exporters & global buyers on a unified AI-enabled ecosystem.",
+    services: [
+      "Marketplace Platform Architecture",
+      "Multi-Vendor Engine",
+      "UX Strategy & Wireframes",
+      "AI Buyer Matching",
+      "E-Commerce Infrastructure"
+    ],
+    timeline: [
+      { stage: "Strategy", status: "completed", icon: "✓" },
+      { stage: "Architecture", status: "in-progress", icon: "🔄" },
+      { stage: "UI Wireframes", status: "in-progress", icon: "🔄" },
+      { stage: "Development", status: "upcoming", icon: "⏳" },
+      { stage: "Beta Test", status: "upcoming", icon: "⏳" }
+    ],
+    updates: [
+      {
+        date: "August 1, 2026",
+        badge: "Flagship Architecture",
+        title: "Multi-Vendor Database & UI Blueprint Finalized",
+        description: "Completed platform tech stack architecture & B2B wholesale onboarding workflow."
+      }
+    ]
+  },
+  {
     id: "sanskriti-vintage",
     name: "Sanskriti Vintage",
     industry: "Heritage Vintage Sarees & B2B Export",
@@ -181,39 +215,6 @@ const LIVE_PROJECTS_DATA = [
         badge: "Design Phase",
         title: "Mobile-First Wireframes & Glassmorphic UI Approved",
         description: "Completed and approved 3D product showcase components, fast filter architecture, and luxury layout."
-      }
-    ]
-  },
-  {
-    id: "samraddhi-india-marketplace",
-    name: "Samraddhi India Marketplace",
-    industry: "E-Commerce Marketplace & B2B Engine",
-    status: "Upcoming E-Commerce Marketplace",
-    isLive: false,
-    isUpcoming: true,
-    expectedCompletion: "Q4 2026 Platform Launch",
-    category: "upcoming",
-    description: "Designing & engineering the upcoming multi-vendor e-commerce marketplace platform for Samraddhi India to connect Indian artisans, heritage exporters & global buyers on a unified AI-enabled ecosystem.",
-    services: [
-      "Marketplace Platform Architecture",
-      "Multi-Vendor Engine",
-      "UX Strategy & Wireframes",
-      "AI Buyer Matching",
-      "E-Commerce Infrastructure"
-    ],
-    timeline: [
-      { stage: "Strategy", status: "completed", icon: "✓" },
-      { stage: "Architecture", status: "in-progress", icon: "🔄" },
-      { stage: "UI Wireframes", status: "in-progress", icon: "🔄" },
-      { stage: "Development", status: "upcoming", icon: "⏳" },
-      { stage: "Beta Test", status: "upcoming", icon: "⏳" }
-    ],
-    updates: [
-      {
-        date: "August 1, 2026",
-        badge: "Pre-Launch Architecture",
-        title: "Multi-Vendor Database & UI Blueprint Finalized",
-        description: "Completed platform tech stack architecture & B2B wholesale onboarding workflow."
       }
     ]
   },
@@ -548,7 +549,13 @@ function renderLiveProjectsGrid(category = 'all') {
 }
 
 function createProjectCardHTML(p) {
-  const servicesHTML = p.services.map(s => `<span class="service-pill">${s}</span>`).join('');
+  // Compact Service Pills (display top 3 + count pill for clean lightweight UI)
+  const topServices = p.services.slice(0, 3);
+  const remainingCount = p.services.length - 3;
+  let servicesHTML = topServices.map(s => `<span class="service-pill">${s}</span>`).join('');
+  if (remainingCount > 0) {
+    servicesHTML += `<span class="service-pill more-pill">+${remainingCount} more</span>`;
+  }
   
   const timelineHTML = p.timeline.map(t => {
     let statusClass = 'status-upcoming';
@@ -567,24 +574,20 @@ function createProjectCardHTML(p) {
   // Smart logic for Top Badge & Progress Section
   let badgeHTML = '';
   let progressSectionHTML = '';
+  let cardClass = 'live-card magnetic-target';
 
-  if (p.isUpcoming) {
+  if (p.isFeatured) {
+    cardClass = 'live-card featured-card magnetic-target';
+    badgeHTML = `
+      <div class="featured-badge-wrapper">
+        <span>⭐ FLAGSHIP MARKETPLACE</span>
+      </div>
+    `;
+  } else if (p.isUpcoming) {
     badgeHTML = `
       <div class="upcoming-badge-wrapper">
         <span class="upcoming-dot">🚀</span>
         <span class="upcoming-badge-text">UPCOMING PROJECT</span>
-      </div>
-    `;
-    progressSectionHTML = `
-      <div class="progress-section upcoming-section">
-        <div class="progress-header">
-          <span class="progress-label">Project Status</span>
-          <span class="upcoming-status-tag">🚀 Pre-Launch Phase</span>
-        </div>
-        <div class="upcoming-notice-box">
-          <span>📅 Target Launch Date: <strong>${p.expectedCompletion}</strong></span>
-          <p class="upcoming-subtext">Pre-launch brand setup, keyword strategy &amp; store architecture currently in progress.</p>
-        </div>
       </div>
     `;
   } else if (p.isRetainer) {
@@ -594,6 +597,28 @@ function createProjectCardHTML(p) {
         <span class="retainer-badge-text">ACTIVE RETAINER</span>
       </div>
     `;
+  } else {
+    badgeHTML = `
+      <div class="live-badge-wrapper">
+        <span class="live-blinking-dot"></span>
+        <span class="live-badge-text">LIVE PROJECT</span>
+      </div>
+    `;
+  }
+
+  if (p.isUpcoming) {
+    progressSectionHTML = `
+      <div class="progress-section upcoming-section">
+        <div class="progress-header">
+          <span class="progress-label">Project Status</span>
+          <span class="upcoming-status-tag">🚀 Pre-Launch Phase</span>
+        </div>
+        <div class="upcoming-notice-box">
+          <span>📅 Target Launch: <strong>${p.expectedCompletion}</strong></span>
+        </div>
+      </div>
+    `;
+  } else if (p.isRetainer) {
     progressSectionHTML = `
       <div class="progress-section retainer-section">
         <div class="progress-header">
@@ -603,18 +628,9 @@ function createProjectCardHTML(p) {
         <div class="progress-track">
           <div class="progress-fill retainer-fill" style="width: 100%;"></div>
         </div>
-        <div class="progress-meta">
-          <span>Status: <strong>Active Monthly Growth Operations</strong></span>
-        </div>
       </div>
     `;
   } else {
-    badgeHTML = `
-      <div class="live-badge-wrapper">
-        <span class="live-blinking-dot"></span>
-        <span class="live-badge-text">LIVE PROJECT</span>
-      </div>
-    `;
     progressSectionHTML = `
       <div class="progress-section">
         <div class="progress-header">
@@ -625,14 +641,14 @@ function createProjectCardHTML(p) {
           <div class="progress-fill" data-progress="${p.progress}" style="width: 0%;"></div>
         </div>
         <div class="progress-meta">
-          <span>Timeline Status: <strong>${p.expectedCompletion}</strong></span>
+          <span>Timeline: <strong>${p.expectedCompletion}</strong></span>
         </div>
       </div>
     `;
   }
 
   return `
-    <article class="live-card magnetic-target" data-project-id="${p.id}">
+    <article class="${cardClass}" data-project-id="${p.id}">
       
       <!-- Top Card Header Row -->
       <div class="live-card-top">
@@ -642,18 +658,18 @@ function createProjectCardHTML(p) {
 
       <!-- Project Name & Status Title -->
       <div class="live-card-head">
-        <h3 class="live-project-title">${p.name}</h3>
+        <h3 class="live-project-title ${p.isFeatured ? 'featured-flag-title' : ''}">${p.name}</h3>
         <span class="live-status-pill">${p.status}</span>
       </div>
 
-      <p class="live-project-desc">${p.description}</p>
+      <p class="live-project-desc line-clamp-2">${p.description}</p>
 
       <!-- Smart Progress / Status Section -->
       ${progressSectionHTML}
 
       <!-- Timeline Stage Checklist -->
       <div class="timeline-section">
-        <h4 class="timeline-title">Project Stages &amp; Real-time Progress</h4>
+        <h4 class="timeline-title">Project Stages</h4>
         <div class="timeline-grid">
           ${timelineHTML}
         </div>
@@ -661,7 +677,7 @@ function createProjectCardHTML(p) {
 
       <!-- Services Included -->
       <div class="services-section">
-        <h4 class="services-title">Services &amp; Scope Included</h4>
+        <h4 class="services-title">Services Included</h4>
         <div class="services-pills-row">
           ${servicesHTML}
         </div>
@@ -675,15 +691,13 @@ function createProjectCardHTML(p) {
             <span class="update-date">📅 ${latestUpdate.date}</span>
           </div>
           <strong class="update-headline">${latestUpdate.title}</strong>
-          <p class="update-summary">${latestUpdate.description}</p>
         </div>
       ` : ''}
 
       <!-- Bottom Card Action Button -->
       <div class="live-card-footer">
         <button class="btn btn-secondary view-progress-btn magnetic-target" onclick="openProjectUpdatesModal('${p.id}')">
-          <span>View Detailed Progress &amp; Changelog</span>
-          <span class="btn-icon">⚡</span>
+          <span>View Details &amp; Changelog →</span>
         </button>
       </div>
 
@@ -710,6 +724,8 @@ window.openProjectUpdatesModal = function(projectId) {
   const modalBody = document.getElementById('project-updates-body');
   if (!modal || !modalBody) return;
 
+  const fullServicesHTML = p.services.map(s => `<span class="service-pill">${s}</span>`).join('');
+
   const updatesHTML = p.updates.map(u => `
     <div class="update-timeline-item">
       <div class="update-marker"></div>
@@ -727,7 +743,18 @@ window.openProjectUpdatesModal = function(projectId) {
   let modalBadgeText = 'LIVE PROJECT UPDATES';
   let modalProgressBoxHTML = '';
 
-  if (p.isUpcoming) {
+  if (p.isFeatured) {
+    modalBadgeText = '⭐ FLAGSHIP MARKETPLACE PROJECT';
+    modalProgressBoxHTML = `
+      <div class="modal-progress-bar-box flagship-modal-box">
+        <div class="progress-header">
+          <span>Platform Stage: <strong>Pre-Launch Marketplace Architecture</strong></span>
+          <span class="upcoming-status-pill">Target Launch: ${p.expectedCompletion}</span>
+        </div>
+        <p class="upcoming-modal-subtext">Building India's flagship AI-enabled e-commerce marketplace platform for artisans, exporters &amp; global buyers.</p>
+      </div>
+    `;
+  } else if (p.isUpcoming) {
     modalBadgeText = 'UPCOMING PROJECT PRE-LAUNCH';
     modalProgressBoxHTML = `
       <div class="modal-progress-bar-box upcoming-modal-box">
@@ -735,7 +762,6 @@ window.openProjectUpdatesModal = function(projectId) {
           <span>Current Phase: <strong>🚀 Pre-Launch Setup &amp; Architecture</strong></span>
           <span class="upcoming-status-pill">Target Launch: ${p.expectedCompletion}</span>
         </div>
-        <p class="upcoming-modal-subtext">Onboarding and technical architecture underway. Official launch &amp; live sales metrics will go live upon completion of pre-launch setup.</p>
       </div>
     `;
   } else if (p.isRetainer) {
@@ -776,9 +802,21 @@ window.openProjectUpdatesModal = function(projectId) {
       <p class="modal-project-sub">${p.industry} • <strong>${p.status}</strong></p>
     </div>
 
+    <div class="modal-full-desc-box">
+      <h4 class="timeline-heading">Project Overview &amp; Strategy</h4>
+      <p class="modal-desc-text">${p.description}</p>
+    </div>
+
     ${modalProgressBoxHTML}
 
-    <div class="modal-updates-timeline">
+    <div class="modal-services-box">
+      <h4 class="timeline-heading">Full Scope &amp; Services Included</h4>
+      <div class="services-pills-row">
+        ${fullServicesHTML}
+      </div>
+    </div>
+
+    <div class="modal-updates-timeline" style="margin-top: 1.5rem;">
       <h3 class="timeline-heading">📋 Log of Project Milestones &amp; Updates</h3>
       <div class="updates-list">
         ${updatesHTML}
