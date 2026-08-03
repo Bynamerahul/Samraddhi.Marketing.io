@@ -570,19 +570,9 @@ function createProjectCardHTML(p) {
 
   const latestUpdate = p.updates && p.updates.length > 0 ? p.updates[0] : null;
 
-  // Smart logic for Top Badge & Progress Section
+  // Top Badge HTML
   let badgeHTML = '';
-  let progressSectionHTML = '';
-  let cardClass = 'live-card magnetic-target';
-
-  if (p.isFeatured) {
-    cardClass = 'live-card featured-card magnetic-target';
-    badgeHTML = `
-      <div class="featured-badge-wrapper">
-        <span>⭐ FLAGSHIP MARKETPLACE</span>
-      </div>
-    `;
-  } else if (p.isUpcoming) {
+  if (p.isUpcoming) {
     badgeHTML = `
       <div class="upcoming-badge-wrapper">
         <span class="upcoming-dot">🚀</span>
@@ -605,31 +595,9 @@ function createProjectCardHTML(p) {
     `;
   }
 
-  if (p.isUpcoming) {
-    progressSectionHTML = `
-      <div class="progress-section upcoming-section">
-        <div class="progress-header">
-          <span class="progress-label">Project Status</span>
-          <span class="upcoming-status-tag">🚀 Pre-Launch Phase</span>
-        </div>
-        <div class="upcoming-notice-box">
-          <span>📅 Target Launch: <strong>${p.expectedCompletion}</strong></span>
-        </div>
-      </div>
-    `;
-  } else if (p.isRetainer) {
-    progressSectionHTML = `
-      <div class="progress-section retainer-section">
-        <div class="progress-header">
-          <span class="progress-label">Monthly Growth Operations</span>
-          <span class="retainer-status-tag">⚡ 100% Active Operations</span>
-        </div>
-        <div class="progress-track">
-          <div class="progress-fill retainer-fill" style="width: 100%;"></div>
-        </div>
-      </div>
-    `;
-  } else {
+  // Progress Section HTML: ONLY rendered if p.progress is defined (e.g. Website Redesign / Active Build)
+  let progressSectionHTML = '';
+  if (typeof p.progress === 'number' && p.progress > 0) {
     progressSectionHTML = `
       <div class="progress-section">
         <div class="progress-header">
@@ -647,7 +615,7 @@ function createProjectCardHTML(p) {
   }
 
   return `
-    <article class="${cardClass}" data-project-id="${p.id}">
+    <article class="live-card magnetic-target" data-project-id="${p.id}">
       
       <!-- Top Card Header Row -->
       <div class="live-card-top">
@@ -657,13 +625,13 @@ function createProjectCardHTML(p) {
 
       <!-- Project Name & Status Title -->
       <div class="live-card-head">
-        <h3 class="live-project-title ${p.isFeatured ? 'featured-flag-title' : ''}">${p.name}</h3>
+        <h3 class="live-project-title">${p.name}</h3>
         <span class="live-status-pill">${p.status}</span>
       </div>
 
       <p class="live-project-desc line-clamp-2">${p.description}</p>
 
-      <!-- Smart Progress / Status Section -->
+      <!-- Optional Progress Section (Only for Active Builds / Redesigns) -->
       ${progressSectionHTML}
 
       <!-- Timeline Stage Checklist -->
@@ -742,18 +710,7 @@ window.openProjectUpdatesModal = function(projectId) {
   let modalBadgeText = 'LIVE PROJECT UPDATES';
   let modalProgressBoxHTML = '';
 
-  if (p.isFeatured) {
-    modalBadgeText = '⭐ FLAGSHIP MARKETPLACE PROJECT';
-    modalProgressBoxHTML = `
-      <div class="modal-progress-bar-box flagship-modal-box">
-        <div class="progress-header">
-          <span>Platform Stage: <strong>Pre-Launch Marketplace Architecture</strong></span>
-          <span class="upcoming-status-pill">Target Launch: ${p.expectedCompletion}</span>
-        </div>
-        <p class="upcoming-modal-subtext">Building India's flagship AI-enabled e-commerce marketplace platform for artisans, exporters &amp; global buyers.</p>
-      </div>
-    `;
-  } else if (p.isUpcoming) {
+  if (p.isUpcoming) {
     modalBadgeText = 'UPCOMING PROJECT PRE-LAUNCH';
     modalProgressBoxHTML = `
       <div class="modal-progress-bar-box upcoming-modal-box">
@@ -768,11 +725,8 @@ window.openProjectUpdatesModal = function(projectId) {
     modalProgressBoxHTML = `
       <div class="modal-progress-bar-box retainer-modal-box">
         <div class="progress-header">
-          <span>Monthly Retainer Operations</span>
-          <strong style="color: #10b981;">⚡ 100% Active On Track</strong>
-        </div>
-        <div class="progress-track">
-          <div class="progress-fill retainer-fill" style="width: 100%;"></div>
+          <span>Retainer Status</span>
+          <strong style="color: #10b981;">⚡ Active Monthly Operations</strong>
         </div>
       </div>
     `;

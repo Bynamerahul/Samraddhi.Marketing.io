@@ -136,6 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function updateCursorAndParticles() {
+    return; // Custom cursor disabled - using standard browser OS cursor
     if (!isTouchDevice && !prefersReducedMotion && !document.body.classList.contains('animations-off')) {
       const dx = mouse.x - prevMouse.x;
       const dy = mouse.y - prevMouse.y;

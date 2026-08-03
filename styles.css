@@ -70,89 +70,36 @@ html {
   color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  cursor: none;
-}
-
-a, button, input, select, textarea, label {
-  cursor: none !important;
+  cursor: auto !important;
 }
 
 body {
   min-height: 100vh;
   line-height: 1.6;
-}
-
-/* LOW POWER / ECO MODE RULES (DISABLE ANIMATIONS & RESTORE OS CURSOR FOR LOW-END DEVICES) */
-body.animations-off,
-body.animations-off *,
-body.animations-off a,
-body.animations-off button,
-body.animations-off input,
-body.animations-off select,
-body.animations-off textarea,
-body.animations-off label {
-  animation: none !important;
-  transition: none !important;
   cursor: auto !important;
 }
 
-html.animations-off {
-  cursor: auto !important;
+/* STANDARD INTERACTIVE CURSORS */
+a, button, input[type="submit"], input[type="button"], select, label, .btn, .live-filter-chip, .magnetic-target, .icon-btn, [role="button"], .card, .live-card, summary, .nav-link, .brand-logo {
+  cursor: pointer !important;
 }
 
-body.animations-off .ambient-blobs-container,
-body.animations-off .fluid-canvas,
-body.animations-off .cursor-particle-canvas,
-body.animations-off .cursor-radial-glow,
-body.animations-off .custom-cursor,
-body.animations-off .cursor-follower {
+input[type="text"], input[type="email"], input[type="number"], input[type="tel"], textarea {
+  cursor: text !important;
+}
+
+/* REMOVE CUSTOM CURSOR ANIMATIONS AND ELEMENTS */
+.custom-cursor,
+#custom-cursor,
+.cursor-follower,
+.cursor-radial-glow,
+#cursor-radial-glow,
+.cursor-particle-canvas,
+#cursor-particle-canvas {
   display: none !important;
-}
-
-.icon-btn.active-eco {
-  background-color: #ff4d8d !important;
-  color: #ffffff !important;
-  border-color: #ff4d8d !important;
-  box-shadow: 0 0 12px rgba(255, 77, 141, 0.5);
-}
-
-/* Hide Scrollbar for ultra-clean UI while preserving native scroll */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 0px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg-primary);
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 77, 141, 0.5);
-  border-radius: 9999px;
-}
-
-/* ==========================================================================
-   SLEEK GLOWING PINK CURSOR
-   ========================================================================== */
-.custom-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 14px;
-  height: 14px;
-  background-color: #ff4d8d;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 100000;
-  transform: translate3d(-50%, -50%, 0);
-  mix-blend-mode: difference;
-  box-shadow: 0 0 12px #ff4d8d, 0 0 24px rgba(255, 77, 141, 0.8);
-  transition: width 0.2s cubic-bezier(0.23, 1, 0.32, 1), height 0.2s cubic-bezier(0.23, 1, 0.32, 1), background-color 0.2s ease, transform 0.1s ease-out;
-  will-change: transform, width, height;
-}
-
-.cursor-follower {
-  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
 }
 
 .cursor-radial-glow {
@@ -4456,6 +4403,61 @@ html, body {
   padding: 1.15rem;
   border-radius: var(--radius-md);
   margin-top: 1.5rem;
+}
+
+/* COMBINED ABOUT US & MEET THE FOUNDER 2-COLUMN SECTION */
+.s-about-founder {
+  padding: 5rem 0;
+  border-top: 1px solid var(--border-light);
+  background: radial-gradient(circle at 50% 0%, rgba(255, 77, 141, 0.05) 0%, transparent 70%);
+}
+
+.about-founder-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2.25rem;
+  align-items: stretch;
+}
+
+@media (max-width: 991px) {
+  .about-founder-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}
+
+.about-col-card, .founder-col-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(16px);
+  display: flex;
+  flex-direction: column;
+}
+
+.col-title {
+  font-size: clamp(1.3rem, 2.2vw, 1.75rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-top: 0.5rem;
+  margin-bottom: 1.15rem;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.founder-col-card {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.founder-visual-inline {
+  margin: 1.25rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 
