@@ -3608,27 +3608,76 @@ html, body {
 }
 
 /* ==========================================================================
-   LIVE PROJECTS PAGE & COMPONENT STYLES
+   FLOATING LEFT STICKED LIVE PROJECTS BUTTON
    ========================================================================== */
+.sticky-live-btn {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  z-index: 99998;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1.5px solid rgba(239, 68, 68, 0.45);
+  border-radius: var(--radius-full);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18), 0 0 20px rgba(239, 68, 68, 0.25);
+  backdrop-filter: blur(16px);
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.875rem;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.sticky-live-btn:hover {
+  transform: translateY(-4px) scale(1.05);
+  border-color: rgba(239, 68, 68, 0.85);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(239, 68, 68, 0.45);
+  color: #ff4d8d;
+}
+
+.sticky-btn-text {
+  letter-spacing: 0.02em;
+}
+
+.sticky-btn-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background: linear-gradient(135deg, #ff4d8d, #c084fc);
+  color: #ffffff;
+  border-radius: 50%;
+  font-size: 0.725rem;
+  font-weight: 800;
+  box-shadow: 0 0 10px rgba(255, 77, 141, 0.5);
+}
+
+@media (max-width: 576px) {
+  .sticky-live-btn {
+    bottom: 1rem;
+    left: 1rem;
+    padding: 0.6rem 0.95rem;
+    font-size: 0.8rem;
+  }
+  .sticky-btn-text {
+    font-size: 0.775rem;
+  }
+}
 
 /* Nav Live Dot & Blinking Animations */
-.nav-live-dot {
+.nav-live-dot, .live-blinking-dot {
   display: inline-block;
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
   background-color: #ef4444;
   border-radius: 50%;
   margin-left: 4px;
   vertical-align: middle;
-  animation: liveRedBlink 1.2s infinite ease-in-out;
-}
-
-.live-blinking-dot {
-  width: 9px;
-  height: 9px;
-  background-color: #ef4444;
-  border-radius: 50%;
-  display: inline-block;
   animation: liveRedBlink 1.2s infinite ease-in-out;
 }
 
@@ -3639,7 +3688,7 @@ html, body {
     box-shadow: 0 0 10px #ef4444, 0 0 18px rgba(239, 68, 68, 0.8);
   }
   50% {
-    opacity: 0.3;
+    opacity: 0.35;
     transform: scale(0.85);
     box-shadow: 0 0 2px #ef4444;
   }
@@ -3650,7 +3699,7 @@ html, body {
   padding-top: 8.5rem;
   padding-bottom: 3.5rem;
   position: relative;
-  background: radial-gradient(circle at 50% 0%, rgba(255, 77, 141, 0.12) 0%, transparent 60%);
+  background: radial-gradient(circle at 50% 0%, rgba(255, 77, 141, 0.08) 0%, transparent 60%);
 }
 
 .live-hero-badge {
@@ -3658,15 +3707,19 @@ html, body {
   align-items: center;
   gap: 0.5rem;
   padding: 0.45rem 1.1rem;
-  background: rgba(239, 68, 68, 0.12);
-  border: 1px solid rgba(239, 68, 68, 0.35);
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
   border-radius: var(--radius-full);
   font-size: 0.75rem;
   font-weight: 700;
-  color: #f87171;
+  color: #dc2626;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-bottom: 1.25rem;
+}
+
+[data-theme="dark"] .live-hero-badge {
+  color: #f87171;
 }
 
 .live-hero-title {
@@ -3675,9 +3728,7 @@ html, body {
   line-height: 1.1;
   margin-bottom: 1.25rem;
   letter-spacing: -0.02em;
-  background: linear-gradient(135deg, #ffffff 0%, #ff70a6 50%, #c084fc 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--text-primary);
 }
 
 .live-hero-sub {
@@ -3695,11 +3746,11 @@ html, body {
   justify-content: center;
   gap: 2rem;
   padding: 1.25rem 2.25rem;
-  background: rgba(20, 21, 27, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
   backdrop-filter: blur(16px);
   border-radius: var(--radius-lg);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--shadow-md);
 }
 
 .live-stat-item {
@@ -3712,18 +3763,20 @@ html, body {
   font-size: 1.5rem;
   font-weight: 800;
   font-family: var(--font-mono);
+  color: var(--text-primary);
 }
 
 .live-stat-item .stat-lbl {
   font-size: 0.775rem;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   margin-top: 0.2rem;
+  font-weight: 500;
 }
 
 .live-stat-divider {
   width: 1px;
   height: 32px;
-  background: rgba(255, 255, 255, 0.12);
+  background: var(--border-medium);
 }
 
 /* Live Projects Section Grid */
@@ -3740,12 +3793,12 @@ html, body {
 
 /* Live Project Card */
 .live-card {
-  background: rgba(18, 20, 27, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
   border-radius: var(--radius-lg);
   padding: 2.25rem;
   backdrop-filter: blur(16px);
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--shadow-md);
   transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1), border-color 0.35s ease, box-shadow 0.35s ease;
   display: flex;
   flex-direction: column;
@@ -3759,15 +3812,14 @@ html, body {
   top: 0;
   left: 0;
   right: 0;
-  height: 3px;
+  height: 4px;
   background: linear-gradient(90deg, #ff4d8d, #c084fc, #ffe600);
-  opacity: 0.8;
 }
 
 .live-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(255, 112, 166, 0.35);
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 77, 141, 0.15);
+  border-color: #ff4d8d;
+  box-shadow: var(--shadow-lg), 0 0 30px rgba(255, 77, 141, 0.2);
 }
 
 .live-card-top {
@@ -3782,26 +3834,30 @@ html, body {
   align-items: center;
   gap: 0.45rem;
   padding: 0.3rem 0.75rem;
-  background: rgba(239, 68, 68, 0.15);
-  border: 1px solid rgba(239, 68, 68, 0.4);
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.35);
   border-radius: var(--radius-full);
 }
 
 .live-badge-text {
   font-size: 0.7rem;
   font-weight: 800;
-  color: #f87171;
+  color: #dc2626;
   letter-spacing: 0.06em;
+}
+
+[data-theme="dark"] .live-badge-text {
+  color: #f87171;
 }
 
 .industry-badge {
   font-size: 0.75rem;
-  color: var(--text-muted);
-  font-weight: 500;
-  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  font-weight: 600;
+  background: var(--bg-tertiary);
   padding: 0.25rem 0.65rem;
   border-radius: var(--radius-sm);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-light);
 }
 
 .live-card-head {
@@ -3811,7 +3867,7 @@ html, body {
 .live-project-title {
   font-size: 1.75rem;
   font-weight: 800;
-  color: #ffffff;
+  color: var(--text-primary);
   margin-bottom: 0.35rem;
   letter-spacing: -0.01em;
 }
@@ -3819,25 +3875,29 @@ html, body {
 .live-status-pill {
   display: inline-block;
   font-size: 0.825rem;
-  font-weight: 600;
-  color: #ff70a6;
-  background: rgba(255, 112, 166, 0.1);
-  padding: 0.25rem 0.7rem;
+  font-weight: 700;
+  color: #be185d;
+  background: rgba(255, 112, 166, 0.14);
+  padding: 0.25rem 0.75rem;
   border-radius: var(--radius-sm);
-  border: 1px solid rgba(255, 112, 166, 0.2);
+  border: 1px solid rgba(255, 112, 166, 0.35);
+}
+
+[data-theme="dark"] .live-status-pill {
+  color: #ff70a6;
 }
 
 .live-project-desc {
   font-size: 0.925rem;
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.65;
   margin-bottom: 1.75rem;
 }
 
 /* Progress Section */
 .progress-section {
-  background: rgba(10, 11, 15, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-light);
   border-radius: var(--radius-md);
   padding: 1.15rem;
   margin-bottom: 1.75rem;
@@ -3849,24 +3909,28 @@ html, body {
   align-items: center;
   margin-bottom: 0.6rem;
   font-size: 0.85rem;
-  font-weight: 600;
-  color: #ffffff;
+  font-weight: 700;
+  color: var(--text-primary);
 }
 
 .progress-percent {
   font-family: var(--font-mono);
   font-size: 1.05rem;
-  color: #ff70a6;
-  font-weight: 700;
+  color: #d946ef;
+  font-weight: 800;
 }
 
 .progress-track {
   width: 100%;
   height: 10px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.1);
   border-radius: var(--radius-full);
   overflow: hidden;
   position: relative;
+}
+
+[data-theme="dark"] .progress-track {
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .progress-fill {
@@ -3881,7 +3945,7 @@ html, body {
 .progress-meta {
   margin-top: 0.6rem;
   font-size: 0.775rem;
-  color: var(--text-muted);
+  color: var(--text-secondary);
 }
 
 /* Timeline Stages Section */
@@ -3916,26 +3980,34 @@ html, body {
 }
 
 .timeline-step.status-completed {
-  background: rgba(16, 185, 129, 0.12);
-  border-color: rgba(16, 185, 129, 0.3);
+  background: rgba(16, 185, 129, 0.14);
+  border-color: rgba(16, 185, 129, 0.35);
+  color: #047857;
+}
+
+[data-theme="dark"] .timeline-step.status-completed {
   color: #34d399;
 }
 
 .timeline-step.status-in-progress {
-  background: rgba(255, 112, 166, 0.15);
-  border-color: rgba(255, 112, 166, 0.4);
-  color: #ff70a6;
+  background: rgba(255, 112, 166, 0.16);
+  border-color: rgba(255, 112, 166, 0.45);
+  color: #be185d;
   animation: pulseInProg 2s infinite ease-in-out;
 }
 
+[data-theme="dark"] .timeline-step.status-in-progress {
+  color: #ff70a6;
+}
+
 @keyframes pulseInProg {
-  0%, 100% { border-color: rgba(255, 112, 166, 0.4); }
-  50% { border-color: rgba(255, 112, 166, 0.8); box-shadow: 0 0 10px rgba(255, 112, 166, 0.3); }
+  0%, 100% { border-color: rgba(255, 112, 166, 0.45); }
+  50% { border-color: rgba(255, 112, 166, 0.85); box-shadow: 0 0 10px rgba(255, 112, 166, 0.3); }
 }
 
 .timeline-step.status-upcoming {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(255, 255, 255, 0.08);
+  background: var(--bg-tertiary);
+  border-color: var(--border-light);
   color: var(--text-muted);
 }
 
@@ -3952,27 +4024,31 @@ html, body {
 
 .service-pill {
   font-size: 0.75rem;
+  font-weight: 600;
   color: var(--text-secondary);
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-light);
   padding: 0.3rem 0.65rem;
   border-radius: var(--radius-sm);
   transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 .service-pill:hover {
-  background: rgba(255, 112, 166, 0.1);
-  border-color: rgba(255, 112, 166, 0.3);
-  color: #ffffff;
+  background: rgba(255, 112, 166, 0.15);
+  border-color: #ff4d8d;
+  color: var(--text-primary);
 }
 
 /* Latest Update Preview Box */
 .latest-update-box {
-  background: rgba(255, 255, 255, 0.03);
-  border-left: 3px solid #ff70a6;
-  padding: 1rem;
+  background: var(--bg-tertiary);
+  border-left: 4px solid #ff4d8d;
+  padding: 1rem 1.15rem;
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
   margin-bottom: 1.75rem;
+  border-top: 1px solid var(--border-light);
+  border-right: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
 }
 
 .update-box-head {
@@ -3984,10 +4060,14 @@ html, body {
 
 .update-badge {
   font-size: 0.7rem;
-  font-weight: 700;
-  color: #c084fc;
+  font-weight: 800;
+  color: #7c3aed;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+}
+
+[data-theme="dark"] .update-badge {
+  color: #c084fc;
 }
 
 .update-date {
@@ -3998,14 +4078,15 @@ html, body {
 .update-headline {
   display: block;
   font-size: 0.875rem;
-  color: #ffffff;
+  font-weight: 700;
+  color: var(--text-primary);
   margin-bottom: 0.25rem;
 }
 
 .update-summary {
   font-size: 0.8rem;
   color: var(--text-secondary);
-  line-height: 1.5;
+  line-height: 1.55;
   margin: 0;
 }
 
@@ -4022,9 +4103,9 @@ html, body {
 
 /* Outdated Website Bottom CTA Section */
 .s-outdated-cta {
-  background: radial-gradient(circle at 50% 100%, rgba(255, 77, 141, 0.14) 0%, transparent 70%);
+  background: radial-gradient(circle at 50% 100%, rgba(255, 77, 141, 0.12) 0%, transparent 70%);
   padding: 5rem 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--border-light);
 }
 
 .cta-badge-pill {
@@ -4036,16 +4117,20 @@ html, body {
   border: 1px solid rgba(255, 77, 141, 0.35);
   border-radius: var(--radius-full);
   font-size: 0.75rem;
-  font-weight: 700;
-  color: #ff70a6;
+  font-weight: 800;
+  color: #be185d;
   letter-spacing: 0.08em;
   margin-bottom: 1.25rem;
+}
+
+[data-theme="dark"] .cta-badge-pill {
+  color: #ff70a6;
 }
 
 .outdated-cta-title {
   font-size: clamp(2rem, 4.5vw, 3.5rem);
   font-weight: 800;
-  color: #ffffff;
+  color: var(--text-primary);
   margin-bottom: 1rem;
   letter-spacing: -0.02em;
 }
@@ -4068,6 +4153,8 @@ html, body {
 /* Modal Updates Timeline */
 .project-updates-modal-card {
   max-width: 680px !important;
+  background: var(--bg-card) !important;
+  color: var(--text-primary) !important;
 }
 
 .modal-project-header {
@@ -4077,7 +4164,7 @@ html, body {
 .modal-project-name {
   font-size: 1.85rem;
   font-weight: 800;
-  color: #ffffff;
+  color: var(--text-primary);
   margin-top: 0.5rem;
   margin-bottom: 0.25rem;
 }
@@ -4088,17 +4175,17 @@ html, body {
 }
 
 .modal-progress-bar-box {
-  background: rgba(10, 11, 15, 0.6);
+  background: var(--bg-tertiary);
   padding: 1rem 1.25rem;
   border-radius: var(--radius-md);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-light);
   margin-bottom: 1.75rem;
 }
 
 .timeline-heading {
   font-size: 1rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--text-primary);
   margin-bottom: 1.25rem;
 }
 
@@ -4108,7 +4195,7 @@ html, body {
   gap: 1.25rem;
   position: relative;
   padding-left: 1.25rem;
-  border-left: 2px solid rgba(255, 112, 166, 0.3);
+  border-left: 2px solid rgba(255, 112, 166, 0.35);
 }
 
 .update-timeline-item {
@@ -4136,10 +4223,14 @@ html, body {
 .update-badge-pill {
   font-size: 0.7rem;
   font-weight: 700;
-  color: #c084fc;
-  background: rgba(192, 132, 252, 0.12);
+  color: #7c3aed;
+  background: rgba(192, 132, 252, 0.15);
   padding: 0.2rem 0.55rem;
   border-radius: var(--radius-sm);
+}
+
+[data-theme="dark"] .update-badge-pill {
+  color: #c084fc;
 }
 
 .update-time {
@@ -4150,7 +4241,7 @@ html, body {
 .update-item-title {
   font-size: 1rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--text-primary);
   margin-bottom: 0.3rem;
 }
 
@@ -4164,7 +4255,7 @@ html, body {
 .modal-footer-cta {
   margin-top: 2rem;
   padding-top: 1.25rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--border-light);
   text-align: center;
 }
 
@@ -4202,4 +4293,5 @@ html, body {
     width: 100%;
   }
 }
+
 
