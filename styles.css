@@ -4274,4 +4274,107 @@ html, body {
   box-shadow: 0 6px 20px rgba(255, 77, 141, 0.4);
 }
 
+/* Upcoming Projects & Retainers Custom Badges & Boxes */
+.upcoming-badge-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.75rem;
+  background: rgba(124, 58, 237, 0.12);
+  border: 1px solid rgba(124, 58, 237, 0.35);
+  border-radius: var(--radius-full);
+}
+
+.upcoming-badge-text {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #7c3aed;
+  letter-spacing: 0.06em;
+}
+
+.retainer-badge-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.75rem;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  border-radius: var(--radius-full);
+}
+
+.retainer-badge-text {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #047857;
+  letter-spacing: 0.06em;
+}
+
+.upcoming-status-tag {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #7c3aed;
+  background: rgba(124, 58, 237, 0.12);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(124, 58, 237, 0.25);
+}
+
+.retainer-status-tag {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #047857;
+  background: rgba(16, 185, 129, 0.12);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.upcoming-notice-box {
+  margin-top: 0.5rem;
+  padding: 0.6rem 0.85rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+}
+
+.upcoming-notice-box span {
+  font-size: 0.825rem;
+  color: var(--text-primary);
+}
+
+.upcoming-subtext {
+  font-size: 0.775rem;
+  color: var(--text-secondary);
+  margin-top: 0.35rem;
+  margin-bottom: 0;
+  line-height: 1.45;
+}
+
+.upcoming-modal-box {
+  background: rgba(124, 58, 237, 0.06) !important;
+  border-color: rgba(124, 58, 237, 0.2) !important;
+}
+
+.upcoming-status-pill {
+  font-size: 0.775rem;
+  font-weight: 700;
+  color: #7c3aed;
+  background: rgba(124, 58, 237, 0.12);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-sm);
+}
+
+.upcoming-modal-subtext {
+  font-size: 0.825rem;
+  color: var(--text-secondary);
+  margin-top: 0.6rem;
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+.retainer-fill {
+  background: linear-gradient(90deg, #10b981, #34d399) !important;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.5) !important;
+}
+
 

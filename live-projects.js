@@ -9,7 +9,7 @@ const LIVE_PROJECTS_DATA = [
     industry: "Heritage Vintage Sarees & B2B Export",
     status: "Brand Manager (Complete Operations Excl. Shipping)",
     isLive: true,
-    progress: 88,
+    isRetainer: true,
     expectedCompletion: "Ongoing Retainer",
     category: "brand-mgmt",
     description: "Samraddhi Marketing acts as the complete Brand Manager for Sanskriti Vintage. We handle end-to-end B2B export portals, product AI image generation, Etsy/Ebay listing SEO, performance ads, lead funnels & full brand operations (excluding logistics & shipping).",
@@ -51,7 +51,7 @@ const LIVE_PROJECTS_DATA = [
     industry: "Personal Brand & Creator Media",
     status: "Full Content Engine & YouTube Management",
     isLive: true,
-    progress: 75,
+    isRetainer: true,
     expectedCompletion: "Active Media Retainer",
     category: "content",
     description: "Complete content creation & media growth engine for JYWAS. We produce, edit & manage short-form Reels, long-form videos, custom graphic design, YouTube channel management & social media handle strategy.",
@@ -86,7 +86,7 @@ const LIVE_PROJECTS_DATA = [
     industry: "Education & Brand Media",
     status: "On-Site Shoot & Complete Media Production",
     isLive: true,
-    progress: 70,
+    isRetainer: true,
     expectedCompletion: "Active Media Retainer",
     category: "content",
     description: "End-to-end media production & branding for Udbhav. We conduct on-site video/photo shoots, handle complete brand strategy, edit high-converting Reels, design brand collateral & manage YouTube + social handles.",
@@ -118,9 +118,9 @@ const LIVE_PROJECTS_DATA = [
     id: "adr-craft-store",
     name: "ADR Craft Store",
     industry: "Handicrafts & Artisanal Decor",
-    status: "Upcoming Etsy Store Project",
-    isLive: true,
-    progress: 30,
+    status: "Upcoming Etsy Store Launch",
+    isLive: false,
+    isUpcoming: true,
     expectedCompletion: "Q3 2026 (Launch in 2 Weeks)",
     category: "upcoming",
     description: "Upcoming Etsy store launch for ADR Craft Store. Setting up international Etsy listing SEO, product AI photography, banner design, tags research & global export store configuration.",
@@ -141,7 +141,7 @@ const LIVE_PROJECTS_DATA = [
     updates: [
       {
         date: "August 3, 2026",
-        badge: "Etsy Launch",
+        badge: "Etsy Pre-Launch",
         title: "Etsy Keyword Architecture & Banner Approved",
         description: "Mapped top 50 global handicraft search tags and finalized store branding guidelines."
       }
@@ -153,6 +153,7 @@ const LIVE_PROJECTS_DATA = [
     industry: "Luxury Fashion & Ecommerce",
     status: "Website Redesign in Progress",
     isLive: true,
+    isRetainer: false,
     progress: 65,
     expectedCompletion: "Q3 2026 (3 Weeks Remaining)",
     category: "redesign",
@@ -188,8 +189,8 @@ const LIVE_PROJECTS_DATA = [
     name: "Samraddhi India Marketplace",
     industry: "E-Commerce Marketplace & B2B Engine",
     status: "Upcoming E-Commerce Marketplace",
-    isLive: true,
-    progress: 40,
+    isLive: false,
+    isUpcoming: true,
     expectedCompletion: "Q4 2026 Platform Launch",
     category: "upcoming",
     description: "Designing & engineering the upcoming multi-vendor e-commerce marketplace platform for Samraddhi India to connect Indian artisans, heritage exporters & global buyers on a unified AI-enabled ecosystem.",
@@ -210,7 +211,7 @@ const LIVE_PROJECTS_DATA = [
     updates: [
       {
         date: "August 1, 2026",
-        badge: "Marketplace",
+        badge: "Pre-Launch Architecture",
         title: "Multi-Vendor Database & UI Blueprint Finalized",
         description: "Completed platform tech stack architecture & B2B wholesale onboarding workflow."
       }
@@ -222,7 +223,7 @@ const LIVE_PROJECTS_DATA = [
     industry: "Handicrafts & Indian Folk Art",
     status: "Active Etsy Store Management",
     isLive: true,
-    progress: 82,
+    isRetainer: true,
     expectedCompletion: "Ongoing Retainer",
     category: "marketplaces",
     description: "Managing Kreatvkraft's Etsy store with custom branding, AI-enhanced product photos, global keyword tags & performance marketing for artisanal Indian crafts.",
@@ -255,7 +256,7 @@ const LIVE_PROJECTS_DATA = [
     industry: "Heritage Antiques & Fine Art",
     status: "Active Ebay Global Store",
     isLive: true,
-    progress: 85,
+    isRetainer: true,
     expectedCompletion: "Ongoing Retainer",
     category: "marketplaces",
     description: "Managing Antique Art of India's global Ebay store featuring rare heritage artifacts, antique Indian art, automated buyer negotiation funnels & international listing SEO.",
@@ -287,6 +288,7 @@ const LIVE_PROJECTS_DATA = [
     industry: "Luxury Fine Jewellery & Gems",
     status: "Catalogue Design & Product AI Shots",
     isLive: true,
+    isRetainer: false,
     progress: 60,
     expectedCompletion: "Q3 2026 (2 Weeks Remaining)",
     category: "redesign",
@@ -319,7 +321,7 @@ const LIVE_PROJECTS_DATA = [
     industry: "Handicraft Goods & Home Decor Export",
     status: "B2B Export Catalogue & Ads",
     isLive: true,
-    progress: 78,
+    isRetainer: true,
     expectedCompletion: "Ongoing Retainer",
     category: "brand-mgmt",
     description: "Full B2B catalogue design, digital marketing & international lead generation for Mayur Handicraft Goods scaling export orders across US, Europe & UAE.",
@@ -350,6 +352,7 @@ const LIVE_PROJECTS_DATA = [
     industry: "Ayurveda & D2C Wellness",
     status: "Shopify Store & 5x ROAS Ads",
     isLive: true,
+    isRetainer: false,
     progress: 90,
     expectedCompletion: "Launch Next Week",
     category: "redesign",
@@ -381,6 +384,7 @@ const LIVE_PROJECTS_DATA = [
     industry: "Real Estate & Commercial",
     status: "On-Site Drone Shoot & Lead Funnel",
     isLive: true,
+    isRetainer: false,
     progress: 50,
     expectedCompletion: "Q4 2026",
     category: "content",
@@ -411,7 +415,7 @@ const LIVE_PROJECTS_DATA = [
     industry: "Healthcare & Local Clinic",
     status: "24/7 AI Patient Funnel & Local SEO",
     isLive: true,
-    progress: 72,
+    isRetainer: true,
     expectedCompletion: "Active Retainer",
     category: "brand-mgmt",
     description: "Deploying 24/7 AI WhatsApp patient appointment booking, local clinic website & Google Maps Local SEO dominance for regional patients.",
@@ -441,7 +445,7 @@ const LIVE_PROJECTS_DATA = [
     industry: "Apparel & Festive Fashion",
     status: "Reels Shoot & Influencer Lookbooks",
     isLive: true,
-    progress: 68,
+    isRetainer: true,
     expectedCompletion: "Active Media Retainer",
     category: "content",
     description: "On-site model shoots, short-form Reels editing, lookbook cataloguing & Instagram growth management for festive ethnic wear.",
@@ -471,7 +475,7 @@ const LIVE_PROJECTS_DATA = [
     industry: "Restaurant & Hospitality",
     status: "Food Videography & Local Ads",
     isLive: true,
-    progress: 80,
+    isRetainer: true,
     expectedCompletion: "Ongoing Retainer",
     category: "content",
     description: "High-end food videography, Zomato/Swiggy menu optimization, Instagram Reels & local Google Ads driving weekend footfall.",
@@ -560,27 +564,58 @@ function createProjectCardHTML(p) {
 
   const latestUpdate = p.updates && p.updates.length > 0 ? p.updates[0] : null;
 
-  return `
-    <article class="live-card magnetic-target" data-project-id="${p.id}">
-      
-      <!-- Top Card Header Row -->
-      <div class="live-card-top">
-        <div class="live-badge-wrapper">
-          <span class="live-blinking-dot"></span>
-          <span class="live-badge-text">LIVE PROJECT</span>
+  // Smart logic for Top Badge & Progress Section
+  let badgeHTML = '';
+  let progressSectionHTML = '';
+
+  if (p.isUpcoming) {
+    badgeHTML = `
+      <div class="upcoming-badge-wrapper">
+        <span class="upcoming-dot">🚀</span>
+        <span class="upcoming-badge-text">UPCOMING PROJECT</span>
+      </div>
+    `;
+    progressSectionHTML = `
+      <div class="progress-section upcoming-section">
+        <div class="progress-header">
+          <span class="progress-label">Project Status</span>
+          <span class="upcoming-status-tag">🚀 Pre-Launch Phase</span>
         </div>
-        <span class="industry-badge">${p.industry}</span>
+        <div class="upcoming-notice-box">
+          <span>📅 Target Launch Date: <strong>${p.expectedCompletion}</strong></span>
+          <p class="upcoming-subtext">Pre-launch brand setup, keyword strategy &amp; store architecture currently in progress.</p>
+        </div>
       </div>
-
-      <!-- Project Name & Status Title -->
-      <div class="live-card-head">
-        <h3 class="live-project-title">${p.name}</h3>
-        <span class="live-status-pill">${p.status}</span>
+    `;
+  } else if (p.isRetainer) {
+    badgeHTML = `
+      <div class="retainer-badge-wrapper">
+        <span class="retainer-dot">⚡</span>
+        <span class="retainer-badge-text">ACTIVE RETAINER</span>
       </div>
-
-      <p class="live-project-desc">${p.description}</p>
-
-      <!-- Animated Progress Bar Container -->
+    `;
+    progressSectionHTML = `
+      <div class="progress-section retainer-section">
+        <div class="progress-header">
+          <span class="progress-label">Monthly Growth Operations</span>
+          <span class="retainer-status-tag">⚡ 100% Active Operations</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill retainer-fill" style="width: 100%;"></div>
+        </div>
+        <div class="progress-meta">
+          <span>Status: <strong>Active Monthly Growth Operations</strong></span>
+        </div>
+      </div>
+    `;
+  } else {
+    badgeHTML = `
+      <div class="live-badge-wrapper">
+        <span class="live-blinking-dot"></span>
+        <span class="live-badge-text">LIVE PROJECT</span>
+      </div>
+    `;
+    progressSectionHTML = `
       <div class="progress-section">
         <div class="progress-header">
           <span class="progress-label">Completion Status</span>
@@ -593,6 +628,28 @@ function createProjectCardHTML(p) {
           <span>Timeline Status: <strong>${p.expectedCompletion}</strong></span>
         </div>
       </div>
+    `;
+  }
+
+  return `
+    <article class="live-card magnetic-target" data-project-id="${p.id}">
+      
+      <!-- Top Card Header Row -->
+      <div class="live-card-top">
+        ${badgeHTML}
+        <span class="industry-badge">${p.industry}</span>
+      </div>
+
+      <!-- Project Name & Status Title -->
+      <div class="live-card-head">
+        <h3 class="live-project-title">${p.name}</h3>
+        <span class="live-status-pill">${p.status}</span>
+      </div>
+
+      <p class="live-project-desc">${p.description}</p>
+
+      <!-- Smart Progress / Status Section -->
+      ${progressSectionHTML}
 
       <!-- Timeline Stage Checklist -->
       <div class="timeline-section">
@@ -638,7 +695,9 @@ function animateProgressBars() {
   const fills = document.querySelectorAll('.progress-fill');
   fills.forEach(fill => {
     const target = fill.getAttribute('data-progress');
-    fill.style.width = target + '%';
+    if (target) {
+      fill.style.width = target + '%';
+    }
   });
 }
 
@@ -665,25 +724,59 @@ window.openProjectUpdatesModal = function(projectId) {
     </div>
   `).join('');
 
+  let modalBadgeText = 'LIVE PROJECT UPDATES';
+  let modalProgressBoxHTML = '';
+
+  if (p.isUpcoming) {
+    modalBadgeText = 'UPCOMING PROJECT PRE-LAUNCH';
+    modalProgressBoxHTML = `
+      <div class="modal-progress-bar-box upcoming-modal-box">
+        <div class="progress-header">
+          <span>Current Phase: <strong>🚀 Pre-Launch Setup &amp; Architecture</strong></span>
+          <span class="upcoming-status-pill">Target Launch: ${p.expectedCompletion}</span>
+        </div>
+        <p class="upcoming-modal-subtext">Onboarding and technical architecture underway. Official launch &amp; live sales metrics will go live upon completion of pre-launch setup.</p>
+      </div>
+    `;
+  } else if (p.isRetainer) {
+    modalBadgeText = 'ACTIVE RETAINER UPDATES';
+    modalProgressBoxHTML = `
+      <div class="modal-progress-bar-box retainer-modal-box">
+        <div class="progress-header">
+          <span>Monthly Retainer Operations</span>
+          <strong style="color: #10b981;">⚡ 100% Active On Track</strong>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill retainer-fill" style="width: 100%;"></div>
+        </div>
+      </div>
+    `;
+  } else {
+    modalBadgeText = 'LIVE REDESIGN UPDATES';
+    modalProgressBoxHTML = `
+      <div class="modal-progress-bar-box">
+        <div class="progress-header">
+          <span>Overall Project Completion</span>
+          <strong style="color: #d946ef;">${p.progress}%</strong>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" style="width: ${p.progress}%;"></div>
+        </div>
+      </div>
+    `;
+  }
+
   modalBody.innerHTML = `
     <div class="modal-project-header">
       <div class="live-badge-wrapper">
         <span class="live-blinking-dot"></span>
-        <span class="live-badge-text">LIVE PROJECT UPDATES</span>
+        <span class="live-badge-text">${modalBadgeText}</span>
       </div>
       <h2 class="modal-project-name">${p.name}</h2>
       <p class="modal-project-sub">${p.industry} • <strong>${p.status}</strong></p>
     </div>
 
-    <div class="modal-progress-bar-box">
-      <div class="progress-header">
-        <span>Overall Project Completion</span>
-        <strong style="color: #d946ef;">${p.progress}%</strong>
-      </div>
-      <div class="progress-track">
-        <div class="progress-fill" style="width: ${p.progress}%;"></div>
-      </div>
-    </div>
+    ${modalProgressBoxHTML}
 
     <div class="modal-updates-timeline">
       <h3 class="timeline-heading">📋 Log of Project Milestones &amp; Updates</h3>
