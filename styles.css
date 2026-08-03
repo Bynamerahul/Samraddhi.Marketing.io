@@ -907,19 +907,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .s-about .container {
-  max-width: 1380px !important;
+  max-width: 1550px !important;
+  width: 95% !important;
 }
 
 .about-card {
   background: var(--bg-card);
   border: 1.5px solid var(--border-medium);
   border-radius: var(--radius-lg);
-  padding: 2.25rem 3rem;
+  padding: 2.75rem 4rem;
   box-shadow: var(--shadow-md);
   width: 100%;
   position: relative;
   overflow: hidden;
   backdrop-filter: blur(16px);
+  min-height: 440px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   transition: border-color var(--transition-smooth), box-shadow var(--transition-smooth);
 }
 
@@ -930,31 +935,31 @@ h1, h2, h3, h4, h5, h6 {
 
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 1.75fr;
-  gap: 3.5rem;
+  grid-template-columns: 1.1fr 1.9fr;
+  gap: 4rem;
   align-items: center;
 }
 
 .about-title {
-  font-size: clamp(1.75rem, 3vw, 2.35rem);
+  font-size: clamp(1.85rem, 3.2vw, 2.6rem);
   font-weight: 800;
   color: var(--text-primary);
   margin-top: 0.5rem;
-  line-height: 1.25;
-  letter-spacing: -0.01em;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
 }
 
 .about-text {
   font-size: 1.05rem;
   color: var(--text-secondary);
-  line-height: 1.7;
+  line-height: 1.75;
   margin-bottom: 1.25rem;
 }
 
 .about-highlights {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
+  gap: 2rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--border-light);
 }
@@ -976,19 +981,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .s-founder .container {
-  max-width: 1380px !important;
+  max-width: 1550px !important;
+  width: 95% !important;
 }
 
 .founder-card {
   background: var(--bg-card);
   border: 1.5px solid var(--border-medium);
   border-radius: var(--radius-lg);
-  padding: 2.25rem 3rem;
+  padding: 2.75rem 4rem;
   box-shadow: var(--shadow-md);
   position: relative;
   overflow: hidden;
   width: 100%;
   backdrop-filter: blur(16px);
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   transition: border-color var(--transition-smooth), box-shadow var(--transition-smooth);
 }
 
@@ -1000,7 +1010,7 @@ h1, h2, h3, h4, h5, h6 {
 .founder-grid {
   display: grid;
   grid-template-columns: 260px 1fr;
-  gap: 3.5rem;
+  gap: 4rem;
   align-items: center;
 }
 
