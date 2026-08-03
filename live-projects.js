@@ -7,8 +7,7 @@ const LIVE_PROJECTS_DATA = [
     id: "samraddhi-india-marketplace",
     name: "Samraddhi India Marketplace",
     industry: "E-Commerce Marketplace & B2B Platform",
-    status: "Flagship Marketplace Project in Development",
-    isFeatured: true,
+    status: "Upcoming E-Commerce Marketplace",
     isLive: false,
     isUpcoming: true,
     expectedCompletion: "Q4 2026 Platform Launch",
@@ -31,7 +30,7 @@ const LIVE_PROJECTS_DATA = [
     updates: [
       {
         date: "August 1, 2026",
-        badge: "Flagship Architecture",
+        badge: "Pre-Launch Architecture",
         title: "Multi-Vendor Database & UI Blueprint Finalized",
         description: "Completed platform tech stack architecture & B2B wholesale onboarding workflow."
       }
