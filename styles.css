@@ -902,37 +902,49 @@ h1, h2, h3, h4, h5, h6 {
    ABOUT SECTION
    ========================================================================== */
 .s-about {
-  padding: 5rem 0 2.5rem;
+  padding: 4rem 0 2rem;
   width: 100%;
 }
 
 .about-card {
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--border-light);
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-medium);
   border-radius: var(--radius-lg);
-  padding: 3.5rem;
+  padding: 3rem 3.5rem;
   box-shadow: var(--shadow-md);
   width: 100%;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(16px);
+  transition: border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.about-card:hover {
+  border-color: #ff4d8d;
+  box-shadow: var(--shadow-lg), 0 0 25px rgba(255, 77, 141, 0.15);
 }
 
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
   gap: 3rem;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .about-title {
-  font-size: 2.25rem;
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
+  font-weight: 800;
+  color: var(--text-primary);
   margin-top: 0.5rem;
   line-height: 1.25;
+  letter-spacing: -0.01em;
 }
 
 .about-text {
-  font-size: 1.125rem;
+  font-size: 1.05rem;
   color: var(--text-secondary);
   line-height: 1.7;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 .about-highlights {
@@ -955,19 +967,26 @@ h1, h2, h3, h4, h5, h6 {
    FOUNDER SECTION (RAHUL SONI WITH REAL PHOTOGRAPH)
    ========================================================================== */
 .s-founder {
-  padding: 2.5rem 0 5rem;
+  padding: 2rem 0 5rem;
   width: 100%;
 }
 
 .founder-card {
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--border-light);
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-medium);
   border-radius: var(--radius-lg);
-  padding: 3.5rem;
+  padding: 3rem 3.5rem;
   box-shadow: var(--shadow-md);
   position: relative;
   overflow: hidden;
   width: 100%;
+  backdrop-filter: blur(16px);
+  transition: border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.founder-card:hover {
+  border-color: #ff4d8d;
+  box-shadow: var(--shadow-lg), 0 0 25px rgba(255, 77, 141, 0.15);
 }
 
 .founder-grid {
