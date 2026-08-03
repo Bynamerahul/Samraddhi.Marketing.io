@@ -902,26 +902,30 @@ h1, h2, h3, h4, h5, h6 {
    ABOUT SECTION
    ========================================================================== */
 .s-about {
-  padding: 3rem 0 2rem;
+  padding: 3rem 0;
   width: 100%;
 }
 
 .s-about .container {
-  max-width: 1550px !important;
-  width: 95% !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 0 !important;
 }
 
 .about-card {
   background: var(--bg-card);
-  border: 1.5px solid var(--border-medium);
-  border-radius: var(--radius-lg);
-  padding: 2.75rem 4rem;
-  box-shadow: var(--shadow-md);
+  border-top: 1.5px solid var(--border-medium);
+  border-bottom: 1.5px solid var(--border-medium);
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  padding: 3.5rem 5vw;
+  box-shadow: var(--shadow-sm);
   width: 100%;
   position: relative;
   overflow: hidden;
   backdrop-filter: blur(16px);
-  min-height: 440px;
+  min-height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -930,7 +934,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .about-card:hover {
   border-color: #ff4d8d;
-  box-shadow: var(--shadow-lg), 0 0 25px rgba(255, 77, 141, 0.15);
 }
 
 .about-grid {
@@ -938,6 +941,9 @@ h1, h2, h3, h4, h5, h6 {
   grid-template-columns: 1.1fr 1.9fr;
   gap: 4rem;
   align-items: center;
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .about-title {
@@ -976,21 +982,25 @@ h1, h2, h3, h4, h5, h6 {
    FOUNDER SECTION (RAHUL SONI WITH REAL PHOTOGRAPH)
    ========================================================================== */
 .s-founder {
-  padding: 2rem 0 5rem;
+  padding: 0 0 4rem;
   width: 100%;
 }
 
 .s-founder .container {
-  max-width: 1550px !important;
-  width: 95% !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 0 !important;
 }
 
 .founder-card {
   background: var(--bg-card);
-  border: 1.5px solid var(--border-medium);
-  border-radius: var(--radius-lg);
-  padding: 2.75rem 4rem;
-  box-shadow: var(--shadow-md);
+  border-top: 1.5px solid var(--border-medium);
+  border-bottom: 1.5px solid var(--border-medium);
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  padding: 3.5rem 5vw;
+  box-shadow: var(--shadow-sm);
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -1004,7 +1014,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .founder-card:hover {
   border-color: #ff4d8d;
-  box-shadow: var(--shadow-lg), 0 0 25px rgba(255, 77, 141, 0.15);
 }
 
 .founder-grid {
@@ -1012,6 +1021,9 @@ h1, h2, h3, h4, h5, h6 {
   grid-template-columns: 260px 1fr;
   gap: 4rem;
   align-items: center;
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .founder-visual {
@@ -4509,7 +4521,12 @@ html, body {
 }
 
 .s-about .container,
-.s-founder .container,
+.s-founder .container {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 0 !important;
+}
+
 .s-final-cta .container {
   max-width: 1550px !important;
   width: 95% !important;
