@@ -4497,4 +4497,38 @@ html, body {
   align-items: center;
 }
 
+/* HIGH-END WIDESCREEN RESPONSIVE RATIO & SIDE-SPACE FILL */
+.s-newsletter .container {
+  max-width: 1440px !important;
+  width: 95% !important;
+}
+
+.s-newsletter .newsletter-form {
+  max-width: 860px;
+  margin: 2rem auto 0;
+}
+
+.s-about .container,
+.s-founder .container,
+.s-final-cta .container {
+  max-width: 1550px !important;
+  width: 95% !important;
+}
+
+@media (max-width: 991px) {
+  .s-newsletter .container,
+  .s-about .container,
+  .s-founder .container,
+  .s-final-cta .container {
+    width: 100% !important;
+    padding: 0 1.25rem !important;
+  }
+
+  .about-grid,
+  .founder-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+}
+
 
