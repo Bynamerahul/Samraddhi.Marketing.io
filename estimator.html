@@ -379,11 +379,108 @@
     <span class="sticky-btn-badge">15</span>
   </a>
 
-  <!-- PINGU CHATBOT WIDGET -->
+  <!-- PINGU 2-OPTION LIVE SUPPORT POPUP WIDGET -->
   <div id="pingu-chatbot-widget" class="pingu-widget">
+    
+    <!-- Floating Circular Launcher Button -->
     <button id="pingu-toggle-btn" class="intercom-launcher magnetic-target" aria-label="Open Pingu Support">
-      <img src="pingu-avatar.jpg" alt="Pingu AI" class="launcher-pingu-img">
+      <div class="launcher-icon-wrapper">
+        <img src="pingu-avatar.jpg" alt="Pingu AI" class="launcher-avatar">
+        <span class="launcher-status-dot"></span>
+      </div>
+      <span class="launcher-badge">1</span>
     </button>
+
+    <!-- Auto-Proactive Tooltip Bubble -->
+    <div id="pingu-bubble" class="pingu-speech-bubble">
+      <span>Noot Noot! 🐧 Hi there! Need help scaling your business?</span>
+      <button id="close-pingu-bubble" class="bubble-close-btn">✕</button>
+    </div>
+
+    <!-- Pingu 2-Option Card Window -->
+    <div id="pingu-chat-window" class="pingu-pop-card" style="display: none;">
+      
+      <!-- Top Close Button -->
+      <button id="close-pingu-chat" class="pingu-top-close" aria-label="Close">✕</button>
+
+      <!-- VIEW 1: THE 2 MAIN OPTIONS VIEW -->
+      <div id="pingu-options-view" class="pingu-card-view active-view">
+        
+        <!-- Pingu 3D Character Header -->
+        <div class="pingu-hero-avatar-box magnetic-target" title="Tap Pingu for NOOT NOOT! 🎺">
+          <img src="pingu-avatar.jpg" alt="Pingu 3D" class="pingu-hero-img">
+        </div>
+
+        <div class="pingu-card-header-text">
+          <h3 class="pingu-card-title">Hi there! 👋</h3>
+          <p class="pingu-card-subtitle">I'm <strong>Pingu</strong>, Samraddhi's AI Growth Guide.<br><span style="font-size:0.75rem; color:#ff70a6; font-weight:600;">✨ Tap me for NOOT NOOT! 🐧🎺</span></p>
+        </div>
+
+        <!-- THE 2 PRIMARY OPTIONS -->
+        <div class="pingu-two-options">
+          
+          <!-- OPTION 1: Continue Chat with Pingu -->
+          <button id="btn-option-pingu" class="pingu-opt-btn opt-pingu magnetic-target">
+            <div class="opt-icon-badge">🐧</div>
+            <div class="opt-content">
+              <strong>Continue Chat with Pingu</strong>
+              <span>Ask AI about Audits, Retainers, Content &amp; SEO</span>
+            </div>
+            <div class="opt-arrow">➔</div>
+          </button>
+
+          <!-- OPTION 2: Connect me to Advisor -->
+          <a href="https://wa.me/919340722578" target="_blank" id="btn-option-advisor" class="pingu-opt-btn opt-advisor magnetic-target">
+            <div class="opt-icon-badge">📞</div>
+            <div class="opt-content">
+              <strong>Connect me to Advisor</strong>
+              <span>Speak directly with Rahul Soni (Founder)</span>
+            </div>
+            <div class="opt-arrow">➔</div>
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- VIEW 2: LIVE CHAT WITH PINGU (Shown when Option 1 is selected) -->
+      <div id="pingu-live-chat-view" class="pingu-card-view" style="display: none;">
+        
+        <div class="pingu-live-header">
+          <button id="btn-back-to-options" class="pingu-back-btn" title="Back to Options">⬅ Back</button>
+          <div class="pingu-live-title">
+            <img src="pingu-avatar.jpg" alt="Pingu" width="24" height="24" style="border-radius:50%; object-fit:cover;">
+            <span>Pingu AI Assistant</span>
+          </div>
+        </div>
+
+        <!-- Chat Conversation Messages (Non-scrollable compact layout) -->
+        <div id="pingu-chat-body" class="pingu-compact-chat">
+          <div class="chat-msg msg-pingu">
+            <img src="pingu-avatar.jpg" alt="Pingu" class="msg-avatar">
+            <div class="msg-bubble">
+              <p>Noot Noot! 🐧 Ask me anything about our <strong>Free ₹4,999 Audit</strong>, Retainer Plans, Content Creation or Marketing strategy!</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Chips -->
+        <div class="pingu-compact-chips">
+          <button class="compact-chip" data-query="How do I get the Free ₹4,999 Audit?">🔍 Free Audit</button>
+          <button class="compact-chip" data-query="What are your retainer plans & pricing?">💰 Pricing</button>
+          <button class="compact-chip" data-query="Do you handle Reels & Content Creation?">🎬 Content & Reels</button>
+        </div>
+
+        <!-- Compact Input Bar -->
+        <form id="pingu-chat-form" class="pingu-compact-form">
+          <input type="text" id="pingu-input" placeholder="Type a message to Pingu..." autocomplete="off">
+          <button type="submit" class="pingu-compact-send">Send ➔</button>
+        </form>
+
+      </div>
+
+    </div>
+
   </div>
 
   <!-- External Libraries: Lenis Smooth Scroll & GSAP -->
