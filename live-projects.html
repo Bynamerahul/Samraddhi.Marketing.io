@@ -33,7 +33,7 @@
   <!-- CSS Stylesheet -->
   <link rel="stylesheet" href="styles.css">
 </head>
-<body data-theme="dark">
+<body class="site-body">
 
   <!-- Custom Pink Glow Cursor System -->
   <div id="custom-cursor" class="custom-cursor"></div>
@@ -97,10 +97,6 @@
 
         <button id="sound-toggle" class="icon-btn magnetic-target" title="Toggle UI Sounds" aria-label="Toggle UI Sounds">
           <span class="sound-icon">🔊</span>
-        </button>
-
-        <button id="theme-toggle" class="icon-btn magnetic-target" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">
-          <span class="theme-icon">🌙</span>
         </button>
 
         <button class="btn btn-primary open-contact-btn desktop-head-cta magnetic-target">
@@ -203,6 +199,16 @@
     <section class="live-projects-section section-padding" id="live-projects">
       <div class="container">
         
+        <!-- Category Filter Chips -->
+        <div class="live-filters-wrapper">
+          <button class="live-filter-chip active magnetic-target" data-category="all">All Projects (15)</button>
+          <button class="live-filter-chip magnetic-target" data-category="brand-mgmt">👑 Brand Management</button>
+          <button class="live-filter-chip magnetic-target" data-category="content">🎬 Content &amp; Media Engine</button>
+          <button class="live-filter-chip magnetic-target" data-category="redesign">✨ Website Redesign</button>
+          <button class="live-filter-chip magnetic-target" data-category="marketplaces">🛍️ Marketplaces (Etsy / Ebay)</button>
+          <button class="live-filter-chip magnetic-target" data-category="upcoming">🚀 Upcoming Launches</button>
+        </div>
+
         <div id="live-projects-container" class="live-projects-grid">
           
           <!-- SPOTLIGHT 1ST LIVE PROJECT: OOAK Vogue (Pre-rendered HTML Fallback & Hydration Target) -->

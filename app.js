@@ -4,6 +4,11 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // Remove any legacy theme overrides for unified high-contrast design
+  document.body.removeAttribute('data-theme');
+  document.documentElement.removeAttribute('data-theme');
+  localStorage.removeItem('samraddhi_theme');
+
   /* ==========================================================================
      1. TOUCH & REDUCED MOTION ACCESSIBILITY CHECKS
      ========================================================================== */
@@ -667,20 +672,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  /* ==========================================================================
-     9. LIGHT / DARK THEME SWITCHER
-     ========================================================================== */
-  const themeToggleBtn = document.getElementById('theme-toggle');
-  if (themeToggleBtn) {
-    themeToggleBtn.addEventListener('click', () => {
-      const currentTheme = document.body.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      document.body.setAttribute('data-theme', newTheme);
-      themeToggleBtn.innerHTML = newTheme === 'dark' ? '☀️' : '🌙';
-      playSound(newTheme === 'dark' ? 520 : 380, 'sine');
-      showToast(`Theme set to ${newTheme.toUpperCase()}`);
-    });
-  }
+
 
 
   /* ==========================================================================
