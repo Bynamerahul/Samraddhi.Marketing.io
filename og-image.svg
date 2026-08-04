@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bgDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#08090c"/>
+      <stop offset="50%" stop-color="#111218"/>
+      <stop offset="100%" stop-color="#050608"/>
+    </linearGradient>
+    
+    <linearGradient id="pinkGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff4d8d"/>
+      <stop offset="50%" stop-color="#ff70a6"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+
+    <linearGradient id="glassBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff4d8d" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#c084fc" stop-opacity="0.5"/>
+    </linearGradient>
+
+    <filter id="neonBlur" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="35" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="subtleGlow">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="1200" height="630" fill="url(#bgDark)"/>
+
+  <!-- Glowing Ambient Lights -->
+  <circle cx="1050" cy="120" r="320" fill="#ff4d8d" opacity="0.22" filter="url(#neonBlur)"/>
+  <circle cx="150" cy="520" r="360" fill="#c084fc" opacity="0.18" filter="url(#neonBlur)"/>
+  <circle cx="600" cy="315" r="220" fill="#ff70a6" opacity="0.08" filter="url(#neonBlur)"/>
+
+  <!-- Luxury Outer Border Frame -->
+  <rect x="28" y="28" width="1144" height="574" rx="28" fill="none" stroke="url(#glassBorder)" stroke-width="2.5"/>
+
+  <!-- Brand Header Bar -->
+  <g transform="translate(80, 85)">
+    <!-- Logo Box -->
+    <rect width="46" height="46" rx="12" fill="#0e0f12" stroke="url(#pinkGradient)" stroke-width="2"/>
+    <text x="23" y="32" font-family="'Plus Jakarta Sans', sans-serif" font-size="24" font-weight="900" fill="#ff4d8d" text-anchor="middle">S</text>
+    
+    <!-- Brand Title -->
+    <text x="64" y="34" font-family="'Plus Jakarta Sans', sans-serif" font-size="28" font-weight="800" fill="#ffffff" letter-spacing="-0.5">
+      Samraddhi<tspan fill="#ff4d8d">.Marketing</tspan>
+    </text>
+
+    <!-- Sub-brand Tag -->
+    <rect x="420" y="8" width="220" height="32" rx="16" fill="rgba(255, 77, 141, 0.12)" stroke="rgba(255, 77, 141, 0.3)" stroke-width="1"/>
+    <text x="530" y="29" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#ff70a6" text-anchor="middle" letter-spacing="1">360° GROWTH ENGINE</text>
+  </g>
+
+  <!-- Main Headline Block -->
+  <g transform="translate(80, 230)">
+    <text x="0" y="0" font-family="'Plus Jakarta Sans', sans-serif" font-size="64" font-weight="800" fill="#ffffff" letter-spacing="-1.5">
+      Grow Your Business
+    </text>
+    <text x="0" y="76" font-family="'Plus Jakarta Sans', sans-serif" font-size="64" font-weight="800" fill="url(#pinkGradient)" letter-spacing="-1.5" filter="url(#subtleGlow)">
+      With Smarter Marketing.
+    </text>
+  </g>
+
+  <!-- Pillars Cards Grid -->
+  <g transform="translate(80, 390)">
+    <!-- Row 1 Pills -->
+    <g transform="translate(0, 0)">
+      <rect width="660" height="52" rx="26" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1.5"/>
+      <text x="330" y="33" font-family="'Plus Jakarta Sans', sans-serif" font-size="21" font-weight="700" fill="#f3f3f6" text-anchor="middle" letter-spacing="0.5">
+        Branding  •  Websites  •  SEO
+      </text>
+    </g>
+
+    <!-- Row 2 Pills -->
+    <g transform="translate(0, 68)">
+      <rect width="840" height="52" rx="26" fill="rgba(255, 77, 141, 0.1)" stroke="rgba(255, 77, 141, 0.35)" stroke-width="1.5"/>
+      <text x="420" y="33" font-family="'Plus Jakarta Sans', sans-serif" font-size="21" font-weight="700" fill="#ff70a6" text-anchor="middle" letter-spacing="0.5">
+        AI  •  Performance Marketing  •  Content Creation
+      </text>
+    </g>
+  </g>
+
+  <!-- Bottom Founder Badge -->
+  <g transform="translate(940, 530)">
+    <text x="180" y="0" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="600" fill="#8c909e" text-anchor="end">Founded by Rahul Soni</text>
+  </g>
+</svg>

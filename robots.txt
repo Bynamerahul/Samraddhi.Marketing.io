@@ -1,0 +1,10 @@
+# Robots.txt for Samraddhi Marketing
+User-agent: *
+Allow: /
+
+# Disallow private assets / system logs
+Disallow: /brain/
+Disallow: /.system_generated/
+
+# Sitemap location
+Sitemap: https://samraddhimarketing.netlify.app/sitemap.xml
