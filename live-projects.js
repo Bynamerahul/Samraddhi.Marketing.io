@@ -617,7 +617,7 @@ function createMinimalProjectCardHTML(p, isLocked = false) {
       <article class="live-card minimal-tile locked-card" onclick="openClientLoginModal()">
         <div class="tile-header">
           ${badgeHTML}
-          <span class="locked-chip">🔒 Locked</span>
+          <span class="locked-chip">Locked</span>
         </div>
         <div class="tile-body">
           <h3 class="tile-project-title">${p.name}</h3>
@@ -693,7 +693,6 @@ function renderLiveProjectsGrid(category = 'all') {
   if (filtered.length === 0) {
     container.innerHTML = `
       <div class="no-projects-found" style="grid-column: 1 / -1; text-align: center; padding: 4rem 1rem;">
-        <span style="font-size: 2.5rem; display: block; margin-bottom: 0.75rem;">🔍</span>
         <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">No matching live projects found</h3>
         <p style="color: var(--text-muted);">Try a different search term or category filter.</p>
       </div>
@@ -727,21 +726,18 @@ function renderLiveProjectsGrid(category = 'all') {
           <div class="projects-lock-overlay">
             <div class="lock-overlay-content">
               <div class="lock-icon-badge">
-                <span class="lock-emoji">🔒</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #ff4d8d;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
                 <span class="lock-glow-ring"></span>
               </div>
-              <div class="lock-badge-pill">CLIENT &amp; PARTNER ACCESS LOCKED</div>
+              <div class="lock-badge-pill">CLIENT ACCESS REQUIRED</div>
               <h3 class="lock-title">Unlock All ${LIVE_PROJECTS_DATA.length} Live Client Projects</h3>
               <p class="lock-subtitle">
-                Showing 2 featured preview projects. Log in to your client account or access key to unlock real-time dashboards, stage timelines, and full changelogs across all projects.
+                Showing featured preview projects. Log in to your client account or enter access key to unlock real-time dashboards, stage timelines, and full changelogs across all projects.
               </p>
               <div class="lock-actions">
                 <button class="btn btn-primary open-login-modal-btn magnetic-target" onclick="openClientLoginModal()">
-                  <span>🔑 Login to Unlock All Projects</span>
+                  <span>Login to Unlock All Projects</span>
                   <span class="btn-arrow">→</span>
-                </button>
-                <button class="btn btn-secondary demo-quick-unlock-btn magnetic-target" onclick="quickDemoUnlock()">
-                  <span>⚡ 1-Click Instant Demo Unlock</span>
                 </button>
               </div>
             </div>
@@ -781,11 +777,17 @@ window.openProjectUpdatesModal = function(projectId) {
 
   const timelineHTML = (p.timeline || []).map(t => {
     let statusClass = 'status-upcoming';
-    if (t.status === 'completed') statusClass = 'status-completed';
-    if (t.status === 'in-progress') statusClass = 'status-in-progress';
+    let labelSymbol = '•';
+    if (t.status === 'completed') {
+      statusClass = 'status-completed';
+      labelSymbol = '✓';
+    } else if (t.status === 'in-progress') {
+      statusClass = 'status-in-progress';
+      labelSymbol = '•';
+    }
     return `
       <div class="timeline-step ${statusClass}" title="${t.stage}: ${t.status}">
-        <span class="step-icon">${t.icon}</span>
+        <span class="step-icon">${labelSymbol}</span>
         <span class="step-label">${t.stage}</span>
       </div>
     `;
@@ -857,7 +859,7 @@ window.openProjectUpdatesModal = function(projectId) {
 
     ${updatesHTML ? `
       <div class="modal-updates-timeline" style="margin-top: 1.5rem;">
-        <h3 class="timeline-heading">📋 Log of Project Milestones &amp; Updates</h3>
+        <h3 class="timeline-heading">Log of Project Milestones &amp; Updates</h3>
         <div class="updates-list">
           ${updatesHTML}
         </div>
@@ -937,15 +939,10 @@ window.closeClientLoginModal = function() {
   if (window.LenisInstance) window.LenisInstance.start();
 };
 
-window.quickDemoUnlock = function() {
-  unlockClientPortal();
-};
-
 function initLoginModal() {
   const modal = document.getElementById('client-login-modal');
   const closeBtn = document.getElementById('close-login-modal');
   const form = document.getElementById('client-login-form');
-  const quickDemoBtn = document.getElementById('modal-quick-demo-btn');
   const lockPortalBtn = document.getElementById('lock-portal-btn');
   const openLoginBtns = document.querySelectorAll('.open-login-modal-btn');
 
@@ -963,22 +960,19 @@ function initLoginModal() {
     });
   }
 
-  if (quickDemoBtn) {
-    quickDemoBtn.addEventListener('click', () => {
-      unlockClientPortal();
-    });
-  }
-
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const input = document.getElementById('client-passcode-input');
       const val = input ? input.value.trim() : '';
+      const errorMsg = document.getElementById('login-error-msg');
+      
       if (val.length > 0) {
         unlockClientPortal();
       } else {
-        // Even if empty, allow user unlock on submit for seamless UX
-        unlockClientPortal();
+        if (errorMsg) {
+          errorMsg.style.display = 'block';
+        }
       }
     });
   }
