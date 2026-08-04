@@ -199,102 +199,32 @@
     <section class="live-projects-section section-padding" id="live-projects">
       <div class="container">
         
-        <!-- Category Filter Chips -->
-        <div class="live-filters-wrapper">
-          <button class="live-filter-chip active magnetic-target" data-category="all">All Projects (15)</button>
-          <button class="live-filter-chip magnetic-target" data-category="brand-mgmt">👑 Brand Management</button>
-          <button class="live-filter-chip magnetic-target" data-category="content">🎬 Content &amp; Media Engine</button>
-          <button class="live-filter-chip magnetic-target" data-category="redesign">✨ Website Redesign</button>
-          <button class="live-filter-chip magnetic-target" data-category="marketplaces">🛍️ Marketplaces (Etsy / Ebay)</button>
-          <button class="live-filter-chip magnetic-target" data-category="upcoming">🚀 Upcoming Launches</button>
+        <!-- Controls Bar: Search & Filter Chips -->
+        <div class="live-controls-bar" style="margin-bottom: 2rem;">
+          <div class="search-input-wrapper" style="margin-bottom: 1.25rem;">
+            <input type="text" id="live-search-input" class="form-input" placeholder="🔍 Search 15 active projects by name, industry, or status..." style="max-width: 540px; margin: 0 auto; display: block; border-radius: var(--radius-full);">
+          </div>
+
+          <!-- Category Filter Chips -->
+          <div class="live-filters-wrapper">
+            <button class="live-filter-chip active magnetic-target" data-category="all">All Projects (15)</button>
+            <button class="live-filter-chip magnetic-target" data-category="live">🔴 Live (12)</button>
+            <button class="live-filter-chip magnetic-target" data-category="upcoming">🚀 Upcoming (3)</button>
+            <button class="live-filter-chip magnetic-target" data-category="brand-mgmt">👑 Brand Mgmt</button>
+            <button class="live-filter-chip magnetic-target" data-category="redesign">✨ Redesigns</button>
+            <button class="live-filter-chip magnetic-target" data-category="marketplaces">🛍️ Marketplaces</button>
+          </div>
         </div>
 
+        <!-- Unlocked Portal Status Banner (Dynamically shown when unlocked) -->
+        <div id="unlocked-portal-banner" class="unlocked-status-banner" style="display: none;">
+          <span>🔓 Client Access Unlocked — Viewing All 15 Active Projects &amp; Behind-the-Scenes Dashboards</span>
+          <button id="lock-portal-btn" class="btn btn-secondary btn-sm magnetic-target">Lock Portal 🔒</button>
+        </div>
+
+        <!-- Live Projects Dynamic Container -->
         <div id="live-projects-container" class="live-projects-grid">
-          
-          <!-- SPOTLIGHT 1ST LIVE PROJECT: OOAK Vogue (Pre-rendered HTML Fallback & Hydration Target) -->
-          <article class="live-card magnetic-target" data-project-id="ooak-vogue">
-            
-            <!-- Top Card Header Row -->
-            <div class="live-card-top">
-              <div class="live-badge-wrapper">
-                <span class="live-blinking-dot"></span>
-                <span class="live-badge-text">LIVE</span>
-              </div>
-              <span class="industry-badge">Luxury Fashion &amp; Ecommerce</span>
-            </div>
-
-            <!-- Project Name & Status Title -->
-            <div class="live-card-head">
-              <h3 class="live-project-title">OOAK Vogue</h3>
-              <span class="live-status-pill">Website Redesign in Progress</span>
-            </div>
-
-            <p class="live-project-desc">
-              We are redesigning the existing OOAK Vogue website into a modern, premium, mobile-first and conversion-focused digital experience using an AI-assisted workflow while maintaining human-led strategy and creativity.
-            </p>
-
-            <!-- Animated Progress Bar Container -->
-            <div class="progress-section">
-              <div class="progress-header">
-                <span class="progress-label">Completion Status</span>
-                <span class="progress-percent">65%</span>
-              </div>
-              <div class="progress-track">
-                <div class="progress-fill" data-progress="65" style="width: 65%;"></div>
-              </div>
-              <div class="progress-meta">
-                <span>Target Launch: <strong>Q3 2026 (3 Weeks Remaining)</strong></span>
-              </div>
-            </div>
-
-            <!-- Timeline Stage Checklist -->
-            <div class="timeline-section">
-              <h4 class="timeline-title">Project Stages &amp; Real-time Progress</h4>
-              <div class="timeline-grid">
-                <div class="timeline-step status-completed"><span class="step-icon">✓</span><span class="step-label">Research</span></div>
-                <div class="timeline-step status-completed"><span class="step-icon">✓</span><span class="step-label">Planning</span></div>
-                <div class="timeline-step status-completed"><span class="step-icon">✓</span><span class="step-label">Wireframes</span></div>
-                <div class="timeline-step status-in-progress"><span class="step-icon">🔄</span><span class="step-label">UI Design</span></div>
-                <div class="timeline-step status-in-progress"><span class="step-icon">🔄</span><span class="step-label">Development</span></div>
-                <div class="timeline-step status-upcoming"><span class="step-icon">⏳</span><span class="step-label">Testing</span></div>
-                <div class="timeline-step status-upcoming"><span class="step-icon">⏳</span><span class="step-label">Launch</span></div>
-              </div>
-            </div>
-
-            <!-- Services Included -->
-            <div class="services-section">
-              <h4 class="services-title">Services &amp; Scope Included</h4>
-              <div class="services-pills-row">
-                <span class="service-pill">Website Redesign</span>
-                <span class="service-pill">UI/UX</span>
-                <span class="service-pill">Responsive Design</span>
-                <span class="service-pill">Ecommerce Experience</span>
-                <span class="service-pill">SEO Optimization</span>
-                <span class="service-pill">Performance Optimization</span>
-                <span class="service-pill">AI-assisted Design Workflow</span>
-              </div>
-            </div>
-
-            <!-- Latest Update Preview Callout -->
-            <div class="latest-update-box">
-              <div class="update-box-head">
-                <span class="update-badge">Design Phase</span>
-                <span class="update-date">📅 August 2, 2026</span>
-              </div>
-              <strong class="update-headline">Mobile-First Wireframes &amp; Glassmorphic UI System Approved</strong>
-              <p class="update-summary">Completed and approved 3D product showcase components, fast filter architecture, and dark mode luxury color palette for OOAK Vogue.</p>
-            </div>
-
-            <!-- Bottom Card Action Button -->
-            <div class="live-card-footer">
-              <button class="btn btn-secondary view-progress-btn magnetic-target" onclick="openProjectUpdatesModal('ooak-vogue')">
-                <span>View Progress &amp; Changelog</span>
-                <span class="btn-icon">⚡</span>
-              </button>
-            </div>
-
-          </article>
-
+          <!-- Dynamically populated via live-projects.js -->
         </div>
 
       </div>
@@ -303,20 +233,20 @@
     <!-- BOTTOM CTA SECTION -->
     <section class="s-outdated-cta section-padding">
       <div class="container text-center gsap-reveal-header" style="max-width: 840px;">
-        <div class="cta-badge-pill">
+        <div class="cta-badge-pill" style="margin-bottom: 1rem;">
           <span class="badge-dot"></span>
-          <span>WEBSITE REDESIGN &amp; AUDIT</span>
+          <span>CLIENT PORTAL ACCESS</span>
         </div>
         
-        <h2 class="outdated-cta-title">Have an outdated website?</h2>
+        <h2 class="outdated-cta-title">Want complete access to every ongoing project?</h2>
 
         <p class="outdated-cta-desc">
-          Let's redesign your website into a modern, fast and conversion-focused digital experience.
+          Log in or create a free client account to view full case studies, milestones, and behind-the-scenes progress updates across all 15 active projects.
         </p>
 
         <div class="outdated-cta-actions">
-          <button class="btn btn-primary btn-lg open-contact-btn magnetic-target">
-            <span>Book a Free Website Audit</span>
+          <button class="btn btn-primary btn-lg open-login-modal-btn magnetic-target" id="cta-login-btn">
+            <span>Login To Portal 🔑</span>
             <span class="btn-arrow">→</span>
           </button>
           <a href="https://wa.me/919340722578?text=Hi%20Rahul!%20I%20want%20to%20redesign%20my%20website%20with%20Samraddhi%20Marketing." target="_blank" rel="noopener" class="btn btn-secondary btn-lg magnetic-target">
@@ -564,6 +494,39 @@
         </form>
       </div>
 
+    </div>
+  </div>
+
+  <!-- CLIENT PORTAL LOGIN MODAL -->
+  <div id="client-login-modal" class="modal-overlay" aria-hidden="true" data-lenis-prevent="true">
+    <div class="modal-card contact-modal-card" style="max-width: 460px; padding: 2rem;" data-lenis-prevent="true">
+      <button class="modal-close-btn magnetic-target" id="close-login-modal">✕</button>
+      
+      <div class="contact-modal-header text-center">
+        <div class="modal-badge-pill" style="color: #c084fc; border-color: rgba(192, 132, 252, 0.3); margin-bottom: 0.75rem;">🔒 CLIENT PORTAL ACCESS</div>
+        <h3 class="modal-title" style="font-size: 1.5rem; margin-bottom: 0.35rem;">Unlock All Live Projects</h3>
+        <p class="modal-subtitle" style="font-size: 0.875rem;">Enter your client passcode or access key to view all 15 active project dashboards &amp; case studies.</p>
+      </div>
+
+      <div class="contact-modal-body" style="padding-top: 1.25rem;">
+        <form id="client-login-form" onsubmit="return false;">
+          <div class="form-group" style="margin-bottom: 1.25rem;">
+            <label class="form-label">Client Passcode / Access Key</label>
+            <input type="password" id="client-passcode-input" class="form-input" placeholder="Enter key (e.g. SAMRADDHI)" autocomplete="off">
+            <span id="login-error-msg" style="color: #ef4444; font-size: 0.8rem; margin-top: 0.35rem; display: none;">Invalid Passcode. Try 'SAMRADDHI' or click Quick Demo Unlock below.</span>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <button type="submit" id="submit-client-login-btn" class="btn btn-primary btn-block magnetic-target">
+              <span>Login &amp; Unlock Portal 🚀</span>
+            </button>
+            
+            <button type="button" id="modal-quick-demo-btn" class="btn btn-secondary btn-block magnetic-target" style="border-color: #ff4d8d; color: #ff4d8d;">
+              <span>⚡ Instant Quick Demo Unlock (1-Click)</span>
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 

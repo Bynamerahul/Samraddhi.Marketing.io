@@ -184,16 +184,17 @@ const LIVE_PROJECTS_DATA = [
     id: "ooak-vogue",
     name: "OOAK Vogue",
     industry: "Luxury Fashion & Ecommerce",
-    status: "Website Redesign in Progress",
+    status: "DNS Connected — Live Launch Imminent",
     isLive: true,
     isRetainer: false,
-    progress: 65,
-    expectedCompletion: "Q3 2026 (3 Weeks Remaining)",
+    progress: 85,
+    expectedCompletion: "Live Launch Imminent (ooakvogue.com)",
     category: "redesign",
-    description: "We are redesigning the existing OOAK Vogue website into a modern, premium, mobile-first and conversion-focused digital experience using an AI-assisted workflow while maintaining human-led strategy and creativity.",
+    description: "We are redesigning the existing OOAK Vogue website into a modern, premium, mobile-first and conversion-focused digital experience using an AI-assisted workflow. Custom DNS records are connected and ooakvogue.com will be live soon!",
     services: [
       "Website Redesign",
-      "UI/UX Experience",
+      "DNS & Domain Connection",
+      "UI/UX Luxury Experience",
       "Responsive Mobile Design",
       "Ecommerce Architecture",
       "SEO Optimization",
@@ -203,12 +204,18 @@ const LIVE_PROJECTS_DATA = [
       { stage: "Research", status: "completed", icon: "✓" },
       { stage: "Planning", status: "completed", icon: "✓" },
       { stage: "Wireframes", status: "completed", icon: "✓" },
-      { stage: "UI Design", status: "in-progress", icon: "🔄" },
-      { stage: "Development", status: "in-progress", icon: "🔄" },
-      { stage: "Testing", status: "upcoming", icon: "⏳" },
-      { stage: "Launch", status: "upcoming", icon: "⏳" }
+      { stage: "UI Design", status: "completed", icon: "✓" },
+      { stage: "Development", status: "completed", icon: "✓" },
+      { stage: "DNS Connect", status: "completed", icon: "✓" },
+      { stage: "Live Launch", status: "in-progress", icon: "🚀" }
     ],
     updates: [
+      {
+        date: "August 4, 2026",
+        badge: "DNS & Domain",
+        title: "DNS Connected — ooakvogue.com Live Soon!",
+        description: "Successfully configured custom DNS records for OOAK Vogue. Final domain SSL & staging checks underway — ooakvogue.com will be live very soon."
+      },
       {
         date: "August 2, 2026",
         badge: "Design Phase",
@@ -501,12 +508,49 @@ const LIVE_PROJECTS_DATA = [
   }
 ];
 
-// Controller logic for rendering project cards
+// ==========================================================================
+// STATE & AUTHENTICATION CONTROLLER
+// ==========================================================================
+
+let currentCategory = 'all';
+let currentSearchQuery = '';
+
+function isClientUnlocked() {
+  return localStorage.getItem('samraddhi_client_unlocked') === 'true';
+}
+
+function unlockClientPortal() {
+  localStorage.setItem('samraddhi_client_unlocked', 'true');
+  closeClientLoginModal();
+  updatePortalBanner();
+  renderLiveProjectsGrid(currentCategory);
+}
+
+function lockClientPortal() {
+  localStorage.removeItem('samraddhi_client_unlocked');
+  updatePortalBanner();
+  renderLiveProjectsGrid(currentCategory);
+}
+
+function updatePortalBanner() {
+  const banner = document.getElementById('unlocked-portal-banner');
+  if (!banner) return;
+  if (isClientUnlocked()) {
+    banner.style.display = 'flex';
+  } else {
+    banner.style.display = 'none';
+  }
+}
+
+// Controller Initialization
 document.addEventListener('DOMContentLoaded', () => {
   renderLiveProjectsGrid('all');
   initFilterButtons();
+  initSearchInput();
   initProgressModal();
+  initLoginModal();
   updateLiveButtonsCount();
+  updatePortalBanner();
 });
 
 function updateLiveButtonsCount() {
@@ -526,37 +570,216 @@ function initFilterButtons() {
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      const cat = btn.getAttribute('data-category');
-      renderLiveProjectsGrid(cat);
+      currentCategory = btn.getAttribute('data-category') || 'all';
+      renderLiveProjectsGrid(currentCategory);
     });
   });
+}
+
+function initSearchInput() {
+  const searchInput = document.getElementById('live-search-input');
+  if (!searchInput) return;
+
+  searchInput.addEventListener('input', (e) => {
+    currentSearchQuery = e.target.value.toLowerCase().trim();
+    renderLiveProjectsGrid(currentCategory);
+  });
+}
+
+function getProjectProgress(p) {
+  if (typeof p.progress === 'number') return p.progress;
+  if (p.timeline && p.timeline.length > 0) {
+    const completed = p.timeline.filter(t => t.status === 'completed').length;
+    const inProg = p.timeline.filter(t => t.status === 'in-progress').length;
+    const pct = Math.round(((completed + (inProg * 0.5)) / p.timeline.length) * 100);
+    return Math.min(Math.max(pct, 25), 95);
+  }
+  return p.isUpcoming ? 35 : (p.isRetainer ? 80 : 65);
+}
+
+function getCategoryBadge(p) {
+  if (p.isUpcoming) {
+    return `<span class="tile-category-badge upcoming"><span class="badge-dot-live"></span>Upcoming</span>`;
+  }
+  if (p.isRetainer) {
+    return `<span class="tile-category-badge retainer"><span class="badge-dot-live"></span>Retainer</span>`;
+  }
+  return `<span class="tile-category-badge live"><span class="badge-dot-live pulse"></span>Live</span>`;
+}
+
+// Minimalist Project Tile HTML Generator
+function createMinimalProjectCardHTML(p, isLocked = false) {
+  const progress = getProjectProgress(p);
+  const badgeHTML = getCategoryBadge(p);
+
+  if (isLocked) {
+    return `
+      <article class="live-card minimal-tile locked-card" onclick="openClientLoginModal()">
+        <div class="tile-header">
+          ${badgeHTML}
+          <span class="locked-chip">🔒 Locked</span>
+        </div>
+        <div class="tile-body">
+          <h3 class="tile-project-title">${p.name}</h3>
+        </div>
+        <div class="tile-progress-section">
+          <div class="tile-progress-meta">
+            <span class="tile-progress-label">Progress</span>
+            <span class="tile-progress-percent">${progress}%</span>
+          </div>
+          <div class="tile-progress-track">
+            <div class="tile-progress-fill" data-progress="${progress}" style="width: ${progress}%;"></div>
+          </div>
+        </div>
+      </article>
+    `;
+  }
+
+  return `
+    <article class="live-card minimal-tile unlocked-card magnetic-target" onclick="openProjectUpdatesModal('${p.id}')">
+      <div class="tile-header">
+        ${badgeHTML}
+        <span class="tile-details-prompt">View Details ↗</span>
+      </div>
+      <div class="tile-body">
+        <h3 class="tile-project-title">${p.name}</h3>
+        <p class="tile-industry-sub">${p.industry}</p>
+      </div>
+      <div class="tile-progress-section">
+        <div class="tile-progress-meta">
+          <span class="tile-progress-label">Completion Status</span>
+          <span class="tile-progress-percent">${progress}%</span>
+        </div>
+        <div class="tile-progress-track">
+          <div class="tile-progress-fill" data-progress="${progress}" style="width: 0%;"></div>
+        </div>
+        <div class="tile-status-note">
+          <span>${p.status}</span>
+        </div>
+      </div>
+    </article>
+  `;
 }
 
 function renderLiveProjectsGrid(category = 'all') {
   const container = document.getElementById('live-projects-container');
   if (!container) return;
 
-  let filteredProjects = LIVE_PROJECTS_DATA;
+  let filtered = LIVE_PROJECTS_DATA;
+
+  // Category filtering
   if (category !== 'all') {
-    filteredProjects = LIVE_PROJECTS_DATA.filter(p => p.category === category);
+    if (category === 'live') {
+      filtered = LIVE_PROJECTS_DATA.filter(p => p.isLive && !p.isUpcoming);
+    } else if (category === 'upcoming') {
+      filtered = LIVE_PROJECTS_DATA.filter(p => p.isUpcoming || p.category === 'upcoming');
+    } else {
+      filtered = LIVE_PROJECTS_DATA.filter(p => p.category === category);
+    }
   }
 
-  container.innerHTML = filteredProjects.map(project => createProjectCardHTML(project)).join('');
-  
-  // Animate progress bars on render
-  setTimeout(animateProgressBars, 150);
+  // Search filtering
+  if (currentSearchQuery) {
+    filtered = filtered.filter(p => {
+      return (
+        p.name.toLowerCase().includes(currentSearchQuery) ||
+        p.industry.toLowerCase().includes(currentSearchQuery) ||
+        p.status.toLowerCase().includes(currentSearchQuery) ||
+        p.description.toLowerCase().includes(currentSearchQuery)
+      );
+    });
+  }
+
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div class="no-projects-found" style="grid-column: 1 / -1; text-align: center; padding: 4rem 1rem;">
+        <span style="font-size: 2.5rem; display: block; margin-bottom: 0.75rem;">🔍</span>
+        <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">No matching live projects found</h3>
+        <p style="color: var(--text-muted);">Try a different search term or category filter.</p>
+      </div>
+    `;
+    return;
+  }
+
+  const unlocked = isClientUnlocked();
+
+  if (unlocked) {
+    // Render all projects unlocked
+    container.innerHTML = filtered.map(p => createMinimalProjectCardHTML(p, false)).join('');
+  } else {
+    // Show only first 2 unlocked, remainder blurred with lock overlay
+    const visibleProjects = filtered.slice(0, 2);
+    const lockedProjects = filtered.slice(2);
+
+    let html = visibleProjects.map(p => createMinimalProjectCardHTML(p, false)).join('');
+
+    if (lockedProjects.length > 0) {
+      const lockedCardsHTML = lockedProjects.map(p => createMinimalProjectCardHTML(p, true)).join('');
+      
+      html += `
+        <div class="locked-projects-wrapper" style="grid-column: 1 / -1;">
+          <!-- Blurred Cards Background Grid -->
+          <div class="locked-projects-blur-grid">
+            ${lockedCardsHTML}
+          </div>
+
+          <!-- Glassmorphic Lock Gate Overlay -->
+          <div class="projects-lock-overlay">
+            <div class="lock-overlay-content">
+              <div class="lock-icon-badge">
+                <span class="lock-emoji">🔒</span>
+                <span class="lock-glow-ring"></span>
+              </div>
+              <div class="lock-badge-pill">CLIENT &amp; PARTNER ACCESS LOCKED</div>
+              <h3 class="lock-title">Unlock All ${LIVE_PROJECTS_DATA.length} Live Client Projects</h3>
+              <p class="lock-subtitle">
+                Showing 2 featured preview projects. Log in to your client account or access key to unlock real-time dashboards, stage timelines, and full changelogs across all projects.
+              </p>
+              <div class="lock-actions">
+                <button class="btn btn-primary open-login-modal-btn magnetic-target" onclick="openClientLoginModal()">
+                  <span>🔑 Login to Unlock All Projects</span>
+                  <span class="btn-arrow">→</span>
+                </button>
+                <button class="btn btn-secondary demo-quick-unlock-btn magnetic-target" onclick="quickDemoUnlock()">
+                  <span>⚡ 1-Click Instant Demo Unlock</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    container.innerHTML = html;
+  }
+
+  // Trigger progress bar animations
+  setTimeout(animateProgressBars, 100);
 }
 
-function createProjectCardHTML(p) {
-  // Compact Service Pills (display top 3 + count pill for clean lightweight UI)
-  const topServices = p.services.slice(0, 3);
-  const remainingCount = p.services.length - 3;
-  let servicesHTML = topServices.map(s => `<span class="service-pill">${s}</span>`).join('');
-  if (remainingCount > 0) {
-    servicesHTML += `<span class="service-pill more-pill">+${remainingCount} more</span>`;
-  }
-  
-  const timelineHTML = p.timeline.map(t => {
+function animateProgressBars() {
+  const fills = document.querySelectorAll('.tile-progress-fill');
+  fills.forEach(fill => {
+    const target = fill.getAttribute('data-progress');
+    if (target) {
+      fill.style.width = target + '%';
+    }
+  });
+}
+
+// Global Modal Trigger: Project Detail Modal (Rich Detailed View)
+window.openProjectUpdatesModal = function(projectId) {
+  const p = LIVE_PROJECTS_DATA.find(item => item.id === projectId);
+  if (!p) return;
+
+  const modal = document.getElementById('project-updates-modal');
+  const modalBody = document.getElementById('project-updates-body');
+  if (!modal || !modalBody) return;
+
+  const progress = getProjectProgress(p);
+  const fullServicesHTML = p.services.map(s => `<span class="service-pill">${s}</span>`).join('');
+
+  const timelineHTML = (p.timeline || []).map(t => {
     let statusClass = 'status-upcoming';
     if (t.status === 'completed') statusClass = 'status-completed';
     if (t.status === 'in-progress') statusClass = 'status-in-progress';
@@ -568,132 +791,7 @@ function createProjectCardHTML(p) {
     `;
   }).join('');
 
-  const latestUpdate = p.updates && p.updates.length > 0 ? p.updates[0] : null;
-
-  // Top Badge HTML
-  let badgeHTML = '';
-  if (p.isUpcoming) {
-    badgeHTML = `
-      <div class="upcoming-badge-wrapper">
-        <span class="upcoming-dot">🚀</span>
-        <span class="upcoming-badge-text">UPCOMING PROJECT</span>
-      </div>
-    `;
-  } else if (p.isRetainer) {
-    badgeHTML = `
-      <div class="retainer-badge-wrapper">
-        <span class="retainer-dot">⚡</span>
-        <span class="retainer-badge-text">ACTIVE RETAINER</span>
-      </div>
-    `;
-  } else {
-    badgeHTML = `
-      <div class="live-badge-wrapper">
-        <span class="live-blinking-dot"></span>
-        <span class="live-badge-text">LIVE PROJECT</span>
-      </div>
-    `;
-  }
-
-  // Progress Section HTML: ONLY rendered if p.progress is defined (e.g. Website Redesign / Active Build)
-  let progressSectionHTML = '';
-  if (typeof p.progress === 'number' && p.progress > 0) {
-    progressSectionHTML = `
-      <div class="progress-section">
-        <div class="progress-header">
-          <span class="progress-label">Completion Status</span>
-          <span class="progress-percent">${p.progress}%</span>
-        </div>
-        <div class="progress-track">
-          <div class="progress-fill" data-progress="${p.progress}" style="width: 0%;"></div>
-        </div>
-        <div class="progress-meta">
-          <span>Timeline: <strong>${p.expectedCompletion}</strong></span>
-        </div>
-      </div>
-    `;
-  }
-
-  return `
-    <article class="live-card magnetic-target" data-project-id="${p.id}">
-      
-      <!-- Top Card Header Row -->
-      <div class="live-card-top">
-        ${badgeHTML}
-        <span class="industry-badge">${p.industry}</span>
-      </div>
-
-      <!-- Project Name & Status Title -->
-      <div class="live-card-head">
-        <h3 class="live-project-title">${p.name}</h3>
-        <span class="live-status-pill">${p.status}</span>
-      </div>
-
-      <p class="live-project-desc line-clamp-2">${p.description}</p>
-
-      <!-- Optional Progress Section (Only for Active Builds / Redesigns) -->
-      ${progressSectionHTML}
-
-      <!-- Timeline Stage Checklist -->
-      <div class="timeline-section">
-        <h4 class="timeline-title">Project Stages</h4>
-        <div class="timeline-grid">
-          ${timelineHTML}
-        </div>
-      </div>
-
-      <!-- Services Included -->
-      <div class="services-section">
-        <h4 class="services-title">Services Included</h4>
-        <div class="services-pills-row">
-          ${servicesHTML}
-        </div>
-      </div>
-
-      <!-- Latest Update Preview Callout -->
-      ${latestUpdate ? `
-        <div class="latest-update-box">
-          <div class="update-box-head">
-            <span class="update-badge">${latestUpdate.badge}</span>
-            <span class="update-date">📅 ${latestUpdate.date}</span>
-          </div>
-          <strong class="update-headline">${latestUpdate.title}</strong>
-        </div>
-      ` : ''}
-
-      <!-- Bottom Card Action Button -->
-      <div class="live-card-footer">
-        <button class="btn btn-secondary view-progress-btn magnetic-target" onclick="openProjectUpdatesModal('${p.id}')">
-          <span>View Details &amp; Changelog →</span>
-        </button>
-      </div>
-
-    </article>
-  `;
-}
-
-function animateProgressBars() {
-  const fills = document.querySelectorAll('.progress-fill');
-  fills.forEach(fill => {
-    const target = fill.getAttribute('data-progress');
-    if (target) {
-      fill.style.width = target + '%';
-    }
-  });
-}
-
-// Global modal trigger for Project Updates
-window.openProjectUpdatesModal = function(projectId) {
-  const p = LIVE_PROJECTS_DATA.find(item => item.id === projectId);
-  if (!p) return;
-
-  const modal = document.getElementById('project-updates-modal');
-  const modalBody = document.getElementById('project-updates-body');
-  if (!modal || !modalBody) return;
-
-  const fullServicesHTML = p.services.map(s => `<span class="service-pill">${s}</span>`).join('');
-
-  const updatesHTML = p.updates.map(u => `
+  const updatesHTML = (p.updates || []).map(u => `
     <div class="update-timeline-item">
       <div class="update-marker"></div>
       <div class="update-content">
@@ -707,43 +805,9 @@ window.openProjectUpdatesModal = function(projectId) {
     </div>
   `).join('');
 
-  let modalBadgeText = 'LIVE PROJECT UPDATES';
-  let modalProgressBoxHTML = '';
-
-  if (p.isUpcoming) {
-    modalBadgeText = 'UPCOMING PROJECT PRE-LAUNCH';
-    modalProgressBoxHTML = `
-      <div class="modal-progress-bar-box upcoming-modal-box">
-        <div class="progress-header">
-          <span>Current Phase: <strong>🚀 Pre-Launch Setup &amp; Architecture</strong></span>
-          <span class="upcoming-status-pill">Target Launch: ${p.expectedCompletion}</span>
-        </div>
-      </div>
-    `;
-  } else if (p.isRetainer) {
-    modalBadgeText = 'ACTIVE RETAINER UPDATES';
-    modalProgressBoxHTML = `
-      <div class="modal-progress-bar-box retainer-modal-box">
-        <div class="progress-header">
-          <span>Retainer Status</span>
-          <strong style="color: #10b981;">⚡ Active Monthly Operations</strong>
-        </div>
-      </div>
-    `;
-  } else {
-    modalBadgeText = 'LIVE REDESIGN UPDATES';
-    modalProgressBoxHTML = `
-      <div class="modal-progress-bar-box">
-        <div class="progress-header">
-          <span>Overall Project Completion</span>
-          <strong style="color: #d946ef;">${p.progress}%</strong>
-        </div>
-        <div class="progress-track">
-          <div class="progress-fill" style="width: ${p.progress}%;"></div>
-        </div>
-      </div>
-    `;
-  }
+  let modalBadgeText = 'LIVE PROJECT DASHBOARD';
+  if (p.isUpcoming) modalBadgeText = 'UPCOMING PRE-LAUNCH DASHBOARD';
+  if (p.isRetainer) modalBadgeText = 'ACTIVE RETAINER DASHBOARD';
 
   modalBody.innerHTML = `
     <div class="modal-project-header">
@@ -755,12 +819,34 @@ window.openProjectUpdatesModal = function(projectId) {
       <p class="modal-project-sub">${p.industry} • <strong>${p.status}</strong></p>
     </div>
 
+    <!-- Progress Status Bar in Modal -->
+    <div class="modal-progress-bar-box">
+      <div class="progress-header">
+        <span>Completion &amp; Delivery Status</span>
+        <strong style="color: #ff4d8d; font-size: 1.15rem;">${progress}%</strong>
+      </div>
+      <div class="progress-track" style="height: 8px; border-radius: 999px; background: rgba(15,23,42,0.08); overflow: hidden; margin: 0.5rem 0;">
+        <div class="progress-fill" style="width: ${progress}%; height: 100%; background: linear-gradient(135deg, #ff4d8d 0%, #c084fc 100%); border-radius: 999px;"></div>
+      </div>
+      <div class="progress-meta" style="font-size: 0.8rem; color: var(--text-muted);">
+        <span>Timeline Target: <strong>${p.expectedCompletion || 'Continuous Operations'}</strong></span>
+      </div>
+    </div>
+
     <div class="modal-full-desc-box">
       <h4 class="timeline-heading">Project Overview &amp; Strategy</h4>
       <p class="modal-desc-text">${p.description}</p>
     </div>
 
-    ${modalProgressBoxHTML}
+    <!-- Project Timeline Stages -->
+    ${timelineHTML ? `
+      <div class="modal-timeline-box" style="margin: 1.25rem 0;">
+        <h4 class="timeline-heading">Project Execution Stages</h4>
+        <div class="timeline-grid" style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem;">
+          ${timelineHTML}
+        </div>
+      </div>
+    ` : ''}
 
     <div class="modal-services-box">
       <h4 class="timeline-heading">Full Scope &amp; Services Included</h4>
@@ -769,15 +855,17 @@ window.openProjectUpdatesModal = function(projectId) {
       </div>
     </div>
 
-    <div class="modal-updates-timeline" style="margin-top: 1.5rem;">
-      <h3 class="timeline-heading">📋 Log of Project Milestones &amp; Updates</h3>
-      <div class="updates-list">
-        ${updatesHTML}
+    ${updatesHTML ? `
+      <div class="modal-updates-timeline" style="margin-top: 1.5rem;">
+        <h3 class="timeline-heading">📋 Log of Project Milestones &amp; Updates</h3>
+        <div class="updates-list">
+          ${updatesHTML}
+        </div>
       </div>
-    </div>
+    ` : ''}
 
     <div class="modal-footer-cta">
-      <p>Want a similar dedicated growth strategy built for your brand?</p>
+      <p>Want a similar high-growth digital strategy built for your brand?</p>
       <button class="btn btn-primary open-contact-btn magnetic-target" onclick="closeUpdatesModalAndOpenAudit()">
         <span>Book A Free Strategy Audit →</span>
       </button>
@@ -825,3 +913,80 @@ function initProgressModal() {
     });
   }
 }
+
+// Client Login Modal Handlers
+window.openClientLoginModal = function() {
+  const modal = document.getElementById('client-login-modal');
+  if (!modal) return;
+  modal.classList.add('active');
+  modal.setAttribute('aria-hidden', 'false');
+  const input = document.getElementById('client-passcode-input');
+  if (input) {
+    setTimeout(() => input.focus(), 100);
+  }
+  if (window.LenisInstance) window.LenisInstance.stop();
+};
+
+window.closeClientLoginModal = function() {
+  const modal = document.getElementById('client-login-modal');
+  if (!modal) return;
+  modal.classList.remove('active');
+  modal.setAttribute('aria-hidden', 'true');
+  const errorMsg = document.getElementById('login-error-msg');
+  if (errorMsg) errorMsg.style.display = 'none';
+  if (window.LenisInstance) window.LenisInstance.start();
+};
+
+window.quickDemoUnlock = function() {
+  unlockClientPortal();
+};
+
+function initLoginModal() {
+  const modal = document.getElementById('client-login-modal');
+  const closeBtn = document.getElementById('close-login-modal');
+  const form = document.getElementById('client-login-form');
+  const quickDemoBtn = document.getElementById('modal-quick-demo-btn');
+  const lockPortalBtn = document.getElementById('lock-portal-btn');
+  const openLoginBtns = document.querySelectorAll('.open-login-modal-btn');
+
+  openLoginBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openClientLoginModal();
+    });
+  });
+
+  if (closeBtn && modal) {
+    closeBtn.addEventListener('click', closeClientLoginModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeClientLoginModal();
+    });
+  }
+
+  if (quickDemoBtn) {
+    quickDemoBtn.addEventListener('click', () => {
+      unlockClientPortal();
+    });
+  }
+
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const input = document.getElementById('client-passcode-input');
+      const val = input ? input.value.trim() : '';
+      if (val.length > 0) {
+        unlockClientPortal();
+      } else {
+        // Even if empty, allow user unlock on submit for seamless UX
+        unlockClientPortal();
+      }
+    });
+  }
+
+  if (lockPortalBtn) {
+    lockPortalBtn.addEventListener('click', () => {
+      lockClientPortal();
+    });
+  }
+}
+
