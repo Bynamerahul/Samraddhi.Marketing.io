@@ -726,7 +726,7 @@ function renderLiveProjectsGrid(category = 'all') {
           <div class="projects-lock-overlay">
             <div class="lock-overlay-content">
               <div class="lock-icon-badge">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #ff4d8d;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #38bdf8;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
                 <span class="lock-glow-ring"></span>
               </div>
               <div class="lock-badge-pill">CLIENT ACCESS REQUIRED</div>
@@ -825,11 +825,15 @@ window.openProjectUpdatesModal = function(projectId) {
     <div class="modal-progress-bar-box">
       <div class="progress-header">
         <span>Completion &amp; Delivery Status</span>
-        <strong style="color: #ff4d8d; font-size: 1.15rem;">${progress}%</strong>
+        <strong style="color: #38bdf8; font-size: 1.15rem;">${progress}%</strong>
       </div>
-      <div class="progress-track" style="height: 8px; border-radius: 999px; background: rgba(15,23,42,0.08); overflow: hidden; margin: 0.5rem 0;">
-        <div class="progress-fill" style="width: ${progress}%; height: 100%; background: linear-gradient(135deg, #ff4d8d 0%, #c084fc 100%); border-radius: 999px;"></div>
+      <div class="progress-track" style="height: 8px; border-radius: 999px; background: rgba(255,255,255,0.08); overflow: hidden; margin: 0.5rem 0;">
+        <div class="progress-fill" style="width: ${progress}%; height: 100%; background: #38bdf8; border-radius: 999px; box-shadow: 0 0 12px rgba(56,189,248,0.4);"></div>
       </div>
+      <div class="progress-meta" style="font-size: 0.8rem; color: var(--text-muted);">
+        <span>Timeline Target: <strong>${p.expectedCompletion || 'Continuous Operations'}</strong></span>
+      </div>
+    </div>
       <div class="progress-meta" style="font-size: 0.8rem; color: var(--text-muted);">
         <span>Timeline Target: <strong>${p.expectedCompletion || 'Continuous Operations'}</strong></span>
       </div>
