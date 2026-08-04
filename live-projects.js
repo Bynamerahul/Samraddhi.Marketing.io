@@ -700,54 +700,8 @@ function renderLiveProjectsGrid(category = 'all') {
     return;
   }
 
-  const unlocked = isClientUnlocked();
-
-  if (unlocked) {
-    // Render all projects unlocked
-    container.innerHTML = filtered.map(p => createMinimalProjectCardHTML(p, false)).join('');
-  } else {
-    // Show only first 2 unlocked, remainder blurred with lock overlay
-    const visibleProjects = filtered.slice(0, 2);
-    const lockedProjects = filtered.slice(2);
-
-    let html = visibleProjects.map(p => createMinimalProjectCardHTML(p, false)).join('');
-
-    if (lockedProjects.length > 0) {
-      const lockedCardsHTML = lockedProjects.map(p => createMinimalProjectCardHTML(p, true)).join('');
-      
-      html += `
-        <div class="locked-projects-wrapper" style="grid-column: 1 / -1;">
-          <!-- Blurred Cards Background Grid -->
-          <div class="locked-projects-blur-grid">
-            ${lockedCardsHTML}
-          </div>
-
-          <!-- Glassmorphic Lock Gate Overlay -->
-          <div class="projects-lock-overlay">
-            <div class="lock-overlay-content">
-              <div class="lock-icon-badge">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #38bdf8;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                <span class="lock-glow-ring"></span>
-              </div>
-              <div class="lock-badge-pill">CLIENT ACCESS REQUIRED</div>
-              <h3 class="lock-title">Unlock All ${LIVE_PROJECTS_DATA.length} Live Client Projects</h3>
-              <p class="lock-subtitle">
-                Showing featured preview projects. Log in to your client account or enter access key to unlock real-time dashboards, stage timelines, and full changelogs across all projects.
-              </p>
-              <div class="lock-actions">
-                <button class="btn btn-primary open-login-modal-btn magnetic-target" onclick="openClientLoginModal()">
-                  <span>Login to Unlock All Projects</span>
-                  <span class="btn-arrow">→</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      `;
-    }
-
-    container.innerHTML = html;
-  }
+  // Render all projects 100% unlocked, clear and interactive
+  container.innerHTML = filtered.map(p => createMinimalProjectCardHTML(p, false)).join('');
 
   // Trigger progress bar animations
   setTimeout(animateProgressBars, 100);
