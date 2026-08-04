@@ -198,7 +198,7 @@ body.cursor-hovering .cursor-radial-glow {
 .curtain-progress {
   width: 0%;
   height: 100%;
-  background: linear-gradient(90deg, #ff4d8d, #c084fc);
+  background: #38bdf8;
   transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -209,14 +209,14 @@ body.cursor-hovering .cursor-radial-glow {
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
-  filter: blur(90px);
-  opacity: 0.5;
+  filter: blur(100px);
+  opacity: 0.25;
   width: 100vw;
   height: 100vh;
 }
 
 [data-theme="dark"] .ambient-blobs-container {
-  opacity: 0.65;
+  opacity: 0.3;
 }
 
 .ambient-blob {
@@ -230,7 +230,7 @@ body.cursor-hovering .cursor-radial-glow {
   height: 480px;
   top: -100px;
   right: -100px;
-  background: radial-gradient(circle, rgba(255, 112, 166, 0.8) 0%, rgba(255, 77, 141, 0.3) 70%, transparent 100%);
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.2) 0%, rgba(56, 189, 248, 0.05) 70%, transparent 100%);
   animation: float-blob-1 20s ease-in-out infinite alternate;
 }
 
@@ -239,7 +239,7 @@ body.cursor-hovering .cursor-radial-glow {
   height: 550px;
   bottom: 10%;
   left: -150px;
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.7) 0%, rgba(129, 140, 248, 0.3) 70%, transparent 100%);
+  background: radial-gradient(circle, rgba(129, 140, 248, 0.15) 0%, rgba(56, 189, 248, 0.04) 70%, transparent 100%);
   animation: float-blob-2 25s ease-in-out infinite alternate;
 }
 
@@ -248,7 +248,7 @@ body.cursor-hovering .cursor-radial-glow {
   height: 420px;
   top: 45%;
   right: 15%;
-  background: radial-gradient(circle, rgba(251, 113, 133, 0.7) 0%, rgba(244, 63, 94, 0.25) 70%, transparent 100%);
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(56, 189, 248, 0.04) 70%, transparent 100%);
   animation: float-blob-3 22s ease-in-out infinite alternate;
 }
 
@@ -270,10 +270,10 @@ body.cursor-hovering .cursor-radial-glow {
   100% { transform: translate(70px, -60px) scale(0.85); }
 }
 
-/* Pink Glow Text Accent */
+/* Sky Blue Glow Text Accent */
 .pink-glow-text {
-  text-shadow: 0 0 25px rgba(255, 77, 141, 0.5);
-  background: linear-gradient(135deg, #ff4d8d 0%, #c084fc 100%);
+  text-shadow: 0 0 25px rgba(56, 189, 248, 0.4);
+  background: linear-gradient(135deg, #ffffff 0%, #38bdf8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -287,7 +287,7 @@ body.cursor-hovering .cursor-radial-glow {
   height: 100vh;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.6;
+  opacity: 0.2;
 }
 
 /* Reusable Container */
@@ -311,7 +311,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, var(--text-primary) 30%, var(--text-muted) 100%);
+  background: linear-gradient(135deg, #ffffff 40%, var(--text-secondary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -335,28 +335,28 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary {
-  background-color: var(--text-primary);
-  color: var(--bg-primary);
-  border-color: var(--text-primary);
+  background-color: #38bdf8;
+  color: #08090a;
+  border-color: #38bdf8;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(255, 77, 141, 0.3);
-  background-color: #ff4d8d;
-  border-color: #ff4d8d;
-  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(56, 189, 248, 0.3);
+  background-color: #7dd3fc;
+  border-color: #7dd3fc;
+  color: #08090a;
 }
 
 .btn-secondary {
-  background-color: var(--bg-secondary);
+  background-color: rgba(255, 255, 255, 0.05);
   color: var(--text-primary);
-  border-color: var(--border-light);
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
 .btn-secondary:hover {
-  background-color: var(--bg-tertiary);
-  border-color: var(--border-medium);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .btn-light {
@@ -392,8 +392,8 @@ h1, h2, h3, h4, h5, h6 {
   width: 2.35rem;
   height: 2.35rem;
   border-radius: var(--radius-full);
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--border-light);
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -404,9 +404,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .icon-btn:hover {
-  background-color: var(--bg-tertiary);
+  background-color: rgba(255, 255, 255, 0.12);
   transform: scale(1.05);
-  border-color: var(--accent-pink);
+  border-color: #38bdf8;
 }
 
 /* ==========================================================================
@@ -426,23 +426,23 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 1360px;
   margin: 0 auto;
   padding: 0.45rem 1rem;
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(15, 16, 19, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 77, 141, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-full);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
   transition: all var(--transition-fast);
   width: 100%;
 }
 
 [data-theme="dark"] .head-container {
-  background: rgba(18, 19, 24, 0.85);
-  border-color: rgba(255, 112, 166, 0.3);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  background: rgba(15, 16, 19, 0.85);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .brand-logo {
@@ -459,7 +459,7 @@ h1, h2, h3, h4, h5, h6 {
   width: auto;
   object-fit: contain;
   border-radius: 4px;
-  border: 1px solid rgba(255, 77, 141, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .brand-name {
@@ -469,7 +469,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .brand-dot {
-  color: #ff4d8d;
+  color: #38bdf8;
   font-weight: 600;
 }
 
@@ -491,11 +491,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-link:hover {
-  color: #ff4d8d;
+  color: #38bdf8;
 }
 
 .nav-link.active {
-  color: #ff4d8d !important;
+  color: #38bdf8 !important;
   font-weight: 800 !important;
 }
 
