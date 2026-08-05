@@ -1,0 +1,21 @@
+{
+  "name": "Samraddhi Marketing",
+  "short_name": "Samraddhi",
+  "description": "Full-Service Digital Marketing Agency & Website Design Company",
+  "start_url": "https://samraddhi.in/",
+  "display": "standalone",
+  "background_color": "#08090a",
+  "theme_color": "#38bdf8",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "samraddhi-india-logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
