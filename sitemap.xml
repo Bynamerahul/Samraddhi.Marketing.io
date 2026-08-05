@@ -2,25 +2,73 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://samraddhimarketing.netlify.app/</loc>
-    <lastmod>2026-08-03</lastmod>
+    <loc>https://bynamerahul.github.io/Samraddhi.Marketing.io/</loc>
+    <lastmod>2026-08-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://samraddhimarketing.netlify.app/og-image.svg</image:loc>
-      <image:title>Samraddhi Marketing - Full Service Business Growth Agency</image:title>
+      <image:loc>https://bynamerahul.github.io/Samraddhi.Marketing.io/og-image.svg</image:loc>
+      <image:title>Digital Marketing Agency &amp; Website Design Company | Samraddhi Marketing</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://samraddhimarketing.netlify.app/live-projects.html</loc>
-    <lastmod>2026-08-03</lastmod>
+    <loc>https://bynamerahul.github.io/Samraddhi.Marketing.io/live-projects.html</loc>
+    <lastmod>2026-08-05</lastmod>
     <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://bynamerahul.github.io/Samraddhi.Marketing.io/estimator.html</loc>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://bynamerahul.github.io/Samraddhi.Marketing.io/website-design.html</loc>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samraddhimarketing.netlify.app/estimator.html</loc>
-    <lastmod>2026-08-03</lastmod>
+    <loc>https://bynamerahul.github.io/Samraddhi.Marketing.io/website-development.html</loc>
+    <lastmod>2026-08-05</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://bynamerahul.github.io/Samraddhi.Marketing.io/branding.html</loc>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://bynamerahul.github.io/Samraddhi.Marketing.io/social-media-marketing.html</loc>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://bynamerahul.github.io/Samraddhi.Marketing.io/seo.html</loc>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://bynamerahul.github.io/Samraddhi.Marketing.io/performance-marketing.html</loc>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://bynamerahul.github.io/Samraddhi.Marketing.io/ai-automation.html</loc>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://bynamerahul.github.io/Samraddhi.Marketing.io/ai-product-photography.html</loc>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
 </urlset>
