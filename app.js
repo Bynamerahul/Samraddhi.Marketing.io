@@ -985,54 +985,99 @@ document.addEventListener('DOMContentLoaded', () => {
   // BLOG PLAYBOOKS MODAL DATABASE
   const blogPlaybooksData = {
     'cro-playbook': {
-      title: "How To Rank #1 on Etsy & Ebay: Product AI Images & Listing SEO",
-      category: "E-COMMERCE & MARKETPLACES • 5 MIN READ",
+      title: "The Core Blueprint for Scaling D2C Brands in 2026",
+      category: "📢 MARKETING • 5 MIN READ",
       body: `
         <div style="font-size: 1rem; color: var(--text-secondary); line-height: 1.7; display: flex; flex-direction: column; gap: 1rem;">
-          <p>Ranking on Etsy and Ebay in 2026 requires hyper-optimized listing titles, search tags, and studio-quality Product AI images.</p>
+          <p>Scaling a D2C e-commerce brand in 2026 demands a highly structured approach towards customer acquisition, conversion optimization, and retention campaigns.</p>
           <div style="background: var(--bg-primary); padding: 1.25rem; border-radius: 0.5rem; border-left: 4px solid #ff4d8d;">
-            <strong style="color: var(--text-primary); font-size: 1.1rem;">🔥 5 Key Marketplace Ranking Pillars:</strong>
+            <strong style="color: var(--text-primary); font-size: 1.1rem;">🔥 4 Key Scaling Pillars:</strong>
             <ol style="margin-left: 1.25rem; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
-              <li><strong>Product AI Studio Imagery:</strong> Generate clean white backdrops and realistic lifestyle studio scenes that double click-through rates.</li>
-              <li><strong>Etsy/Ebay Tag Keyword Optimization:</strong> Maximize all 13 Etsy tags and Ebay item specifics with high-search volume long-tail keywords.</li>
-              <li><strong>High Conversion Copywriting:</strong> Structure product titles so primary keywords appear in the first 40 characters for mobile shoppers.</li>
-              <li><strong>Automated Customer Follow-ups:</strong> Send instant post-purchase WhatsApp/Email notifications to drive 5-star seller reviews.</li>
+              <li><strong>High-ROAS Meta Ads:</strong> Leverage broad interest targets, visual product reels, and dynamic catalog ads.</li>
+              <li><strong>Frictionless Shopify Custom Checkouts:</strong> Implement 1-click checkout options to reduce cart abandonment rates.</li>
+              <li><strong>AI Product Studio Scenes:</strong> Replace generic mockups with high-converting studio lifestyle visuals.</li>
+              <li><strong>Retention Automations:</strong> Set up personalized post-purchase WhatsApp & email sequences to drive repeat buyers.</li>
             </ol>
           </div>
         </div>
       `
     },
-    'ai-automation': {
-      title: "How Indian Startups Are Using AI Chatbots To Automate Lead Nurturing",
-      category: "AI AUTOMATION • 7 MIN READ",
+    'seo-sprint': {
+      title: "Generative Engine Optimization (GEO): The New SEO Frontier",
+      category: "🚀 SEO & GROWTH • 7 MIN READ",
       body: `
         <div style="font-size: 1rem; color: var(--text-secondary); line-height: 1.7; display: flex; flex-direction: column; gap: 1rem;">
-          <p>78% of customers purchase from the business that responds to their inquiry first. Manual response times of 2-4 hours lead to 60%+ wasted ad spend.</p>
-          <div style="background: var(--bg-primary); padding: 1.25rem; border-radius: 0.5rem; border-left: 4px solid #3b82f6;">
-            <strong style="color: var(--text-primary); font-size: 1.1rem;">🤖 The AI Lead Automation Blueprint:</strong>
+          <p>Search is shifting. ChatGPT, Claude, Perplexity, and Google AI Overviews are changing how users find information. Optimizing for generative search engines requires a shift from traditional keyword stuffing to structured, authoritative entity mapping.</p>
+          <div style="background: var(--bg-primary); padding: 1.25rem; border-radius: 0.5rem; border-left: 4px solid #38bdf8;">
+            <strong style="color: var(--text-primary); font-size: 1.1rem;">🤖 Actionable GEO Strategies:</strong>
             <ul style="margin-left: 1.25rem; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
-              <li><strong>Instant WhatsApp Qualification:</strong> AI Bot responds within 3 seconds of a Meta Lead Form submission.</li>
-              <li><strong>Smart Calendar Booking:</strong> Automatically syncs slots with sales reps without back-and-forth messaging.</li>
-              <li><strong>24/7 FAQ Resolution:</strong> Answers shipping, pricing, and warranty queries automatically.</li>
+              <li><strong>Citation-Ready Content:</strong> Author concise, fact-based answers right at the beginning of sections.</li>
+              <li><strong>Entity Optimization:</strong> Structure clear relationships between your brand name, core founders, and service niches using JSON-LD schema graphs.</li>
+              <li><strong>High Topical Authority:</strong> Publish extensive, expert articles that solve complex query clusters rather than short pages.</li>
             </ul>
           </div>
         </div>
       `
     },
-    'meta-vs-google': {
-      title: "Meta Ads vs Google Ads in 2026: Where Should You Spend First?",
-      category: "PERFORMANCE ADS • 6 MIN READ",
+    'custom-vs-templates': {
+      title: "Why Custom-Coded Websites Crush Template Web Builders",
+      category: "💻 WEB DEV • 4 MIN READ",
       body: `
         <div style="font-size: 1rem; color: var(--text-secondary); line-height: 1.7; display: flex; flex-direction: column; gap: 1rem;">
-          <p>Choosing between Meta (Facebook & Instagram) and Google Ads depends heavily on consumer purchase intent and business category.</p>
-          <div style="background: var(--bg-primary); padding: 1.25rem; border-radius: 0.5rem; border-left: 4px solid #10b981;">
-            <strong style="color: var(--text-primary); font-size: 1.1rem;">📊 Allocation Matrix:</strong>
+          <p>Standard templates and heavy builders bundle bloated JS codes that degrade page speed and visual stability metrics. Custom coded architectures deliver superior loading efficiency and SEO indexes.</p>
+          <div style="background: var(--bg-primary); padding: 1.25rem; border-radius: 0.5rem; border-left: 4px solid #c084fc;">
+            <strong style="color: var(--text-primary); font-size: 1.1rem;">⚡ The Custom Code Edge:</strong>
             <ul style="margin-left: 1.25rem; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
-              <li><strong>Google Search Ads (High Intent):</strong> Best for Healthcare Clinics, Real Estate, B2B Services, and Urgent Needs.</li>
-              <li><strong>Meta Visual Ads (Discovery):</strong> Essential for D2C Fashion, Ethnic Wear, Beauty, Home Decor & Lifestyle.</li>
-              <li><strong>The Hybrid Growth Engine:</strong> Capture visual discovery via Meta Ads, then capture search demand & retarget via Google Performance Max.</li>
+              <li><strong>Sub-Second Loading Speeds:</strong> Zero bloated script resources and minimal DOM layout paint times.</li>
+              <li><strong>Perfect Core Web Vitals:</strong> Maximize LCP and CLS scores for automated ranking boots.</li>
+              <li><strong>Total Layout Freedom:</strong> Bring high-end designs, dynamic micro-animations, and custom calculators to life without restrictions.</li>
             </ul>
           </div>
+        </div>
+      `
+    },
+    'atl-vs-btl': {
+      title: "ATL vs BTL vs TTL Marketing: The Ultimate Modern Scale Breakdown",
+      category: "📢 MARKETING • 6 MIN READ",
+      body: `
+        <div style="font-size: 1rem; color: var(--text-secondary); line-height: 1.7; display: flex; flex-direction: column; gap: 1rem;">
+          <!-- Feature Image -->
+          <div style="width:100%; height:260px; overflow:hidden; border-radius:var(--radius-md); margin-bottom:1.5rem; border:1px solid var(--border-medium);">
+            <img src="https://tbs-marketing.com/wp-content/uploads/2022/11/What-is-the-difference-between-ATL-BTL-and-TTL-advertising.jpg" alt="ATL vs BTL vs TTL" style="width:100%; height:100%; object-fit:cover;">
+          </div>
+          
+          <p>A commonly asked question in marketing is the difference between <strong>Above the Line (ATL)</strong>, <strong>Below the Line (BTL)</strong>, and <strong>Through the Line (TTL)</strong> campaigns. Originated back in 1954 when Procter & Gamble separated payments for direct promotions from mass branding media, "the Line" divides general outreach from hyper-targeted, conversion-focused marketing actions.</p>
+          
+          <div style="background: var(--bg-primary); padding: 1.25rem; border-radius: 0.5rem; border-left: 4px solid #ff4d8d;">
+            <strong style="color: var(--text-primary); font-size: 1.1rem;">📢 1. Above The Line (ATL) — Broad Awareness</strong>
+            <p style="margin-top:0.25rem; font-size:0.925rem;">ATL consists of untargeted, massive campaigns to build brand recognition. Its focus is reach rather than immediate sales metrics.</p>
+            <ul style="margin-left: 1.25rem; margin-top: 0.5rem; font-size:0.9rem; display: flex; flex-direction: column; gap: 0.25rem;">
+              <li><strong>Television:</strong> National or international commercial ads.</li>
+              <li><strong>Print Media:</strong> Broad-reach newspapers and lifestyle magazines.</li>
+              <li><strong>Radio Broadcasts:</strong> Audio ads reaching commuters and local populations.</li>
+            </ul>
+          </div>
+
+          <div style="background: var(--bg-primary); padding: 1.25rem; border-radius: 0.5rem; border-left: 4px solid #38bdf8;">
+            <strong style="color: var(--text-primary); font-size: 1.1rem;">🎯 2. Below The Line (BTL) — Direct Action & ROI</strong>
+            <p style="margin-top:0.25rem; font-size:0.925rem;">BTL focuses on targeted communication aimed at specific demographics to drive conversions and track exact ROI.</p>
+            <ul style="margin-left: 1.25rem; margin-top: 0.5rem; font-size:0.9rem; display: flex; flex-direction: column; gap: 0.25rem;">
+              <li><strong>Email Marketing:</strong> Hyper-personalized newsletters and automated CRM cart recoveries.</li>
+              <li><strong>Targeted Search Ads:</strong> Paid search keyword bidding matching specific intent.</li>
+              <li><strong>In-Store Promotions:</strong> Pop-up sampling, visual merchandising, and POS discounts.</li>
+            </ul>
+          </div>
+
+          <div style="background: var(--bg-primary); padding: 1.25rem; border-radius: 0.5rem; border-left: 4px solid #c084fc;">
+            <strong style="color: var(--text-primary); font-size: 1.1rem;">🔄 3. Through The Line (TTL) — The Integrated Playbook</strong>
+            <p style="margin-top:0.25rem; font-size:0.925rem;">TTL blends both fronts simultaneously. It builds a broad brand story while immediately funneling interested traffic into target retargeting maps.</p>
+            <ul style="margin-left: 1.25rem; margin-top: 0.5rem; font-size:0.9rem; display: flex; flex-direction: column; gap: 0.25rem;">
+              <li><strong>360-Degree Sprints:</strong> Combining a mass awareness TV spot with highly localized social media retargeting.</li>
+              <li><strong>Content Ecosystems:</strong> Combining visual social media reels with high-intent SEO blogs.</li>
+            </ul>
+          </div>
+
+          <p style="margin-top: 1rem;">Choosing the right playbook depends on your current stage and investment resources. While large conglomerates rely on heavy ATL campaigns, fast-growing startups and D2C brands leverage digital BTL and TTL engines to scale cashflow before financing mass media campaigns.</p>
         </div>
       `
     }
