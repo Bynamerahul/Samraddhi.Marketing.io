@@ -7,3 +7,9 @@
     X-Frame-Options = "DENY"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+
+[[redirects]]
+  from = "https://www.samraddhi.in/*"
+  to = "https://samraddhi.in/:splat"
+  status = 301
+  force = true

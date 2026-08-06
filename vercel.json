@@ -1,4 +1,17 @@
 {
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.samraddhi.in"
+        }
+      ],
+      "destination": "https://samraddhi.in/:path*",
+      "statusCode": 301
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
