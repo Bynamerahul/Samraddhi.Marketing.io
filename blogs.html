@@ -399,6 +399,144 @@
     </div>
   </footer>
 
+  <!-- CASE STUDY DETAIL MODAL -->
+  <div id="project-modal" class="modal-overlay" aria-hidden="true" data-lenis-prevent="true">
+    <div class="modal-card" data-lenis-prevent="true">
+      <button class="modal-close-btn magnetic-target" id="close-project-modal">✕</button>
+      <div id="project-modal-body" class="modal-body">
+        <!-- Dynamically injected via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- MULTI-STEP STRATEGY CALL BOOKING MODAL -->
+  <div id="contact-modal" class="modal-overlay" aria-hidden="true" data-lenis-prevent="true">
+    <div class="modal-card contact-modal-card" data-lenis-prevent="true">
+      <button class="modal-close-btn magnetic-target" id="close-contact-modal">✕</button>
+      <div class="contact-form-wrapper">
+        <div class="contact-header">
+          <span class="modal-tag">FREE STRATEGY CONSULTATION</span>
+          <h2 class="modal-title">Book Strategy Call With Samraddhi</h2>
+          <div class="step-progress-bar">
+            <div class="step-node active" data-step="1">1. Business Type</div>
+            <div class="step-line"></div>
+            <div class="step-node" data-step="2">2. Growth Goal</div>
+            <div class="step-line"></div>
+            <div class="step-node" data-step="3">3. Contact Details</div>
+          </div>
+        </div>
+        <form id="contact-form" class="contact-form" onsubmit="return false;">
+          <div class="form-step active" data-step-content="1">
+            <label class="form-label">Select Your Business Category</label>
+            <div class="form-grid-pills business-options-grid">
+              <label class="form-pill-label magnetic-target">
+                <input type="radio" name="business_type" value="B2B Exporter & Wholesale" checked>
+                <span class="pill-radio-text">🌐 B2B Exporter & Wholesale</span>
+              </label>
+              <label class="form-pill-label magnetic-target">
+                <input type="radio" name="business_type" value="Etsy & Ebay Marketplace Seller">
+                <span class="pill-radio-text">🛍️ Ebay & Etsy Seller</span>
+              </label>
+              <label class="form-pill-label magnetic-target">
+                <input type="radio" name="business_type" value="D2C / E-Commerce Brand">
+                <span class="pill-radio-text">🛍️ D2C / E-Commerce Brand</span>
+              </label>
+              <label class="form-pill-label magnetic-target">
+                <input type="radio" name="business_type" value="Ethnic Wear & Apparel">
+                <span class="pill-radio-text">👗 Ethnic Wear & Fashion</span>
+              </label>
+              <label class="form-pill-label magnetic-target">
+                <input type="radio" name="business_type" value="Healthcare & Local Clinic">
+                <span class="pill-radio-text">🏥 Healthcare & Local Clinic</span>
+              </label>
+              <label class="form-pill-label magnetic-target">
+                <input type="radio" name="business_type" value="Education & Institute">
+                <span class="pill-radio-text">🎓 Education & Institute</span>
+              </label>
+              <label class="form-pill-label magnetic-target">
+                <input type="radio" name="business_type" value="Real Estate & Property">
+                <span class="pill-radio-text">🏡 Real Estate & Property</span>
+              </label>
+              <label class="form-pill-label magnetic-target">
+                <input type="radio" name="business_type" value="Restaurant, Cafe & Food">
+                <span class="pill-radio-text">🍽️ Restaurant, Cafe & Food</span>
+              </label>
+              <label class="form-pill-label magnetic-target">
+                <input type="radio" name="business_type" value="Furniture & Home Decor">
+                <span class="pill-radio-text">🛋️ Furniture & Home Decor</span>
+              </label>
+              <label class="form-pill-label magnetic-target">
+                <input type="radio" name="business_type" value="Jewellery & Luxury Goods">
+                <span class="pill-radio-text">💎 Jewellery & Luxury Goods</span>
+              </label>
+              <label class="form-pill-label magnetic-target">
+                <input type="radio" name="business_type" value="Coach, Creator & Influencer">
+                <span class="pill-radio-text">🎙️ Coach, Creator & Influencer</span>
+              </label>
+              <label class="form-pill-label magnetic-target">
+                <input type="radio" name="business_type" value="Manufacturing & B2B">
+                <span class="pill-radio-text">🏭 Manufacturing & B2B</span>
+              </label>
+            </div>
+            <div class="form-actions">
+              <span></span>
+              <button type="button" class="btn btn-primary next-step-btn magnetic-target" data-next="2">Continue to Goals →</button>
+            </div>
+          </div>
+          <div class="form-step" data-step-content="2">
+            <div class="form-group">
+              <label class="form-label">Estimated Monthly Marketing Investment</label>
+              <select name="budget" class="form-select">
+                <option value="₹10,000 - ₹25,000">₹10,000 – ₹25,000 / month</option>
+                <option value="₹25,000 - ₹50,000" selected>₹25,000 – ₹50,000 / month</option>
+                <option value="₹50,000 - ₹1,000,000">₹50,000 – ₹1,00,000 / month</option>
+                <option value="Custom Enterprise">₹1,00,000+ Enterprise</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Preferred Date For Strategy Call</label>
+              <input type="date" name="preferred_date" class="form-input" value="2026-08-01">
+            </div>
+            <div class="form-actions">
+              <button type="button" class="btn btn-secondary prev-step-btn magnetic-target" data-prev="1">← Back</button>
+              <button type="button" class="btn btn-primary next-step-btn magnetic-target" data-next="3">Continue to Contact →</button>
+            </div>
+          </div>
+          <div class="form-step" data-step-content="3">
+            <div class="form-group">
+              <label class="form-label">Full Name *</label>
+              <input type="text" id="contact-name" name="name" class="form-input" placeholder="e.g. Vikram Sharma" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">WhatsApp / Phone Number *</label>
+              <input type="tel" id="contact-phone" name="phone" class="form-input" placeholder="+91 98765 43210" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email Address *</label>
+              <input type="email" id="contact-email" name="email" class="form-input" placeholder="vikram@brand.com" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Tell Us About Your Brand Goals</label>
+              <textarea id="contact-message" name="message" class="form-textarea" rows="2" placeholder="Website link, Etsy/Ebay shop URL, or current growth bottlenecks..."></textarea>
+            </div>
+            <div class="form-actions">
+              <button type="button" class="btn btn-secondary prev-step-btn magnetic-target" data-prev="2">← Back</button>
+              <button type="submit" id="submit-inquiry-btn" class="btn btn-primary magnetic-target">
+                <span>Book Free Call 🚀</span>
+              </button>
+            </div>
+          </div>
+        </form>
+        <div id="contact-success" class="contact-success-screen" style="display: none;">
+          <div class="success-icon">🎉</div>
+          <h3 class="success-title">Strategy Call Requested!</h3>
+          <p class="success-desc">Thank you for reaching out to Samraddhi Marketing. Your inquiry has been sent to Rahul Soni and team. Opening WhatsApp for instant message confirmation...</p>
+          <button class="btn btn-secondary magnetic-target" id="close-success-btn">Close Window</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Scripts -->
   <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
