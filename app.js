@@ -681,34 +681,16 @@ document.addEventListener('DOMContentLoaded', () => {
      ========================================================================== */
   const categoryPackagesData = {
     'web': [
-      { name: 'New Custom Website / B2B Portal', cost: 15000, weeks: 1 },
+      { name: 'Custom UI/UX Website Design', cost: 15000, weeks: 1 },
       { name: 'Complete Website Redesign', cost: 12000, weeks: 1 },
-      { name: 'Shopify Store Setup & Sync', cost: 25000, weeks: 2 },
-      { name: 'Ongoing Website Management', cost: 9999, weeks: 1 }
-    ],
-    'seo': [
-      { name: 'Local SEO & Google Maps', cost: 8000, weeks: 0.5 },
-      { name: 'Technical On-Page SEO', cost: 6000, weeks: 0.5 },
-      { name: 'Complete Technical SEO Audit', cost: 5000, weeks: 0.5 }
+      { name: 'Shopify Custom Setup & Coding', cost: 25000, weeks: 2 },
+      { name: 'E-Commerce Management & Listing SEO', cost: 20000, weeks: 1 }
     ],
     'smm': [
-      { name: 'Starter Social Media (12 Posts)', cost: 9999, weeks: 1 },
-      { name: 'Growth Social Media (20 Posts + 8 Reels)', cost: 24999, weeks: 1 },
-      { name: 'AI Video & Graphic Creatives', cost: 15000, weeks: 1 }
-    ],
-    'market': [
-      { name: 'Ebay Listing SEO & AI Images', cost: 14000, weeks: 1 },
-      { name: 'Etsy Shop Setup & Listing Audit', cost: 12000, weeks: 1 },
-      { name: 'Amazon A+ Content & Sync', cost: 35000, weeks: 2 },
-      { name: 'Dedicated E-Com Scaling Team', cost: 49999, weeks: 1 }
-    ],
-    'ads': [
-      { name: 'Meta Ads Setup & Pixel CAPI', cost: 8000, weeks: 0.5 },
-      { name: 'Google Search & PMax Setup', cost: 10000, weeks: 0.5 }
-    ],
-    'ai': [
-      { name: 'Product AI Images Batch (20 Photos)', cost: 8000, weeks: 0.5 },
-      { name: 'AI WhatsApp & Web Chatbot Setup', cost: 12000, weeks: 0.5 }
+      { name: 'Starter Content Creation (12 Posts)', cost: 9999, weeks: 1 },
+      { name: 'Growth Social Media Retainer (20 Posts + 8 Reels)', cost: 24999, weeks: 1 },
+      { name: 'High-Impact Video Reels & Shorts Batch (10 Videos)', cost: 15000, weeks: 1 },
+      { name: 'YouTube Channel Management & Optimization', cost: 18000, weeks: 2 }
     ]
   };
 

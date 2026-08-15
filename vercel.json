@@ -10,6 +10,36 @@
       ],
       "destination": "https://samraddhi.in/:path*",
       "statusCode": 301
+    },
+    {
+      "source": "/branding",
+      "destination": "/social-media-marketing",
+      "statusCode": 301
+    },
+    {
+      "source": "/performance-marketing",
+      "destination": "/social-media-marketing",
+      "statusCode": 301
+    },
+    {
+      "source": "/ai-product-photography",
+      "destination": "/social-media-marketing",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo",
+      "destination": "/website-development",
+      "statusCode": 301
+    },
+    {
+      "source": "/website-design",
+      "destination": "/website-development",
+      "statusCode": 301
+    },
+    {
+      "source": "/ai-automation",
+      "destination": "/website-development",
+      "statusCode": 301
     }
   ],
   "headers": [

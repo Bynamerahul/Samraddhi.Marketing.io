@@ -1118,8 +1118,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
   margin-top: 3.5rem;
   opacity: 1 !important;
   visibility: visible !important;

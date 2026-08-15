@@ -13,3 +13,39 @@
   to = "https://samraddhi.in/:splat"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/branding"
+  to = "/social-media-marketing"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/performance-marketing"
+  to = "/social-media-marketing"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/ai-product-photography"
+  to = "/social-media-marketing"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/seo"
+  to = "/website-development"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/website-design"
+  to = "/website-development"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/ai-automation"
+  to = "/website-development"
+  status = 301
+  force = true
