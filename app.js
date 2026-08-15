@@ -17,22 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ==========================================================================
-     2. PAGE LOADER CURTAIN TRANSITION
+     2. INITIALIZE GSAP ANIMATIONS DIRECTLY
      ========================================================================== */
-  const curtain = document.getElementById('page-curtain');
-  const curtainProgress = document.querySelector('.curtain-progress');
-
-  if (curtainProgress) {
-    setTimeout(() => { curtainProgress.style.width = '60%'; }, 100);
-    setTimeout(() => { curtainProgress.style.width = '100%'; }, 400);
-    setTimeout(() => {
-      if (curtain) curtain.classList.add('hidden');
-      initGSAPAnimations();
-    }, 750);
-  } else if (curtain) {
-    curtain.classList.add('hidden');
-    initGSAPAnimations();
-  }
+  initGSAPAnimations();
 
 
   /* ==========================================================================
