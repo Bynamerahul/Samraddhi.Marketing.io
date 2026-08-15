@@ -142,8 +142,8 @@
     </div>
     <!-- End Visual Breadcrumbs -->
 
-    <!-- HERO SECTION WITH REAL-TIME 3D WEBGL ENGINE -->
-    <section class="live-hero-section section-padding" style="padding-top: 3rem; padding-bottom: 3.5rem;">
+    <!-- HERO SECTION WITH PARALLAX 3D PHONE SHOWCASE -->
+    <section class="live-hero-section section-padding" style="padding-top: 3rem; padding-bottom: 3.5rem; overflow: hidden;">
       <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;">
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; align-items: center;">
           
@@ -178,24 +178,38 @@
             </div>
           </div>
 
-          <!-- Hero Right: Real-Time Interactive 3D Canvas -->
-          <div style="text-align: center;">
-            <div id="ecom-3d-viewport" style="width: 100%; max-width: 480px; height: 420px; margin: 0 auto; border-radius: var(--radius-xl); overflow: hidden; position: relative; background: radial-gradient(circle at center, #ffffff 0%, #f1f5f9 100%); border: 2px solid var(--border-medium); box-shadow: var(--shadow-lg); cursor: grab;">
+          <!-- Hero Right: 3D Video Parallax Showcase Card -->
+          <div style="perspective: 1200px; text-align: center;">
+            <div id="parallax-ecom-card" style="position: relative; max-width: 440px; margin: 0 auto; border-radius: var(--radius-2xl, 24px); overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05); background: #ffffff; transform-style: preserve-3d; transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);">
               
-              <!-- Floating Live 3D Overlay Badges -->
-              <div style="position: absolute; top: 1rem; left: 1rem; right: 1rem; display: flex; justify-content: space-between; align-items: center; pointer-events: none; z-index: 10;">
-                <span style="background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); border: 1px solid var(--border-light); color: var(--text-primary); font-family: var(--font-mono); font-size: 0.72rem; font-weight: 800; padding: 0.3rem 0.65rem; border-radius: var(--radius-full); box-shadow: var(--shadow-xs); display: flex; align-items: center; gap: 0.35rem;">
-                  <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #10b981;"></span>
-                  3D INTERACTIVE HUB
-                </span>
-                <span style="background: var(--accent-glow); color: var(--accent-color); font-family: var(--font-mono); font-size: 0.72rem; font-weight: 800; padding: 0.3rem 0.65rem; border-radius: var(--radius-full); border: 1px solid rgba(37, 99, 235, 0.2);">
-                  7 Platforms Synced
+              <!-- Video Loop Layer -->
+              <div style="width: 100%; height: 480px; overflow: hidden; background: #fafafa; position: relative;">
+                <video src="ecom-showcase-video.mp4" poster="ecom-showcase-poster.jpg" autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;"></video>
+                <!-- Subtle Top & Bottom Fade Overlay for Depth -->
+                <div style="position: absolute; top: 0; left: 0; right: 0; height: 70px; background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), transparent); pointer-events: none;"></div>
+                <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(to top, rgba(255, 255, 255, 0.7), transparent); pointer-events: none;"></div>
+              </div>
+
+              <!-- Floating Parallax Layer 1: Top Status Pill -->
+              <div class="parallax-layer" data-speed="1.2" style="position: absolute; top: 1.25rem; left: 1.25rem; z-index: 10; pointer-events: none;">
+                <span style="background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(12px); border: 1px solid rgba(0, 0, 0, 0.08); color: var(--text-primary); font-family: var(--font-mono); font-size: 0.72rem; font-weight: 800; padding: 0.35rem 0.85rem; border-radius: var(--radius-full); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); display: flex; align-items: center; gap: 0.4rem;">
+                  <span style="width: 7px; height: 7px; border-radius: 50%; background: #10b981; display: inline-block;"></span>
+                  LIVE STORE OPS ACTIVE
                 </span>
               </div>
 
-              <div style="position: absolute; bottom: 1rem; left: 1rem; right: 1rem; text-align: center; pointer-events: none; z-index: 10;">
-                <span style="background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(8px); border: 1px solid var(--border-light); color: var(--text-secondary); font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; padding: 0.35rem 0.85rem; border-radius: var(--radius-full); box-shadow: var(--shadow-xs); display: inline-flex; align-items: center; gap: 0.4rem;">
-                  <span>🖱️ Drag to rotate 3D store in 360°</span>
+              <!-- Floating Parallax Layer 2: Right Metric Card -->
+              <div class="parallax-layer" data-speed="-1.5" style="position: absolute; top: 3.5rem; right: 1.25rem; z-index: 10; pointer-events: none;">
+                <div style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(37, 99, 235, 0.2); padding: 0.6rem 0.9rem; border-radius: var(--radius-md); box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12); text-align: left;">
+                  <div style="font-size: 0.68rem; color: var(--text-muted); font-weight: 700; font-family: var(--font-mono); text-transform: uppercase;">Sync Velocity</div>
+                  <div style="font-size: 1.15rem; font-weight: 800; color: var(--accent-color);">250+ Listings / mo</div>
+                </div>
+              </div>
+
+              <!-- Floating Parallax Layer 3: Bottom Left Pill -->
+              <div class="parallax-layer" data-speed="1.8" style="position: absolute; bottom: 1.25rem; left: 1.25rem; z-index: 10; pointer-events: none;">
+                <span style="background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(12px); color: #ffffff; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; padding: 0.4rem 0.9rem; border-radius: var(--radius-full); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); display: flex; align-items: center; gap: 0.4rem;">
+                  <span>⚡ 7 Channels Synchronized</span>
                 </span>
               </div>
 
@@ -215,43 +229,43 @@
         <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1.25rem; align-items: center;">
           
           <!-- Amazon -->
-          <div style="background: var(--bg-card); border: 1.5px solid var(--border-medium); padding: 0.85rem 1.4rem; border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.75rem; box-shadow: var(--shadow-xs); transition: transform 0.2s, box-shadow 0.2s;">
+          <div class="minimal-tile" style="background: var(--bg-card); border: 1.5px solid var(--border-medium); padding: 0.85rem 1.4rem; border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.75rem; box-shadow: var(--shadow-xs); transition: transform 0.2s, box-shadow 0.2s;">
             <img src="amazon.svg" alt="Amazon Seller Hub" style="height: 22px; width: auto; display: block;" loading="lazy">
             <span style="font-weight: 800; font-size: 0.95rem; color: var(--text-primary);">Amazon</span>
           </div>
 
           <!-- Flipkart -->
-          <div style="background: var(--bg-card); border: 1.5px solid var(--border-medium); padding: 0.85rem 1.4rem; border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.75rem; box-shadow: var(--shadow-xs); transition: transform 0.2s, box-shadow 0.2s;">
+          <div class="minimal-tile" style="background: var(--bg-card); border: 1.5px solid var(--border-medium); padding: 0.85rem 1.4rem; border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.75rem; box-shadow: var(--shadow-xs); transition: transform 0.2s, box-shadow 0.2s;">
             <img src="flipkart.svg" alt="Flipkart Seller Platform" style="height: 22px; width: auto; display: block;" loading="lazy">
             <span style="font-weight: 800; font-size: 0.95rem; color: var(--text-primary);">Flipkart</span>
           </div>
 
           <!-- Meesho -->
-          <div style="background: var(--bg-card); border: 1.5px solid var(--border-medium); padding: 0.85rem 1.4rem; border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.75rem; box-shadow: var(--shadow-xs); transition: transform 0.2s, box-shadow 0.2s;">
+          <div class="minimal-tile" style="background: var(--bg-card); border: 1.5px solid var(--border-medium); padding: 0.85rem 1.4rem; border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.75rem; box-shadow: var(--shadow-xs); transition: transform 0.2s, box-shadow 0.2s;">
             <img src="meesho.png" alt="Meesho Seller Account" style="height: 22px; width: auto; display: block; object-fit: contain;" loading="lazy">
             <span style="font-weight: 800; font-size: 0.95rem; color: var(--text-primary);">Meesho</span>
           </div>
 
           <!-- Myntra -->
-          <div style="background: var(--bg-card); border: 1.5px solid var(--border-medium); padding: 0.85rem 1.4rem; border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.75rem; box-shadow: var(--shadow-xs); transition: transform 0.2s, box-shadow 0.2s;">
+          <div class="minimal-tile" style="background: var(--bg-card); border: 1.5px solid var(--border-medium); padding: 0.85rem 1.4rem; border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.75rem; box-shadow: var(--shadow-xs); transition: transform 0.2s, box-shadow 0.2s;">
             <img src="myntra.png" alt="Myntra Partner Portal" style="height: 22px; width: auto; display: block; object-fit: contain;" loading="lazy">
             <span style="font-weight: 800; font-size: 0.95rem; color: var(--text-primary);">Myntra</span>
           </div>
 
           <!-- eBay -->
-          <div style="background: var(--bg-card); border: 1.5px solid var(--border-medium); padding: 0.85rem 1.4rem; border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.75rem; box-shadow: var(--shadow-xs); transition: transform 0.2s, box-shadow 0.2s;">
+          <div class="minimal-tile" style="background: var(--bg-card); border: 1.5px solid var(--border-medium); padding: 0.85rem 1.4rem; border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.75rem; box-shadow: var(--shadow-xs); transition: transform 0.2s, box-shadow 0.2s;">
             <img src="ebay.svg" alt="eBay Global Marketplace" style="height: 22px; width: auto; display: block;" loading="lazy">
             <span style="font-weight: 800; font-size: 0.95rem; color: var(--text-primary);">eBay</span>
           </div>
 
           <!-- Etsy -->
-          <div style="background: var(--bg-card); border: 1.5px solid var(--border-medium); padding: 0.85rem 1.4rem; border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.75rem; box-shadow: var(--shadow-xs); transition: transform 0.2s, box-shadow 0.2s;">
+          <div class="minimal-tile" style="background: var(--bg-card); border: 1.5px solid var(--border-medium); padding: 0.85rem 1.4rem; border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.75rem; box-shadow: var(--shadow-xs); transition: transform 0.2s, box-shadow 0.2s;">
             <img src="etsy.svg" alt="Etsy Seller Store" style="height: 22px; width: auto; display: block;" loading="lazy">
             <span style="font-weight: 800; font-size: 0.95rem; color: var(--text-primary);">Etsy</span>
           </div>
 
           <!-- Shopify -->
-          <div style="background: var(--bg-card); border: 1.5px solid var(--border-medium); padding: 0.85rem 1.4rem; border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.75rem; box-shadow: var(--shadow-xs); transition: transform 0.2s, box-shadow 0.2s;">
+          <div class="minimal-tile" style="background: var(--bg-card); border: 1.5px solid var(--border-medium); padding: 0.85rem 1.4rem; border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.75rem; box-shadow: var(--shadow-xs); transition: transform 0.2s, box-shadow 0.2s;">
             <img src="shopify.svg" alt="Shopify Storefront Design" style="height: 22px; width: auto; display: block;" loading="lazy">
             <span style="font-weight: 800; font-size: 0.95rem; color: var(--text-primary);">Shopify</span>
           </div>
@@ -537,229 +551,77 @@
   <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  
+  <!-- Interactive Parallax 3D Card Engine -->
   <script>
     (function() {
-      const container = document.getElementById('ecom-3d-viewport');
-      if (!container) return;
+      const card = document.getElementById('parallax-ecom-card');
+      if (!card) return;
 
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
-      camera.position.set(0, 0.4, 4.2);
+      const layers = card.querySelectorAll('.parallax-layer');
 
-      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-      renderer.setSize(container.clientWidth, container.clientHeight);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      renderer.shadowMap.enabled = true;
-      renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-      container.appendChild(renderer.domElement);
+      // 1. Mouse Hover 3D Tilt & Layer Shift
+      const heroSection = card.closest('section');
+      if (heroSection) {
+        heroSection.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const cardCenterX = rect.left + rect.width / 2;
+          const cardCenterY = rect.top + rect.height / 2;
 
-      // Group for all rotating elements
-      const mainGroup = new THREE.Group();
-      scene.add(mainGroup);
+          const mouseX = (e.clientX - cardCenterX) / (window.innerWidth / 2);
+          const mouseY = (e.clientY - cardCenterY) / (window.innerHeight / 2);
 
-      // 1. Central Luxury E-Commerce Product Bottle/Package
-      const bodyGeo = new THREE.CylinderGeometry(0.7, 0.75, 1.4, 32);
-      const bodyMat = new THREE.MeshPhysicalMaterial({
-        color: 0x1e293b,
-        roughness: 0.15,
-        metalness: 0.3,
-        clearcoat: 0.8,
-        clearcoatRoughness: 0.1,
-        reflectivity: 0.9
-      });
-      const bodyMesh = new THREE.Mesh(bodyGeo, bodyMat);
-      bodyMesh.castShadow = true;
-      bodyMesh.receiveShadow = true;
-      mainGroup.add(bodyMesh);
+          const rotX = -mouseY * 12;
+          const rotY = mouseX * 14;
 
-      // Cap / Lid (Metallic Gold / Emerald)
-      const capGeo = new THREE.CylinderGeometry(0.72, 0.72, 0.35, 32);
-      const capMat = new THREE.MeshStandardMaterial({
-        color: 0xd97706,
-        metalness: 0.85,
-        roughness: 0.2
-      });
-      const capMesh = new THREE.Mesh(capGeo, capMat);
-      capMesh.position.y = 0.85;
-      capMesh.castShadow = true;
-      mainGroup.add(capMesh);
+          card.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.02, 1.02, 1.02)`;
 
-      // Label Band
-      const labelGeo = new THREE.CylinderGeometry(0.705, 0.705, 0.75, 32);
-      const labelMat = new THREE.MeshStandardMaterial({
-        color: 0xffffff,
-        roughness: 0.3,
-        metalness: 0.05
-      });
-      const labelMesh = new THREE.Mesh(labelGeo, labelMat);
-      labelMesh.position.y = -0.05;
-      mainGroup.add(labelMesh);
-
-      // 2. Glowing Orbital Rings
-      const ring1Geo = new THREE.TorusGeometry(1.4, 0.02, 16, 100);
-      const ring1Mat = new THREE.MeshBasicMaterial({ color: 0x2563eb, transparent: true, opacity: 0.6 });
-      const ring1 = new THREE.Mesh(ring1Geo, ring1Mat);
-      ring1.rotation.x = Math.PI / 3;
-      mainGroup.add(ring1);
-
-      const ring2Geo = new THREE.TorusGeometry(1.7, 0.015, 16, 100);
-      const ring2Mat = new THREE.MeshBasicMaterial({ color: 0x10b981, transparent: true, opacity: 0.5 });
-      const ring2 = new THREE.Mesh(ring2Geo, ring2Mat);
-      ring2.rotation.x = -Math.PI / 4;
-      ring2.rotation.y = Math.PI / 6;
-      mainGroup.add(ring2);
-
-      // 3. Orbiting Data Satellite Spheres
-      const satellites = [];
-      const satColors = [0x2563eb, 0x10b981, 0xf59e0b, 0xec4899];
-      for (let i = 0; i < 4; i++) {
-        const satGeo = new THREE.SphereGeometry(0.08, 16, 16);
-        const satMat = new THREE.MeshStandardMaterial({
-          color: satColors[i],
-          emissive: satColors[i],
-          emissiveIntensity: 0.6,
-          roughness: 0.2
-        });
-        const satMesh = new THREE.Mesh(satGeo, satMat);
-        satMesh.userData = { angle: (i * Math.PI) / 2, radius: 1.4 + (i % 2) * 0.3, speed: 0.015 + (i * 0.005) };
-        mainGroup.add(satMesh);
-        satellites.push(satMesh);
-      }
-
-      // 4. Background Ambient Particles Field
-      const partGeo = new THREE.BufferGeometry();
-      const partCount = 120;
-      const posArray = new Float32Array(partCount * 3);
-      for (let i = 0; i < partCount * 3; i++) {
-        posArray[i] = (Math.random() - 0.5) * 8;
-      }
-      partGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-      const partMat = new THREE.PointsMaterial({
-        size: 0.035,
-        color: 0x3b82f6,
-        transparent: true,
-        opacity: 0.4
-      });
-      const particles = new THREE.Points(partGeo, partMat);
-      scene.add(particles);
-
-      // 5. Studio Lighting Rig
-      const ambientLight = new THREE.AmbientLight(0xffffff, 0.85);
-      scene.add(ambientLight);
-
-      const keyLight = new THREE.DirectionalLight(0xffffff, 1.2);
-      keyLight.position.set(3, 4, 3);
-      keyLight.castShadow = true;
-      scene.add(keyLight);
-
-      const blueFillLight = new THREE.PointLight(0x2563eb, 2.5, 8);
-      blueFillLight.position.set(-2.5, 1, 2);
-      scene.add(blueFillLight);
-
-      const emeraldRimLight = new THREE.PointLight(0x10b981, 2.0, 8);
-      emeraldRimLight.position.set(2.5, -1, -2);
-      scene.add(emeraldRimLight);
-
-      // Mouse Drag / Touch Interaction
-      let isDragging = false;
-      let prevMousePos = { x: 0, y: 0 };
-      let targetRotationX = 0.1;
-      let targetRotationY = 0.3;
-      let mouseX = 0;
-      let mouseY = 0;
-
-      container.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        prevMousePos = { x: e.clientX, y: e.clientY };
-        container.style.cursor = 'grabbing';
-      });
-
-      window.addEventListener('mouseup', () => {
-        isDragging = false;
-        container.style.cursor = 'grab';
-      });
-
-      window.addEventListener('mousemove', (e) => {
-        const rect = container.getBoundingClientRect();
-        mouseX = ((e.clientX - rect.left) / container.clientWidth) * 2 - 1;
-        mouseY = -(((e.clientY - rect.top) / container.clientHeight) * 2 - 1);
-
-        if (isDragging) {
-          const deltaX = e.clientX - prevMousePos.x;
-          const deltaY = e.clientY - prevMousePos.y;
-          targetRotationY += deltaX * 0.01;
-          targetRotationX += deltaY * 0.01;
-          prevMousePos = { x: e.clientX, y: e.clientY };
-        }
-      });
-
-      // Touch Interaction
-      container.addEventListener('touchstart', (e) => {
-        if (e.touches.length === 1) {
-          isDragging = true;
-          prevMousePos = { x: e.touches[0].clientX, y: e.touches[0].clientY };
-        }
-      }, { passive: true });
-
-      window.addEventListener('touchend', () => {
-        isDragging = false;
-      });
-
-      window.addEventListener('touchmove', (e) => {
-        if (isDragging && e.touches.length === 1) {
-          const deltaX = e.touches[0].clientX - prevMousePos.x;
-          const deltaY = e.touches[0].clientY - prevMousePos.y;
-          targetRotationY += deltaX * 0.015;
-          targetRotationX += deltaY * 0.015;
-          prevMousePos = { x: e.touches[0].clientX, y: e.touches[0].clientY };
-        }
-      }, { passive: true });
-
-      // Animation Loop
-      function animate() {
-        requestAnimationFrame(animate);
-
-        // Idle rotation + smooth interpolation
-        if (!isDragging) {
-          targetRotationY += 0.006;
-        }
-        mainGroup.rotation.y += (targetRotationY - mainGroup.rotation.y) * 0.1;
-        mainGroup.rotation.x += (targetRotationX - mainGroup.rotation.x) * 0.1;
-
-        // Slight hover camera tilt
-        camera.position.x += (mouseX * 0.4 - camera.position.x) * 0.05;
-        camera.position.y += (0.4 + mouseY * 0.3 - camera.position.y) * 0.05;
-        camera.lookAt(0, 0, 0);
-
-        // Orbit rings rotation
-        ring1.rotation.z += 0.01;
-        ring2.rotation.z -= 0.008;
-
-        // Satellites orbital revolution
-        satellites.forEach((sat) => {
-          sat.userData.angle += sat.userData.speed;
-          sat.position.x = Math.cos(sat.userData.angle) * sat.userData.radius;
-          sat.position.z = Math.sin(sat.userData.angle) * sat.userData.radius;
-          sat.position.y = Math.sin(sat.userData.angle * 2) * 0.3;
+          layers.forEach((layer) => {
+            const speed = parseFloat(layer.getAttribute('data-speed') || 1);
+            const moveX = mouseX * speed * 15;
+            const moveY = mouseY * speed * 15;
+            layer.style.transform = `translate3d(${moveX}px, ${moveY}px, 30px)`;
+          });
         });
 
-        // Particles slow drift
-        particles.rotation.y += 0.001;
-
-        renderer.render(scene, camera);
+        heroSection.addEventListener('mouseleave', () => {
+          card.style.transform = 'rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+          layers.forEach((layer) => {
+            layer.style.transform = 'translate3d(0px, 0px, 0px)';
+          });
+        });
       }
-      animate();
 
-      // Responsive Resize Handler
-      window.addEventListener('resize', () => {
-        if (!container) return;
-        camera.aspect = container.clientWidth / container.clientHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(container.clientWidth, container.clientHeight);
-      });
+      // 2. GSAP ScrollTrigger Parallax
+      if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.to(card, {
+          y: -40,
+          scrollTrigger: {
+            trigger: heroSection || card,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 1
+          }
+        });
+
+        layers.forEach((layer) => {
+          const speed = parseFloat(layer.getAttribute('data-speed') || 1);
+          gsap.to(layer, {
+            y: speed * 30,
+            scrollTrigger: {
+              trigger: heroSection || card,
+              start: 'top top',
+              end: 'bottom top',
+              scrub: 1.2
+            }
+          });
+        });
+      }
     })();
   </script>
+
   <script src="app.js"></script>
 </body>
 </html>
