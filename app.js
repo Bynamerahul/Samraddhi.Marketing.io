@@ -681,15 +681,26 @@ document.addEventListener('DOMContentLoaded', () => {
      ========================================================================== */
   const categoryPackagesData = {
     'web': [
-      { name: 'Custom UI/UX Website Design', cost: 15000, weeks: 1 },
-      { name: 'E-Commerce Store Setup (Shopify/Woo)', cost: 25000, weeks: 2 },
-      { name: 'Modern Website Redesign', cost: 12000, weeks: 1 },
-      { name: 'Conversion Landing Page', cost: 8000, weeks: 0.5 }
+      { name: 'One-Pager Static Landing Page', cost: 8000, weeks: 0.5 },
+      { name: 'Standard Service-Based Website', cost: 15000, weeks: 1 },
+      { name: 'Modern Website Redesign & Modernization', cost: 12000, weeks: 1 },
+      { name: 'Standard Custom Business Portal', cost: 20000, weeks: 1.5 }
     ],
-    'management': [
-      { name: 'Basic Maintenance (Backups & Security)', cost: 8000, weeks: 1 },
-      { name: 'Standard Store Management (Uploads & Edits)', cost: 15000, weeks: 1 },
-      { name: 'Scale Website Retainer (All-Inclusive)', cost: 25000, weeks: 1 }
+    'smm': [
+      { name: 'Starter Social Handle Bio Audit & Tune-up', cost: 3000, weeks: 0.5 },
+      { name: 'Standard 30-Day Social Calendar Management', cost: 12000, weeks: 1 },
+      { name: 'Premium Social Handles Growth Retainer', cost: 25000, weeks: 1 }
+    ],
+    'content': [
+      { name: 'Video Reel Editing Pack (12 Reels shoot/edit)', cost: 12000, weeks: 1 },
+      { name: 'Founder Personal Brand Scriptwriting Pack', cost: 8000, weeks: 1 },
+      { name: 'YouTube Channel SEO & Infographics Pack', cost: 15000, weeks: 2 }
+    ],
+    'ecommerce': [
+      { name: 'Shopify Custom Store Setup & Theme Coding', cost: 25000, weeks: 2 },
+      { name: 'WooCommerce Complete Store Setup', cost: 20000, weeks: 1.5 },
+      { name: 'Product Upload & Listings SEO Cataloging', cost: 15000, weeks: 1 },
+      { name: 'Etsy / Ebay Listing Optimization Sprint', cost: 12000, weeks: 1 }
     ]
   };
 

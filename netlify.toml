@@ -15,12 +15,6 @@
   force = true
 
 [[redirects]]
-  from = "/social-media-marketing"
-  to = "/"
-  status = 301
-  force = true
-
-[[redirects]]
   from = "/branding"
   to = "/website-design"
   status = 301

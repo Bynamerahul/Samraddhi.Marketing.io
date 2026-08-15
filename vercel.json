@@ -12,11 +12,6 @@
       "statusCode": 301
     },
     {
-      "source": "/social-media-marketing",
-      "destination": "/",
-      "statusCode": 301
-    },
-    {
       "source": "/branding",
       "destination": "/website-design",
       "statusCode": 301
