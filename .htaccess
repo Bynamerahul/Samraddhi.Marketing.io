@@ -7,12 +7,11 @@
   RewriteRule ^(.*)$ https://samraddhi.in/$1 [R=301,L]
 
   # 301 Redirects for deprecated service pages
-  Redirect 301 /branding /social-media-marketing
-  Redirect 301 /performance-marketing /social-media-marketing
-  Redirect 301 /ai-product-photography /social-media-marketing
-
+  Redirect 301 /social-media-marketing /
+  Redirect 301 /branding /website-design
+  Redirect 301 /performance-marketing /
+  Redirect 301 /ai-product-photography /
   Redirect 301 /seo /website-development
-  Redirect 301 /website-design /website-development
   Redirect 301 /ai-automation /website-development
 </IfModule>
 

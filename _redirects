@@ -2,10 +2,9 @@ https://www.samraddhi.in/* https://samraddhi.in/:splat 301
 http://www.samraddhi.in/* https://samraddhi.in/:splat 301
 http://samraddhi.in/* https://samraddhi.in/:splat 301
 
-/branding /social-media-marketing 301
-/performance-marketing /social-media-marketing 301
-/ai-product-photography /social-media-marketing 301
-
+/social-media-marketing / 301
+/branding /website-design 301
+/performance-marketing / 301
+/ai-product-photography / 301
 /seo /website-development 301
-/website-design /website-development 301
 /ai-automation /website-development 301

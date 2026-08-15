@@ -682,15 +682,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const categoryPackagesData = {
     'web': [
       { name: 'Custom UI/UX Website Design', cost: 15000, weeks: 1 },
-      { name: 'Complete Website Redesign', cost: 12000, weeks: 1 },
-      { name: 'Shopify Custom Setup & Coding', cost: 25000, weeks: 2 },
-      { name: 'E-Commerce Management & Listing SEO', cost: 20000, weeks: 1 }
+      { name: 'E-Commerce Store Setup (Shopify/Woo)', cost: 25000, weeks: 2 },
+      { name: 'Modern Website Redesign', cost: 12000, weeks: 1 },
+      { name: 'Conversion Landing Page', cost: 8000, weeks: 0.5 }
     ],
-    'smm': [
-      { name: 'Starter Content Creation (12 Posts)', cost: 9999, weeks: 1 },
-      { name: 'Growth Social Media Retainer (20 Posts + 8 Reels)', cost: 24999, weeks: 1 },
-      { name: 'High-Impact Video Reels & Shorts Batch (10 Videos)', cost: 15000, weeks: 1 },
-      { name: 'YouTube Channel Management & Optimization', cost: 18000, weeks: 2 }
+    'management': [
+      { name: 'Basic Maintenance (Backups & Security)', cost: 8000, weeks: 1 },
+      { name: 'Standard Store Management (Uploads & Edits)', cost: 15000, weeks: 1 },
+      { name: 'Scale Website Retainer (All-Inclusive)', cost: 25000, weeks: 1 }
     ]
   };
 

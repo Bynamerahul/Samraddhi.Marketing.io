@@ -12,27 +12,27 @@
       "statusCode": 301
     },
     {
+      "source": "/social-media-marketing",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
       "source": "/branding",
-      "destination": "/social-media-marketing",
+      "destination": "/website-design",
       "statusCode": 301
     },
     {
       "source": "/performance-marketing",
-      "destination": "/social-media-marketing",
+      "destination": "/",
       "statusCode": 301
     },
     {
       "source": "/ai-product-photography",
-      "destination": "/social-media-marketing",
+      "destination": "/",
       "statusCode": 301
     },
     {
       "source": "/seo",
-      "destination": "/website-development",
-      "statusCode": 301
-    },
-    {
-      "source": "/website-design",
       "destination": "/website-development",
       "statusCode": 301
     },

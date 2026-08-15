@@ -15,31 +15,31 @@
   force = true
 
 [[redirects]]
+  from = "/social-media-marketing"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/branding"
-  to = "/social-media-marketing"
+  to = "/website-design"
   status = 301
   force = true
 
 [[redirects]]
   from = "/performance-marketing"
-  to = "/social-media-marketing"
+  to = "/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/ai-product-photography"
-  to = "/social-media-marketing"
+  to = "/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/seo"
-  to = "/website-development"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/website-design"
   to = "/website-development"
   status = 301
   force = true
