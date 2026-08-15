@@ -468,7 +468,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const isDark = document.body.getAttribute('data-theme') === 'dark';
-    const pColor = isDark ? '255, 112, 166' : '255, 77, 141';
+    const pColor = '37, 99, 235';
 
     for (let i = 0; i < particles.length; i++) {
       let p = particles[i];
