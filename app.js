@@ -2703,5 +2703,157 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ==========================================================================
+     GLOBAL CURRENCY SWITCHER SYSTEM (USD / INR - DEFAULT USD)
+     ========================================================================== */
+  initCurrencySwitcher();
+
 });
+
+function initCurrencySwitcher() {
+  // Default currency is USD
+  let activeCurrency = localStorage.getItem('samraddhi_currency') || 'USD';
+
+  // Inject or bind to header currency switchers
+  const headActions = document.querySelectorAll('.head-actions');
+  headActions.forEach(container => {
+    if (!container.querySelector('.currency-switch-container')) {
+      const switchWrapper = document.createElement('div');
+      switchWrapper.className = 'currency-switch-container';
+      switchWrapper.innerHTML = `
+        <button class="currency-toggle-btn magnetic-target" type="button" aria-label="Toggle USD or INR Currency">
+          <span class="curr-opt ${activeCurrency === 'USD' ? 'active' : ''}" data-curr="USD">$ USD</span>
+          <span class="curr-divider">/</span>
+          <span class="curr-opt ${activeCurrency === 'INR' ? 'active' : ''}" data-curr="INR">₹ INR</span>
+        </button>
+      `;
+      container.insertBefore(switchWrapper, container.firstChild);
+    }
+  });
+
+  // Attach click listener to all currency toggle buttons
+  document.addEventListener('click', (e) => {
+    const toggleBtn = e.target.closest('.currency-toggle-btn');
+    if (toggleBtn) {
+      const newCurrency = activeCurrency === 'USD' ? 'INR' : 'USD';
+      setCurrency(newCurrency);
+      if (typeof playSound === 'function') {
+        playSound(520, 'sine', 0.1);
+      }
+    }
+  });
+
+  function setCurrency(curr) {
+    activeCurrency = curr;
+    localStorage.setItem('samraddhi_currency', curr);
+
+    // Update UI toggle buttons
+    document.querySelectorAll('.currency-toggle-btn').forEach(btn => {
+      const usdOpt = btn.querySelector('.curr-opt[data-curr="USD"]');
+      const inrOpt = btn.querySelector('.curr-opt[data-curr="INR"]');
+      if (usdOpt && inrOpt) {
+        if (curr === 'USD') {
+          usdOpt.classList.add('active');
+          inrOpt.classList.remove('active');
+        } else {
+          usdOpt.classList.remove('active');
+          inrOpt.classList.add('active');
+        }
+      }
+    });
+
+    // Apply currency conversions to all pricing elements
+    applyCurrencyConversions(curr);
+  }
+
+  function applyCurrencyConversions(curr) {
+    // 1. Elements with explicit data attributes
+    document.querySelectorAll('[data-usd]').forEach(el => {
+      const val = curr === 'USD' ? el.getAttribute('data-usd') : el.getAttribute('data-inr');
+      if (val) el.textContent = val;
+    });
+
+    document.querySelectorAll('[data-usd-sub]').forEach(el => {
+      const val = curr === 'USD' ? el.getAttribute('data-usd-sub') : el.getAttribute('data-inr-sub');
+      if (val) el.textContent = val;
+    });
+
+    document.querySelectorAll('[data-usd-badge]').forEach(el => {
+      const val = curr === 'USD' ? el.getAttribute('data-usd-badge') : el.getAttribute('data-inr-badge');
+      if (val) el.textContent = val;
+    });
+
+    document.querySelectorAll('[data-usd-cta]').forEach(el => {
+      const val = curr === 'USD' ? el.getAttribute('data-usd-cta') : el.getAttribute('data-inr-cta');
+      if (val) el.textContent = val;
+    });
+
+    // 2. Comprehensive Price Matrix Map
+    const priceMap = [
+      // AI Product Photography
+      { inr: '₹3,000', usd: '$39', inrSub: 'Up to 100 Listings', usdSub: 'Up to 100 Listings', inrCta: 'Book Starter Shoot (₹3,000) →', usdCta: 'Book Starter Shoot ($39) →' },
+      { inr: '₹5,000', usd: '$65', inrSub: 'Up to 200 Listings', usdSub: 'Up to 200 Listings', inrCta: 'Book Pro Studio (₹5,000) →', usdCta: 'Book Pro Studio ($65) →' },
+      { inr: '₹7,000', usd: '$89', inrSub: 'Complete Catalog Shoot', usdSub: 'Complete Catalog Shoot', inrCta: 'Hire Enterprise Studio (₹7,000) →', usdCta: 'Hire Enterprise Studio ($89) →' },
+
+      // Social Media Management
+      { inr: '₹5,000', usd: '$65', inrSub: 'per month / 1 Platform', usdSub: 'per month / 1 Platform', inrCta: 'Get Starter Plan (₹5k) →', usdCta: 'Get Starter Plan ($65) →' },
+      { inr: '₹10,000', usd: '$129', inrSub: 'per month / 2 Platforms', usdSub: 'per month / 2 Platforms', inrCta: 'Get Growth Retainer (₹10,000) →', usdCta: 'Get Growth Retainer ($129) →' },
+      { inr: '₹20,000', usd: '$259', inrSub: 'per month / Full Management', usdSub: 'per month / Full Management', inrCta: 'Hire Dedicated SMM Lead (₹20k) →', usdCta: 'Hire Dedicated SMM Lead ($259) →' },
+
+      // Content Creation
+      { inr: '₹14,999', usd: '$189', inrSub: 'per month / 15 Reels', usdSub: 'per month / 15 Reels', inrCta: 'Get Starter Plan (₹14,999) →', usdCta: 'Get Starter Plan ($189) →' },
+      { inr: '₹29,999', usd: '$379', inrSub: 'per month / 30 Reels + 15 Ads', usdSub: 'per month / 30 Reels + 15 Ads', inrCta: 'Get Creative Retainer (₹29,999) →', usdCta: 'Get Creative Retainer ($379) →' },
+      { inr: '₹59,999', usd: '$749', inrSub: 'per month / Full Production', usdSub: 'per month / Full Production', inrCta: 'Hire Content Pod (₹59,999) →', usdCta: 'Hire Content Pod ($749) →' },
+
+      // E-Commerce Management
+      { inr: '₹25,000', usd: '$299', inrSub: 'per month / recurring', usdSub: 'per month / recurring', inrCta: 'Get Marketplace Retainer (₹25k) →', usdCta: 'Get Marketplace Retainer ($299) →' },
+      { inr: '₹59,999', usd: '$749', inrSub: 'per month / recurring', usdSub: 'per month / recurring', inrCta: 'Get Growth Retainer (₹59,999) →', usdCta: 'Get Growth Retainer ($749) →' },
+      { inr: '₹1,80,000', usd: '$2,250', inrSub: 'Starts at ₹1.8 Lakh / month', usdSub: 'Starts at $2,250 / month', inrCta: 'Hire Dedicated Team (₹1.8L) →', usdCta: 'Hire Dedicated Team ($2.2k) →' },
+
+      // Website Development
+      { inr: '₹5,999', usd: '$75', inrSub: 'was ₹9,999', usdSub: 'was $125', inrCta: 'Choose Starter (₹5,999) →', usdCta: 'Choose Starter ($75) →' },
+      { inr: '₹9,999', usd: '$125', inrSub: 'was ₹15,000', usdSub: 'was $199', inrCta: 'Choose Business (₹9,999) →', usdCta: 'Choose Business ($125) →' },
+      { inr: '₹18,000', usd: '$219', inrSub: 'was ₹25,000', usdSub: 'was $299', inrCta: 'Get E-Commerce Setup (₹18,000) →', usdCta: 'Get E-Commerce Setup ($219) →' },
+      { inr: '₹1,499', usd: '$19', inrSub: '/ month', usdSub: '/ month', inrCta: 'Subscribe Website AMC (₹1,499/mo) →', usdCta: 'Subscribe Website AMC ($19/mo) →' }
+    ];
+
+    // Auto-replace text inside pricing tiles
+    document.querySelectorAll('.minimal-tile, .pricing-card, .plan-card').forEach(card => {
+      priceMap.forEach(item => {
+        const fromPrice = curr === 'USD' ? item.inr : item.usd;
+        const toPrice = curr === 'USD' ? item.usd : item.inr;
+
+        // Replace price headers
+        card.querySelectorAll('div, span, h3, h2').forEach(node => {
+          if (node.children.length === 0 && node.textContent.trim() === fromPrice) {
+            node.textContent = toPrice;
+          }
+          if (node.children.length === 0 && node.textContent.trim() === item.inrSub && curr === 'USD') {
+            node.textContent = item.usdSub;
+          } else if (node.children.length === 0 && node.textContent.trim() === item.usdSub && curr === 'INR') {
+            node.textContent = item.inrSub;
+          }
+        });
+
+        // Replace CTA buttons
+        card.querySelectorAll('a, button').forEach(btn => {
+          if (btn.textContent.includes(item.inr) && curr === 'USD') {
+            btn.textContent = btn.textContent.replace(item.inr, item.usd);
+          } else if (btn.textContent.includes(item.usd) && curr === 'INR') {
+            btn.textContent = btn.textContent.replace(item.usd, item.inr);
+          }
+          if (btn.textContent.trim() === item.inrCta && curr === 'USD') {
+            btn.textContent = item.usdCta;
+          } else if (btn.textContent.trim() === item.usdCta && curr === 'INR') {
+            btn.textContent = item.inrCta;
+          }
+        });
+      });
+    });
+  }
+
+  // Initial execution on load
+  setCurrency(activeCurrency);
+}
+
 

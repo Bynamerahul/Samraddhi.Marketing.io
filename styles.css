@@ -5035,6 +5035,301 @@ html, body {
   }
 }
 
+/* ==========================================================================
+   GLOBAL CURRENCY SWITCHER (USD / INR)
+   ========================================================================== */
+.currency-switch-container {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 0.5rem;
+}
 
+.currency-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  background: var(--bg-secondary);
+  border: 1.5px solid var(--border-medium);
+  border-radius: var(--radius-full);
+  padding: 0.25rem 0.45rem;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+  user-select: none;
+  box-shadow: var(--shadow-xs);
+  gap: 0.25rem;
+}
 
+.currency-toggle-btn:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-1px);
+}
 
+.curr-opt {
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-full);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  color: var(--text-muted);
+}
+
+.curr-opt.active {
+  background: var(--accent-color);
+  color: var(--text-on-dark);
+  font-weight: 800;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+}
+
+.curr-divider {
+  color: var(--border-medium);
+  font-size: 0.7rem;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .currency-switch-container {
+    margin-right: 0.25rem;
+  }
+  .currency-toggle-btn {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.35rem;
+  }
+  .curr-opt {
+    padding: 0.15rem 0.45rem;
+  }
+}
+
+/* ==========================================================================
+   INSTAGRAM REELS SHOWCASE (@samraddhi.marketing)
+   ========================================================================== */
+.insta-reels-section {
+  padding: 4.5rem 0;
+  background: var(--bg-secondary);
+  border-top: 1.5px solid var(--border-medium);
+  border-bottom: 1.5px solid var(--border-medium);
+  position: relative;
+  overflow: hidden;
+}
+
+.insta-profile-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-medium);
+  border-radius: var(--radius-xl);
+  padding: 1.25rem 1.75rem;
+  margin-bottom: 2.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.insta-profile-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.insta-avatar-ring {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  padding: 2.5px;
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.insta-avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid var(--bg-card);
+  object-fit: cover;
+  display: block;
+}
+
+.insta-handle-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.insta-handle-sub {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin: 0.15rem 0 0 0;
+}
+
+.insta-follow-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(45deg, #f09433, #dc2743, #bc1888);
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.65rem 1.35rem;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(220, 39, 67, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.insta-follow-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(220, 39, 67, 0.4);
+}
+
+.insta-reels-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.75rem;
+}
+
+@media (max-width: 1080px) {
+  .insta-reels-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .insta-reels-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+}
+
+.insta-reel-card {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: #000000;
+  border: 1.5px solid var(--border-medium);
+  box-shadow: var(--shadow-md);
+  aspect-ratio: 9 / 16;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.insta-reel-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: #dc2743;
+  box-shadow: 0 20px 35px -10px rgba(220, 39, 67, 0.25);
+}
+
+.insta-reel-thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 1;
+  transition: transform 0.5s ease;
+}
+
+.insta-reel-card:hover .insta-reel-thumb {
+  transform: scale(1.05);
+}
+
+.insta-reel-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.85) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.insta-reel-top-pill {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 3;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.insta-reel-play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  z-index: 3;
+  opacity: 0.85;
+  transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
+}
+
+.insta-reel-card:hover .insta-reel-play-icon {
+  transform: translate(-50%, -50%) scale(1.1);
+  opacity: 1;
+  background: rgba(220, 39, 67, 0.9);
+}
+
+.insta-reel-bottom-info {
+  position: relative;
+  z-index: 3;
+  padding: 1.25rem;
+  color: #ffffff;
+  text-align: left;
+}
+
+.insta-reel-hook {
+  font-size: 0.95rem;
+  font-weight: 800;
+  line-height: 1.35;
+  color: #ffffff;
+  margin: 0 0 0.5rem 0;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+}
+
+.insta-reel-stats-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-mono);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 0.5rem;
+}
