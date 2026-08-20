@@ -2788,8 +2788,18 @@ function initCurrencySwitcher() {
       if (val) el.textContent = val;
     });
 
+    document.querySelectorAll('[data-usd-plan]').forEach(el => {
+      const val = curr === 'USD' ? el.getAttribute('data-usd-plan') : el.getAttribute('data-inr-plan');
+      if (val) el.setAttribute('data-plan', val);
+    });
+
     // 2. Comprehensive Price Matrix Map
     const priceMap = [
+      // Homepage Retainers (#retainers)
+      { inr: '₹9,999', usd: '$129', inrSub: '/ month', usdSub: '/ month', inrCta: 'Select Starter Plan', usdCta: 'Select Starter Plan' },
+      { inr: '₹24,999', usd: '$299', inrSub: '/ month', usdSub: '/ month', inrCta: 'Get Growth Retainer →', usdCta: 'Get Growth Retainer →' },
+      { inr: '₹49,999', usd: '$599', inrSub: '/ month', usdSub: '/ month', inrCta: 'Select Scale Plan', usdCta: 'Select Scale Plan' },
+
       // AI Product Photography
       { inr: '₹3,000', usd: '$39', inrSub: 'Up to 100 Listings', usdSub: 'Up to 100 Listings', inrCta: 'Book Starter Shoot (₹3,000) →', usdCta: 'Book Starter Shoot ($39) →' },
       { inr: '₹5,000', usd: '$65', inrSub: 'Up to 200 Listings', usdSub: 'Up to 200 Listings', inrCta: 'Book Pro Studio (₹5,000) →', usdCta: 'Book Pro Studio ($65) →' },
@@ -2850,10 +2860,28 @@ function initCurrencySwitcher() {
         });
       });
     });
+
+    // 3. Update Contact Modal Budget Select Options
+    const budgetSelect = document.getElementById('project-budget');
+    if (budgetSelect && budgetSelect.options) {
+      const opts = budgetSelect.options;
+      if (curr === 'USD') {
+        if (opts[0]) opts[0].text = '$129 – $299 / month';
+        if (opts[1]) opts[1].text = '$299 – $599 / month';
+        if (opts[2]) opts[2].text = '$599 – $1,250 / month';
+        if (opts[3]) opts[3].text = '$1,250+ Enterprise';
+      } else {
+        if (opts[0]) opts[0].text = '₹10,000 – ₹25,000 / month';
+        if (opts[1]) opts[1].text = '₹25,000 – ₹50,000 / month';
+        if (opts[2]) opts[2].text = '₹50,000 – ₹1,00,000 / month';
+        if (opts[3]) opts[3].text = '₹1,00,000+ Enterprise';
+      }
+    }
   }
 
   // Initial execution on load
   setCurrency(activeCurrency);
 }
+
 
 

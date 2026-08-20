@@ -270,6 +270,13 @@
       </nav>
       <!-- Status & Utility Controls -->
       <div class="head-actions">
+        <div class="currency-switch-container">
+          <button class="currency-toggle-btn magnetic-target" type="button" aria-label="Toggle USD or INR Currency">
+            <span class="curr-opt active" data-curr="USD">$ USD</span>
+            <span class="curr-divider">/</span>
+            <span class="curr-opt" data-curr="INR">₹ INR</span>
+          </button>
+        </div>
         <div class="availability-badge">
           <span class="status-dot pulsing"></span>
           <span class="status-text">Q3 Open</span>
@@ -298,9 +305,18 @@
         </a>
         <button id="close-mobile-drawer" class="icon-btn" aria-label="Close Menu">✕</button>
       </div>
-      <div class="mobile-status-pill">
-        <span class="status-dot pulsing"></span>
-        <span>Accepting Q3 Client Brands</span>
+      <div style="padding: 0.75rem 1.5rem 0.25rem 1.5rem; display: flex; align-items: center; justify-content: space-between;">
+        <div class="currency-switch-container" style="margin: 0;">
+          <button class="currency-toggle-btn magnetic-target" type="button" aria-label="Toggle USD or INR Currency">
+            <span class="curr-opt active" data-curr="USD">$ USD</span>
+            <span class="curr-divider">/</span>
+            <span class="curr-opt" data-curr="INR">₹ INR</span>
+          </button>
+        </div>
+        <div class="mobile-status-pill" style="margin: 0;">
+          <span class="status-dot pulsing"></span>
+          <span>Accepting Clients</span>
+        </div>
       </div>
                                           <nav class="mobile-nav-links">
         <a href="#about" class="mobile-nav-link"><span>01.</span> About Us</a>
@@ -891,14 +907,14 @@
           <p class="section-desc">Select a monthly growth plan tailored for your current revenue stage.</p>
         </div>
         <div class="pricing-grid">
-          <!-- Retainer 1: Starter -->
+          <!-- Retainer 1: Starter ($129 / ₹9,999) -->
           <div class="pricing-card magnetic-target">
             <div class="plan-header">
               <span class="plan-badge">🌱 STARTER</span>
               <h3 class="plan-name">Foundation Plan</h3>
-              <div class="plan-price">₹9,999 <span class="price-period">/ month</span></div>
+              <div class="plan-price"><span class="price-val" data-usd="$129" data-inr="₹9,999">$129</span> <span class="price-period" data-usd-sub="/ month" data-inr-sub="/ month">/ month</span></div>
             </div>
-            <p class="plan-desc">Essential social media & SEO foundation for local businesses & creators.</p>
+            <p class="plan-desc">Essential social media &amp; SEO foundation for local businesses &amp; creators.</p>
             <ul class="plan-features">
               <li>✓ 12 Custom Graphic Posts</li>
               <li>✓ 4 Edited Short Reels</li>
@@ -906,37 +922,37 @@
               <li>✓ Monthly Performance Report</li>
               <li>✓ Dedicated WhatsApp Support</li>
             </ul>
-            <button class="btn btn-secondary btn-block open-contact-btn-with-plan magnetic-target" data-plan="Starter Plan (₹9,999/mo)">
+            <button class="btn btn-secondary btn-block open-contact-btn-with-plan magnetic-target" data-plan="Starter Plan ($129/mo)" data-usd-plan="Starter Plan ($129/mo)" data-inr-plan="Starter Plan (₹9,999/mo)" data-usd-cta="Select Starter Plan ($129) →" data-inr-cta="Select Starter Plan (₹9,999) →">
               Select Starter Plan
             </button>
           </div>
-          <!-- Retainer 2: Growth (Most Popular) -->
+          <!-- Retainer 2: Growth ($299 / ₹24,999) (Most Popular) -->
           <div class="pricing-card featured-plan magnetic-target">
             <div class="popular-ribbon">MOST POPULAR</div>
             <div class="plan-header">
               <span class="plan-badge">🚀 GROWTH</span>
-              <h3 class="plan-name">Scale & Acquire</h3>
-              <div class="plan-price">₹24,999 <span class="price-period">/ month</span></div>
+              <h3 class="plan-name">Scale &amp; Acquire</h3>
+              <div class="plan-price"><span class="price-val" data-usd="$299" data-inr="₹24,999">$299</span> <span class="price-period" data-usd-sub="/ month" data-inr-sub="/ month">/ month</span></div>
             </div>
-            <p class="plan-desc">Complete digital marketing & Meta ad management for scaling brands.</p>
+            <p class="plan-desc">Complete digital marketing &amp; Meta ad management for scaling brands.</p>
             <ul class="plan-features">
               <li>✓ 20 Premium Social Posts</li>
               <li>✓ 8 High-ROAS AI Reels</li>
               <li>✓ Meta Ads Management (FB/IG)</li>
-              <li>✓ Google Business & Local SEO</li>
+              <li>✓ Google Business &amp; Local SEO</li>
               <li>✓ Monthly 1-on-1 Strategy Call</li>
               <li>✓ Live Analytics Dashboard</li>
             </ul>
-            <button class="btn btn-primary btn-block open-contact-btn-with-plan magnetic-target" data-plan="Growth Plan (₹24,999/mo)">
+            <button class="btn btn-primary btn-block open-contact-btn-with-plan magnetic-target" data-plan="Growth Plan ($299/mo)" data-usd-plan="Growth Plan ($299/mo)" data-inr-plan="Growth Plan (₹24,999/mo)" data-usd-cta="Get Growth Retainer ($299) →" data-inr-cta="Get Growth Retainer (₹24,999) →">
               Get Growth Retainer →
             </button>
           </div>
-          <!-- Retainer 3: Scale (Dedicated Growth Team) -->
+          <!-- Retainer 3: Scale ($599 / ₹49,999) (Dedicated Growth Team) -->
           <div class="pricing-card magnetic-target">
             <div class="plan-header">
               <span class="plan-badge">👑 SCALE (DEDICATED GROWTH TEAM)</span>
               <h3 class="plan-name">Full Growth Engine</h3>
-              <div class="plan-price">₹49,999 <span class="price-period">/ month</span></div>
+              <div class="plan-price"><span class="price-val" data-usd="$599" data-inr="₹49,999">$599</span> <span class="price-period" data-usd-sub="/ month" data-inr-sub="/ month">/ month</span></div>
             </div>
             <p class="plan-desc">Dedicated team handling websites, content, local/marketplace SEO, AI images &amp; performance ads.</p>
             <ul class="plan-features">
@@ -949,7 +965,7 @@
               <li>✓ AI Chatbot &amp; Lead Automation</li>
               <li>✓ Dedicated Account Manager</li>
             </ul>
-            <button class="btn btn-secondary btn-block open-contact-btn-with-plan magnetic-target" data-plan="Scale Plan (₹49,999/mo)">
+            <button class="btn btn-secondary btn-block open-contact-btn-with-plan magnetic-target" data-plan="Scale Plan ($599/mo)" data-usd-plan="Scale Plan ($599/mo)" data-inr-plan="Scale Plan (₹49,999/mo)" data-usd-cta="Select Scale Plan ($599) →" data-inr-cta="Select Scale Plan (₹49,999) →">
               Select Scale Plan
             </button>
           </div>
@@ -958,14 +974,14 @@
             <div class="plan-header">
               <span class="plan-badge">💎 ENTERPRISE / B2B EXPORT</span>
               <h3 class="plan-name">Custom Growth Partner</h3>
-              <div class="plan-price">Custom <span class="price-period">Pricing</span></div>
+              <div class="plan-price"><span class="price-val" data-usd="Custom" data-inr="Custom">Custom</span> <span class="price-period" data-usd-sub="Pricing" data-inr-sub="Pricing">Pricing</span></div>
             </div>
-            <p class="plan-desc">Bespoke dedicated team for B2B export catalogues & multi-brand operations.</p>
+            <p class="plan-desc">Bespoke dedicated team for B2B export catalogues &amp; multi-brand operations.</p>
             <ul class="plan-features">
               <li>✓ Multi-brand B2B Management</li>
-              <li>✓ Dedicated Shopify & Frontend Team</li>
-              <li>✓ Dedicated Designer & Marketer</li>
-              <li>✓ Custom AI Systems & API Integrations</li>
+              <li>✓ Dedicated Shopify &amp; Frontend Team</li>
+              <li>✓ Dedicated Designer &amp; Marketer</li>
+              <li>✓ Custom AI Systems &amp; API Integrations</li>
               <li>✓ Conversion Rate Optimisation (CRO)</li>
               <li>✓ Complete Strategic Growth Partnership</li>
             </ul>
