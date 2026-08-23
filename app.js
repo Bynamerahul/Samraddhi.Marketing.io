@@ -1906,6 +1906,38 @@ document.addEventListener('DOMContentLoaded', () => {
       response: `Noot Noot! 🐧 We transform raw mobile product photos into hyper-realistic 4K studio catalogue images using custom AI generative models—saving 80% of traditional studio photoshoot costs while boosting click-through rates by 3.4x!`
     },
     {
+      id: 'website_designer_gwalior_local',
+      title: 'Website Designer in Gwalior & Low Cost Website Design Company',
+      keywords: ['website designer near me', 'website designer in gwalior', 'gwalior website design', 'low cost website designer', 'website design company', 'how to create a website', 'website builder'],
+      phrases: ['website designer near me', 'website design in gwalior', 'low cost website designer', 'best website design company', 'how to create a website', 'website builder vs designer'],
+      hits: 0,
+      response: `Noot Noot! 🐧 Looking for a <strong>Website Designer Near Me in Gwalior</strong> or a <strong>Low Cost Website Designer</strong>? Rahul Soni and Samraddhi Marketing build custom, sub-second speed websites starting at just $75 (₹5,999) with 100% code ownership—infinitely faster and better for SEO than slow DIY website builders! Call directly at <a href="tel:+919340722578" style="color:#ff4d8d; font-weight:700;">+91 93407 22578</a>.`
+    },
+    {
+      id: 'content_creation_marketing_hub',
+      title: 'Social Media Content Creation & Content Marketing',
+      keywords: ['content creation', 'content marketing', 'social media content creation', 'video reels editing', 'viral scriptwriting', 'instagram reels editor'],
+      phrases: ['social media content creation', 'content marketing agency', 'video reels production', 'scriptwriting for reels', 'reels editing retainers'],
+      hits: 0,
+      response: `Noot Noot! 🐧 Our <strong>Content Creation & Content Marketing</strong> engine scripts, shoots, and edits viral 3-second hook Instagram Reels, YouTube Shorts, and high-CTR Meta ad creatives with dynamic subtitles, sound effects, and 4K color grading to boost organic retention above 85%!`
+    },
+    {
+      id: 'email_marketing_smm_hub',
+      title: 'Email Marketing & Full-Service Digital Marketing Agency',
+      keywords: ['email marketing', 'digital marketing', 'marketing agency', 'social media marketing', 'automated email flows', 'klaviyo'],
+      phrases: ['email marketing agency', 'digital marketing services', 'social media marketing agency', 'automated email campaigns', 'marketing agency retainers'],
+      hits: 0,
+      response: `Noot Noot! 🐧 As a full-service <strong>Digital Marketing Agency</strong>, we combine organic <strong>Social Media Marketing</strong> with high-converting automated <strong>Email Marketing</strong> (abandoned cart recovery, VIP welcome flows, product launch blasts) to generate up to 35% of total revenue on autopilot!`
+    },
+    {
+      id: 'ecommerce_web_design_hub',
+      title: 'Ecommerce Website Design & Marketplace Operations',
+      keywords: ['ecommerce website design', 'shopify store builder', 'woocommerce developer', 'online store design', 'marketplace seo'],
+      phrases: ['ecommerce website design', 'build shopify store', 'woocommerce website design', 'ecommerce marketing agency'],
+      hits: 0,
+      response: `Noot Noot! 🐧 We build high-converting <strong>Ecommerce Website Designs</strong> on Shopify and WooCommerce with 1-click lightning checkouts, automated shipping/payment integrations, and complete marketplace catalogue management (Amazon, Etsy, Ebay)!`
+    },
+    {
       id: 'custom_web_dev',
       title: 'Sub-Second Custom Web Engineering',
       keywords: ['website', 'web dev', 'developer', 'frontend', 'speed', 'fast', 'wordpress', 'sub-second', 'redesign', 'landing page', 'full ownership'],
