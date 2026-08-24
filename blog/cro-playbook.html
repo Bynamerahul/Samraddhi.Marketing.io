@@ -26,17 +26,119 @@
   <meta name="twitter:image" content="https://samraddhi.in/samraddhi-india-logo.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/samraddhi-india-logo.png">
-  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="shortcut icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../samraddhi-india-logo.png">
+  <link rel="manifest" href="../manifest.json">
 
   <!-- Fonts & CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="/styles.min.css?v=3.5" as="style">
-  <link rel="stylesheet" href="/styles.min.css?v=3.5">
+  <link rel="preload" href="../styles.min.css?v=3.6" as="style">
+  <link rel="stylesheet" href="../styles.min.css?v=3.6">
+
+  <!-- Premium Blog UI Styles Override -->
+  <style>
+    body.site-body {
+      background: #070b13 !important;
+      color: #94a3b8 !important;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    }
+    .blog-container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+    .blog-card-wrapper {
+      background: #0d1220;
+      border: 1px solid #1e293b;
+      border-radius: 20px;
+      padding: 3rem;
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+      margin-top: 2rem;
+    }
+    @media (max-width: 768px) {
+      .blog-card-wrapper {
+        padding: 1.5rem;
+      }
+      .blog-container {
+        padding: 2rem 1rem;
+      }
+    }
+    .blog-title {
+      color: #ffffff !important;
+      font-weight: 800 !important;
+      line-height: 1.25 !important;
+      font-size: clamp(2rem, 5vw, 2.75rem) !important;
+      margin-bottom: 1.5rem !important;
+    }
+    .blog-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #1e293b;
+    }
+    .blog-content h2 {
+      color: #ffffff !important;
+      font-size: 1.75rem !important;
+      font-weight: 700 !important;
+      margin: 3rem 0 1.25rem !important;
+      line-height: 1.3 !important;
+    }
+    .blog-content h3 {
+      color: #ffffff !important;
+      font-size: 1.35rem !important;
+      font-weight: 700 !important;
+      margin: 2.25rem 0 1rem !important;
+    }
+    .blog-content p {
+      font-size: 1.05rem !important;
+      line-height: 1.85 !important;
+      margin-bottom: 1.5rem !important;
+      color: #94a3b8 !important;
+    }
+    .blog-content strong {
+      color: #ffffff !important;
+      font-weight: 600 !important;
+    }
+    .blog-content ul, .blog-content ol {
+      margin: 1.5rem 0 !important;
+      padding-left: 1.75rem !important;
+    }
+    .blog-content li {
+      font-size: 1.025rem !important;
+      line-height: 1.8 !important;
+      margin-bottom: 0.75rem !important;
+      color: #cbd5e1 !important;
+    }
+    .service-pill {
+      background: rgba(255, 77, 141, 0.12) !important;
+      color: #be185d !important;
+      font-weight: 700 !important;
+      padding: 0.4rem 0.8rem !important;
+      border-radius: 99px !important;
+      font-size: 0.8rem !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.05em !important;
+      display: inline-block !important;
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #94a3b8;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    .back-btn:hover {
+      color: #be185d;
+    }
+  </style>
 
   <!-- Schema.org Article JSON-LD -->
   <script type="application/ld+json">
@@ -72,7 +174,7 @@
 <header class="site-head" role="banner">
   <div class="head-container magnetic-target">
     <a href="/#hero" class="brand-logo magnetic-target" aria-label="Samraddhi.Marketing Home">
-      <img src="/samraddhi-india-logo.png?v=3.0" alt="Samraddhi Marketing Agency Logo" class="brand-logo-img" loading="lazy" decoding="async" width="28" height="28">
+      <img src="../samraddhi-india-logo.png?v=3.0" alt="Samraddhi Marketing Agency Logo" class="brand-logo-img" loading="lazy" decoding="async" width="28" height="28">
       <span class="brand-name">Samraddhi<span class="brand-dot">.Marketing</span></span>
     </a>
     <nav class="nav-menu" role="navigation" aria-label="Main Navigation">
@@ -95,75 +197,79 @@
 
   <main id="main-content">
     <!-- Visual Breadcrumbs -->
-    <div class="breadcrumb-nav">
-      <div class="container" style="max-width: var(--content-width, 1200px); margin: 0 auto; padding: 1.25rem 1.5rem 0 1.5rem; text-align: left;">
-        <a href="/" style="color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color 0.2s;">Home</a>
-        <span style="color: var(--text-muted); margin: 0 0.5rem;">/</span>
-        <a href="/blogs" style="color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color 0.2s;">Blog</a>
-        <span style="color: var(--text-muted); margin: 0 0.5rem;">/</span>
-        <span style="color: var(--text-primary); font-weight: 600;">📢 Marketing & CRO</span>
+    <div class="breadcrumb-nav" style="background: #090d16; border-bottom: 1px solid #1e293b;">
+      <div class="container" style="max-width: var(--content-width, 1200px); margin: 0 auto; padding: 1.25rem 1.5rem; text-align: left;">
+        <a href="/" style="color: #94a3b8; text-decoration: none; font-weight: 500; transition: color 0.2s;">Home</a>
+        <span style="color: #475569; margin: 0 0.5rem;">/</span>
+        <a href="/blogs" style="color: #94a3b8; text-decoration: none; font-weight: 500; transition: color 0.2s;">Blog</a>
+        <span style="color: #475569; margin: 0 0.5rem;">/</span>
+        <span style="color: #ffffff; font-weight: 600;">Cro Playbook</span>
       </div>
     </div>
 
     <!-- Article layout container -->
-    <article style="max-width: 860px; margin: 0 auto; padding: 3rem 1.5rem 5rem;" itemscope itemtype="https://schema.org/BlogPosting">
-      <meta itemprop="datePublished" content="2026-08-05">
-      <meta itemprop="dateModified" content="2026-08-05">
-      <meta itemprop="author" content="Rahul Soni">
-      <meta itemprop="publisher" content="Samraddhi Marketing">
+    <div class="blog-container">
+      <a href="/blogs" class="back-btn">
+        ← Back to all articles
+      </a>
 
-      <!-- Tags & Meta Info -->
-      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
-        <span class="service-pill" style="background: rgba(255, 77, 141, 0.12); color: #be185d;">📢 Marketing & CRO</span>
-        <span style="font-size: 0.85rem; color: var(--text-secondary); margin-left: auto;">2026-08-05 · 5 min read</span>
-      </div>
+      <article class="blog-card-wrapper" itemscope itemtype="https://schema.org/BlogPosting">
+        <meta itemprop="datePublished" content="2026-08-05">
+        <meta itemprop="dateModified" content="2026-08-05">
+        <meta itemprop="author" content="Rahul Soni">
+        <meta itemprop="publisher" content="Samraddhi Marketing">
 
-      <!-- Headline -->
-      <h1 itemprop="headline" style="font-size: clamp(1.8rem, 5vw, 2.75rem); color: #fff; line-height: 1.2; font-weight: 800; margin-bottom: 1.5rem;">
-        The Core Blueprint for Scaling D2C Brands in 2026
-      </h1>
-      
-      
+        <!-- Tags & Meta Info -->
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; align-items: center;">
+          <span class="service-pill">📢 Marketing & CRO</span>
+          <span style="font-size: 0.85rem; color: #64748b; margin-left: auto; font-weight: 500;">2026-08-05 · 5 min read</span>
+        </div>
+
+        <!-- Headline -->
+        <h1 itemprop="headline" class="blog-title">
+          The Core Blueprint for Scaling D2C Brands in 2026
+        </h1>
+        
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #1e293b;">
+          <img src="../samraddhi-india-logo.png?v=3.0" alt="Rahul Soni - Samraddhi Marketing" width="36" height="36" style="border-radius: 50%; background: #1e293b; padding: 2px;">
+          <span style="color: #ffffff; font-weight: 600; font-size: 0.95rem;">By Rahul Soni</span>
+        </div>
+
+        
       <!-- Single Hero Logo Header -->
-      <div style="background: var(--bg-card); border: 1.5px solid var(--border-medium); border-radius: var(--radius-lg); padding: 3rem 1.5rem; text-align: center; margin-bottom: 3rem; overflow: hidden; position: relative;">
-        <img src="/samraddhi-india-logo.png" alt="Samraddhi Marketing Logo" width="80" height="80" style="margin: 0 auto 1.5rem; display: block; filter: drop-shadow(0 0 15px rgba(37,99,235,0.3));">
+      <div style="background: #111827; border: 1.5px solid #1e293b; border-radius: var(--radius-lg); padding: 3rem 1.5rem; text-align: center; margin-bottom: 3rem; overflow: hidden; position: relative;">
+        <img src="../samraddhi-india-logo.png" alt="Samraddhi Marketing Logo" width="80" height="80" style="margin: 0 auto 1.5rem; display: block; filter: drop-shadow(0 0 15px rgba(37,99,235,0.3));">
         <h3 style="color: #fff; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">The Core Blueprint for Scaling D2C Brands in 2026</h3>
         <p style="color: var(--text-secondary); font-size: 0.9rem; max-width: 500px; margin: 0 auto;">Growth strategy sprint from the Samraddhi Marketing Team.</p>
       </div>
         
 
-      <!-- Article Body -->
-      <div itemprop="articleBody" style="color: var(--text-secondary); font-size: 0.98rem; line-height: 1.85;">
-        
-        <h2 style="font-size: 1.6rem; color: #fff; font-weight: 700; margin: 2.5rem 0 1rem;">Scaling D2C E-Commerce in 2026</h2>
+        <!-- Article Body -->
+        <div itemprop="articleBody" class="blog-content">
+          
+        <h2>Scaling D2C E-Commerce in 2026</h2>
         <p>In the highly competitive landscape of 2026, scaling a D2C brand requires more than just throwing money at paid ads. You need a unified funnel that combines hyper-targeted acquisition with frictionless conversion rate optimization (CRO) and aggressive customer retention.</p>
         
-        <h3 style="font-size: 1.3rem; color: #fff; font-weight: 700; margin: 1.5rem 0 1rem;">1. High-ROAS Paid Acquisition</h3>
+        <h3>1. High-ROAS Paid Acquisition</h3>
         <p>Paid ads (Meta & Google Ads) serve as the top-of-funnel engine. However, to maintain profitability, focus on creating high-retention video hooks, landing traffic on customized product-collection hybrid landing pages, and utilizing Advantage+ shopping campaigns to find high-value buyers.</p>
 
-        <h3 style="font-size: 1.3rem; color: #fff; font-weight: 700; margin: 1.5rem 0 1rem;">2. Frictionless Checkout Experience</h3>
+        <h3>2. Frictionless Checkout Experience</h3>
         <p>A website that loads in more than 2 seconds loses up to 50% of its potential customers. Build a lightning-fast checkout process by removing unnecessary form fields, offering one-click checkout options (like UPI, Apple Pay, and Shop Pay), and displaying trust badges near the buy button.</p>
 
-        <h3 style="font-size: 1.3rem; color: #fff; font-weight: 700; margin: 1.5rem 0 1rem;">3. Custom Automated Retention Flows</h3>
+        <h3>3. Custom Automated Retention Flows</h3>
         <p>Acquiring a new customer is up to 5 times more expensive than keeping an existing one. Configure advanced Klaviyo flows for abandoned carts, welcome series, and post-purchase win-backs. Personalize email and SMS notifications based on customer browse history to maximize Customer Lifetime Value (LTV).</p>
         
-      </div>
-
-      <!-- Tags Footer -->
-      <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-medium);">
-        <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 0.75rem;">Keywords:</p>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-          <span style="background: var(--bg-card); border: 1px solid var(--border-medium); border-radius: 99px; padding: 0.25rem 0.75rem; font-size: 0.8rem; color: var(--text-secondary);">ecommerce website design</span>, <span style="background: var(--bg-card); border: 1px solid var(--border-medium); border-radius: 99px; padding: 0.25rem 0.75rem; font-size: 0.8rem; color: var(--text-secondary);">digital marketing</span>, <span style="background: var(--bg-card); border: 1px solid var(--border-medium); border-radius: 99px; padding: 0.25rem 0.75rem; font-size: 0.8rem; color: var(--text-secondary);">marketing agency</span>, <span style="background: var(--bg-card); border: 1px solid var(--border-medium); border-radius: 99px; padding: 0.25rem 0.75rem; font-size: 0.8rem; color: var(--text-secondary);">content marketing</span>, <span style="background: var(--bg-card); border: 1px solid var(--border-medium); border-radius: 99px; padding: 0.25rem 0.75rem; font-size: 0.8rem; color: var(--text-secondary);">D2C scale</span>, <span style="background: var(--bg-card); border: 1px solid var(--border-medium); border-radius: 99px; padding: 0.25rem 0.75rem; font-size: 0.8rem; color: var(--text-secondary);">conversion rate optimization</span>
         </div>
-      </div>
 
-      <!-- Back to Blog Button -->
-      <div style="margin-top: 4rem; text-align: center;">
-        <a href="/blogs" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem;">
-          ← Back to All Insights
-        </a>
-      </div>
-    </article>
+        <!-- Tags Footer -->
+        <div style="margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid #1e293b;">
+          <p style="color: #64748b; font-size: 0.85rem; margin-bottom: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Focus Keywords:</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+            <span style="background: #111827; border: 1px solid #1e293b; border-radius: 99px; padding: 0.35rem 0.85rem; font-size: 0.8rem; color: #94a3b8; font-weight: 500;">ecommerce website design</span> <span style="background: #111827; border: 1px solid #1e293b; border-radius: 99px; padding: 0.35rem 0.85rem; font-size: 0.8rem; color: #94a3b8; font-weight: 500;">digital marketing</span> <span style="background: #111827; border: 1px solid #1e293b; border-radius: 99px; padding: 0.35rem 0.85rem; font-size: 0.8rem; color: #94a3b8; font-weight: 500;">marketing agency</span> <span style="background: #111827; border: 1px solid #1e293b; border-radius: 99px; padding: 0.35rem 0.85rem; font-size: 0.8rem; color: #94a3b8; font-weight: 500;">content marketing</span> <span style="background: #111827; border: 1px solid #1e293b; border-radius: 99px; padding: 0.35rem 0.85rem; font-size: 0.8rem; color: #94a3b8; font-weight: 500;">D2C scale</span> <span style="background: #111827; border: 1px solid #1e293b; border-radius: 99px; padding: 0.35rem 0.85rem; font-size: 0.8rem; color: #94a3b8; font-weight: 500;">conversion rate optimization</span>
+          </div>
+        </div>
+      </article>
+    </div>
   </main>
     
 <div id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
@@ -171,7 +277,7 @@
   <div class="mobile-drawer-content">
     <div class="mobile-drawer-header">
       <a href="/#hero" class="brand-logo">
-        <img src="/samraddhi-india-logo.png?v=3.0" alt="Samraddhi Marketing Logo" class="brand-logo-img" loading="lazy" decoding="async" width="28" height="28">
+        <img src="../samraddhi-india-logo.png?v=3.0" alt="Samraddhi Marketing Logo" class="brand-logo-img" loading="lazy" decoding="async" width="28" height="28">
         <span class="brand-name">Samraddhi<span class="brand-dot">.Marketing</span></span>
       </a>
       <button id="close-mobile-drawer" class="icon-btn" aria-label="Close Menu">✕</button>
@@ -240,7 +346,7 @@
               <option value="₹10,000 - ₹25,000">₹10,000 – ₹25,000 / month</option>
               <option value="₹25,000 - ₹50,000" selected>₹25,000 – ₹50,000 / month</option>
               <option value="₹50,000 - ₹1,000,000">₹50,000 – ₹1,00,000 / month</option>
-              <option value="Custom Enterprise">₹1,00,000+ Enterprise</option>
+              <option value="Custom Enterprise">₹1,0,000+ Enterprise</option>
             </select>
           </div>
           <div class="form-group">
@@ -327,6 +433,6 @@
 <script defer src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script defer src="/app.min.js?v=3.5"></script>
+<script defer src="/app.min.js?v=3.6"></script>
 </body>
 </html>
