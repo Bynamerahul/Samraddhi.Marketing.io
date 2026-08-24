@@ -37,22 +37,28 @@
 
   <!-- Google Search Console Verification -->
   <meta name="google-site-verification" content="GSC-VERIFICATION-TOKEN-PLACEHOLDER">
-  <!-- Google Analytics 4 (GA4) snippet -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MEASUREMENT_ID"></script>
+  <!-- Optimized GA4 snippet (Loaded with zero main thread blockage) -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-MEASUREMENT_ID');
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        const s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-MEASUREMENT_ID';
+        document.head.appendChild(s);
+        gtag('js', new Date());
+        gtag('config', 'G-MEASUREMENT_ID');
+      }, 2500);
+    });
   </script>
   <!-- Schema.org JSON-LD Structured Data for Google Search Engine Rich Snippets -->
   
   <!-- Fonts: Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=optional" rel="stylesheet">
   <!-- Lenis Smooth Scroll CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css">
   <!-- CSS Stylesheet -->
   <link rel="stylesheet" href="styles.css?v=2.4">
 
@@ -249,7 +255,7 @@
   <header class="site-head" role="banner">
     <div class="head-container magnetic-target">
       <!-- Official Brand Logo -->
-      <a href="#hero" class="brand-logo magnetic-target" aria-label="Samraddhi Marketing Home">
+      <a href="#hero" class="brand-logo magnetic-target" aria-label="Samraddhi.Marketing Home">
         <img src="samraddhi-india-logo.png" alt="Samraddhi Marketing Agency Logo" class="brand-logo-img" loading="lazy" decoding="async" width="28" height="28">
         <span class="brand-name">Samraddhi<span class="brand-dot">.Marketing</span></span>
       </a>
@@ -271,7 +277,7 @@
       <!-- Status & Utility Controls -->
       <div class="head-actions">
         <div class="currency-switch-container">
-          <button class="currency-toggle-btn magnetic-target" type="button" aria-label="Toggle USD or INR Currency">
+          <button class="currency-toggle-btn magnetic-target" type="button" aria-label="Currency Switcher USD and INR">
             <span class="curr-opt active" data-curr="USD">$ USD</span>
             <span class="curr-divider">/</span>
             <span class="curr-opt" data-curr="INR">₹ INR</span>
@@ -281,7 +287,7 @@
           <span class="status-dot pulsing"></span>
           <span class="status-text">Q3 Open</span>
         </div>
-        <button class="btn btn-primary open-contact-btn desktop-head-cta magnetic-target" aria-label="Book Free Strategy Call">
+        <button class="btn btn-primary open-contact-btn desktop-head-cta magnetic-target" aria-label="Free Strategy Call">
           <span>Free Strategy Call</span>
           <span class="btn-arrow">→</span>
         </button>
@@ -307,7 +313,7 @@
       </div>
       <div style="padding: 0.75rem 1.5rem 0.25rem 1.5rem; display: flex; align-items: center; justify-content: space-between;">
         <div class="currency-switch-container" style="margin: 0;">
-          <button class="currency-toggle-btn magnetic-target" type="button" aria-label="Toggle USD or INR Currency">
+          <button class="currency-toggle-btn magnetic-target" type="button" aria-label="Currency Switcher USD and INR">
             <span class="curr-opt active" data-curr="USD">$ USD</span>
             <span class="curr-divider">/</span>
             <span class="curr-opt" data-curr="INR">₹ INR</span>
