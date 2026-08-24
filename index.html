@@ -37,30 +37,37 @@
 
   <!-- Google Search Console Verification -->
   <meta name="google-site-verification" content="GSC-VERIFICATION-TOKEN-PLACEHOLDER">
-  <!-- Optimized GA4 snippet (Loaded with zero main thread blockage) -->
+    <!-- Smart Conditional GA4 Snippet (Zero Unused JS & Zero Thread Blocking) -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    window.addEventListener('DOMContentLoaded', () => {
-      setTimeout(() => {
-        const s = document.createElement('script');
-        s.async = true;
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-MEASUREMENT_ID';
-        document.head.appendChild(s);
-        gtag('js', new Date());
-        gtag('config', 'G-MEASUREMENT_ID');
-      }, 2500);
-    });
+    const GA_ID = 'G-MEASUREMENT_ID';
+    if (GA_ID && GA_ID !== 'G-MEASUREMENT_ID') {
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          const s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+          document.head.appendChild(s);
+          gtag('js', new Date());
+          gtag('config', GA_ID);
+        }, 3000);
+      });
+    }
   </script>
   <!-- Schema.org JSON-LD Structured Data for Google Search Engine Rich Snippets -->
   
   <!-- Fonts: Plus Jakarta Sans & JetBrains Mono -->
+    <!-- Preconnect & Asynchronous Non-Render-Blocking Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=optional" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap">
+  </noscript>
   <!-- Lenis Smooth Scroll CSS -->
   <!-- CSS Stylesheet -->
-  <link rel="stylesheet" href="styles.css?v=2.4">
+  <link rel="stylesheet" href="styles.min.css?v=2.5">
 
 
 
@@ -1649,11 +1656,11 @@
     </div>
   </div>
   <!-- External Libraries: Lenis Smooth Scroll & GSAP + ScrollTrigger -->
-  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script defer src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <!-- JavaScript Modules -->
-  <script src="app.js"></script>
-  <script src="live-projects.js"></script>
+  <script defer src="app.js"></script>
+  <script defer src="live-projects.js"></script>
 </body>
 </html>
