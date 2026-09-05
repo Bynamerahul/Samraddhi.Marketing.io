@@ -242,21 +242,32 @@
       color: #94a3b8 !important;
     }
 
-    /* Mobile Responsive Tight Layout */
-    @media (max-width: 768px) {
-      .spectrum-grid-4 {
+    /* Premium 2-Column Desktop Grid (All Cards Large & Prominent) */
+    .spectrum-grid-4, #blog-posts-grid {
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 2rem !important;
+      align-items: stretch !important;
+    }
+
+    /* Mobile Responsive Single Column Layout */
+    @media (max-width: 900px) {
+      .spectrum-grid-4, #blog-posts-grid {
         grid-template-columns: 1fr !important;
-        gap: 1.25rem !important;
+        gap: 1.5rem !important;
       }
       .blog-card {
         grid-column: span 1 !important;
         min-height: auto !important;
       }
       .blog-card > div:first-child {
-        height: 180px !important;
+        height: 190px !important;
       }
       .blog-card > div:last-child {
         padding: 1.25rem 1.25rem 1.5rem !important;
+      }
+      .blog-card h2 {
+        font-size: 1.25rem !important;
       }
       .live-hero-title {
         font-size: 1.85rem !important;
@@ -338,10 +349,10 @@
     <section class="section-padding" style="padding-top: 1rem;">
       <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;">
                 <div id="blog-posts-grid" class="spectrum-grid-4">
-          <!-- Post 1 (Featured - Newest Sep 5, 2026) -->
-          <a href="/blog/engaging-social-media-content-creation" class="minimal-tile blog-card" data-blog-id="engaging-social-media-content-creation" data-category="marketing" style="text-decoration: none; padding: 0; border-radius: var(--radius-lg); background: var(--bg-card); border: 2px solid #be185d; display: flex; flex-direction: column; min-height: 460px; cursor: pointer; transition: transform 0.25s, border-color 0.25s; overflow: hidden; grid-column: span 2;">
-            <div style="height: 230px; overflow: hidden; background: #070b13; text-align: center;">
-              <img src="blog-engaging-content-creation.jpg" alt="Engaging Social Media Content Creation - 3D VR creator with floating video cards" width="682" height="1024" loading="eager" decoding="async" style="width: 100%; height: 230px; object-fit: cover; object-position: center 25%;">
+          <!-- Card 1: Engaging Content (Sep 5, 2026) -->
+          <a href="/blog/engaging-social-media-content-creation" class="minimal-tile blog-card" data-blog-id="engaging-social-media-content-creation" data-category="marketing" style="text-decoration: none; padding: 0; border-radius: 16px; background: #0d1220; border: 1px solid #1e293b; display: flex; flex-direction: column; cursor: pointer; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; overflow: hidden;">
+            <div style="height: 220px; overflow: hidden; background: #070b13; text-align: center;">
+              <img src="blog-engaging-content-creation.jpg" alt="Engaging Social Media Content Creation - 3D VR creator with floating video cards" width="682" height="1024" loading="eager" decoding="async" style="width: 100%; height: 220px; object-fit: cover; object-position: center 25%;">
             </div>
             <div style="padding: 1.75rem 2rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
               <div>
@@ -351,213 +362,211 @@
                     <span class="service-pill" style="background: rgba(56, 189, 248, 0.12); color: #0284c7;">📱 Social Media</span>
                     <span style="background: rgba(255,77,141,0.08); color: #be185d; font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 99px; border: 1px solid #be185d; letter-spacing: 0.05em;">NEW</span>
                   </div>
-                  <span style="font-size: 0.8rem; color: var(--text-secondary);">Sep 5, 2026 • 7 min read</span>
+                  <span style="font-size: 0.8rem; color: #64748b;">Sep 5, 2026 • 7 min read</span>
                 </div>
-                <h2 style="font-size: 1.55rem; color: var(--text-primary, #0f172a); margin-bottom: 0.9rem; line-height: 1.25; font-weight: 800;">Engaging Social Media Content Creation: The 2026 Playbook</h2>
-                <p style="color: var(--text-secondary, #64748b); font-size: 0.93rem; line-height: 1.7; max-width: 780px;">Master high-retention video hooks, YouTube Shorts scripts, editable Canva brand assets, and 30-day content calendars that turn casual scrollers into loyal, paying clients.</p>
+                <h2 style="font-size: 1.45rem; color: #ffffff; margin-bottom: 0.85rem; line-height: 1.3; font-weight: 800;">Engaging Social Media Content Creation: The 2026 Playbook</h2>
+                <p style="color: #94a3b8; font-size: 0.92rem; line-height: 1.65; margin-bottom: 1.25rem;">Master high-retention video hooks, YouTube Shorts scripts, editable Canva brand assets, and 30-day content calendars that turn casual scrollers into loyal, paying clients.</p>
               </div>
               <div style="margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
-                <span style="color: var(--text-secondary); font-size: 0.85rem; font-weight: 600;">By Rahul Soni — Samraddhi Marketing</span>
+                <span style="color: #64748b; font-size: 0.85rem; font-weight: 600;">By Rahul Soni — Samraddhi Marketing</span>
                 <span style="color: #be185d; font-size: 0.95rem; font-weight: 700;">Read Full Guide →</span>
               </div>
             </div>
           </a>
 
-          <!-- Post 2 (Featured - Aug 25, 2026) -->
-          <a href="/blog/what-is-content-creation-social-media" class="minimal-tile blog-card" data-blog-id="what-is-content-creation-social-media" data-category="marketing" style="text-decoration: none; padding: 0; border-radius: var(--radius-lg); background: var(--bg-card); border: 2px solid #38bdf8; display: flex; flex-direction: column; min-height: 460px; cursor: pointer; transition: transform 0.25s, border-color 0.25s; overflow: hidden; grid-column: span 2;">
-            <!-- Dual Hero Images -->
-            <div style="display: grid; grid-template-columns: 1fr 1fr; height: 230px; overflow: hidden; background: #070b13;">
-              <img src="blog-content-creation-1.jpg" alt="What is Content Creation in Social Media - creative mind full of media tools, cameras, film reels" width="400" height="230" loading="lazy" decoding="async" style="width: 100%; height: 230px; object-fit: cover; object-position: center top;">
-              <img src="blog-content-creation-2.jpg" alt="Social Media Content Creation strategy - Lights Camera Action Content production" width="400" height="230" loading="lazy" decoding="async" style="width: 100%; height: 230px; object-fit: cover;">
+          <!-- Card 2: What is Content Creation (Aug 25, 2026) -->
+          <a href="/blog/what-is-content-creation-social-media" class="minimal-tile blog-card" data-blog-id="what-is-content-creation-social-media" data-category="marketing" style="text-decoration: none; padding: 0; border-radius: 16px; background: #0d1220; border: 1px solid #1e293b; display: flex; flex-direction: column; cursor: pointer; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; overflow: hidden;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; height: 220px; overflow: hidden; background: #070b13;">
+              <img src="blog-content-creation-1.jpg" alt="What is Content Creation in Social Media - creative mind full of media tools" width="400" height="220" loading="lazy" decoding="async" style="width: 100%; height: 220px; object-fit: cover; object-position: center top;">
+              <img src="blog-content-creation-2.jpg" alt="Social Media Content Creation strategy - Lights Camera Action" width="400" height="220" loading="lazy" decoding="async" style="width: 100%; height: 220px; object-fit: cover;">
             </div>
             <div style="padding: 1.75rem 2rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
               <div>
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
                   <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
                     <span class="service-pill" style="background: rgba(255, 77, 141, 0.15); color: #be185d;">🎬 Content Creation</span>
-                    <span class="service-pill" style="background: rgba(56, 189, 248, 0.12); color: #0284c7;">📱 Social Media Marketing</span>
+                    <span class="service-pill" style="background: rgba(56, 189, 248, 0.12); color: #0284c7;">📱 Social Media</span>
                   </div>
-                  <span style="font-size: 0.8rem; color: var(--text-secondary);">Aug 25, 2026 • 8 min read</span>
+                  <span style="font-size: 0.8rem; color: #64748b;">Aug 25, 2026 • 8 min read</span>
                 </div>
-                <h2 style="font-size: 1.55rem; color: var(--text-primary, #0f172a); margin-bottom: 0.9rem; line-height: 1.25; font-weight: 800;">What is Content Creation in Social Media? The Complete 2026 Guide</h2>
-                <p style="color: var(--text-secondary, #64748b); font-size: 0.93rem; line-height: 1.7; max-width: 780px;">From a simple Instagram Reel to a viral YouTube Short — understand what social media content creation really means, why it is the #1 driver of brand growth, and how businesses can build a passive organic lead engine.</p>
+                <h2 style="font-size: 1.45rem; color: #ffffff; margin-bottom: 0.85rem; line-height: 1.3; font-weight: 800;">What is Content Creation in Social Media? Complete 2026 Guide</h2>
+                <p style="color: #94a3b8; font-size: 0.92rem; line-height: 1.65; margin-bottom: 1.25rem;">From Instagram Reels to YouTube Shorts — understand what social media content creation really means, why it is the #1 driver of brand growth, and how businesses can build a passive organic lead engine.</p>
               </div>
               <div style="margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
-                <span style="color: var(--text-secondary); font-size: 0.85rem; font-weight: 600;">By Rahul Soni — Samraddhi Marketing</span>
+                <span style="color: #64748b; font-size: 0.85rem; font-weight: 600;">By Rahul Soni — Samraddhi Marketing</span>
                 <span style="color: #0284c7; font-size: 0.95rem; font-weight: 700;">Read Full Guide →</span>
               </div>
             </div>
           </a>
 
-          <!-- Post 3 (Aug 22, 2026) -->
-          <a href="/blog/how-to-create-a-website" class="minimal-tile blog-card" data-blog-id="how-to-create-a-website" data-category="development" style="text-decoration: none; padding: 0; border-radius: var(--radius-lg); background: var(--bg-card); border: 1.5px solid var(--border-medium); display: flex; flex-direction: column; justify-content: space-between; min-height: 420px; cursor: pointer; transition: transform 0.25s, border-color 0.25s; overflow: hidden;">
-            <div style="height: 180px; overflow: hidden; background: #070b13;">
-              <img src="website-mockup-dev.jpg" alt="How to Create a Website in 2026 - Custom Web Design vs Template Builders" width="400" height="180" loading="lazy" decoding="async" style="width: 100%; height: 180px; object-fit: cover;">
+          <!-- Card 3: How to Create a Website (Aug 22, 2026) -->
+          <a href="/blog/how-to-create-a-website" class="minimal-tile blog-card" data-blog-id="how-to-create-a-website" data-category="development" style="text-decoration: none; padding: 0; border-radius: 16px; background: #0d1220; border: 1px solid #1e293b; display: flex; flex-direction: column; cursor: pointer; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; overflow: hidden;">
+            <div style="height: 220px; overflow: hidden; background: #070b13;">
+              <img src="website-mockup-dev.jpg" alt="How to Create a Website in 2026 - Custom Web Design vs Template Builders" width="400" height="220" loading="lazy" decoding="async" style="width: 100%; height: 220px; object-fit: cover;">
             </div>
-            <div style="padding: 1.5rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="padding: 1.75rem 2rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
               <div>
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
                   <span class="service-pill" style="background: rgba(192, 132, 252, 0.12); color: #c084fc;">💻 Web Dev</span>
-                  <span style="font-size: 0.8rem; color: var(--text-secondary);">Aug 22, 2026 • 6 min</span>
+                  <span style="font-size: 0.8rem; color: #64748b;">Aug 22, 2026 • 6 min</span>
                 </div>
-                <h2 style="font-size: 1.2rem; color: var(--text-primary, #0f172a); margin-bottom: 0.75rem; line-height: 1.35; font-weight: 800;">How to Create a Website in 2026: Website Builder vs Custom Designer</h2>
-                <p style="color: var(--text-secondary, #64748b); font-size: 0.875rem; line-height: 1.6;">A complete guide on how to create a website that ranks on Google. Understand when to use a DIY builder and why custom code drives 3X higher sales conversions.</p>
+                <h2 style="font-size: 1.45rem; color: #ffffff; margin-bottom: 0.85rem; line-height: 1.3; font-weight: 800;">How to Create a Website in 2026: Builder vs Custom Designer</h2>
+                <p style="color: #94a3b8; font-size: 0.92rem; line-height: 1.65; margin-bottom: 1.25rem;">A complete guide on how to create a website that ranks on Google. Understand when to use a DIY builder and why custom code drives 3X higher sales conversions.</p>
               </div>
-              <div style="margin-top: 1.25rem; display: flex; justify-content: space-between; align-items: center;">
-                <span style="color: var(--text-secondary); font-size: 0.825rem; font-weight: 600;">By Rahul Soni</span>
-                <span style="color: #c084fc; font-size: 0.85rem; font-weight: 700;">Read Guide →</span>
+              <div style="margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+                <span style="color: #64748b; font-size: 0.85rem; font-weight: 600;">By Rahul Soni</span>
+                <span style="color: #c084fc; font-size: 0.95rem; font-weight: 700;">Read Full Guide →</span>
               </div>
             </div>
           </a>
 
-          <!-- Post 4 (Aug 20, 2026) -->
-          <a href="/blog/low-cost-website-designer-gwalior" class="minimal-tile blog-card" data-blog-id="low-cost-website-designer-gwalior" data-category="development" style="text-decoration: none; padding: 0; border-radius: var(--radius-lg); background: var(--bg-card); border: 1.5px solid var(--border-medium); display: flex; flex-direction: column; justify-content: space-between; min-height: 420px; cursor: pointer; transition: transform 0.25s, border-color 0.25s; overflow: hidden;">
-            <div style="height: 180px; overflow: hidden; background: #070b13;">
-              <img src="website-mockup-grow.jpg" alt="Low Cost Website Designer in Gwalior" width="400" height="180" loading="lazy" decoding="async" style="width: 100%; height: 180px; object-fit: cover;">
+          <!-- Card 4: Best Web Designer Gwalior (Aug 20, 2026) -->
+          <a href="/blog/low-cost-website-designer-gwalior" class="minimal-tile blog-card" data-blog-id="low-cost-website-designer-gwalior" data-category="development" style="text-decoration: none; padding: 0; border-radius: 16px; background: #0d1220; border: 1px solid #1e293b; display: flex; flex-direction: column; cursor: pointer; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; overflow: hidden;">
+            <div style="height: 220px; overflow: hidden; background: #070b13;">
+              <img src="website-mockup-grow.jpg" alt="Low Cost Website Designer in Gwalior" width="400" height="220" loading="lazy" decoding="async" style="width: 100%; height: 220px; object-fit: cover;">
             </div>
-            <div style="padding: 1.5rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="padding: 1.75rem 2rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
               <div>
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
                   <span class="service-pill" style="background: rgba(56, 189, 248, 0.12); color: #0284c7;">🌐 Local SEO</span>
-                  <span style="font-size: 0.8rem; color: var(--text-secondary);">Aug 20, 2026 • 5 min</span>
+                  <span style="font-size: 0.8rem; color: #64748b;">Aug 20, 2026 • 5 min</span>
                 </div>
-                <h2 style="font-size: 1.2rem; color: var(--text-primary, #0f172a); margin-bottom: 0.75rem; line-height: 1.35; font-weight: 800;">Best Website Design Company &amp; Low Cost Designer in Gwalior</h2>
-                <p style="color: var(--text-secondary, #64748b); font-size: 0.875rem; line-height: 1.6;">How local businesses in Gwalior and India can find a trusted, low cost website designer with transparent pricing and full technical support.</p>
+                <h2 style="font-size: 1.45rem; color: #ffffff; margin-bottom: 0.85rem; line-height: 1.3; font-weight: 800;">Best Website Design Company &amp; Low Cost Designer in Gwalior</h2>
+                <p style="color: #94a3b8; font-size: 0.92rem; line-height: 1.65; margin-bottom: 1.25rem;">How local businesses in Gwalior and India can find a trusted, low cost website designer with transparent pricing (₹4,999 to ₹14,999) and full technical support.</p>
               </div>
-              <div style="margin-top: 1.25rem; display: flex; justify-content: space-between; align-items: center;">
-                <span style="color: var(--text-secondary); font-size: 0.825rem; font-weight: 600;">By Dev Team</span>
-                <span style="color: #0284c7; font-size: 0.85rem; font-weight: 700;">Read Guide →</span>
+              <div style="margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+                <span style="color: #64748b; font-size: 0.85rem; font-weight: 600;">By Dev Team</span>
+                <span style="color: #0284c7; font-size: 0.95rem; font-weight: 700;">Read Full Guide →</span>
               </div>
             </div>
           </a>
 
-          <!-- Post 5 (Aug 18, 2026) -->
-          <a href="/blog/social-media-content-creation" class="minimal-tile blog-card" data-blog-id="social-media-content-creation" data-category="marketing" style="text-decoration: none; padding: 0; border-radius: var(--radius-lg); background: var(--bg-card); border: 1.5px solid var(--border-medium); display: flex; flex-direction: column; justify-content: space-between; min-height: 420px; cursor: pointer; transition: transform 0.25s, border-color 0.25s; overflow: hidden;">
-            <div style="height: 180px; overflow: hidden; background: #070b13;">
-              <img src="content-reels-mockup.jpg" alt="Social Media Content Creation Playbook" width="400" height="180" loading="lazy" decoding="async" style="width: 100%; height: 180px; object-fit: cover;">
+          <!-- Card 5: Playbook for Social Media (Aug 18, 2026) -->
+          <a href="/blog/social-media-content-creation" class="minimal-tile blog-card" data-blog-id="social-media-content-creation" data-category="marketing" style="text-decoration: none; padding: 0; border-radius: 16px; background: #0d1220; border: 1px solid #1e293b; display: flex; flex-direction: column; cursor: pointer; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; overflow: hidden;">
+            <div style="height: 220px; overflow: hidden; background: #070b13;">
+              <img src="content-reels-mockup.jpg" alt="Social Media Content Creation Playbook" width="400" height="220" loading="lazy" decoding="async" style="width: 100%; height: 220px; object-fit: cover;">
             </div>
-            <div style="padding: 1.5rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="padding: 1.75rem 2rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
               <div>
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
                   <span class="service-pill" style="background: rgba(255, 77, 141, 0.12); color: #be185d;">🎬 Content</span>
-                  <span style="font-size: 0.8rem; color: var(--text-secondary);">Aug 18, 2026 • 6 min</span>
+                  <span style="font-size: 0.8rem; color: #64748b;">Aug 18, 2026 • 6 min</span>
                 </div>
-                <h2 style="font-size: 1.2rem; color: var(--text-primary, #0f172a); margin-bottom: 0.75rem; line-height: 1.35; font-weight: 800;">The 2026 Playbook for Viral Social Media Content Creation</h2>
-                <p style="color: var(--text-secondary, #64748b); font-size: 0.875rem; line-height: 1.6;">Master the 3-second psychological hook, kinetic subtitle formatting, sound effects, and content funnels that turn casual viewers into loyal buyers.</p>
+                <h2 style="font-size: 1.45rem; color: #ffffff; margin-bottom: 0.85rem; line-height: 1.3; font-weight: 800;">The 2026 Playbook for Viral Social Media Content Creation</h2>
+                <p style="color: #94a3b8; font-size: 0.92rem; line-height: 1.65; margin-bottom: 1.25rem;">Master the 3-second psychological hook, kinetic subtitle formatting, sound effects, and content funnels that turn casual viewers into loyal buyers.</p>
               </div>
-              <div style="margin-top: 1.25rem; display: flex; justify-content: space-between; align-items: center;">
-                <span style="color: var(--text-secondary); font-size: 0.825rem; font-weight: 600;">By Content Lead</span>
-                <span style="color: #be185d; font-size: 0.85rem; font-weight: 700;">Read Guide →</span>
+              <div style="margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+                <span style="color: #64748b; font-size: 0.85rem; font-weight: 600;">By Content Lead</span>
+                <span style="color: #be185d; font-size: 0.95rem; font-weight: 700;">Read Full Guide →</span>
               </div>
             </div>
           </a>
 
-          <!-- Post 6 (Aug 15, 2026) -->
-          <a href="/blog/email-marketing-synergy" class="minimal-tile blog-card" data-blog-id="email-marketing-synergy" data-category="marketing" style="text-decoration: none; padding: 0; border-radius: var(--radius-lg); background: var(--bg-card); border: 1.5px solid var(--border-medium); display: flex; flex-direction: column; justify-content: space-between; min-height: 420px; cursor: pointer; transition: transform 0.25s, border-color 0.25s; overflow: hidden;">
-            <div style="height: 180px; overflow: hidden; background: #070b13;">
-              <img src="social-growth-hero.jpg" alt="Email Marketing and Social Media Synergy" width="400" height="180" loading="lazy" decoding="async" style="width: 100%; height: 180px; object-fit: cover;">
+          <!-- Card 6: Email Marketing Synergy (Aug 15, 2026) -->
+          <a href="/blog/email-marketing-synergy" class="minimal-tile blog-card" data-blog-id="email-marketing-synergy" data-category="marketing" style="text-decoration: none; padding: 0; border-radius: 16px; background: #0d1220; border: 1px solid #1e293b; display: flex; flex-direction: column; cursor: pointer; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; overflow: hidden;">
+            <div style="height: 220px; overflow: hidden; background: #070b13;">
+              <img src="social-growth-hero.jpg" alt="Email Marketing and Social Media Synergy" width="400" height="220" loading="lazy" decoding="async" style="width: 100%; height: 220px; object-fit: cover;">
             </div>
-            <div style="padding: 1.5rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="padding: 1.75rem 2rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
               <div>
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
                   <span class="service-pill" style="background: rgba(16, 185, 129, 0.12); color: #10b981;">📧 Email &amp; Ads</span>
-                  <span style="font-size: 0.8rem; color: var(--text-secondary);">Aug 15, 2026 • 5 min</span>
+                  <span style="font-size: 0.8rem; color: #64748b;">Aug 15, 2026 • 5 min</span>
                 </div>
-                <h2 style="font-size: 1.2rem; color: var(--text-primary, #0f172a); margin-bottom: 0.75rem; line-height: 1.35; font-weight: 800;">Why Full-Service Agencies Combine Email Marketing with Social Media</h2>
-                <p style="color: var(--text-secondary, #64748b); font-size: 0.875rem; line-height: 1.6;">Acquisition is only half the battle. Discover how integrating automated email marketing flows with paid social media ads creates an unstoppable compound machine.</p>
+                <h2 style="font-size: 1.45rem; color: #ffffff; margin-bottom: 0.85rem; line-height: 1.3; font-weight: 800;">Why Full-Service Agencies Combine Email Marketing with Social Media</h2>
+                <p style="color: #94a3b8; font-size: 0.92rem; line-height: 1.65; margin-bottom: 1.25rem;">Acquisition is only half the battle. Discover how integrating automated email marketing flows with paid social media ads creates an unstoppable compound machine.</p>
               </div>
-              <div style="margin-top: 1.25rem; display: flex; justify-content: space-between; align-items: center;">
-                <span style="color: var(--text-secondary); font-size: 0.825rem; font-weight: 600;">By Rahul Soni</span>
-                <span style="color: #10b981; font-size: 0.85rem; font-weight: 700;">Read Guide →</span>
+              <div style="margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+                <span style="color: #64748b; font-size: 0.85rem; font-weight: 600;">By Rahul Soni</span>
+                <span style="color: #10b981; font-size: 0.95rem; font-weight: 700;">Read Full Guide →</span>
               </div>
             </div>
           </a>
 
-          <!-- Post 7 (Aug 6, 2026) -->
-          <a href="/blog/atl-vs-btl" class="minimal-tile blog-card" data-blog-id="atl-vs-btl" data-category="marketing" style="text-decoration: none; padding: 0; border-radius: var(--radius-lg); background: var(--bg-card); border: 1.5px solid var(--border-medium); display: flex; flex-direction: column; justify-content: space-between; min-height: 420px; cursor: pointer; transition: transform 0.25s, border-color 0.25s; overflow: hidden;">
-            <div style="height: 180px; overflow: hidden; background: #070b13;">
-              <img src="content-ad-creatives.jpg" alt="ATL vs BTL vs TTL Marketing Guide" width="400" height="180" loading="lazy" decoding="async" style="width: 100%; height: 180px; object-fit: cover;">
+          <!-- Card 7: ATL vs BTL vs TTL (Aug 6, 2026) -->
+          <a href="/blog/atl-vs-btl" class="minimal-tile blog-card" data-blog-id="atl-vs-btl" data-category="marketing" style="text-decoration: none; padding: 0; border-radius: 16px; background: #0d1220; border: 1px solid #1e293b; display: flex; flex-direction: column; cursor: pointer; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; overflow: hidden;">
+            <div style="height: 220px; overflow: hidden; background: #070b13;">
+              <img src="content-ad-creatives.jpg" alt="ATL vs BTL vs TTL Marketing Guide" width="400" height="220" loading="lazy" decoding="async" style="width: 100%; height: 220px; object-fit: cover;">
             </div>
-            <div style="padding: 1.5rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="padding: 1.75rem 2rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
               <div>
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
                   <span class="service-pill" style="background: rgba(255, 77, 141, 0.12); color: #be185d;">📢 Marketing</span>
-                  <span style="font-size: 0.8rem; color: var(--text-secondary);">Aug 6, 2026 • 6 min</span>
+                  <span style="font-size: 0.8rem; color: #64748b;">Aug 6, 2026 • 6 min</span>
                 </div>
-                <h2 style="font-size: 1.2rem; color: var(--text-primary, #0f172a); margin-bottom: 0.75rem; line-height: 1.35; font-weight: 800;">ATL vs BTL vs TTL Marketing: The Ultimate Modern Scale Breakdown</h2>
-                <p style="color: var(--text-secondary, #64748b); font-size: 0.875rem; line-height: 1.6;">Understand the difference between Above the Line, Below the Line, and Through the Line campaigns, and how to combine brand building with targeted conversion maps.</p>
+                <h2 style="font-size: 1.45rem; color: #ffffff; margin-bottom: 0.85rem; line-height: 1.3; font-weight: 800;">ATL vs BTL vs TTL Marketing: The Ultimate Modern Scale Breakdown</h2>
+                <p style="color: #94a3b8; font-size: 0.92rem; line-height: 1.65; margin-bottom: 1.25rem;">Understand the difference between Above the Line, Below the Line, and Through the Line campaigns, and how to combine brand building with targeted conversion maps.</p>
               </div>
-              <div style="margin-top: 1.25rem; display: flex; justify-content: space-between; align-items: center;">
-                <span style="color: var(--text-secondary); font-size: 0.825rem; font-weight: 600;">By Rahul Soni</span>
-                <span style="color: #be185d; font-size: 0.85rem; font-weight: 700;">Read Article →</span>
+              <div style="margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+                <span style="color: #64748b; font-size: 0.85rem; font-weight: 600;">By Rahul Soni</span>
+                <span style="color: #be185d; font-size: 0.95rem; font-weight: 700;">Read Full Guide →</span>
               </div>
             </div>
           </a>
 
-          <!-- Post 8 (Aug 5, 2026) -->
-          <a href="/blog/cro-playbook" class="minimal-tile blog-card" data-blog-id="cro-playbook" data-category="marketing" style="text-decoration: none; padding: 0; border-radius: var(--radius-lg); background: var(--bg-card); border: 1.5px solid var(--border-medium); display: flex; flex-direction: column; justify-content: space-between; min-height: 420px; cursor: pointer; transition: transform 0.25s, border-color 0.25s; overflow: hidden;">
-            <div style="height: 180px; overflow: hidden; background: #070b13;">
-              <img src="ecom-showcase-poster.jpg" alt="Blueprint for Scaling D2C Brands" width="400" height="180" loading="lazy" decoding="async" style="width: 100%; height: 180px; object-fit: cover;">
+          <!-- Card 8: CRO Playbook (Aug 5, 2026) -->
+          <a href="/blog/cro-playbook" class="minimal-tile blog-card" data-blog-id="cro-playbook" data-category="marketing" style="text-decoration: none; padding: 0; border-radius: 16px; background: #0d1220; border: 1px solid #1e293b; display: flex; flex-direction: column; cursor: pointer; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; overflow: hidden;">
+            <div style="height: 220px; overflow: hidden; background: #070b13;">
+              <img src="ecom-showcase-poster.jpg" alt="Blueprint for Scaling D2C Brands" width="400" height="220" loading="lazy" decoding="async" style="width: 100%; height: 220px; object-fit: cover;">
             </div>
-            <div style="padding: 1.5rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="padding: 1.75rem 2rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
               <div>
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
                   <span class="service-pill" style="background: rgba(255, 77, 141, 0.12); color: #be185d;">📢 Marketing</span>
-                  <span style="font-size: 0.8rem; color: var(--text-secondary);">Aug 5, 2026 • 5 min</span>
+                  <span style="font-size: 0.8rem; color: #64748b;">Aug 5, 2026 • 5 min</span>
                 </div>
-                <h2 style="font-size: 1.2rem; color: var(--text-primary, #0f172a); margin-bottom: 0.75rem; line-height: 1.35; font-weight: 800;">The Core Blueprint for Scaling D2C Brands in 2026</h2>
-                <p style="color: var(--text-secondary, #64748b); font-size: 0.875rem; line-height: 1.6;">Learn how to combine high-ROAS Meta Ads campaigns, friction-free Shopify product checkouts, and custom automated email-SMS flows to scale D2C brands predictably.</p>
+                <h2 style="font-size: 1.45rem; color: #ffffff; margin-bottom: 0.85rem; line-height: 1.3; font-weight: 800;">The Core Blueprint for Scaling D2C Brands in 2026</h2>
+                <p style="color: #94a3b8; font-size: 0.92rem; line-height: 1.65; margin-bottom: 1.25rem;">Learn how to combine high-ROAS Meta Ads campaigns, friction-free Shopify product checkouts, and custom automated email-SMS flows to scale D2C brands predictably.</p>
               </div>
-              <div style="margin-top: 1.25rem; display: flex; justify-content: space-between; align-items: center;">
-                <span style="color: var(--text-secondary); font-size: 0.825rem; font-weight: 600;">By Rahul Soni</span>
-                <span style="color: #be185d; font-size: 0.85rem; font-weight: 700;">Read Article →</span>
+              <div style="margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+                <span style="color: #64748b; font-size: 0.85rem; font-weight: 600;">By Rahul Soni</span>
+                <span style="color: #be185d; font-size: 0.95rem; font-weight: 700;">Read Full Guide →</span>
               </div>
             </div>
           </a>
 
-          <!-- Post 9 (Aug 4, 2026) -->
-          <a href="/blog/seo-sprint" class="minimal-tile blog-card" data-blog-id="seo-sprint" data-category="seo" style="text-decoration: none; padding: 0; border-radius: var(--radius-lg); background: var(--bg-card); border: 1.5px solid var(--border-medium); display: flex; flex-direction: column; justify-content: space-between; min-height: 420px; cursor: pointer; transition: transform 0.25s, border-color 0.25s; overflow: hidden;">
-            <div style="height: 180px; overflow: hidden; background: #070b13;">
-              <img src="content-scriptwriting.jpg" alt="Generative Engine Optimization GEO" width="400" height="180" loading="lazy" decoding="async" style="width: 100%; height: 180px; object-fit: cover;">
+          <!-- Card 9: Generative Engine Optimization (Aug 4, 2026) -->
+          <a href="/blog/seo-sprint" class="minimal-tile blog-card" data-blog-id="seo-sprint" data-category="seo" style="text-decoration: none; padding: 0; border-radius: 16px; background: #0d1220; border: 1px solid #1e293b; display: flex; flex-direction: column; cursor: pointer; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; overflow: hidden;">
+            <div style="height: 220px; overflow: hidden; background: #070b13;">
+              <img src="content-scriptwriting.jpg" alt="Generative Engine Optimization GEO" width="400" height="220" loading="lazy" decoding="async" style="width: 100%; height: 220px; object-fit: cover;">
             </div>
-            <div style="padding: 1.5rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="padding: 1.75rem 2rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
               <div>
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
                   <span class="service-pill" style="background: rgba(56, 189, 248, 0.12); color: #0284c7;">🚀 SEO &amp; Growth</span>
-                  <span style="font-size: 0.8rem; color: var(--text-secondary);">Aug 4, 2026 • 7 min</span>
+                  <span style="font-size: 0.8rem; color: #64748b;">Aug 4, 2026 • 7 min</span>
                 </div>
-                <h2 style="font-size: 1.2rem; color: var(--text-primary, #0f172a); margin-bottom: 0.75rem; line-height: 1.35; font-weight: 800;">Generative Engine Optimization (GEO): The New SEO Frontier</h2>
-                <p style="color: var(--text-secondary, #64748b); font-size: 0.875rem; line-height: 1.6;">Discover how ChatGPT, Claude, Perplexity, and Google AI Overviews cite content, and the exact steps to configure your website for LLM retrieval and GEO authority.</p>
+                <h2 style="font-size: 1.45rem; color: #ffffff; margin-bottom: 0.85rem; line-height: 1.3; font-weight: 800;">Generative Engine Optimization (GEO): The New SEO Frontier</h2>
+                <p style="color: #94a3b8; font-size: 0.92rem; line-height: 1.65; margin-bottom: 1.25rem;">Discover how ChatGPT, Claude, Perplexity, and Google AI Overviews cite content, and the exact steps to configure your website for LLM retrieval and GEO authority.</p>
               </div>
-              <div style="margin-top: 1.25rem; display: flex; justify-content: space-between; align-items: center;">
-                <span style="color: var(--text-secondary); font-size: 0.825rem; font-weight: 600;">By Growth Team</span>
-                <span style="color: #0284c7; font-size: 0.85rem; font-weight: 700;">Read Article →</span>
+              <div style="margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+                <span style="color: #64748b; font-size: 0.85rem; font-weight: 600;">By Growth Team</span>
+                <span style="color: #0284c7; font-size: 0.95rem; font-weight: 700;">Read Full Guide →</span>
               </div>
             </div>
           </a>
 
-          <!-- Post 10 (Aug 2, 2026) -->
-          <a href="/blog/custom-vs-templates" class="minimal-tile blog-card" data-blog-id="custom-vs-templates" data-category="development" style="text-decoration: none; padding: 0; border-radius: var(--radius-lg); background: var(--bg-card); border: 1.5px solid var(--border-medium); display: flex; flex-direction: column; justify-content: space-between; min-height: 420px; cursor: pointer; transition: transform 0.25s, border-color 0.25s; overflow: hidden;">
-            <div style="height: 180px; overflow: hidden; background: #070b13;">
-              <img src="website-mockup-vision.jpg" alt="Why Custom Coded Websites Crush Templates" width="400" height="180" loading="lazy" decoding="async" style="width: 100%; height: 180px; object-fit: cover;">
+          <!-- Card 10: Custom vs Templates (Aug 2, 2026) -->
+          <a href="/blog/custom-vs-templates" class="minimal-tile blog-card" data-blog-id="custom-vs-templates" data-category="development" style="text-decoration: none; padding: 0; border-radius: 16px; background: #0d1220; border: 1px solid #1e293b; display: flex; flex-direction: column; cursor: pointer; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; overflow: hidden;">
+            <div style="height: 220px; overflow: hidden; background: #070b13;">
+              <img src="website-mockup-vision.jpg" alt="Why Custom Coded Websites Crush Templates" width="400" height="220" loading="lazy" decoding="async" style="width: 100%; height: 220px; object-fit: cover;">
             </div>
-            <div style="padding: 1.5rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="padding: 1.75rem 2rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
               <div>
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
                   <span class="service-pill" style="background: rgba(192, 132, 252, 0.12); color: #c084fc;">💻 Web Dev</span>
-                  <span style="font-size: 0.8rem; color: var(--text-secondary);">Aug 2, 2026 • 4 min</span>
+                  <span style="font-size: 0.8rem; color: #64748b;">Aug 2, 2026 • 4 min</span>
                 </div>
-                <h2 style="font-size: 1.2rem; color: var(--text-primary, #0f172a); margin-bottom: 0.75rem; line-height: 1.35; font-weight: 800;">Why Custom-Coded Websites Crush Template Web Builders</h2>
-                <p style="color: var(--text-secondary, #64748b); font-size: 0.875rem; line-height: 1.6;">Analyze why custom semantic HTML and optimized JS animations achieve sub-second speeds, superior Lighthouse performance, and higher conversion rates than generic builders.</p>
+                <h2 style="font-size: 1.45rem; color: #ffffff; margin-bottom: 0.85rem; line-height: 1.3; font-weight: 800;">Why Custom-Coded Websites Crush Template Web Builders</h2>
+                <p style="color: #94a3b8; font-size: 0.92rem; line-height: 1.65; margin-bottom: 1.25rem;">Analyze why custom semantic HTML and optimized JS animations achieve sub-second speeds, superior Lighthouse performance, and higher conversion rates than generic builders.</p>
               </div>
-              <div style="margin-top: 1.25rem; display: flex; justify-content: space-between; align-items: center;">
-                <span style="color: var(--text-secondary); font-size: 0.825rem; font-weight: 600;">By Dev Team</span>
-                <span style="color: #c084fc; font-size: 0.85rem; font-weight: 700;">Read Article →</span>
+              <div style="margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+                <span style="color: #64748b; font-size: 0.85rem; font-weight: 600;">By Dev Team</span>
+                <span style="color: #c084fc; font-size: 0.95rem; font-weight: 700;">Read Full Guide →</span>
               </div>
             </div>
           </a>
         </div>
-
       </div>
     </section>
 
