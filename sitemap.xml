@@ -25,7 +25,7 @@
   </url>
   <url>
     <loc>https://samraddhi.in/blogs</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-09-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.90</priority>
   </url>
@@ -99,6 +99,12 @@
   </url>
 
   <!-- Dedicated Blog Post Sub-Pages -->
+  <url>
+    <loc>https://samraddhi.in/blog/engaging-social-media-content-creation</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
   <url>
     <loc>https://samraddhi.in/blog/what-is-content-creation-social-media</loc>
     <lastmod>2026-08-25</lastmod>
