@@ -169,9 +169,103 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <!-- CSS: Preload for early download, then render synchronously -->
-  <link rel="preload" href="styles.min.css?v=3.5" as="style">
-  <link rel="stylesheet" href="styles.min.css?v=3.5">
+  <!-- Premium Dark Luxury UI Theme for Blogs Hub -->
+  <style>
+    body.site-body {
+      background: #070b13 !important;
+      color: #94a3b8 !important;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    }
+    .site-head {
+      background: rgba(7, 11, 19, 0.9) !important;
+      border-bottom: 1px solid #1e293b !important;
+      backdrop-filter: blur(12px) !important;
+    }
+    .breadcrumb-nav {
+      background: #090d16 !important;
+      border-bottom: 1px solid #1e293b !important;
+    }
+    .live-hero-section {
+      background: #070b13 !important;
+      padding: 3.5rem 0 2rem !important;
+    }
+    .live-hero-title {
+      color: #ffffff !important;
+      font-weight: 800 !important;
+    }
+    .live-hero-desc {
+      color: #94a3b8 !important;
+    }
+    .filter-btn {
+      background: #0d1220 !important;
+      border: 1px solid #1e293b !important;
+      color: #94a3b8 !important;
+    }
+    .filter-btn.active {
+      background: #be185d !important;
+      border-color: #be185d !important;
+      color: #ffffff !important;
+    }
+    .blog-card {
+      background: #0d1220 !important;
+      border: 1px solid #1e293b !important;
+      border-radius: 16px !important;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease !important;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+    }
+    .blog-card:hover {
+      border-color: #be185d !important;
+      transform: translateY(-4px) !important;
+      box-shadow: 0 12px 30px rgba(190, 24, 93, 0.15) !important;
+    }
+    .blog-card h2 {
+      color: #ffffff !important;
+      font-weight: 800 !important;
+    }
+    .blog-card p {
+      color: #94a3b8 !important;
+    }
+    .service-pill {
+      background: rgba(255, 77, 141, 0.12) !important;
+      color: #be185d !important;
+      font-weight: 700 !important;
+      border-radius: 99px !important;
+    }
+    .s-outdated-cta {
+      background: #090d16 !important;
+      border-top: 1px solid #1e293b !important;
+    }
+    .outdated-cta-title {
+      color: #ffffff !important;
+    }
+    .outdated-cta-desc {
+      color: #94a3b8 !important;
+    }
+
+    /* Mobile Responsive Tight Layout */
+    @media (max-width: 768px) {
+      .spectrum-grid-4 {
+        grid-template-columns: 1fr !important;
+        gap: 1.25rem !important;
+      }
+      .blog-card {
+        grid-column: span 1 !important;
+        min-height: auto !important;
+      }
+      .blog-card > div:first-child {
+        height: 180px !important;
+      }
+      .blog-card > div:last-child {
+        padding: 1.25rem 1.25rem 1.5rem !important;
+      }
+      .live-hero-title {
+        font-size: 1.85rem !important;
+      }
+      .live-hero-section {
+        padding: 2.5rem 0 1.5rem !important;
+      }
+    }
+  </style>
 </head>
 <body class="site-body">
 <header class="site-head" role="banner">
