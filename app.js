@@ -1380,20 +1380,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ==========================================================================
-     15. EMAIL COPY TO CLIPBOARD & TOAST NOTIFICATION
+     15. EMAIL COPY TO CLIPBOARD & MOBILE GMAIL REDIRECT HANDLER
      ========================================================================== */
   const copyEmailBtn = document.getElementById('copy-email-btn');
   if (copyEmailBtn) {
     copyEmailBtn.addEventListener('click', () => {
-      const email = 'bynamerahul@gmail.com';
+      const email = 'samraddhiindia@gmail.com';
       navigator.clipboard.writeText(email).then(() => {
         playSound(680, 'sine');
-        showToast('Email (bynamerahul@gmail.com) copied!');
+        showToast('Email (samraddhiindia@gmail.com) copied!');
       }).catch(() => {
         showToast('Failed to copy email.');
       });
     });
   }
+
+  // Intercept Gmail web compose URLs on mobile devices to open native mail/Gmail app seamlessly
+  document.addEventListener('click', (e) => {
+    const mailLink = e.target.closest('a[href*="mail.google.com/mail"]');
+    if (!mailLink) return;
+
+    const isMobile = /Android|iPhone|iPad|iPod|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+    if (isMobile) {
+      e.preventDefault();
+      try {
+        const url = new URL(mailLink.href);
+        const to = url.searchParams.get('to') || 'samraddhiindia@gmail.com';
+        const su = url.searchParams.get('su') || '';
+        const body = url.searchParams.get('body') || '';
+        let mailtoUrl = `mailto:${to}`;
+        const params = [];
+        if (su) params.push(`subject=${encodeURIComponent(su)}`);
+        if (body) params.push(`body=${encodeURIComponent(body)}`);
+        if (params.length) mailtoUrl += `?${params.join('&')}`;
+        window.location.href = mailtoUrl;
+      } catch (err) {
+        window.location.href = `mailto:samraddhiindia@gmail.com`;
+      }
+    }
+  });
 
   function showToast(message) {
     const container = document.getElementById('toast-container');
@@ -1844,10 +1869,10 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 'advisor',
       title: 'Contact Founder Rahul Soni & WhatsApp Chat',
-      keywords: ['rahul', 'rahul soni', 'founder', 'call', 'contact', 'whatsapp', 'phone', 'number', 'speak', 'talk', 'human', 'advisor', 'meet', 'consultation', 'sampark', 'baat karni'],
-      phrases: ['talk to rahul', 'connect to advisor', 'give me phone number', 'whatsapp link', 'speak to founder', 'book call', 'rahul ka number', 'human support'],
+      keywords: ['rahul', 'rahul soni', 'founder', 'call', 'contact', 'whatsapp', 'phone', 'number', 'speak', 'talk', 'human', 'advisor', 'meet', 'consultation', 'sampark', 'baat karni', 'email', 'query'],
+      phrases: ['talk to rahul', 'connect to advisor', 'give me phone number', 'whatsapp link', 'speak to founder', 'book call', 'rahul ka number', 'human support', 'send email', 'send query'],
       hits: 0,
-      response: `Noot Noot! 🐧 You can connect directly with our founder <strong>Rahul Soni</strong> for a free 1-on-1 growth strategy consultation:<br>• Direct WhatsApp / Phone: <strong>+91 9340722578</strong><br>• Email: <strong>bynamerahul@gmail.com</strong><br><br><a href="https://wa.me/919340722578" target="_blank" style="color:#ff70a6; font-weight:700;">Open Direct WhatsApp Chat with Rahul 💬 ➔</a>`
+      response: `Noot Noot! 🐧 You can connect directly with our founder <strong>Rahul Soni</strong> for a free 1-on-1 growth strategy consultation:<br>• Direct WhatsApp / Phone: <strong>+91 9340722578</strong><br>• Email: <strong>samraddhiindia@gmail.com</strong><br><br><a href="https://mail.google.com/mail/?view=cm&fs=1&to=samraddhiindia@gmail.com&su=Free%20Strategy%20Consultation%20Query%20-%20Samraddhi&body=Hi%20Rahul%2C%0A%0AI%20would%20like%20to%20schedule%20a%20strategy%20consultation%20with%20Samraddhi.%0A%0AMy%20Business%2FBrand%3A%20%0APhone%2FWhatsApp%3A%20" target="_blank" style="color:#ff70a6; font-weight:700;">Send Direct Query via Gmail ✉️ ➔</a>`
     },
     {
       id: 'case_studies',
@@ -2556,7 +2581,7 @@ document.addEventListener('DOMContentLoaded', () => {
       btnOptionAdvisor.addEventListener('click', () => {
         resetPinguIdleTimer();
         playSound(880, 'sine', 0.2);
-        showToast('Connecting you with Rahul Soni (Founder) via WhatsApp...');
+        showToast('Opening Gmail to connect with Rahul Soni (Founder)...');
       });
     }
 
