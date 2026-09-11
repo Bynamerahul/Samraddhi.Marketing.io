@@ -1,21 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
     <linearGradient id="bgDark" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#08090c"/>
-      <stop offset="50%" stop-color="#111218"/>
-      <stop offset="100%" stop-color="#050608"/>
+      <stop offset="0%" stop-color="#1D0F30"/>
+      <stop offset="50%" stop-color="#281640"/>
+      <stop offset="100%" stop-color="#120820"/>
     </linearGradient>
     
     <linearGradient id="pinkGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#ff4d8d"/>
-      <stop offset="50%" stop-color="#ff70a6"/>
-      <stop offset="100%" stop-color="#c084fc"/>
+      <stop offset="0%" stop-color="#4A306D"/>
+      <stop offset="50%" stop-color="#A167A5"/>
+      <stop offset="100%" stop-color="#E8D7F1"/>
     </linearGradient>
 
     <linearGradient id="glassBorder" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ff4d8d" stop-opacity="0.6"/>
-      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.15"/>
-      <stop offset="100%" stop-color="#c084fc" stop-opacity="0.5"/>
+      <stop offset="0%" stop-color="#A167A5" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#D3BCCC" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#4A306D" stop-opacity="0.5"/>
     </linearGradient>
 
     <filter id="neonBlur" x="-30%" y="-30%" width="160%" height="160%">
@@ -33,9 +33,9 @@
   <rect width="1200" height="630" fill="url(#bgDark)"/>
 
   <!-- Glowing Ambient Lights -->
-  <circle cx="1050" cy="120" r="320" fill="#ff4d8d" opacity="0.22" filter="url(#neonBlur)"/>
-  <circle cx="150" cy="520" r="360" fill="#c084fc" opacity="0.18" filter="url(#neonBlur)"/>
-  <circle cx="600" cy="315" r="220" fill="#ff70a6" opacity="0.08" filter="url(#neonBlur)"/>
+  <circle cx="1050" cy="120" r="320" fill="#4A306D" opacity="0.35" filter="url(#neonBlur)"/>
+  <circle cx="150" cy="520" r="360" fill="#A167A5" opacity="0.22" filter="url(#neonBlur)"/>
+  <circle cx="600" cy="315" r="220" fill="#E8D7F1" opacity="0.10" filter="url(#neonBlur)"/>
 
   <!-- Luxury Outer Border Frame -->
   <rect x="28" y="28" width="1144" height="574" rx="28" fill="none" stroke="url(#glassBorder)" stroke-width="2.5"/>
@@ -43,17 +43,17 @@
   <!-- Brand Header Bar -->
   <g transform="translate(80, 85)">
     <!-- Logo Box -->
-    <rect width="46" height="46" rx="12" fill="#0e0f12" stroke="url(#pinkGradient)" stroke-width="2"/>
-    <text x="23" y="32" font-family="'Plus Jakarta Sans', sans-serif" font-size="24" font-weight="900" fill="#ff4d8d" text-anchor="middle">S</text>
+    <rect width="46" height="46" rx="12" fill="#1D0F30" stroke="url(#pinkGradient)" stroke-width="2"/>
+    <text x="23" y="32" font-family="'Plus Jakarta Sans', sans-serif" font-size="24" font-weight="900" fill="#A167A5" text-anchor="middle">S</text>
     
     <!-- Brand Title -->
     <text x="64" y="34" font-family="'Plus Jakarta Sans', sans-serif" font-size="28" font-weight="800" fill="#ffffff" letter-spacing="-0.5">
-      Samraddhi<tspan fill="#ff4d8d">.Marketing</tspan>
+      Samraddhi<tspan fill="#A167A5">.Marketing</tspan>
     </text>
 
     <!-- Sub-brand Tag -->
-    <rect x="420" y="8" width="220" height="32" rx="16" fill="rgba(255, 77, 141, 0.12)" stroke="rgba(255, 77, 141, 0.3)" stroke-width="1"/>
-    <text x="530" y="29" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#ff70a6" text-anchor="middle" letter-spacing="1">360° GROWTH ENGINE</text>
+    <rect x="420" y="8" width="220" height="32" rx="16" fill="rgba(161, 103, 165, 0.18)" stroke="rgba(161, 103, 165, 0.4)" stroke-width="1"/>
+    <text x="530" y="29" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#E8D7F1" text-anchor="middle" letter-spacing="1">360° GROWTH ENGINE</text>
   </g>
 
   <!-- Main Headline Block -->
@@ -78,8 +78,8 @@
 
     <!-- Row 2 Pills -->
     <g transform="translate(0, 68)">
-      <rect width="840" height="52" rx="26" fill="rgba(255, 77, 141, 0.1)" stroke="rgba(255, 77, 141, 0.35)" stroke-width="1.5"/>
-      <text x="420" y="33" font-family="'Plus Jakarta Sans', sans-serif" font-size="21" font-weight="700" fill="#ff70a6" text-anchor="middle" letter-spacing="0.5">
+      <rect width="840" height="52" rx="26" fill="rgba(161, 103, 165, 0.15)" stroke="rgba(161, 103, 165, 0.4)" stroke-width="1.5"/>
+      <text x="420" y="33" font-family="'Plus Jakarta Sans', sans-serif" font-size="21" font-weight="700" fill="#E8D7F1" text-anchor="middle" letter-spacing="0.5">
         AI  •  Performance Marketing  •  Content Creation
       </text>
     </g>
@@ -87,6 +87,6 @@
 
   <!-- Bottom Founder Badge -->
   <g transform="translate(940, 530)">
-    <text x="180" y="0" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="600" fill="#8c909e" text-anchor="end">Founded by Rahul Soni</text>
+    <text x="180" y="0" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="600" fill="#D3BCCC" text-anchor="end">Founded by Rahul Soni</text>
   </g>
 </svg>

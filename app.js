@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Particle Emitter
   function spawnCursorParticles(x, y, dx, dy, count = 2) {
     if (isTouchDevice || prefersReducedMotion || document.body.classList.contains('animations-off')) return;
-    const colors = ['#ff4d8d', '#ff70a6', '#ffb3cf', '#ffffff'];
+    const colors = ['#4A306D', '#A167A5', '#D3BCCC', '#ffffff'];
 
     for (let i = 0; i < count; i++) {
       const angle = Math.random() * Math.PI * 2;
@@ -969,7 +969,7 @@ document.addEventListener('DOMContentLoaded', () => {
       body: `
         <div style="font-size: 1rem; color: var(--text-secondary); line-height: 1.7; display: flex; flex-direction: column; gap: 1rem;">
           <p>Scaling a D2C e-commerce brand in 2026 demands a highly structured approach towards customer acquisition, conversion optimization, and retention campaigns.</p>
-          <div style="background: var(--bg-primary); padding: 1.25rem; border-radius: 0.5rem; border-left: 4px solid #ff4d8d;">
+          <div style="background: var(--bg-primary); padding: 1.25rem; border-radius: 0.5rem; border-left: 4px solid #4A306D;">
             <strong style="color: var(--text-primary); font-size: 1.1rem;">🔥 4 Key Scaling Pillars:</strong>
             <ol style="margin-left: 1.25rem; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
               <li><strong>High-ROAS Meta Ads:</strong> Leverage broad interest targets, visual product reels, and dynamic catalog ads.</li>
@@ -1027,7 +1027,7 @@ document.addEventListener('DOMContentLoaded', () => {
           
           <p>A commonly asked question in marketing is the difference between <strong>Above the Line (ATL)</strong>, <strong>Below the Line (BTL)</strong>, and <strong>Through the Line (TTL)</strong> campaigns. Originated back in 1954 when Procter & Gamble separated payments for direct promotions from mass branding media, "the Line" divides general outreach from hyper-targeted, conversion-focused marketing actions.</p>
           
-          <div style="background: var(--bg-primary); padding: 1.25rem; border-radius: 0.5rem; border-left: 4px solid #ff4d8d;">
+          <div style="background: var(--bg-primary); padding: 1.25rem; border-radius: 0.5rem; border-left: 4px solid #4A306D;">
             <strong style="color: var(--text-primary); font-size: 1.1rem;">📢 1. Above The Line (ATL) — Broad Awareness</strong>
             <p style="margin-top:0.25rem; font-size:0.925rem;">ATL consists of untargeted, massive campaigns to build brand recognition. Its focus is reach rather than immediate sales metrics.</p>
             <ul style="margin-left: 1.25rem; margin-top: 0.5rem; font-size:0.9rem; display: flex; flex-direction: column; gap: 0.25rem;">
@@ -1078,7 +1078,7 @@ document.addEventListener('DOMContentLoaded', () => {
       projectModalBody.innerHTML = `
         <span class="modal-tag">${data.client} • ${data.year}</span>
         <h2 class="modal-title" style="margin-bottom: 0.5rem;">${data.title}</h2>
-        <div style="font-family: var(--font-mono); font-size: 0.875rem; color: #ff4d8d; font-weight: 700; margin-bottom: 1.5rem;">${data.metric}</div>
+        <div style="font-family: var(--font-mono); font-size: 0.875rem; color: #4A306D; font-weight: 700; margin-bottom: 1.5rem;">${data.metric}</div>
         
         <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
           <div style="background: var(--bg-primary); padding: 1rem; border-radius: 0.5rem; border-left: 3px solid #ef4444;">
@@ -1856,7 +1856,7 @@ document.addEventListener('DOMContentLoaded', () => {
       keywords: ['audit', 'free audit', '4999', 'scan', 'check website', 'analyze', 'review', 'seo score', 'diagnose', 'performance scan', 'social media scan', 'account scan', 'check my instagram', 'website check'],
       phrases: ['i want free audit', 'can you check my website', 'audit worth 4999', 'website review', 'scan my instagram', 'scan social media', 'check my brand', 'free scan'],
       hits: 0,
-      response: `Noot Noot! 🐧 You can claim our <strong>Free Website & Marketing Audit (Worth ₹4,999)</strong>! We analyze your SEO health, ad funnel leakages, website speed, and social engagement with actionable fixes in 48 hours.<br><br><a href="#ai-audit" onclick="document.getElementById('pingu-chat-window').style.display='none';" style="color:#ff70a6; font-weight:700;">Click Here to Run Instant AI Audit ⚡ →</a>`
+      response: `Noot Noot! 🐧 You can claim our <strong>Free Website & Marketing Audit (Worth ₹4,999)</strong>! We analyze your SEO health, ad funnel leakages, website speed, and social engagement with actionable fixes in 48 hours.<br><br><a href="#ai-audit" onclick="document.getElementById('pingu-chat-window').style.display='none';" style="color:#A167A5; font-weight:700;">Click Here to Run Instant AI Audit ⚡ →</a>`
     },
     {
       id: 'pricing',
@@ -1864,7 +1864,7 @@ document.addEventListener('DOMContentLoaded', () => {
       keywords: ['price', 'pricing', 'cost', 'rate', 'plan', 'retainer', 'budget', 'how much', 'fee', 'charge', 'package', 'monthly', 'starter', 'growth', 'scale', 'enterprise', 'kitna', 'charges'],
       phrases: ['what is your pricing', 'monthly cost', 'how much for marketing', 'retainer plans', 'starter package', 'scale plan', 'kitna charge karte ho', 'packages list', 'pricing plans'],
       hits: 0,
-      response: `Noot Noot! 🐧 We offer 4 high-ROI monthly growth retainers with zero lock-in:<br>• <strong>Starter (₹9,999/mo):</strong> 12 Social Creatives, Basic SEO & Profile Optimization.<br>• <strong>Growth (₹24,999/mo):</strong> Meta/Google Ads Management, 20 Posts + 4 Reels, #1 Map SEO.<br>• <strong>Scale (₹49,999/mo):</strong> Dedicated Growth Team, Weekly Video Shoots, Custom Website & AI Bot.<br>• <strong>Enterprise:</strong> Custom 360° Partner Retainers.<br><br><a href="#retainers" onclick="document.getElementById('pingu-chat-window').style.display='none';" style="color:#ff70a6; font-weight:700;">View All Retainer Deliverables ➔</a>`
+      response: `Noot Noot! 🐧 We offer 4 high-ROI monthly growth retainers with zero lock-in:<br>• <strong>Starter (₹9,999/mo):</strong> 12 Social Creatives, Basic SEO & Profile Optimization.<br>• <strong>Growth (₹24,999/mo):</strong> Meta/Google Ads Management, 20 Posts + 4 Reels, #1 Map SEO.<br>• <strong>Scale (₹49,999/mo):</strong> Dedicated Growth Team, Weekly Video Shoots, Custom Website & AI Bot.<br>• <strong>Enterprise:</strong> Custom 360° Partner Retainers.<br><br><a href="#retainers" onclick="document.getElementById('pingu-chat-window').style.display='none';" style="color:#A167A5; font-weight:700;">View All Retainer Deliverables ➔</a>`
     },
     {
       id: 'advisor',
@@ -1872,7 +1872,7 @@ document.addEventListener('DOMContentLoaded', () => {
       keywords: ['rahul', 'rahul soni', 'founder', 'call', 'contact', 'whatsapp', 'phone', 'number', 'speak', 'talk', 'human', 'advisor', 'meet', 'consultation', 'sampark', 'baat karni', 'email', 'query'],
       phrases: ['talk to rahul', 'connect to advisor', 'give me phone number', 'whatsapp link', 'speak to founder', 'book call', 'rahul ka number', 'human support', 'send email', 'send query'],
       hits: 0,
-      response: `Noot Noot! 🐧 You can connect directly with our founder <strong>Rahul Soni</strong> for a free 1-on-1 growth strategy consultation:<br>• Direct WhatsApp / Phone: <strong>+91 9340722578</strong><br>• Email: <strong>samraddhiindia@gmail.com</strong><br><br><a href="https://mail.google.com/mail/?view=cm&fs=1&to=samraddhiindia@gmail.com&su=Free%20Strategy%20Consultation%20Query%20-%20Samraddhi&body=Hi%20Rahul%2C%0A%0AI%20would%20like%20to%20schedule%20a%20strategy%20consultation%20with%20Samraddhi.%0A%0AMy%20Business%2FBrand%3A%20%0APhone%2FWhatsApp%3A%20" target="_blank" style="color:#ff70a6; font-weight:700;">Send Direct Query via Gmail ✉️ ➔</a>`
+      response: `Noot Noot! 🐧 You can connect directly with our founder <strong>Rahul Soni</strong> for a free 1-on-1 growth strategy consultation:<br>• Direct WhatsApp / Phone: <strong>+91 9340722578</strong><br>• Email: <strong>samraddhiindia@gmail.com</strong><br><br><a href="https://mail.google.com/mail/?view=cm&fs=1&to=samraddhiindia@gmail.com&su=Free%20Strategy%20Consultation%20Query%20-%20Samraddhi&body=Hi%20Rahul%2C%0A%0AI%20would%20like%20to%20schedule%20a%20strategy%20consultation%20with%20Samraddhi.%0A%0AMy%20Business%2FBrand%3A%20%0APhone%2FWhatsApp%3A%20" target="_blank" style="color:#A167A5; font-weight:700;">Send Direct Query via Gmail ✉️ ➔</a>`
     },
     {
       id: 'case_studies',
@@ -1880,7 +1880,7 @@ document.addEventListener('DOMContentLoaded', () => {
       keywords: ['portfolio', 'clients', 'case study', 'cases', 'proof', 'results', 'past work', 'sanskriti', 'vintage', 'antique', 'rarebond', 'udbhav', 'kreatvkraft', 'jywas', 'aura', 'english plus'],
       phrases: ['show me case studies', 'who are your clients', 'past results', 'client portfolio', 'examples of your work', 'proof of results', 'sanskriti vintage case study'],
       hits: 0,
-      response: `Noot Noot! 🐧 Here are some of our proven client transformations:<br>• <strong>Sanskriti Vintage:</strong> 4.2x Organic Revenue & Global B2B Export Storefront.<br>• <strong>Antique Art of India:</strong> 5.8x ROAS on Etsy & Global Marketplace Ranking.<br>• <strong>Rarebond Studios:</strong> ₹2.4M GMV in 90 Days with Shopify CRO + Meta Ads.<br>• <strong>Udbhav India:</strong> 3.2M Organic Reel Views & Brand Authority.<br>• <strong>Jywas Beauty:</strong> 7.4x ROAS on D2C Skincare Ads.<br><br><a href="#portfolio" onclick="document.getElementById('pingu-chat-window').style.display='none';" style="color:#ff70a6; font-weight:700;">Explore All 12 Interactive Case Studies ➔</a>`
+      response: `Noot Noot! 🐧 Here are some of our proven client transformations:<br>• <strong>Sanskriti Vintage:</strong> 4.2x Organic Revenue & Global B2B Export Storefront.<br>• <strong>Antique Art of India:</strong> 5.8x ROAS on Etsy & Global Marketplace Ranking.<br>• <strong>Rarebond Studios:</strong> ₹2.4M GMV in 90 Days with Shopify CRO + Meta Ads.<br>• <strong>Udbhav India:</strong> 3.2M Organic Reel Views & Brand Authority.<br>• <strong>Jywas Beauty:</strong> 7.4x ROAS on D2C Skincare Ads.<br><br><a href="#portfolio" onclick="document.getElementById('pingu-chat-window').style.display='none';" style="color:#A167A5; font-weight:700;">Explore All 12 Interactive Case Studies ➔</a>`
     },
     {
       id: 'meta_ads',
@@ -1936,7 +1936,7 @@ document.addEventListener('DOMContentLoaded', () => {
       keywords: ['website designer near me', 'website designer in gwalior', 'gwalior website design', 'low cost website designer', 'website design company', 'how to create a website', 'website builder'],
       phrases: ['website designer near me', 'website design in gwalior', 'low cost website designer', 'best website design company', 'how to create a website', 'website builder vs designer'],
       hits: 0,
-      response: `Noot Noot! 🐧 Looking for a <strong>Website Designer Near Me in Gwalior</strong> or a <strong>Low Cost Website Designer</strong>? Rahul Soni and Samraddhi Marketing build custom, sub-second speed websites starting at just $75 (₹5,999) with 100% code ownership—infinitely faster and better for SEO than slow DIY website builders! Call directly at <a href="tel:+919340722578" style="color:#ff4d8d; font-weight:700;">+91 93407 22578</a>.`
+      response: `Noot Noot! 🐧 Looking for a <strong>Website Designer Near Me in Gwalior</strong> or a <strong>Low Cost Website Designer</strong>? Rahul Soni and Samraddhi Marketing build custom, sub-second speed websites starting at just $75 (₹5,999) with 100% code ownership—infinitely faster and better for SEO than slow DIY website builders! Call directly at <a href="tel:+919340722578" style="color:#4A306D; font-weight:700;">+91 93407 22578</a>.`
     },
     {
       id: 'content_creation_marketing_hub',
@@ -2247,7 +2247,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return {
         intent: null,
         score: highestScore,
-        response: `Noot Noot! 🐧 I've noted that in my memory! At <strong>Samraddhi Marketing</strong>, we engineer tailored growth systems (Video Reels, Meta & Google Ads, #1 Local SEO, Custom Websites & D2C Marketplaces).<br><br>Would you like to get our <strong>Free ₹4,999 Growth Audit</strong> or chat directly with our founder Rahul Soni on WhatsApp (+91 9340722578)?<br><br><em style="font-size:0.75rem; color:#ff70a6;">💡 Tip: You can teach me new custom answers anytime by typing: <code>/teach topic | answer</code></em>`,
+        response: `Noot Noot! 🐧 I've noted that in my memory! At <strong>Samraddhi Marketing</strong>, we engineer tailored growth systems (Video Reels, Meta & Google Ads, #1 Local SEO, Custom Websites & D2C Marketplaces).<br><br>Would you like to get our <strong>Free ₹4,999 Growth Audit</strong> or chat directly with our founder Rahul Soni on WhatsApp (+91 9340722578)?<br><br><em style="font-size:0.75rem; color:#A167A5;">💡 Tip: You can teach me new custom answers anytime by typing: <code>/teach topic | answer</code></em>`,
         isLearned: false
       };
     }
@@ -2366,7 +2366,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // If user is currently in live chat view, post the witty farewell message
       if (pinguLiveChatView && pinguLiveChatView.style.display === 'flex') {
-        addPinguMessage(`${wittyQuote}<br><br><span style="font-size:0.75rem; color:#ff70a6; opacity:0.9;">⏳ <em>(Auto-closing chat after 1 min of inactivity. Tap my icon anytime to reopen!)</em></span>`, false);
+        addPinguMessage(`${wittyQuote}<br><br><span style="font-size:0.75rem; color:#A167A5; opacity:0.9;">⏳ <em>(Auto-closing chat after 1 min of inactivity. Tap my icon anytime to reopen!)</em></span>`, false);
         playSound(480, 'sine', 0.18);
       }
 
