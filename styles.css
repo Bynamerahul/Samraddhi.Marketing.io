@@ -1839,6 +1839,8 @@ h1, h2, h3, h4, h5, h6 {
 .s-quote-section {
   padding: 5rem 0;
   width: 100%;
+  background-color: var(--bg-primary);
+  position: relative;
 }
 
 .testimonials-grid {
@@ -1852,55 +1854,109 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .quote-card {
-  background-color: var(--bg-dark);
+  background: linear-gradient(180deg, #ffffff 0%, var(--bg-secondary) 100%);
   color: var(--text-primary);
-  border: 1px solid var(--border-light);
+  border: 1.5px solid var(--border-medium);
+  border-top: 4px solid var(--pomp-royal);
   border-radius: var(--radius-lg);
-  padding: 3.5rem 3rem;
+  padding: 3rem 2.5rem;
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 2.5rem;
-  box-shadow: var(--shadow-lg);
+  gap: 2.25rem;
+  box-shadow: 0 10px 30px rgba(74, 48, 109, 0.06);
   opacity: 1 !important;
   visibility: visible !important;
   width: 100%;
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.quote-card::before {
+  content: "“";
+  position: absolute;
+  top: 0.5rem;
+  right: 1.5rem;
+  font-family: Georgia, serif;
+  font-size: 5.5rem;
+  line-height: 1;
+  color: var(--pomp-royal);
+  opacity: 0.08;
+  pointer-events: none;
+  font-weight: 900;
+}
+
+.quote-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--pomp-royal);
+  box-shadow: 0 16px 36px rgba(74, 48, 109, 0.12);
+}
+
+.quote-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .quote-text {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 500;
-  line-height: 1.5;
-  letter-spacing: -0.02em;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  margin: 0;
 }
 
 .quote-author-block {
   display: flex;
   flex-direction: column;
+  gap: 0.25rem;
 }
 
 .author-name {
-  font-weight: 700;
+  font-weight: 800;
   font-size: 1.125rem;
+  color: var(--pomp-royal);
 }
 
 .author-title {
-  font-size: 0.875rem;
-  opacity: 0.7;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-weight: 600;
 }
 
 .quote-badge {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
   padding-top: 1.25rem;
-  border-top: 1px solid rgba(255,255,255,0.15);
+  border-top: 1px solid var(--border-light);
+  position: relative;
+  z-index: 1;
 }
 
-.stars { color: #fbbf24; font-size: 1.125rem; }
-.rating-text { font-family: var(--font-mono); font-size: 0.875rem; opacity: 0.9; }
+.stars {
+  color: #f59e0b;
+  font-size: 1.15rem;
+  letter-spacing: 0.1em;
+}
+
+.rating-text {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  background: var(--pomp-mist);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--pomp-lilac);
+}
 
 .blog-grid {
   display: grid;
