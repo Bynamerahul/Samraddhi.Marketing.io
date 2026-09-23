@@ -148,41 +148,107 @@
       <!-- Preconnect & Zero-Blocking Asynchronous Google Fonts -->
   <noscript>
     </noscript>
-  <link rel="preload" href="styles.min.css?v=4.0" as="style">
-  <link rel="stylesheet" href="styles.min.css?v=4.0">
+  <link rel="preload" href="styles.min.css?v=4.1" as="style">
+  <link rel="stylesheet" href="styles.min.css?v=4.1">
 
   <!-- Fonts: Async non-blocking (display=optional = zero CLS, zero render block) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <!-- CSS: Preload for early download, then render synchronously -->
-  <link rel="preload" href="styles.min.css?v=4.0" as="style">
-  <link rel="stylesheet" href="styles.min.css?v=4.0">
+  <link rel="preload" href="styles.min.css?v=4.1" as="style">
+  <link rel="stylesheet" href="styles.min.css?v=4.1">
 </head>
 <body class="site-body">
-<header class="site-head" role="banner">
+  <header class="site-head" role="banner">
     <div class="head-container magnetic-target">
+      <!-- Official Brand Logo -->
       <a href="/#hero" class="brand-logo magnetic-target" aria-label="Samraddhi.in Home">
         <img src="samraddhi-india-logo.png?v=3.0" alt="Samraddhi Marketing Agency Logo" class="brand-logo-img" loading="lazy" decoding="async" width="28" height="28">
         <span class="brand-name">Samraddhi<span class="brand-dot">.in</span></span>
       </a>
+      <!-- Desktop Navigation Menu Links -->
       <nav class="nav-menu" role="navigation" aria-label="Main Navigation">
         <a href="/#about" class="nav-link magnetic-target">About</a>
         <a href="/#founder" class="nav-link magnetic-target">Founder</a>
-        <a href="/#services" class="nav-link active magnetic-target">Services</a>
-        <a href="live-projects" class="nav-link magnetic-target">Live Projects</a>
-        <a href="blogs" class="nav-link magnetic-target">Blog</a>
+        <a href="/#services" class="nav-link magnetic-target">Services</a>
+        <a href="/#retainers" class="nav-link magnetic-target">Pricing</a>
+        <a href="/live-projects" class="nav-link live-nav-link magnetic-target">Live Projects <span class="nav-live-dot"></span></a>
         <a href="/#faq" class="nav-link magnetic-target">FAQ</a>
-        <a href="blogs" class="nav-link magnetic-target">Blog</a>
+        <a href="/blogs" class="nav-link magnetic-target">Blog</a>
       </nav>
+      <!-- Status & Utility Controls -->
       <div class="head-actions">
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=samraddhiindia@gmail.com&su=Website%20Development%20Inquiry%20-%20Samraddhi%20Marketing" target="_blank" rel="noopener" class="btn btn-primary desktop-head-cta magnetic-target" aria-label="Send Query via Gmail">
-          <span>Send Query (Gmail)</span>
+        <div class="currency-switch-container">
+          <button class="currency-toggle-btn magnetic-target" type="button" aria-label="Currency Switcher USD and INR">
+            <span class="curr-opt active" data-curr="USD">$ USD</span>
+            <span class="curr-divider">/</span>
+            <span class="curr-opt" data-curr="INR">₹ INR</span>
+          </button>
+        </div>
+        <div class="availability-badge">
+          <span class="status-dot pulsing"></span>
+          <span class="status-text">Q3 Open</span>
+        </div>
+        <a href="https://wa.me/919340722578?text=Hi%20Rahul%2C%20I%20would%20like%20to%20book%20a%20Free%20Strategy%20Call%20for%20my%20business." target="_blank" rel="noopener noreferrer" class="btn btn-primary open-contact-btn desktop-head-cta magnetic-target" aria-label="Free Strategy Call" style="text-decoration: none;">
+          <span>Free Strategy Call</span>
           <span class="btn-arrow">→</span>
         </a>
+        <!-- Mobile Hamburger Toggle Button -->
+        <button id="mobile-menu-toggle" class="mobile-menu-btn icon-btn magnetic-target" aria-label="Toggle Navigation Menu">
+          <span class="burger-bar"></span>
+          <span class="burger-bar"></span>
+          <span class="burger-bar"></span>
+        </button>
       </div>
     </div>
   </header>
+  <!-- MOBILE SLIDE-OUT DRAWER MENU -->
+  <div id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
+    <div class="mobile-drawer-overlay" id="mobile-drawer-overlay"></div>
+    <div class="mobile-drawer-content">
+      <div class="mobile-drawer-header">
+        <a href="/#hero" class="brand-logo">
+          <img src="samraddhi-india-logo.png?v=3.0" alt="Samraddhi Marketing Logo" class="brand-logo-img" loading="lazy" decoding="async" width="28" height="28">
+          <span class="brand-name">Samraddhi<span class="brand-dot">.in</span></span>
+        </a>
+        <button id="close-mobile-drawer" class="icon-btn" aria-label="Close Menu">✕</button>
+      </div>
+      <div style="padding: 0.75rem 1.5rem 0.25rem 1.5rem; display: flex; align-items: center; justify-content: space-between;">
+        <div class="currency-switch-container" style="margin: 0;">
+          <button class="currency-toggle-btn magnetic-target" type="button" aria-label="Currency Switcher USD and INR">
+            <span class="curr-opt active" data-curr="USD">$ USD</span>
+            <span class="curr-divider">/</span>
+            <span class="curr-opt" data-curr="INR">₹ INR</span>
+          </button>
+        </div>
+        <div class="mobile-status-pill" style="margin: 0;">
+          <span class="status-dot pulsing"></span>
+          <span>Accepting Clients</span>
+        </div>
+      </div>
+      <nav class="mobile-nav-links">
+        <a href="/#about" class="mobile-nav-link"><span>01.</span> About Us</a>
+        <a href="/#founder" class="mobile-nav-link"><span>02.</span> Meet Rahul Soni</a>
+        <a href="/#services" class="mobile-nav-link"><span>03.</span> Services &amp; Pillars</a>
+        <a href="/#retainers" class="mobile-nav-link"><span>04.</span> Pricing</a>
+        <a href="/live-projects" class="mobile-nav-link live-mobile-link"><span>05.</span> Live Projects</a>
+        <a href="/#faq" class="mobile-nav-link"><span>06.</span> FAQ</a>
+        <a href="/blogs" class="mobile-nav-link"><span>07.</span> Blog</a>
+        <a href="/#newsletter" class="mobile-nav-link"><span>08.</span> Newsletter</a>
+      </nav>
+      <div class="mobile-drawer-footer">
+        <a href="https://wa.me/919340722578?text=Hi%20Rahul%2C%20I%20would%20like%20to%20book%20a%20Free%20Strategy%20Call%20for%20my%20business." target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block open-contact-btn mobile-drawer-cta" style="text-decoration: none; text-align: center;">
+          <span>Book Free Strategy Call →</span>
+        </a>
+        <div class="mobile-social-row">
+          <a href="https://bynamerahul.github.io/Brand-Book-Rahul-Soni/" target="_blank" rel="noopener">Brand Book</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </div>
   <main id="main-content">
     <!-- Visual Breadcrumbs -->
     <div class="breadcrumb-nav">
