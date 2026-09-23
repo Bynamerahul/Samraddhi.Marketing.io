@@ -2603,7 +2603,81 @@ html, body {
     font-size: 0.775rem;
   }
 
-  .services-grid { grid-template-columns: 1fr; gap: 1rem; }
+  /* Mobile 4-Container Services Grid (2x2 Grid) */
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
+  }
+
+  .services-grid .service-card {
+    padding: 1.15rem 0.85rem !important;
+    border-radius: var(--radius-md) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+  }
+
+  .services-grid .service-badge {
+    position: static !important;
+    font-size: 0.58rem !important;
+    padding: 0.15rem 0.45rem !important;
+    margin-bottom: 0.4rem !important;
+    display: inline-block !important;
+    width: fit-content !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  .services-grid .service-icon {
+    font-size: 1.6rem !important;
+    margin-bottom: 0.35rem !important;
+  }
+
+  .services-grid .service-title {
+    font-size: 0.95rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 0.35rem !important;
+    font-weight: 800 !important;
+  }
+
+  .services-grid .service-desc {
+    font-size: 0.72rem !important;
+    line-height: 1.35 !important;
+    margin-bottom: 0.5rem !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+
+  .services-grid .service-list {
+    display: none !important;
+  }
+
+  .services-grid .service-card > div[style*="margin-top: auto"] {
+    margin-top: auto !important;
+    padding-top: 0.5rem !important;
+    gap: 0.35rem !important;
+  }
+
+  .services-grid .service-card .btn-primary {
+    padding: 0.5rem 0.35rem !important;
+    font-size: 0.72rem !important;
+    border-radius: var(--radius-sm) !important;
+    letter-spacing: -0.01em !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .services-grid .service-card .btn-secondary {
+    padding: 0.38rem 0.35rem !important;
+    font-size: 0.65rem !important;
+    border-radius: var(--radius-sm) !important;
+    letter-spacing: -0.01em !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
   .pricing-grid { grid-template-columns: 1fr; gap: 1.25rem; }
   .blog-grid { grid-template-columns: 1fr; gap: 1rem; }
   .about-highlights { grid-template-columns: 1fr; gap: 0.75rem; }
