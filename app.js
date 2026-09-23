@@ -34,13 +34,13 @@ document.addEventListener('DOMContentLoaded', () => {
       document.documentElement.classList.add('animations-off');
       if (perfToggleBtn) perfToggleBtn.classList.add('active-eco');
       localStorage.setItem('samraddhi_eco_mode', 'true');
-      if (!silent) showToast('⚡ Low-Power Mode ON (Animations OFF & OS Normal Cursor)');
+ if (!silent) showToast('Low-Power Mode ON (Animations OFF & OS Normal Cursor)');
     } else {
       document.body.classList.remove('animations-off');
       document.documentElement.classList.remove('animations-off');
       if (perfToggleBtn) perfToggleBtn.classList.remove('active-eco');
       localStorage.setItem('samraddhi_eco_mode', 'false');
-      if (!silent) showToast('✨ High-Graphics Mode ON');
+ if (!silent) showToast('High-Graphics Mode ON');
     }
   }
 
@@ -586,7 +586,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Authentic Cartoon "NOOT NOOT! 🎺" Trumpet Voice Synthesizer
+ // Authentic Cartoon"NOOT NOOT! "Trumpet Voice Synthesizer
   function playPinguNootNootSound() {
     if (!soundEnabled) return;
     try {
@@ -653,7 +653,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (soundToggleBtn) {
     soundToggleBtn.addEventListener('click', () => {
       soundEnabled = !soundEnabled;
-      soundToggleBtn.innerHTML = soundEnabled ? '🔊' : '🔇';
+ soundToggleBtn.innerHTML = soundEnabled? '': '';
       showToast(soundEnabled ? 'UI Sounds Enabled' : 'UI Sounds Muted');
       if (soundEnabled) playSound(600, 'triangle', 0.1);
     });
@@ -823,7 +823,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (filter === 'all' || categories.includes(filter.toLowerCase())) {
           card.classList.remove('is-hidden');
           card.classList.add('is-visible');
-          card.style.setProperty('display', 'flex', 'important');
+          card.style.setProperty('display', 'block', 'important');
           card.style.opacity = '1';
         } else {
           card.classList.remove('is-visible');
@@ -838,12 +838,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // 3D Flip Card click/tap interaction
+  projectCards.forEach(card => {
+    card.addEventListener('click', (e) => {
+      // Don't toggle flip if clicking the view breakdown modal button or a link
+      if (e.target.closest('.view-project-btn') || e.target.closest('a')) {
+        return;
+      }
+      card.classList.toggle('is-flipped');
+    });
+  });
+
   const caseStudiesData = {
     'case-udbhav': {
       title: "Udbhav India - Reels Shoot, Instagram Handling & YouTube Scaling",
       client: "Cultural, Heritage & Youth Foundation",
       year: "2026",
-      metric: "🎥 2.4M+ Video Views | Reels Shoot, Instagram & YouTube Handling",
+ metric: "2.4M+ Video Views | Reels Shoot, Instagram & YouTube Handling",
       problem: "Creating high-impact video reel content, managing social media channels, and driving youth engagement for Udbhav India.",
       strategy: "End-to-End Content & Video Production: On-location video shoots, short-form reel editing, YouTube video management, graphic ad design, and channel growth.",
       solution: "Filmed and edited high-engagement reels, designed marketing ad graphics, managed Instagram & YouTube accounts, and executed targeted campaign posts.",
@@ -853,7 +864,7 @@ document.addEventListener('DOMContentLoaded', () => {
       title: "Sanskriti Vintage - B2B Global Export Brand Handling",
       client: "B2B Vintage Sarees & Heritage Textiles",
       year: "2026",
-      metric: "🌍 B2B Global Wholesale Exporter & Digital Storefront",
+ metric: "B2B Global Wholesale Exporter & Digital Storefront",
       problem: "Expanding an authentic B2B heritage saree & upcycled textile export business globally while generating high-value international buyer leads.",
       strategy: "B2B Brand Management: End-to-end wholesale digital platform, international B2B buyer targeting, Meta & Google Ads performance marketing, and CRM routing.",
       solution: "Developed B2B catalogue showcase at www.sanskritivintage.com, Meta Pixel CAPI, and wholesale buyer lead generation funnels.",
@@ -863,7 +874,7 @@ document.addEventListener('DOMContentLoaded', () => {
       title: "Antique Art of India - Ebay Storefront & AI Product Images",
       client: "Vintage Indian Antiques & Handicrafts",
       year: "2026",
-      metric: "📸 Product AI Images & 340% Ebay Impression Growth",
+ metric: "Product AI Images & 340% Ebay Impression Growth",
       problem: "Standing out on global Ebay search results for authentic Indian antiques and vintage handicrafts against international sellers.",
       strategy: "AI Product Image Photoshoots, Ebay Listing Title & Tag SEO, and catalogue description optimization.",
       solution: "Generated high-resolution AI studio photoshoots and keyword-optimized Ebay listing titles and bullet points.",
@@ -873,7 +884,7 @@ document.addEventListener('DOMContentLoaded', () => {
       title: "KreatvKraft - International Etsy Marketplace Scaling",
       client: "Vintage Indian Textiles & Crafts",
       year: "2026",
-      metric: "📦 8,500+ Global Orders | Product AI Images & Listing SEO",
+ metric: "8,500+ Global Orders | Product AI Images & Listing SEO",
       problem: "Optimizing product listings and ranking in top Etsy search results against international craft competitors.",
       strategy: "Overhauled product titles, tags, and listing SEO on Etsy while generating Product AI photoshoot mockups.",
       solution: "Etsy SEO keyword optimization, Product AI studio images, and automated customer follow-ups.",
@@ -883,7 +894,7 @@ document.addEventListener('DOMContentLoaded', () => {
       title: "OOAK Vogue - Sustainable Fashion & Upcycled Saree Apparel",
       client: "One-Of-A-Kind Sustainable Apparel",
       year: "2026",
-      metric: "👗 5.4x ROAS | International Storefront",
+ metric: "5.4x ROAS | International Storefront",
       problem: "Communicating the unique value proposition of one-of-a-kind upcycled saree kimonos & dresses to global customers.",
       strategy: "Custom Shopify store redesign, high-end visual product landing pages, and retargeting ad funnels.",
       solution: "Integrated Shopify currency converter, Meta Pixel CAPI, and automated email/WhatsApp abandon cart series.",
@@ -893,7 +904,7 @@ document.addEventListener('DOMContentLoaded', () => {
       title: "Rarebond Studios - Premium Men's Wardrobe Essentials",
       client: "Men's Apparel D2C",
       year: "2025",
-      metric: "👕 4.8x ROAS | Scaled Monthly Revenue",
+ metric: "4.8x ROAS | Scaled Monthly Revenue",
       problem: "Lowering Customer Acquisition Cost (CAC) for premium men's polo t-shirts and knitwear in a crowded market.",
       strategy: "Targeted Meta Prospecting + Google Performance Max Ads + automated WhatsApp cart recovery.",
       solution: "Sub-second mobile checkout, high-ROAS ad copy, and 1-click WhatsApp order confirmation.",
@@ -903,7 +914,7 @@ document.addEventListener('DOMContentLoaded', () => {
       title: "Jywas Beauty - Complete Content Creation, Instagram Handling & YouTube Scaling",
       client: "Beauty & Natural Skincare",
       year: "2025",
-      metric: "🎬 Complete Content Creation + Instagram Handling & YouTube Channel Scaling",
+ metric: "Complete Content Creation + Instagram Handling & YouTube Channel Scaling",
       problem: "Building a strong visual brand presence and scaling video content reach across Instagram and YouTube for Jywas Beauty.",
       strategy: "End-to-End Content & Channel Scaling: Scripting, graphic design, video reel editing, long-form YouTube content, full Instagram handle management, and channel SEO.",
       solution: "Managed complete Instagram page operations, produced aesthetic reels & graphics, and scaled YouTube channel with targeted video content.",
@@ -913,7 +924,7 @@ document.addEventListener('DOMContentLoaded', () => {
       title: "English Plus Coaching - Admission Campaign",
       client: "Spoken English & Grooming Institute",
       year: "2025",
-      metric: "🎓 1,200+ Student Admissions",
+ metric: "1,200+ Student Admissions",
       problem: "Inconsistent student inquiries and low conversion from local lead form campaigns.",
       strategy: "Google Local Maps SEO + Meta Lead Form Ads + Automated Counselor CRM routing.",
       solution: "Deployed Google Search Ads targeting high-intent local students with 1-click WhatsApp inquiry.",
@@ -923,7 +934,7 @@ document.addEventListener('DOMContentLoaded', () => {
       title: "Lumina Health & Dental - Patient Lead Generation",
       client: "Healthcare & Dental Clinic Center",
       year: "2026",
-      metric: "🏥 340+ Monthly Patient Inquiries",
+ metric: "340+ Monthly Patient Inquiries",
       problem: "Driving local patient appointments for high-value dental & health procedures.",
       strategy: "Google Map Pack Local SEO + Hyper-Local Search Ads + Automated WhatsApp Appointment System.",
       solution: "Built sub-second landing pages with 1-click doctor appointment booking & local map pack optimization.",
@@ -933,7 +944,7 @@ document.addEventListener('DOMContentLoaded', () => {
       title: "Aura Fine Jewellery - Luxury Brand Scaling",
       client: "Fine Jewellery & Diamonds",
       year: "2026",
-      metric: "💎 6.2x ROAS | Luxury E-Commerce",
+ metric: "6.2x ROAS | Luxury E-Commerce",
       problem: "Scaling high-ticket luxury diamond & gold jewellery online sales.",
       strategy: "High-Res Product AI Image Rendering + Premium Brand Identity + Retargeting Meta Catalog Ads.",
       solution: "3D AI Product photo renders paired with VIP concierge WhatsApp lead routing.",
@@ -943,7 +954,7 @@ document.addEventListener('DOMContentLoaded', () => {
       title: "Veloce Properties - High-Ticket Real Estate Lead Engine",
       client: "Luxury Real Estate & Builders",
       year: "2025",
-      metric: "🏡 450+ High-Intent Buyer Leads",
+ metric: "450+ High-Intent Buyer Leads",
       problem: "Generating verified, high-net-worth homebuyer inquiries for luxury residential apartments.",
       strategy: "Meta Lead Ads + Video Property Tours + Instant CRM WhatsApp Follow-up Automation.",
       solution: "Hyper-targeted lead forms connected to sales team CRMs with automated brochure downloads.",
@@ -953,7 +964,7 @@ document.addEventListener('DOMContentLoaded', () => {
       title: "Prism B2B Woodworks - Commercial B2B Pipeline",
       client: "B2B Commercial Furniture & Architecture",
       year: "2026",
-      metric: "🏭 ₹1.8 Cr B2B Order Pipeline",
+ metric: " ₹1.8 Cr B2B Order Pipeline",
       problem: "Reaching commercial architects, corporate interior buyers, and hotel contractors.",
       strategy: "B2B Digital Catalogue + Google Search Ads + Corporate LinkedIn Lead Outreach.",
       solution: "Created interactive B2B digital wholesale catalogue with direct WhatsApp RFQ (Request for Quote).",
@@ -965,12 +976,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const blogPlaybooksData = {
     'cro-playbook': {
       title: "The Core Blueprint for Scaling D2C Brands in 2026",
-      category: "📢 MARKETING • 5 MIN READ",
+ category: "MARKETING • 5 MIN READ",
       body: `
         <div style="font-size: 1rem; color: var(--text-secondary); line-height: 1.7; display: flex; flex-direction: column; gap: 1rem;">
           <p>Scaling a D2C e-commerce brand in 2026 demands a highly structured approach towards customer acquisition, conversion optimization, and retention campaigns.</p>
           <div style="background: var(--bg-primary); padding: 1.25rem; border-radius: 0.5rem; border-left: 4px solid #4A306D;">
-            <strong style="color: var(--text-primary); font-size: 1.1rem;">🔥 4 Key Scaling Pillars:</strong>
+ <strong style="color: var(--text-primary); font-size: 1.1rem;">4 Key Scaling Pillars:</strong>
             <ol style="margin-left: 1.25rem; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
               <li><strong>High-ROAS Meta Ads:</strong> Leverage broad interest targets, visual product reels, and dynamic catalog ads.</li>
               <li><strong>Frictionless Shopify Custom Checkouts:</strong> Implement 1-click checkout options to reduce cart abandonment rates.</li>
@@ -983,12 +994,12 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     'seo-sprint': {
       title: "Generative Engine Optimization (GEO): The New SEO Frontier",
-      category: "🚀 SEO & GROWTH • 7 MIN READ",
+ category: "SEO & GROWTH • 7 MIN READ",
       body: `
         <div style="font-size: 1rem; color: var(--text-secondary); line-height: 1.7; display: flex; flex-direction: column; gap: 1rem;">
           <p>Search is shifting. ChatGPT, Claude, Perplexity, and Google AI Overviews are changing how users find information. Optimizing for generative search engines requires a shift from traditional keyword stuffing to structured, authoritative entity mapping.</p>
           <div style="background: var(--bg-primary); padding: 1.25rem; border-radius: 0.5rem; border-left: 4px solid #38bdf8;">
-            <strong style="color: var(--text-primary); font-size: 1.1rem;">🤖 Actionable GEO Strategies:</strong>
+ <strong style="color: var(--text-primary); font-size: 1.1rem;">Actionable GEO Strategies:</strong>
             <ul style="margin-left: 1.25rem; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
               <li><strong>Citation-Ready Content:</strong> Author concise, fact-based answers right at the beginning of sections.</li>
               <li><strong>Entity Optimization:</strong> Structure clear relationships between your brand name, core founders, and service niches using JSON-LD schema graphs.</li>
@@ -1000,12 +1011,12 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     'custom-vs-templates': {
       title: "Why Custom-Coded Websites Crush Template Web Builders",
-      category: "💻 WEB DEV • 4 MIN READ",
+ category: "WEB DEV • 4 MIN READ",
       body: `
         <div style="font-size: 1rem; color: var(--text-secondary); line-height: 1.7; display: flex; flex-direction: column; gap: 1rem;">
           <p>Standard templates and heavy builders bundle bloated JS codes that degrade page speed and visual stability metrics. Custom coded architectures deliver superior loading efficiency and SEO indexes.</p>
           <div style="background: var(--bg-primary); padding: 1.25rem; border-radius: 0.5rem; border-left: 4px solid #c084fc;">
-            <strong style="color: var(--text-primary); font-size: 1.1rem;">⚡ The Custom Code Edge:</strong>
+ <strong style="color: var(--text-primary); font-size: 1.1rem;">The Custom Code Edge:</strong>
             <ul style="margin-left: 1.25rem; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
               <li><strong>Sub-Second Loading Speeds:</strong> Zero bloated script resources and minimal DOM layout paint times.</li>
               <li><strong>Perfect Core Web Vitals:</strong> Maximize LCP and CLS scores for automated ranking boots.</li>
@@ -1017,7 +1028,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     'atl-vs-btl': {
       title: "ATL vs BTL vs TTL Marketing: The Ultimate Modern Scale Breakdown",
-      category: "📢 MARKETING • 6 MIN READ",
+ category: "MARKETING • 6 MIN READ",
       body: `
         <div style="font-size: 1rem; color: var(--text-secondary); line-height: 1.7; display: flex; flex-direction: column; gap: 1rem;">
           <!-- Feature Image -->
@@ -1028,7 +1039,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <p>A commonly asked question in marketing is the difference between <strong>Above the Line (ATL)</strong>, <strong>Below the Line (BTL)</strong>, and <strong>Through the Line (TTL)</strong> campaigns. Originated back in 1954 when Procter & Gamble separated payments for direct promotions from mass branding media, "the Line" divides general outreach from hyper-targeted, conversion-focused marketing actions.</p>
           
           <div style="background: var(--bg-primary); padding: 1.25rem; border-radius: 0.5rem; border-left: 4px solid #4A306D;">
-            <strong style="color: var(--text-primary); font-size: 1.1rem;">📢 1. Above The Line (ATL) — Broad Awareness</strong>
+ <strong style="color: var(--text-primary); font-size: 1.1rem;">1. Above The Line (ATL) — Broad Awareness</strong>
             <p style="margin-top:0.25rem; font-size:0.925rem;">ATL consists of untargeted, massive campaigns to build brand recognition. Its focus is reach rather than immediate sales metrics.</p>
             <ul style="margin-left: 1.25rem; margin-top: 0.5rem; font-size:0.9rem; display: flex; flex-direction: column; gap: 0.25rem;">
               <li><strong>Television:</strong> National or international commercial ads.</li>
@@ -1038,7 +1049,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
 
           <div style="background: var(--bg-primary); padding: 1.25rem; border-radius: 0.5rem; border-left: 4px solid #38bdf8;">
-            <strong style="color: var(--text-primary); font-size: 1.1rem;">🎯 2. Below The Line (BTL) — Direct Action & ROI</strong>
+ <strong style="color: var(--text-primary); font-size: 1.1rem;">2. Below The Line (BTL) — Direct Action & ROI</strong>
             <p style="margin-top:0.25rem; font-size:0.925rem;">BTL focuses on targeted communication aimed at specific demographics to drive conversions and track exact ROI.</p>
             <ul style="margin-left: 1.25rem; margin-top: 0.5rem; font-size:0.9rem; display: flex; flex-direction: column; gap: 0.25rem;">
               <li><strong>Email Marketing:</strong> Hyper-personalized newsletters and automated CRM cart recoveries.</li>
@@ -1048,7 +1059,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
 
           <div style="background: var(--bg-primary); padding: 1.25rem; border-radius: 0.5rem; border-left: 4px solid #c084fc;">
-            <strong style="color: var(--text-primary); font-size: 1.1rem;">🔄 3. Through The Line (TTL) — The Integrated Playbook</strong>
+ <strong style="color: var(--text-primary); font-size: 1.1rem;">3. Through The Line (TTL) — The Integrated Playbook</strong>
             <p style="margin-top:0.25rem; font-size:0.925rem;">TTL blends both fronts simultaneously. It builds a broad brand story while immediately funneling interested traffic into target retargeting maps.</p>
             <ul style="margin-left: 1.25rem; margin-top: 0.5rem; font-size:0.9rem; display: flex; flex-direction: column; gap: 0.25rem;">
               <li><strong>360-Degree Sprints:</strong> Combining a mass awareness TV spot with highly localized social media retargeting.</li>
@@ -1082,22 +1093,22 @@ document.addEventListener('DOMContentLoaded', () => {
         
         <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
           <div style="background: var(--bg-primary); padding: 1rem; border-radius: 0.5rem; border-left: 3px solid #ef4444;">
-            <strong>❌ Problem / Challenge:</strong>
+ <strong>Problem / Challenge:</strong>
             <p style="color: var(--text-secondary); margin-top: 0.25rem;">${data.problem}</p>
           </div>
 
           <div style="background: var(--bg-primary); padding: 1rem; border-radius: 0.5rem; border-left: 3px solid #3b82f6;">
-            <strong>🧠 Strategy & Approach:</strong>
+ <strong>Strategy & Approach:</strong>
             <p style="color: var(--text-secondary); margin-top: 0.25rem;">${data.strategy}</p>
           </div>
 
           <div style="background: var(--bg-primary); padding: 1rem; border-radius: 0.5rem; border-left: 3px solid #8b5cf6;">
-            <strong>🛠️ Technical Solution:</strong>
+ <strong>Technical Solution:</strong>
             <p style="color: var(--text-secondary); margin-top: 0.25rem;">${data.solution}</p>
           </div>
 
           <div style="background: var(--bg-primary); padding: 1rem; border-radius: 0.5rem; border-left: 3px solid #10b981;">
-            <strong>🏆 Verified Result:</strong>
+ <strong>Verified Result:</strong>
             <p style="color: var(--text-primary); font-weight: 700; margin-top: 0.25rem;">${data.result}</p>
           </div>
         </div>
@@ -1318,14 +1329,14 @@ document.addEventListener('DOMContentLoaded', () => {
       // 2. Private WhatsApp Number (Hidden from UI text)
       const hiddenWhatsAppNumber = '919340722578';
       const waText = encodeURIComponent(
-        `🚀 *New Strategy Call Request - Samraddhi Marketing*\n\n` +
-        `👤 *Client Name:* ${name}\n` +
-        `📞 *Phone:* ${phone}\n` +
-        `✉️ *Email:* ${email}\n` +
-        `🏢 *Category:* ${selectedCategory}\n` +
-        `💰 *Monthly Budget:* ${budget}\n` +
-        `📅 *Preferred Date:* ${preferredDate}\n` +
-        `💬 *Message:* ${message}`
+ ` *New Strategy Call Request - Samraddhi Marketing*\n\n` +
+ ` *Client Name:* ${name}\n` +
+ ` *Phone:* ${phone}\n` +
+ ` *Email:* ${email}\n` +
+ ` *Category:* ${selectedCategory}\n` +
+ ` *Monthly Budget:* ${budget}\n` +
+ ` *Preferred Date:* ${preferredDate}\n` +
+ ` *Message:* ${message}`
       );
 
       const waUrl = `https://wa.me/${hiddenWhatsAppNumber}?text=${waText}`;
@@ -1832,7 +1843,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Play chime & display success UI
       playPinguNotificationSound();
-      showToast('🎉 Welcome to Samraddhi Growth Club! You are subscribed.');
+ showToast('Welcome to Samraddhi Growth Club! You are subscribed.');
 
       newsletterForm.style.display = 'none';
       if (newsletterSuccessBox) {
@@ -1856,7 +1867,7 @@ document.addEventListener('DOMContentLoaded', () => {
       keywords: ['hi', 'hello', 'hey', 'namaste', 'morning', 'evening', 'kaise ho', 'who are you', 'kya karte ho', 'what is pingu', 'pingu', 'bot', 'intro', 'start'],
       phrases: ['hi', 'hello pingu', 'hey there', 'who are you', 'what can you do', 'namaste', 'kaise ho', 'kya karte ho', 'pingu kon ho'],
       hits: 0,
-      response: `Noot Noot! 🐧 Hi there! I'm <strong>Pingu</strong>, Samraddhi Marketing's AI Growth Guide. I'm trained on 360° growth strategies for 12+ industries (SEO, Meta/Google Ads, Video Reels, Custom Websites & D2C Marketplaces). Tell me about your business or what you're looking to scale!`
+ response: `Noot Noot! Hi there! I'm <strong>Pingu</strong>, Samraddhi Marketing's AI Growth Guide. I'm trained on 360° growth strategies for 12+ industries (SEO, Meta/Google Ads, Video Reels, Custom Websites & D2C Marketplaces). Tell me about your business or what you're looking to scale!`
     },
     {
       id: 'audit',
@@ -1864,7 +1875,7 @@ document.addEventListener('DOMContentLoaded', () => {
       keywords: ['audit', 'free audit', '4999', 'scan', 'check website', 'analyze', 'review', 'seo score', 'diagnose', 'performance scan', 'social media scan', 'account scan', 'check my instagram', 'website check'],
       phrases: ['i want free audit', 'can you check my website', 'audit worth 4999', 'website review', 'scan my instagram', 'scan social media', 'check my brand', 'free scan'],
       hits: 0,
-      response: `Noot Noot! 🐧 You can claim our <strong>Free Website & Marketing Audit (Worth ₹4,999)</strong>! We analyze your SEO health, ad funnel leakages, website speed, and social engagement with actionable fixes in 48 hours.<br><br><a href="#ai-audit" onclick="document.getElementById('pingu-chat-window').style.display='none';" style="color:#A167A5; font-weight:700;">Click Here to Run Instant AI Audit ⚡ →</a>`
+ response: `Noot Noot! You can claim our <strong>Free Website & Marketing Audit (Worth ₹4,999)</strong>! We analyze your SEO health, ad funnel leakages, website speed, and social engagement with actionable fixes in 48 hours.<br><br><a href="#ai-audit"onclick="document.getElementById('pingu-chat-window').style.display='none';"style="color:#A167A5; font-weight:700;">Click Here to Run Instant AI Audit →</a>`
     },
     {
       id: 'pricing',
@@ -1872,7 +1883,7 @@ document.addEventListener('DOMContentLoaded', () => {
       keywords: ['price', 'pricing', 'cost', 'rate', 'plan', 'retainer', 'budget', 'how much', 'fee', 'charge', 'package', 'monthly', 'starter', 'growth', 'scale', 'enterprise', 'kitna', 'charges'],
       phrases: ['what is your pricing', 'monthly cost', 'how much for marketing', 'retainer plans', 'starter package', 'scale plan', 'kitna charge karte ho', 'packages list', 'pricing plans'],
       hits: 0,
-      response: `Noot Noot! 🐧 We offer 4 high-ROI monthly growth retainers with zero lock-in:<br>• <strong>Starter (₹9,999/mo):</strong> 12 Social Creatives, Basic SEO & Profile Optimization.<br>• <strong>Growth (₹24,999/mo):</strong> Meta/Google Ads Management, 20 Posts + 4 Reels, #1 Map SEO.<br>• <strong>Scale (₹49,999/mo):</strong> Dedicated Growth Team, Weekly Video Shoots, Custom Website & AI Bot.<br>• <strong>Enterprise:</strong> Custom 360° Partner Retainers.<br><br><a href="#retainers" onclick="document.getElementById('pingu-chat-window').style.display='none';" style="color:#A167A5; font-weight:700;">View All Retainer Deliverables ➔</a>`
+ response: `Noot Noot! We offer 4 high-ROI monthly growth retainers with zero lock-in:<br>• <strong>Starter (₹9,999/mo):</strong>12 Social Creatives, Basic SEO & Profile Optimization.<br>• <strong>Growth (₹24,999/mo):</strong>Meta/Google Ads Management, 20 Posts + 4 Reels, #1 Map SEO.<br>• <strong>Scale (₹49,999/mo):</strong>Dedicated Growth Team, Weekly Video Shoots, Custom Website & AI Bot.<br>• <strong>Enterprise:</strong>Custom 360° Partner Retainers.<br><br><a href="#retainers"onclick="document.getElementById('pingu-chat-window').style.display='none';"style="color:#A167A5; font-weight:700;">View All Retainer Deliverables ➔</a>`
     },
     {
       id: 'advisor',
@@ -1880,7 +1891,7 @@ document.addEventListener('DOMContentLoaded', () => {
       keywords: ['rahul', 'rahul soni', 'founder', 'call', 'contact', 'whatsapp', 'phone', 'number', 'speak', 'talk', 'human', 'advisor', 'meet', 'consultation', 'sampark', 'baat karni', 'email', 'query'],
       phrases: ['talk to rahul', 'connect to advisor', 'give me phone number', 'whatsapp link', 'speak to founder', 'book call', 'rahul ka number', 'human support', 'send email', 'send query'],
       hits: 0,
-      response: `Noot Noot! 🐧 You can connect directly with our founder <strong>Rahul Soni</strong> for a free 1-on-1 growth strategy consultation:<br>• Direct WhatsApp / Phone: <strong>+91 9340722578</strong><br>• Email: <strong>samraddhiindia@gmail.com</strong><br><br><a href="https://mail.google.com/mail/?view=cm&fs=1&to=samraddhiindia@gmail.com&su=Free%20Strategy%20Consultation%20Query%20-%20Samraddhi&body=Hi%20Rahul%2C%0A%0AI%20would%20like%20to%20schedule%20a%20strategy%20consultation%20with%20Samraddhi.%0A%0AMy%20Business%2FBrand%3A%20%0APhone%2FWhatsApp%3A%20" target="_blank" style="color:#A167A5; font-weight:700;">Send Direct Query via Gmail ✉️ ➔</a>`
+ response: `Noot Noot! You can connect directly with our founder <strong>Rahul Soni</strong>for a free 1-on-1 growth strategy consultation:<br>• Direct WhatsApp / Phone: <strong>+91 9340722578</strong><br>• Email: <strong>samraddhiindia@gmail.com</strong><br><br><a href="https://mail.google.com/mail/?view=cm&fs=1&to=samraddhiindia@gmail.com&su=Free%20Strategy%20Consultation%20Query%20-%20Samraddhi&body=Hi%20Rahul%2C%0A%0AI%20would%20like%20to%20schedule%20a%20strategy%20consultation%20with%20Samraddhi.%0A%0AMy%20Business%2FBrand%3A%20%0APhone%2FWhatsApp%3A%20"target="_blank"style="color:#A167A5; font-weight:700;">Send Direct Query via Gmail ➔</a>`
     },
     {
       id: 'case_studies',
@@ -1888,7 +1899,7 @@ document.addEventListener('DOMContentLoaded', () => {
       keywords: ['portfolio', 'clients', 'case study', 'cases', 'proof', 'results', 'past work', 'sanskriti', 'vintage', 'antique', 'rarebond', 'udbhav', 'kreatvkraft', 'jywas', 'aura', 'english plus'],
       phrases: ['show me case studies', 'who are your clients', 'past results', 'client portfolio', 'examples of your work', 'proof of results', 'sanskriti vintage case study'],
       hits: 0,
-      response: `Noot Noot! 🐧 Here are some of our proven client transformations:<br>• <strong>Sanskriti Vintage:</strong> 4.2x Organic Revenue & Global B2B Export Storefront.<br>• <strong>Antique Art of India:</strong> 5.8x ROAS on Etsy & Global Marketplace Ranking.<br>• <strong>Rarebond Studios:</strong> ₹2.4M GMV in 90 Days with Shopify CRO + Meta Ads.<br>• <strong>Udbhav India:</strong> 3.2M Organic Reel Views & Brand Authority.<br>• <strong>Jywas Beauty:</strong> 7.4x ROAS on D2C Skincare Ads.<br><br><a href="#portfolio" onclick="document.getElementById('pingu-chat-window').style.display='none';" style="color:#A167A5; font-weight:700;">Explore All 12 Interactive Case Studies ➔</a>`
+ response: `Noot Noot! Here are some of our proven client transformations:<br>• <strong>Sanskriti Vintage:</strong>4.2x Organic Revenue & Global B2B Export Storefront.<br>• <strong>Antique Art of India:</strong>5.8x ROAS on Etsy & Global Marketplace Ranking.<br>• <strong>Rarebond Studios:</strong>₹2.4M GMV in 90 Days with Shopify CRO + Meta Ads.<br>• <strong>Udbhav India:</strong>3.2M Organic Reel Views & Brand Authority.<br>• <strong>Jywas Beauty:</strong>7.4x ROAS on D2C Skincare Ads.<br><br><a href="#portfolio"onclick="document.getElementById('pingu-chat-window').style.display='none';"style="color:#A167A5; font-weight:700;">Explore All 12 Interactive Case Studies ➔</a>`
     },
     {
       id: 'meta_ads',
@@ -1896,7 +1907,7 @@ document.addEventListener('DOMContentLoaded', () => {
       keywords: ['meta', 'facebook', 'instagram', 'meta ads', 'fb ads', 'insta ads', 'roas', 'cac', 'ad campaign', 'lead generation', 'performance marketing', 'paid ads', 'ad spend'],
       phrases: ['run facebook ads', 'meta ad management', 'high roas ads', 'instagram lead generation', 'reduce cac', 'paid advertising'],
       hits: 0,
-      response: `Noot Noot! 🐧 We build high-converting Meta Ad funnels with precision audience segmentation, dynamic creative testing, and multi-step retargeting. Our client portfolio averages <strong>7.1x ROAS</strong> with verified buyer attribution and low CAC!`
+ response: `Noot Noot! We build high-converting Meta Ad funnels with precision audience segmentation, dynamic creative testing, and multi-step retargeting. Our client portfolio averages <strong>7.1x ROAS</strong>with verified buyer attribution and low CAC!`
     },
     {
       id: 'google_ads',
@@ -1904,7 +1915,7 @@ document.addEventListener('DOMContentLoaded', () => {
       keywords: ['google ad', 'google ads', 'ppc', 'search ads', 'adwords', 'high intent', 'buyer leads', 'click', 'cpc', 'google search'],
       phrases: ['google ads management', 'run ppc ads', 'google search campaigns', 'intent based ads', 'leads from google'],
       hits: 0,
-      response: `Noot Noot! 🐧 We manage high-intent Google Search, Performance Max, and Call-Only campaigns targeting customers actively searching for your exact services with strict negative keyword filters to stop wasted ad budget!`
+ response: `Noot Noot! We manage high-intent Google Search, Performance Max, and Call-Only campaigns targeting customers actively searching for your exact services with strict negative keyword filters to stop wasted ad budget!`
     },
     {
       id: 'local_seo',
@@ -1912,7 +1923,7 @@ document.addEventListener('DOMContentLoaded', () => {
       keywords: ['seo', 'google map', 'google maps', 'gmb', 'google my business', 'local seo', 'map pack', 'rank #1', 'organic search', 'local ranking', 'first page'],
       phrases: ['rank on google maps', 'google map pack seo', 'local business seo', 'how to get #1 on google', 'gmb optimization'],
       hits: 0,
-      response: `Noot Noot! 🐧 We optimize your Google Business Profile (GMB) with geotagged media, citation building, category dominance, and automated 5-star review funnels to dominate the Google Maps 3-Pack in your city!`
+ response: `Noot Noot! We optimize your Google Business Profile (GMB) with geotagged media, citation building, category dominance, and automated 5-star review funnels to dominate the Google Maps 3-Pack in your city!`
     },
     {
       id: 'video_reels',
@@ -1920,7 +1931,7 @@ document.addEventListener('DOMContentLoaded', () => {
       keywords: ['reel', 'reels', 'video', 'youtube', 'shoot', 'camera', 'editing', 'content', 'creator', 'ugc', 'script', 'scriptwriting', 'production', 'post', 'graphics'],
       phrases: ['do you shoot reels', 'video editing services', 'content creation', 'instagram reel production', 'youtube channel management', 'ugc creators'],
       hits: 0,
-      response: `Noot Noot! 🐧 We provide end-to-end Content Creation: hook-driven scriptwriting, professional on-location / AI reel shoots, sound design, trend-jacking graphics, and full social calendar management so your brand goes viral consistently!`
+ response: `Noot Noot! We provide end-to-end Content Creation: hook-driven scriptwriting, professional on-location / AI reel shoots, sound design, trend-jacking graphics, and full social calendar management so your brand goes viral consistently!`
     },
     {
       id: 'shopify_ecommerce',
@@ -1928,7 +1939,7 @@ document.addEventListener('DOMContentLoaded', () => {
       keywords: ['shopify', 'ecommerce', 'e-commerce', 'etsy', 'ebay', 'amazon', 'marketplace', 'd2c', 'cart', 'checkout', 'online store', 'product listing'],
       phrases: ['shopify store development', 'scale etsy store', 'ebay marketplace growth', 'd2c ecommerce marketing', 'online shop design'],
       hits: 0,
-      response: `Noot Noot! 🐧 We scale D2C & Marketplace brands across Shopify, Etsy, and eBay with sub-second fast storefronts, 1-click checkout, automated cart recovery, and international SEO ranking!`
+ response: `Noot Noot! We scale D2C & Marketplace brands across Shopify, Etsy, and eBay with sub-second fast storefronts, 1-click checkout, automated cart recovery, and international SEO ranking!`
     },
     {
       id: 'product_ai_photos',
@@ -1936,7 +1947,7 @@ document.addEventListener('DOMContentLoaded', () => {
       keywords: ['product photo', 'product photoshoot', 'ai photoshoot', 'catalogue', 'studio', 'image generation', '4k product', 'mockup', 'photography'],
       phrases: ['ai product photography', 'product photo shoot', 'ecommerce catalogue pictures', 'studio lighting replacement'],
       hits: 0,
-      response: `Noot Noot! 🐧 We transform raw mobile product photos into hyper-realistic 4K studio catalogue images using custom AI generative models—saving 80% of traditional studio photoshoot costs while boosting click-through rates by 3.4x!`
+ response: `Noot Noot! We transform raw mobile product photos into hyper-realistic 4K studio catalogue images using custom AI generative models—saving 80% of traditional studio photoshoot costs while boosting click-through rates by 3.4x!`
     },
     {
       id: 'website_designer_gwalior_local',
@@ -1944,7 +1955,7 @@ document.addEventListener('DOMContentLoaded', () => {
       keywords: ['website designer near me', 'website designer in gwalior', 'gwalior website design', 'low cost website designer', 'website design company', 'how to create a website', 'website builder'],
       phrases: ['website designer near me', 'website design in gwalior', 'low cost website designer', 'best website design company', 'how to create a website', 'website builder vs designer'],
       hits: 0,
-      response: `Noot Noot! 🐧 Looking for a <strong>Website Designer Near Me in Gwalior</strong> or a <strong>Low Cost Website Designer</strong>? Rahul Soni and Samraddhi Marketing build custom, sub-second speed websites starting at just $75 (₹5,999) with 100% code ownership—infinitely faster and better for SEO than slow DIY website builders! Call directly at <a href="tel:+919340722578" style="color:#4A306D; font-weight:700;">+91 93407 22578</a>.`
+ response: `Noot Noot! Looking for a <strong>Website Designer Near Me in Gwalior</strong>or a <strong>Low Cost Website Designer</strong>? Rahul Soni and Samraddhi Marketing build custom, sub-second speed websites starting at just $75 (₹5,999) with 100% code ownership—infinitely faster and better for SEO than slow DIY website builders! Call directly at <a href="tel:+919340722578"style="color:#4A306D; font-weight:700;">+91 93407 22578</a>.`
     },
     {
       id: 'content_creation_marketing_hub',
@@ -1952,7 +1963,7 @@ document.addEventListener('DOMContentLoaded', () => {
       keywords: ['content creation', 'content marketing', 'social media content creation', 'video reels editing', 'viral scriptwriting', 'instagram reels editor'],
       phrases: ['social media content creation', 'content marketing agency', 'video reels production', 'scriptwriting for reels', 'reels editing retainers'],
       hits: 0,
-      response: `Noot Noot! 🐧 Our <strong>Content Creation & Content Marketing</strong> engine scripts, shoots, and edits viral 3-second hook Instagram Reels, YouTube Shorts, and high-CTR Meta ad creatives with dynamic subtitles, sound effects, and 4K color grading to boost organic retention above 85%!`
+ response: `Noot Noot! Our <strong>Content Creation & Content Marketing</strong>engine scripts, shoots, and edits viral 3-second hook Instagram Reels, YouTube Shorts, and high-CTR Meta ad creatives with dynamic subtitles, sound effects, and 4K color grading to boost organic retention above 85%!`
     },
     {
       id: 'email_marketing_smm_hub',
@@ -1960,7 +1971,7 @@ document.addEventListener('DOMContentLoaded', () => {
       keywords: ['email marketing', 'digital marketing', 'marketing agency', 'social media marketing', 'automated email flows', 'klaviyo'],
       phrases: ['email marketing agency', 'digital marketing services', 'social media marketing agency', 'automated email campaigns', 'marketing agency retainers'],
       hits: 0,
-      response: `Noot Noot! 🐧 As a full-service <strong>Digital Marketing Agency</strong>, we combine organic <strong>Social Media Marketing</strong> with high-converting automated <strong>Email Marketing</strong> (abandoned cart recovery, VIP welcome flows, product launch blasts) to generate up to 35% of total revenue on autopilot!`
+ response: `Noot Noot! As a full-service <strong>Digital Marketing Agency</strong>, we combine organic <strong>Social Media Marketing</strong>with high-converting automated <strong>Email Marketing</strong> (abandoned cart recovery, VIP welcome flows, product launch blasts) to generate up to 35% of total revenue on autopilot!`
     },
     {
       id: 'ecommerce_web_design_hub',
@@ -1968,7 +1979,7 @@ document.addEventListener('DOMContentLoaded', () => {
       keywords: ['ecommerce website design', 'shopify store builder', 'woocommerce developer', 'online store design', 'marketplace seo'],
       phrases: ['ecommerce website design', 'build shopify store', 'woocommerce website design', 'ecommerce marketing agency'],
       hits: 0,
-      response: `Noot Noot! 🐧 We build high-converting <strong>Ecommerce Website Designs</strong> on Shopify and WooCommerce with 1-click lightning checkouts, automated shipping/payment integrations, and complete marketplace catalogue management (Amazon, Etsy, Ebay)!`
+ response: `Noot Noot! We build high-converting <strong>Ecommerce Website Designs</strong>on Shopify and WooCommerce with 1-click lightning checkouts, automated shipping/payment integrations, and complete marketplace catalogue management (Amazon, Etsy, Ebay)!`
     },
     {
       id: 'custom_web_dev',
@@ -1976,7 +1987,7 @@ document.addEventListener('DOMContentLoaded', () => {
       keywords: ['website', 'web dev', 'developer', 'frontend', 'speed', 'fast', 'wordpress', 'sub-second', 'redesign', 'landing page', 'full ownership'],
       phrases: ['custom website development', 'fast loading website', 'landing page development', 'website redesign', 'sub second speed'],
       hits: 0,
-      response: `Noot Noot! 🐧 We code lightning-fast, sub-second custom websites and high-converting landing pages with 95+ Google PageSpeed scores, zero slow bloated plugins, and 100% full code ownership!`
+ response: `Noot Noot! We code lightning-fast, sub-second custom websites and high-converting landing pages with 95+ Google PageSpeed scores, zero slow bloated plugins, and 100% full code ownership!`
     },
     {
       id: 'whatsapp_automation',
@@ -1984,7 +1995,7 @@ document.addEventListener('DOMContentLoaded', () => {
       keywords: ['whatsapp bot', 'automation', 'crm', 'chatbot', 'auto reply', 'booking bot', 'lead capture', 'instant reply'],
       phrases: ['whatsapp automation bot', 'automated lead reply', 'whatsapp booking system', 'crm integration'],
       hits: 0,
-      response: `Noot Noot! 🐧 We build 24/7 intelligent WhatsApp bots that instantly qualify incoming visitor leads, share product PDF catalogues, schedule meetings, and route hot buyers directly to your phone within 5 seconds!`
+ response: `Noot Noot! We build 24/7 intelligent WhatsApp bots that instantly qualify incoming visitor leads, share product PDF catalogues, schedule meetings, and route hot buyers directly to your phone within 5 seconds!`
     },
     {
       id: 'healthcare_clinics',
@@ -1992,7 +2003,7 @@ document.addEventListener('DOMContentLoaded', () => {
       keywords: ['clinic', 'dental', 'dentist', 'doctor', 'hospital', 'patient', 'patients', 'appointment', 'healthcare', 'medical', 'teeth'],
       phrases: ['marketing for doctors', 'dental clinic marketing', 'patient leads for clinic', 'hospital seo', 'dental appointment ads'],
       hits: 0,
-      response: `Noot Noot! 🐧 For Healthcare & Dental Clinics, we deploy #1 Google Local 3-Pack Map SEO, high-intent emergency Search Ads, and automated WhatsApp patient appointment reminders to fill clinic chairs daily!`
+ response: `Noot Noot! For Healthcare & Dental Clinics, we deploy #1 Google Local 3-Pack Map SEO, high-intent emergency Search Ads, and automated WhatsApp patient appointment reminders to fill clinic chairs daily!`
     },
     {
       id: 'real_estate',
@@ -2000,7 +2011,7 @@ document.addEventListener('DOMContentLoaded', () => {
       keywords: ['real estate', 'property', 'builder', 'housing', 'flat', 'flats', 'apartment', 'apartments', 'villa', 'commercial', 'plots', 'hnw'],
       phrases: ['real estate buyer leads', 'property video tour', 'sell apartments', 'builder marketing', 'hnw buyer leads', 'real estate ads'],
       hits: 0,
-      response: `Noot Noot! 🐧 For Real Estate Developers, we generate verified High-Net-Worth buyer leads using cinematic property walk-through reels, multi-tier Meta lead filters, and instant WhatsApp brochure delivery!`
+ response: `Noot Noot! For Real Estate Developers, we generate verified High-Net-Worth buyer leads using cinematic property walk-through reels, multi-tier Meta lead filters, and instant WhatsApp brochure delivery!`
     },
     {
       id: 'b2b_exports',
@@ -2008,7 +2019,7 @@ document.addEventListener('DOMContentLoaded', () => {
       keywords: ['b2b', 'export', 'exporter', 'manufacturer', 'manufacturing', 'wholesale', 'industrial', 'machinery', 'distributor', 'rfq', 'catalogue'],
       phrases: ['b2b lead generation', 'wholesale portal', 'export marketing', 'industrial machinery sales', 'rfq catalogue', 'b2b export'],
       hits: 0,
-      response: `Noot Noot! 🐧 For B2B Manufacturers & Exporters, we build digital wholesale catalogues with 1-click Request-For-Quote (RFQ) buttons and international buyer Google Search campaigns (like our Sanskriti Vintage case study)!`
+ response: `Noot Noot! For B2B Manufacturers & Exporters, we build digital wholesale catalogues with 1-click Request-For-Quote (RFQ) buttons and international buyer Google Search campaigns (like our Sanskriti Vintage case study)!`
     },
     {
       id: 'fashion_apparel',
@@ -2016,7 +2027,7 @@ document.addEventListener('DOMContentLoaded', () => {
       keywords: ['fashion', 'apparel', 'clothing', 'jewellery', 'jewelry', 'diamond', 'luxury', 'lifestyle', 'd2c brand', 'outfit', 'wear'],
       phrases: ['fashion brand marketing', 'jewellery brand ads', 'apparel d2c scaling', 'clothing store roas', 'luxury jewellery marketing'],
       hits: 0,
-      response: `Noot Noot! 🐧 For Fashion & Jewellery Brands, we create high-aesthetic brand books, influencer UGC reels, and lookalike retargeting funnels that deliver up to <strong>9.1x ROAS</strong> (as seen in our Aura Jewellery case study)!`
+ response: `Noot Noot! For Fashion & Jewellery Brands, we create high-aesthetic brand books, influencer UGC reels, and lookalike retargeting funnels that deliver up to <strong>9.1x ROAS</strong> (as seen in our Aura Jewellery case study)!`
     },
     {
       id: 'beauty_skincare',
@@ -2024,7 +2035,7 @@ document.addEventListener('DOMContentLoaded', () => {
       keywords: ['beauty', 'skincare', 'cosmetics', 'salon', 'makeup', 'dermatology', 'skin', 'face', 'glow', 'hair'],
       phrases: ['skincare brand marketing', 'beauty d2c ads', 'cosmetics reel shoots', 'salon marketing', 'jywas beauty case study'],
       hits: 0,
-      response: `Noot Noot! 🐧 For Skincare & Beauty Brands, we execute creator UGC review reels, clinical before/after proof ads, and custom bundle discount funnels (scaling Jywas Beauty to 7.4x ROAS)!`
+ response: `Noot Noot! For Skincare & Beauty Brands, we execute creator UGC review reels, clinical before/after proof ads, and custom bundle discount funnels (scaling Jywas Beauty to 7.4x ROAS)!`
     },
     {
       id: 'education_coaching',
@@ -2032,7 +2043,7 @@ document.addEventListener('DOMContentLoaded', () => {
       keywords: ['coaching', 'institute', 'school', 'academy', 'student', 'students', 'admission', 'admissions', 'course', 'tuition', 'classes', 'batch'],
       phrases: ['student admission leads', 'coaching marketing', 'promote institute', 'leads for academy', 'education ads', 'english plus case study'],
       hits: 0,
-      response: `Noot Noot! 🐧 For Coaching & Institutes, we build student admission lead engines using Meta Lead Ads, demo class booking funnels, and counselor CRM routing to fill upcoming batches (generated 340+ admissions for English Plus)!`
+ response: `Noot Noot! For Coaching & Institutes, we build student admission lead engines using Meta Lead Ads, demo class booking funnels, and counselor CRM routing to fill upcoming batches (generated 340+ admissions for English Plus)!`
     },
     {
       id: 'restaurants_food',
@@ -2040,7 +2051,7 @@ document.addEventListener('DOMContentLoaded', () => {
       keywords: ['restaurant', 'cafe', 'food', 'hotel', 'kitchen', 'dining', 'menu', 'dishes', 'zomato', 'swiggy', 'dine', 'cloud kitchen'],
       phrases: ['restaurant marketing', 'cafe promotions', 'food reels', 'local foodies', 'whatsapp food ordering', 'cloud kitchen marketing'],
       hits: 0,
-      response: `Noot Noot! 🐧 For Restaurants & Cafes, we drive local foodies via 3-Pack Map SEO, mouth-watering food reels, and 0% commission direct WhatsApp ordering to save 30% aggregator commissions!`
+ response: `Noot Noot! For Restaurants & Cafes, we drive local foodies via 3-Pack Map SEO, mouth-watering food reels, and 0% commission direct WhatsApp ordering to save 30% aggregator commissions!`
     },
     {
       id: 'interior_design',
@@ -2048,7 +2059,7 @@ document.addEventListener('DOMContentLoaded', () => {
       keywords: ['interior', 'interior design', 'architect', 'furniture', 'home decor', 'modular kitchen', 'architecture', 'renovation', 'woodwork'],
       phrases: ['interior design leads', 'architect marketing', 'furniture catalogue', 'modular kitchen ads', 'interior decorator seo'],
       hits: 0,
-      response: `Noot Noot! 🐧 For Interior Designers & Architects, we showcase completed project video walk-throughs, 3D render reels, and target affluent homeowners actively renovating or building new properties!`
+ response: `Noot Noot! For Interior Designers & Architects, we showcase completed project video walk-throughs, 3D render reels, and target affluent homeowners actively renovating or building new properties!`
     },
     {
       id: 'why_samraddhi',
@@ -2056,7 +2067,7 @@ document.addEventListener('DOMContentLoaded', () => {
       keywords: ['why choose you', 'difference', 'freelancer', 'traditional agency', 'guarantee', 'why samraddhi', 'experience', 'better', 'speciality'],
       phrases: ['why should i hire you', 'why samraddhi', 'what makes you different', 'agency vs freelancer', 'why choose rahul soni'],
       hits: 0,
-      response: `Noot Noot! 🐧 Why market leaders choose Samraddhi:<br>1. <strong>100% Full IP Ownership:</strong> No vendor lock-in.<br>2. <strong>7.1x Average ROAS:</strong> Performance-backed ROI.<br>3. <strong>Sub-Second Speed:</strong> Engineering-grade web systems.<br>4. <strong>Direct Founder Access:</strong> Daily Slack/WhatsApp sync with Rahul Soni.<br>5. <strong>48-Hour Rapid Onboarding:</strong> Fast go-to-market execution!`
+ response: `Noot Noot! Why market leaders choose Samraddhi:<br>1. <strong>100% Full IP Ownership:</strong>No vendor lock-in.<br>2. <strong>7.1x Average ROAS:</strong>Performance-backed ROI.<br>3. <strong>Sub-Second Speed:</strong>Engineering-grade web systems.<br>4. <strong>Direct Founder Access:</strong>Daily Slack/WhatsApp sync with Rahul Soni.<br>5. <strong>48-Hour Rapid Onboarding:</strong>Fast go-to-market execution!`
     },
     {
       id: 'discounts_timeline',
@@ -2064,7 +2075,7 @@ document.addEventListener('DOMContentLoaded', () => {
       keywords: ['discount', 'offer', 'timeline', 'how fast', 'onboarding', 'contract', 'trial', 'lock in', 'time', 'kab start hoga'],
       phrases: ['how fast can you start', 'is there a contract', 'any discount', 'onboarding process', 'trial period', 'kab shuru hoga'],
       hits: 0,
-      response: `Noot Noot! 🐧 We onboard new brand partners within <strong>48 hours</strong>! All retainer plans operate on flexible month-to-month terms with zero lock-in contracts. Plus, your initial <strong>Growth Audit (₹4,999 value)</strong> is completely free!`
+ response: `Noot Noot! We onboard new brand partners within <strong>48 hours</strong>! All retainer plans operate on flexible month-to-month terms with zero lock-in contracts. Plus, your initial <strong>Growth Audit (₹4,999 value)</strong>is completely free!`
     },
     {
       id: 'chitchat_fun',
@@ -2072,7 +2083,7 @@ document.addEventListener('DOMContentLoaded', () => {
       keywords: ['joke', 'tell me a joke', 'funny', 'who made you', 'marry me', 'love you', 'bye', 'goodbye', 'thanks', 'thank you', 'shukriya', 'dhanyawad'],
       phrases: ['tell me a joke', 'who made you', 'i love you', 'thank you', 'thanks pingu', 'bye', 'goodbye pingu', 'joke sunao'],
       hits: 0,
-      response: `Noot Noot! 🐧 Why do penguins love digital marketing? Because we always break the ice and catch high conversions! 😄 Built with love by Rahul Soni for Samraddhi Marketing. How can I help you grow today?`
+ response: `Noot Noot! Why do penguins love digital marketing? Because we always break the ice and catch high conversions! Built with love by Rahul Soni for Samraddhi Marketing. How can I help you grow today?`
     }
   ];
 
@@ -2255,7 +2266,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return {
         intent: null,
         score: highestScore,
-        response: `Noot Noot! 🐧 I've noted that in my memory! At <strong>Samraddhi Marketing</strong>, we engineer tailored growth systems (Video Reels, Meta & Google Ads, #1 Local SEO, Custom Websites & D2C Marketplaces).<br><br>Would you like to get our <strong>Free ₹4,999 Growth Audit</strong> or chat directly with our founder Rahul Soni on WhatsApp (+91 9340722578)?<br><br><em style="font-size:0.75rem; color:#A167A5;">💡 Tip: You can teach me new custom answers anytime by typing: <code>/teach topic | answer</code></em>`,
+ response: `Noot Noot! I've noted that in my memory! At <strong>Samraddhi Marketing</strong>, we engineer tailored growth systems (Video Reels, Meta & Google Ads, #1 Local SEO, Custom Websites & D2C Marketplaces).<br><br>Would you like to get our <strong>Free ₹4,999 Growth Audit</strong>or chat directly with our founder Rahul Soni on WhatsApp (+91 9340722578)?<br><br><em style="font-size:0.75rem; color:#A167A5;">Tip: You can teach me new custom answers anytime by typing: <code>/teach topic | answer</code></em>`,
         isLearned: false
       };
     }
@@ -2282,56 +2293,56 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- 18.2 PINGU 50 WITTY & HUMOROUS PARTING QUOTES ---
   const PINGU_WITTY_QUOTES = [
-    "Noot Noot! 🐧 Silence is golden, but conversions pay the bills. Waddling away to find fresh fish!",
-    "Pingu waited 60 seconds... that's 7 penguin years! Leaving before my flippers freeze! ❄️",
-    "Even my ice floe moves faster than this conversation! Slide by later when you're ready to scale! 🧊",
-    "Ghosting a penguin? That's cold... even for Antarctica! Noot Noot! 🥶",
-    "I came, I squawked, I saw no reply. Taking a quick belly dive in the Arctic ocean! 🌊",
-    "Procrastination is the thief of ROAS! Waddling off to inspect Meta ad campaigns! 📊",
-    "No reply in 60 seconds? I'm off to teach sea lions how to rank on Google Maps! 🦭",
-    "My beak was ready for high-converting marketing talk, but you're chilling! Catch you later! 🐧",
-    "A wise penguin once said: 'A closed chat catches no customer leads.' Noot Noot! 🚪",
-    "Sleeping on your marketing? Even polar bears wake up to hunt! Waddling out! 🐻‍❄️",
-    "Going once, going twice... sold to the quiet visitor in the back! Bye for now! 🔨",
-    "Pingu's attention span has expired! Time for a snowy ice slide intermission! 🛷",
-    "Marketing without messaging is like a penguin trying to fly: funny, but doesn't work! ✈️",
-    "I'd stay longer, but the Antarctic fresh salmon buffet opens in 5 minutes! 🐟",
-    "I'm not saying you're slow, but my grandma penguin types 40 words per minute! 👵🐧",
-    "Zero clicks, zero replies, 100% mystery. Closing down the igloo for now! 🕵️",
-    "Pingu: 1, Inactivity: 0. Exiting gracefully with an Olympic belly slide! ⛷️",
-    "If silence generated revenue, you'd be a unicorn startup valuation right now! 🦄",
-    "Waddling off! Remember: market leaders don't wait 60 seconds to scale! 🚀",
-    "My flippers are tired from twiddling! Ping me again when you're ready to grow! ⏱️",
-    "Leaving before the frostbite sets in! Keep growing and Noot Noot! ❄️",
-    "You're quieter than an organic post with zero hashtags! Waddling off! 🤫",
-    "A quiet lead is like an unlaunched ad—zero ROAS! Catch Rahul on WhatsApp! 📱",
-    "Pingu's battery-saver mode engaged: Hibernating in 3... 2... 1... 💤",
-    "Heading to the igloo. Don't worry, Rahul Soni is online at +91-9340722578! 📞",
-    "1 minute of silence observed for your marketing budget! Noot Noot! 🕯️",
-    "Even Google SEO spiders crawl faster than this chat! Catch you later! 🕷️",
-    "Off to eat some fresh sushi while you ponder that 7.1x ROAS! 🍣",
-    "Pingu out! Leaving some good vibes and high conversion karma behind! ✨",
-    "You must be optimizing your sales funnel in stealth mode! I'll waddle away! 🥷",
-    "Did the ice freeze your keyboard? Click my launcher whenever you thaw out! 🧊",
-    "They say patience is a virtue, but penguins have snowy peaks to conquer! 🐧",
-    "Leaving faster than a customer bouncing from a slow-loading website! ⚡",
-    "Waddling to the espresso machine—penguin cold-brew takes time! ☕",
-    "If you need me, tap the bubble! Otherwise, stay frosty and keep scaling! 🧊",
-    "No message? No problem! Pingu will be meditating on 10x CTRs! 🧘",
-    "Silence is peaceful, but a 360° growth engine is legendary! Catch you later! 📢",
-    "My penguin supervisor says I can't loiter without an active chat! Bye! 👔",
-    "Waddling away! Don't let your competitors steal your Google Maps #1 rank! 📍",
-    "I gave you 60 seconds of pure AI focus! Heading back to the iceberg! 🏔️",
-    "Are you secretly a bot too? Blink twice if yes! Waddling off! 🤖",
+ "Noot Noot! Silence is golden, but conversions pay the bills. Waddling away to find fresh fish!",
+ "Pingu waited 60 seconds... that's 7 penguin years! Leaving before my flippers freeze! ",
+ "Even my ice floe moves faster than this conversation! Slide by later when you're ready to scale! ",
+ "Ghosting a penguin? That's cold... even for Antarctica! Noot Noot! ",
+ "I came, I squawked, I saw no reply. Taking a quick belly dive in the Arctic ocean! ",
+ "Procrastination is the thief of ROAS! Waddling off to inspect Meta ad campaigns! ",
+ "No reply in 60 seconds? I'm off to teach sea lions how to rank on Google Maps! ",
+ "My beak was ready for high-converting marketing talk, but you're chilling! Catch you later! ",
+ "A wise penguin once said: 'A closed chat catches no customer leads.'Noot Noot! ",
+ "Sleeping on your marketing? Even polar bears wake up to hunt! Waddling out! ",
+ "Going once, going twice... sold to the quiet visitor in the back! Bye for now! ",
+ "Pingu's attention span has expired! Time for a snowy ice slide intermission! ",
+ "Marketing without messaging is like a penguin trying to fly: funny, but doesn't work! ",
+ "I'd stay longer, but the Antarctic fresh salmon buffet opens in 5 minutes! ",
+ "I'm not saying you're slow, but my grandma penguin types 40 words per minute! ",
+ "Zero clicks, zero replies, 100% mystery. Closing down the igloo for now! ",
+ "Pingu: 1, Inactivity: 0. Exiting gracefully with an Olympic belly slide! ",
+ "If silence generated revenue, you'd be a unicorn startup valuation right now! ",
+ "Waddling off! Remember: market leaders don't wait 60 seconds to scale! ",
+ "My flippers are tired from twiddling! Ping me again when you're ready to grow! ⏱",
+ "Leaving before the frostbite sets in! Keep growing and Noot Noot! ",
+ "You're quieter than an organic post with zero hashtags! Waddling off! ",
+ "A quiet lead is like an unlaunched ad—zero ROAS! Catch Rahul on WhatsApp! ",
+ "Pingu's battery-saver mode engaged: Hibernating in 3... 2... 1... ",
+ "Heading to the igloo. Don't worry, Rahul Soni is online at +91-9340722578! ",
+ "1 minute of silence observed for your marketing budget! Noot Noot! ",
+ "Even Google SEO spiders crawl faster than this chat! Catch you later! ",
+ "Off to eat some fresh sushi while you ponder that 7.1x ROAS! ",
+ "Pingu out! Leaving some good vibes and high conversion karma behind! ",
+ "You must be optimizing your sales funnel in stealth mode! I'll waddle away! ",
+ "Did the ice freeze your keyboard? Click my launcher whenever you thaw out! ",
+ "They say patience is a virtue, but penguins have snowy peaks to conquer! ",
+ "Leaving faster than a customer bouncing from a slow-loading website! ",
+ "Waddling to the espresso machine—penguin cold-brew takes time! ",
+ "If you need me, tap the bubble! Otherwise, stay frosty and keep scaling! ",
+ "No message? No problem! Pingu will be meditating on 10x CTRs! ",
+ "Silence is peaceful, but a 360° growth engine is legendary! Catch you later! ",
+ "My penguin supervisor says I can't loiter without an active chat! Bye! ",
+ "Waddling away! Don't let your competitors steal your Google Maps #1 rank! ",
+ "I gave you 60 seconds of pure AI focus! Heading back to the iceberg! ",
+ "Are you secretly a bot too? Blink twice if yes! Waddling off! ",
     "Time is money, and icebergs are melting! Catch you next time! ⏳",
-    "60-second timer dinged! Pingu has left the igloo! 🔔",
-    "I'm off to brainstorm viral reels for Antarctic influencers! 🎬",
-    "Closing chat window! Rahul Soni is still 1 click away on WhatsApp! 💬",
-    "Too busy counting Shopify sales to reply? We love to see it! Bye! 💰",
-    "Pingu's parting advice: Always A/B test your silence! Waddling off! 🧪",
-    "Vanishing like an un-retargeted cart abandoner! Poof! 💨",
-    "Ice ice baby... too quiet to wait any longer! Catch me later! 🎵",
-    "Noot Noot! 🐧 Pingu has left the building! Tap my launcher button when you're back!"
+ "60-second timer dinged! Pingu has left the igloo! ",
+ "I'm off to brainstorm viral reels for Antarctic influencers! ",
+ "Closing chat window! Rahul Soni is still 1 click away on WhatsApp! ",
+ "Too busy counting Shopify sales to reply? We love to see it! Bye! ",
+ "Pingu's parting advice: Always A/B test your silence! Waddling off! ",
+ "Vanishing like an un-retargeted cart abandoner! Poof! ",
+ "Ice ice baby... too quiet to wait any longer! Catch me later! ",
+ "Noot Noot! Pingu has left the building! Tap my launcher button when you're back!"
   ];
 
   // UI Elements
@@ -2379,7 +2390,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       // Show toast notification with the witty quote
-      showToast(`🐧 Pingu: ${wittyQuote}`);
+ showToast(`Pingu: ${wittyQuote}`);
 
       // Gracefully close chat window after 2.8 seconds so user can see the cute goodbye
       setTimeout(() => {
@@ -2389,7 +2400,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
           // Update floating speech bubble with friendly waddling note
           if (pinguBubble) {
-            pinguBubble.innerHTML = `<span>Noot Noot! 🐧 Pingu waddled away to grab fish! Tap me whenever you're back.</span><button id="close-pingu-bubble-idle" class="bubble-close-btn">✕</button>`;
+ pinguBubble.innerHTML = `<span>Noot Noot! Pingu waddled away to grab fish! Tap me whenever you're back.</span><button id="close-pingu-bubble-idle"class="bubble-close-btn">✕</button>`;
             pinguBubble.style.display = 'flex';
 
             const idleClose = document.getElementById('close-pingu-bubble-idle');
@@ -2432,7 +2443,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (pinguChatWindow.style.display === 'none' || !pinguChatWindow.style.display) {
         playPinguNotificationSound();
         if (pinguBubble) {
-          pinguBubble.innerHTML = `<span>Noot Noot! 🐧 Need help scaling your brand? Tap to chat!</span><button id="close-pingu-bubble-init" class="bubble-close-btn">✕</button>`;
+ pinguBubble.innerHTML = `<span>Noot Noot! Need help scaling your brand? Tap to chat!</span><button id="close-pingu-bubble-init"class="bubble-close-btn">✕</button>`;
           pinguBubble.style.display = 'flex';
 
           const initClose = document.getElementById('close-pingu-bubble-init');
@@ -2460,7 +2471,7 @@ document.addEventListener('DOMContentLoaded', () => {
       targetEl.classList.add('pingu-excited-bounce');
 
       // Spawn floating cartoon music notes & sparkles
-      const emojis = ['🎺', '✨', '🎵', '🐧', '💖', '⭐', '🎶'];
+ const emojis = ['', '', '', '', '', '⭐', ''];
       for (let i = 0; i < 6; i++) {
         const note = document.createElement('span');
         note.className = 'pingu-floating-note';
@@ -2477,13 +2488,13 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => note.remove(), 1200);
       }
 
-      // Show temporary "NOOT NOOT! 🎺" badge if inside hero avatar box
+ // Show temporary"NOOT NOOT! "badge if inside hero avatar box
       if (targetEl.classList.contains('pingu-hero-avatar-box')) {
         let badge = targetEl.querySelector('.pingu-noot-bubble-badge');
         if (!badge) {
           badge = document.createElement('span');
           badge.className = 'pingu-noot-bubble-badge';
-          badge.textContent = 'NOOT NOOT! 🎺';
+ badge.textContent = 'NOOT NOOT! ';
           targetEl.appendChild(badge);
         } else {
           badge.style.display = 'block';
@@ -2498,7 +2509,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Attach interactive Noot Noot click handlers to Pingu avatars
     const pinguHeroBox = document.querySelector('.pingu-hero-avatar-box');
     if (pinguHeroBox) {
-      pinguHeroBox.setAttribute('title', 'Tap Pingu for NOOT NOOT! 🎺');
+ pinguHeroBox.setAttribute('title', 'Tap Pingu for NOOT NOOT! ');
       pinguHeroBox.addEventListener('click', () => {
         triggerPinguNootNootEffect(pinguHeroBox);
       });
@@ -2507,7 +2518,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const pinguLiveTitle = document.querySelector('.pingu-live-title');
     if (pinguLiveTitle) {
       pinguLiveTitle.style.cursor = 'pointer';
-      pinguLiveTitle.setAttribute('title', 'Tap Pingu for NOOT NOOT! 🎺');
+ pinguLiveTitle.setAttribute('title', 'Tap Pingu for NOOT NOOT! ');
       pinguLiveTitle.addEventListener('click', () => {
         triggerPinguNootNootEffect(pinguHeroBox || pinguLiveTitle);
       });
@@ -2611,7 +2622,7 @@ document.addEventListener('DOMContentLoaded', () => {
       hasProactiveTriggered = true;
 
       if (pinguBubble && pinguChatWindow.style.display === 'none') {
-        pinguBubble.innerHTML = `<span>Noot Noot! 🐧 Hey! What are you looking to grow today? (Audit / Website / Ads / Content)</span><button id="close-pingu-bubble-dynamic" class="bubble-close-btn">✕</button>`;
+ pinguBubble.innerHTML = `<span>Noot Noot! Hey! What are you looking to grow today? (Audit / Website / Ads / Content)</span><button id="close-pingu-bubble-dynamic"class="bubble-close-btn">✕</button>`;
         pinguBubble.style.display = 'flex';
         playPinguNotificationSound();
 
@@ -2699,12 +2710,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const questionOrTopic = parts[0].trim();
             const answer = parts.slice(1).join('|').trim();
             pinguBrain.teach(questionOrTopic, questionOrTopic, answer);
-            addPinguMessage(`🐧 <strong>Knowledge Learned & Saved!</strong><br>I have permanently memorized: <em>"${questionOrTopic}"</em>.<br>Whenever someone asks about this, I will use this answer! ✨`, false);
+ addPinguMessage(` <strong>Knowledge Learned & Saved!</strong><br>I have permanently memorized: <em>"${questionOrTopic}"</em>.<br>Whenever someone asks about this, I will use this answer! `, false);
             playPinguNotificationSound();
             showToast('Pingu Brain updated with new knowledge!');
             return;
           } else {
-            addPinguMessage(`🐧 <strong>How to teach me:</strong><br>Format: <code>/teach question or topic | your custom answer</code><br>Example: <code>/teach do you do logo design | Yes, we design complete brand identity systems!</code>`, false);
+ addPinguMessage(` <strong>How to teach me:</strong><br>Format: <code>/teach question or topic | your custom answer</code><br>Example: <code>/teach do you do logo design | Yes, we design complete brand identity systems!</code>`, false);
             playPinguNotificationSound();
             return;
           }
@@ -2714,7 +2725,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (rawText.toLowerCase() === '/stats' || rawText.toLowerCase() === '/brain') {
           const stats = pinguBrain.getStats();
           const topTopics = stats.topIntents.map(t => `• ${t.title} (${t.hits} hits)`).join('<br>');
-          addPinguMessage(`🧠 <strong>Pingu AI Self-Learning Brain Stats</strong>:<br>• Total Interactions: <strong>${stats.totalInteractions}</strong><br>• Learned Phrasing Patterns: <strong>${stats.learnedPhrases}</strong><br>• Knowledge Nodes: <strong>${stats.totalIntents}</strong><br>• Top Inquired Topics:<br>${topTopics || '• General Queries'}<br><br><span style="font-size:0.75rem; color:#94a3b8;">Continuously learning and evolving from every visitor interaction.</span>`, false);
+ addPinguMessage(` <strong>Pingu AI Self-Learning Brain Stats</strong>:<br>• Total Interactions: <strong>${stats.totalInteractions}</strong><br>• Learned Phrasing Patterns: <strong>${stats.learnedPhrases}</strong><br>• Knowledge Nodes: <strong>${stats.totalIntents}</strong><br>• Top Inquired Topics:<br>${topTopics || '• General Queries'}<br><br><span style="font-size:0.75rem; color:#94a3b8;">Continuously learning and evolving from every visitor interaction.</span>`, false);
           playPinguNotificationSound();
           return;
         }
@@ -2722,14 +2733,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // 3. COMMAND: /reset
         if (rawText.toLowerCase() === '/reset') {
           pinguBrain.reset();
-          addPinguMessage(`🐧 <strong>Memory Reset:</strong> Pingu brain restored to factory seed intelligence!`, false);
+ addPinguMessage(` <strong>Memory Reset:</strong>Pingu brain restored to factory seed intelligence!`, false);
           playSound(500, 'sine', 0.15);
           return;
         }
 
         // 4. COMMAND: /help
         if (rawText.toLowerCase() === '/help') {
-          addPinguMessage(`🐧 <strong>Pingu AI Assistant Commands</strong>:<br>• Type any marketing question to get instant smart answers.<br>• <code>/teach question | answer</code> : Teach me a custom Q&A.<br>• <code>/stats</code> : View my learning statistics.<br>• <code>/reset</code> : Reset learned memory.`, false);
+ addPinguMessage(` <strong>Pingu AI Assistant Commands</strong>:<br>• Type any marketing question to get instant smart answers.<br>• <code>/teach question | answer</code>: Teach me a custom Q&A.<br>• <code>/stats</code>: View my learning statistics.<br>• <code>/reset</code>: Reset learned memory.`, false);
           playPinguNotificationSound();
           return;
         }
