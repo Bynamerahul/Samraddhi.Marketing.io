@@ -1523,11 +1523,11 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 'audit',
-      title: 'Free Website & Marketing Audit (Worth ₹4,999)',
+      title: 'Website & Marketing Consultation',
       keywords: ['audit', 'free audit', '4999', 'scan', 'check website', 'analyze', 'review', 'seo score', 'diagnose', 'performance scan', 'social media scan', 'account scan', 'check my instagram', 'website check'],
       phrases: ['i want free audit', 'can you check my website', 'audit worth 4999', 'website review', 'scan my instagram', 'scan social media', 'check my brand', 'free scan'],
       hits: 0,
- response: `Noot Noot! You can claim our <strong>Free Website & Marketing Audit (Worth ₹4,999)</strong>! We analyze your SEO health, ad funnel leakages, website speed, and social engagement with actionable fixes in 48 hours.<br><br><a href="#ai-audit"onclick="document.getElementById('pingu-chat-window').style.display='none';"style="color:#A167A5; font-weight:700;">Click Here to Run Instant AI Audit →</a>`
+ response: `Noot Noot! Tell us about your website or marketing goals. Rahul can discuss the scope and next steps with you.<br><br><a href="https://wa.me/919340722578?text=Hi%20Rahul%2C%20I%27d%20like%20to%20discuss%20my%20website%20or%20marketing" target="_blank" rel="noopener noreferrer" style="color:#2252e8; font-weight:700;">Start a WhatsApp conversation →</a>`
     },
     {
       id: 'pricing',
@@ -1918,7 +1918,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return {
         intent: null,
         score: highestScore,
- response: `Noot Noot! I've noted that in my memory! At <strong>Samraddhi Marketing</strong>, we engineer tailored growth systems (Video Reels, Meta & Google Ads, #1 Local SEO, Custom Websites & D2C Marketplaces).<br><br>Would you like to get our <strong>Free ₹4,999 Growth Audit</strong>or chat directly with our founder Rahul Soni on WhatsApp (+91 9340722578)?<br><br><em style="font-size:0.75rem; color:#A167A5;">Tip: You can teach me new custom answers anytime by typing: <code>/teach topic | answer</code></em>`,
+ response: `Noot Noot! I've noted that in my memory! At <strong>Samraddhi Marketing</strong>, we engineer tailored growth systems (Video Reels, Meta & Google Ads, #1 Local SEO, Custom Websites & D2C Marketplaces).<br><br>Would you like to get our <strong>project consultation</strong> or chat directly with our founder Rahul Soni on WhatsApp (+91 9340722578)?<br><br><em style="font-size:0.75rem; color:#A167A5;">Tip: You can teach me new custom answers anytime by typing: <code>/teach topic | answer</code></em>`,
         isLearned: false
       };
     }
