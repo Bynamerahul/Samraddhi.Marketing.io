@@ -36,25 +36,7 @@
   <link rel="manifest" href="manifest.json">
 
   <!-- Google Search Console Verification -->
-  <meta name="google-site-verification" content="GSC-VERIFICATION-TOKEN-PLACEHOLDER">
-    <!-- Smart Conditional GA4 Snippet (Zero Unused JS & Zero Thread Blocking) -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    const GA_ID = 'G-MEASUREMENT_ID';
-    if (GA_ID && GA_ID !== 'G-MEASUREMENT_ID') {
-      window.addEventListener('load', () => {
-        setTimeout(() => {
-          const s = document.createElement('script');
-          s.async = true;
-          s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
-          document.head.appendChild(s);
-          gtag('js', new Date());
-          gtag('config', GA_ID);
-        }, 3000);
-      });
-    }
-  </script>
+  <!-- Add verified Search Console and Analytics IDs when those accounts are configured. -->
   <!-- Schema.org JSON-LD Structured Data for Google Search Engine Rich Snippets -->
 
 
@@ -75,12 +57,7 @@
       "logo": "https://samraddhi.in/samraddhi-india-logo.png",
       "image": "https://samraddhi.in/og-image.png",
       "description": "Samraddhi Marketing is a full-service E-Commerce Management, Website Design & Digital Marketing Agency scaling brands across Shopify, Amazon, Etsy, Flipkart, eBay & Custom Web Development.",
-      "sameAs": [
-        "https://instagram.com",
-        "https://linkedin.com",
-        "https://youtube.com",
-        "https://facebook.com"
-      ]
+      "sameAs": ["https://www.instagram.com/samraddhi.in/"]
     },
     {
       "@type": "WebSite",
@@ -236,8 +213,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <!-- CSS: Preload for early download, then render synchronously -->
-  <link rel="preload" href="styles.min.css?v=4.2" as="style">
-  <link rel="stylesheet" href="styles.min.css?v=4.2">
+  <link rel="preload" href="styles.min.css?v=4.3" as="style">
+  <link rel="stylesheet" href="styles.min.css?v=4.3">
 </head>
 <body class="site-body">
 <!-- Custom Pink Glow Cursor System -->
@@ -336,7 +313,7 @@
         <a href="live-projects" class="mobile-nav-link live-mobile-link"><span>05.</span> Live Projects</a>
         <a href="#faq" class="mobile-nav-link"><span>06.</span> FAQ</a>
         <a href="blogs" class="mobile-nav-link"><span>07.</span> Blog</a>
-        <a href="#newsletter" class="mobile-nav-link"><span>08.</span> Newsletter</a>
+         <a href="#newsletter" class="mobile-nav-link"><span>08.</span> Growth Insights</a>
       </nav>
       <div class="mobile-drawer-footer">
         <a href="https://wa.me/919340722578?text=Hi%20Rahul%2C%20I%20would%20like%20to%20book%20a%20Free%20Strategy%20Call%20for%20my%20business." target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block open-contact-btn mobile-drawer-cta" style="text-decoration: none; text-align: center;">
@@ -344,8 +321,7 @@
         </a>
         <div class="mobile-social-row">
           <a href="https://bynamerahul.github.io/Brand-Book-Rahul-Soni/" target="_blank" rel="noopener">Brand Book</a>
-          <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.instagram.com/samraddhi.in/" target="_blank" rel="noopener noreferrer">Instagram</a>
         </div>
       </div>
     </div>
@@ -1269,22 +1245,9 @@
           <span class="badge-dot"></span>
           <span>FREE WEEKLY GROWTH PLAYBOOK</span>
         </div>
-        <h2 class="section-title">Join 2,400+ Founders Scaling With<br><span class="text-gradient pink-glow-text">Samraddhi Growth Secrets</span></h2>
-        <p class="section-desc">Get actionable case study breakdowns, Meta/Google ad hacks, Product AI prompts, and marketplace SEO strategies delivered to your inbox every Tuesday. No spam. Unsubscribe anytime.</p>
-        <form id="newsletter-form" class="newsletter-form" onsubmit="return false;">
-          <div class="newsletter-input-group">
-            <input type="email" id="newsletter-email" class="form-input newsletter-input" placeholder="Enter your business email address..." required>
-            <button type="submit" id="newsletter-submit-btn" class="btn btn-primary newsletter-btn magnetic-target">
- <span>Subscribe Free</span>
-            </button>
-          </div>
- <span class="newsletter-guarantee">100% Secure. Join market leaders from 12+ industries.</span>
-        </form>
-        <div id="newsletter-success" class="newsletter-success-box" style="display: none;">
- <div class="success-icon"></div>
-          <h3 style="margin-bottom: 0.5rem; color: #10b981;">You're Subscribed!</h3>
-          <p style="color: var(--color-text-secondary); margin: 0;">Welcome to the Samraddhi Growth Club! Check your inbox for your first free marketing playbook.</p>
-        </div>
+        <h2 class="section-title">Get <span class="text-gradient pink-glow-text">Samraddhi Growth Insights</span></h2>
+        <p class="section-desc">Interested in marketing tips and case studies? Email us to request updates.</p>
+        <a class="btn btn-primary newsletter-btn magnetic-target" href="mailto:samraddhiindia@gmail.com?subject=Growth%20Insights%20Request">Request Updates by Email</a>
       </div>
     </section>
     <!-- ABOUT SECTION (STANDALONE FULL-WIDTH SECTION NEAR END OF PAGE) -->
@@ -1398,31 +1361,29 @@
       <div class="foot-right">
  <a href="live-projects"class="foot-link magnetic-target"style="color: #A167A5; font-weight: 600;">Live Projects</a>
         <a href="blogs" class="foot-link magnetic-target" style="color: #A167A5; font-weight: 600;">Blog</a>
-        <a href="#newsletter" class="foot-link magnetic-target">Newsletter</a>
+        <a href="#newsletter" class="foot-link magnetic-target">Growth Insights</a>
         <a href="https://bynamerahul.github.io/Brand-Book-Rahul-Soni/" target="_blank" rel="noopener" class="foot-link magnetic-target">Founder Brand Book</a>
-        <a href="https://instagram.com" target="_blank" rel="noopener" class="foot-link magnetic-target">Instagram</a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener" class="foot-link magnetic-target">LinkedIn</a>
-        <a href="https://youtube.com" target="_blank" rel="noopener" class="foot-link magnetic-target">YouTube</a>
+        <a href="https://www.instagram.com/samraddhi.in/" target="_blank" rel="noopener noreferrer" class="foot-link magnetic-target">Instagram</a>
       </div>
     </div>
   </footer>
   <!-- CASE STUDY DETAIL MODAL -->
-  <div id="project-modal" class="modal-overlay" aria-hidden="true" data-lenis-prevent="true">
+  <div id="project-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Project details" aria-hidden="true" data-lenis-prevent="true">
     <div class="modal-card" data-lenis-prevent="true">
-      <button class="modal-close-btn magnetic-target" id="close-project-modal">✕</button>
+      <button class="modal-close-btn magnetic-target" id="close-project-modal" aria-label="Close project details">✕</button>
       <div id="project-modal-body" class="modal-body">
         <!-- Dynamically injected via JS -->
       </div>
     </div>
   </div>
   <!-- MULTI-STEP STRATEGY CALL BOOKING MODAL -->
-  <div id="contact-modal" class="modal-overlay" aria-hidden="true" data-lenis-prevent="true">
+  <div id="contact-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title" aria-hidden="true" data-lenis-prevent="true">
     <div class="modal-card contact-modal-card" data-lenis-prevent="true">
-      <button class="modal-close-btn magnetic-target" id="close-contact-modal">✕</button>
+      <button class="modal-close-btn magnetic-target" id="close-contact-modal" aria-label="Close strategy call form">✕</button>
       <div class="contact-form-wrapper">
         <div class="contact-header">
           <span class="modal-tag">FREE STRATEGY CONSULTATION</span>
-          <h2 class="modal-title">Book Strategy Call With Samraddhi</h2>
+          <h2 class="modal-title" id="contact-modal-title">Book Strategy Call With Samraddhi</h2>
           <div class="step-progress-bar">
             <div class="step-node active" data-step="1">1. Business Type</div>
             <div class="step-line"></div>
@@ -1431,7 +1392,7 @@
             <div class="step-node" data-step="3">3. Contact Details</div>
           </div>
         </div>
-        <form id="contact-form" class="contact-form" onsubmit="return false;">
+        <form id="contact-form" class="contact-form">
           <div class="form-step active" data-step-content="1">
             <label class="form-label">Select Your Business Category</label>
             <div class="form-grid-pills business-options-grid">
@@ -1501,7 +1462,7 @@
             </div>
             <div class="form-group">
               <label class="form-label">Preferred Date For Strategy Call</label>
-              <input type="date" name="preferred_date" class="form-input" value="2026-08-01">
+              <input type="date" name="preferred_date" class="form-input">
             </div>
             <div class="form-actions">
               <button type="button" class="btn btn-secondary prev-step-btn magnetic-target" data-prev="1">← Back</button>
@@ -1528,17 +1489,11 @@
             <div class="form-actions">
               <button type="button" class="btn btn-secondary prev-step-btn magnetic-target" data-prev="2">← Back</button>
               <button type="submit" id="submit-inquiry-btn" class="btn btn-primary magnetic-target">
- <span>Book Free Call</span>
+ <span>Continue to WhatsApp</span>
               </button>
             </div>
           </div>
         </form>
-        <div id="contact-success" class="contact-success-screen" style="display: none;">
- <div class="success-icon"></div>
-          <h3 class="success-title">Strategy Call Requested!</h3>
-          <p class="success-desc">Thank you for reaching out to Samraddhi Marketing. Your inquiry has been sent to Rahul Soni and team. Opening WhatsApp for instant message confirmation...</p>
-          <button class="btn btn-secondary magnetic-target" id="close-success-btn">Close Window</button>
-        </div>
       </div>
     </div>
   </div>
@@ -1636,7 +1591,7 @@
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <!-- JavaScript Modules -->
-  <script defer src="app.min.js?v=3.5"></script>
+  <script defer src="app.min.js?v=3.7"></script>
   <script defer src="live-projects.min.js?v=3.5"></script>
 </body>
 </html>

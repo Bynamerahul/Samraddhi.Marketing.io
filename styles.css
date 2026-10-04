@@ -5599,3 +5599,9 @@ html, body {
 .blog-meta { color: #334155 !important; font-weight: 600 !important; }
 .filter-btn.active { background: #4A306D !important; color: #ffffff !important; font-weight: 700 !important; }
 .hero-title, .hero-sub, .section-title, .section-desc { opacity: 1 !important; visibility: visible !important; }
+
+/* Visible keyboard focus for links, buttons, and form fields. */
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 3px solid #38bdf8;
+  outline-offset: 3px;
+}
