@@ -195,7 +195,7 @@ body, body.site-body { background:#080b15 !important; color:#f6f7fb !important; 
 .hero-actions .btn { margin:0 !important; min-width:270px; text-align:center; }
 .rd-portrait-frame { grid-column:2; grid-row:1 / 5; width:100%; max-width:none; height:clamp(440px,45vw,670px); margin:0 !important; border:1px solid #43547d; border-radius:24px; background:radial-gradient(circle at 60% 35%,#3b50a6,#131c3b 58%,#0a0e19); box-shadow:0 30px 100px #060913, inset 0 0 90px #425bd840; }
 .rd-portrait-frame::after { content:'SAMRADDHI / CREATIVE GROWTH'; position:absolute; inset:auto 0 0; padding:18px 24px; background:linear-gradient(transparent,#060911dc); color:#e8f2ff; font-size:11px; font-weight:800; letter-spacing:.18em; }
-.rd-portrait-frame img { object-position:center 14%; filter:grayscale(1) contrast(1.07); mix-blend-mode:luminosity; opacity:.9; }
+.rd-portrait-frame img { object-position:center 14%; filter:none; mix-blend-mode:normal; opacity:1; }
 .rd-portrait-caption { grid-column:2; grid-row:5; width:100%; margin:12px 0 0; padding:0; border:0; border-radius:0; background:transparent; color:#aebbd2; font-size:12px; letter-spacing:.05em; }
 .hero-stats-grid { grid-column:1 / -1; grid-row:6; gap:0 !important; border-top:1px solid #34405b; }
 .stat-card { min-height:120px; padding:26px 20px !important; background:transparent !important; border:0 !important; border-right:1px solid #34405b !important; border-radius:0 !important; }
