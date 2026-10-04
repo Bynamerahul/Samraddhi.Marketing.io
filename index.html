@@ -215,7 +215,7 @@
   <!-- CSS: Preload for early download, then render synchronously -->
   <link rel="preload" href="styles.min.css?v=4.3" as="style">
   <link rel="stylesheet" href="styles.min.css?v=4.3">
-  <link rel="stylesheet" href="redesign.css?v=1">
+  <link rel="stylesheet" href="redesign.css?v=2">
 </head>
 <body class="site-body">
 <!-- Custom Pink Glow Cursor System -->
@@ -374,6 +374,12 @@
       </div>
     </section>
     <!-- SERVICES PILLARS SECTION -->
+    <div class="rd-marquee" aria-hidden="true">
+      <div class="rd-marquee-track">
+        <span>Brand strategy</span><span>Web experiences</span><span>Content creation</span><span>Growth marketing</span><span>Brand strategy</span><span>Web experiences</span>
+      </div>
+    </div>
+
     <section id="services" class="s-services">
       <div class="container">
         <div class="section-header text-center gsap-reveal-header">
@@ -1591,5 +1597,6 @@
   <!-- JavaScript Modules -->
   <script defer src="app.min.js?v=3.7"></script>
   <script defer src="live-projects.min.js?v=3.5"></script>
+  <script defer src="scroll-effects.js?v=2"></script>
 </body>
 </html>
