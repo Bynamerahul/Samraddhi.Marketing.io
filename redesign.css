@@ -176,6 +176,7 @@ body, body.site-body { background:#080b15 !important; color:#f6f7fb !important; 
 .btn-secondary, a.btn-secondary { background:#1c2640 !important; border:1px solid #405173 !important; color:#eaf4ff !important; }
 .mobile-drawer-content { background:#0a0e1b !important; }
 .mobile-nav-link, .mobile-menu-btn, .icon-btn, .mobile-drawer-content a { color:#f6f7fb !important; }
+.mobile-drawer-content a.btn-primary { color:#09111f !important; }
 .mobile-drawer-header, .mobile-drawer-footer { border-color:#293249 !important; }
 .section-tag, .hero-badges, .service-badge, .eyebrow, .live-hero-kicker { color:#9bd1ff !important; }
 .section-title, .live-hero-title, .text-gradient, .pink-glow-text { color:#f6f7fb !important; }
